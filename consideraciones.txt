@@ -1,0 +1,14 @@
+categoria y subcategoria del producto son los nombres no los id en la dimension producto
+
+vigencias  son date
+
+zona geografica es la descripcion un varchar 50
+
+el tipo de escuela , es publica o privada es un varchar osea la descripcion
+
+pais provincia y ciudad son las descripciones
+
+fk_escuela en dim cliente es una relacion que puede ser nula a la dim escuela
+
+
+ventas hoy de la fac stock se refiere a la cantidad de ventas de ese producto en ese dia  ejemplo se vendieron 5 productos 
