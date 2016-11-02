@@ -1,4 +1,4 @@
-﻿<?xml version="1.0"?>
+<?xml version="1.0"?>
 <DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
   DTS:refId="Package"
   DTS:CreationDate="11/2/2016 2:27:57 PM"
@@ -11,8 +11,8 @@
   DTS:LocaleID="3082"
   DTS:ObjectName="Package"
   DTS:PackageType="5"
-  DTS:VersionBuild="14"
-  DTS:VersionGUID="{718C4C6D-6CBD-41B1-B7E1-E5D65E96F9E7}">
+  DTS:VersionBuild="13"
+  DTS:VersionGUID="{9E80359B-0967-463F-9390-323244E16823}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">6</DTS:Property>
   <DTS:ConnectionManagers>
@@ -23,7 +23,7 @@
       DTS:ObjectName="Administrador de conexiones con Excel 1">
       <DTS:ObjectData>
         <DTS:ConnectionManager
-          DTS:ConnectionString="Provider=Microsoft.ACE.OLEDB.12.0;Data Source=C:\Users\wjGiraldo\Desktop\proyectoBI\parqueBD script\BD_complemento.xlsx;Extended Properties=&quot;Excel 12.0 XML;HDR=YES&quot;;" />
+          DTS:ConnectionString="Provider=Microsoft.ACE.OLEDB.12.0;Data Source=C:\Users\wjGiraldo\Desktop\proyectoBI\parqueBD script\BD_complemento.xlsx;Extended Properties=&quot;EXCEL 12.0 XML;HDR=YES&quot;;" />
       </DTS:ObjectData>
     </DTS:ConnectionManager>
     <DTS:ConnectionManager
@@ -33,7 +33,7 @@
       DTS:ObjectName="Administrador de conexiones con Excel 2">
       <DTS:ObjectData>
         <DTS:ConnectionManager
-          DTS:ConnectionString="Provider=Microsoft.Jet.OLEDB.4.0;Data Source=C:\Users\wjGiraldo\Desktop\Libro1.xls;Extended Properties=&quot;Excel 8.0;HDR=YES&quot;;" />
+          DTS:ConnectionString="Provider=Microsoft.Jet.OLEDB.4.0;Data Source=C:\Users\wjGiraldo\Desktop\Libro1.xls;Extended Properties=&quot;EXCEL 8.0;HDR=YES&quot;;" />
       </DTS:ObjectData>
     </DTS:ConnectionManager>
     <DTS:ConnectionManager
@@ -43,7 +43,7 @@
       DTS:ObjectName="Administrador de conexiones con Excel 3">
       <DTS:ObjectData>
         <DTS:ConnectionManager
-          DTS:ConnectionString="Provider=Microsoft.Jet.OLEDB.4.0;Data Source=C:\Users\wjGiraldo\Desktop\proyectoBI\fuente excel\complemento.xls;Extended Properties=&quot;Excel 8.0;HDR=YES&quot;;" />
+          DTS:ConnectionString="Provider=Microsoft.Jet.OLEDB.4.0;Data Source=C:\Users\wjGiraldo\Desktop\proyectoBI\fuente excel\complemento.xls;Extended Properties=&quot;EXCEL 8.0;HDR=YES&quot;;" />
       </DTS:ObjectData>
     </DTS:ConnectionManager>
     <DTS:ConnectionManager
@@ -1936,20 +1936,20 @@ where [refTable].[idParque] = ? and [refTable].[nombreParque] = ? and [refTable]
               name="Con Datos nulos"
               startId="Package\Dim_Parque\División condicional.Outputs[Con Datos nulos]" />
             <path
-              refId="Package\Dim_Parque.Paths[Salida de columna derivada1]"
-              endId="Package\Dim_Parque\Generar reporte error 2.Inputs[Entrada de destino de Excel]"
-              name="Salida de columna derivada"
-              startId="Package\Dim_Parque\Crear descripcion del error 2.Outputs[Salida de columna derivada]" />
-            <path
-              refId="Package\Dim_Parque.Paths[Salida de columna derivada]"
-              endId="Package\Dim_Parque\Generar reporte error.Inputs[Entrada de destino de Excel]"
-              name="Salida de columna derivada"
-              startId="Package\Dim_Parque\Crear descripcion del error.Outputs[Salida de columna derivada]" />
-            <path
               refId="Package\Dim_Parque.Paths[Salida de columna derivada2]"
               endId="Package\Dim_Parque\Generar reporte error 3.Inputs[Entrada de destino de Excel]"
               name="Salida de columna derivada"
               startId="Package\Dim_Parque\Crear descripcion del error 3.Outputs[Salida de columna derivada]" />
+            <path
+              refId="Package\Dim_Parque.Paths[Salida de columna derivada1]"
+              endId="Package\Dim_Parque\Generar reporte error.Inputs[Entrada de destino de Excel]"
+              name="Salida de columna derivada"
+              startId="Package\Dim_Parque\Crear descripcion del error.Outputs[Salida de columna derivada]" />
+            <path
+              refId="Package\Dim_Parque.Paths[Salida de columna derivada]"
+              endId="Package\Dim_Parque\Generar reporte error 2.Inputs[Entrada de destino de Excel]"
+              name="Salida de columna derivada"
+              startId="Package\Dim_Parque\Crear descripcion del error 2.Outputs[Salida de columna derivada]" />
             <path
               refId="Package\Dim_Parque.Paths[Salida de conversión de datos]"
               endId="Package\Dim_Parque\Revisar si existe en bodega.Inputs[Entrada de búsqueda]"
@@ -1957,24 +1957,24 @@ where [refTable].[idParque] = ? and [refTable].[nombreParque] = ? and [refTable]
               startId="Package\Dim_Parque\Conversión de datos.Outputs[Salida de conversión de datos]" />
             <path
               refId="Package\Dim_Parque.Paths[Salida de entradas coincidentes de búsqueda1]"
-              endId="Package\Dim_Parque\Destino de OLE DB.Inputs[Entrada de destino de OLE DB]"
-              name="Salida de entradas coincidentes de búsqueda"
-              startId="Package\Dim_Parque\Revisar que exista la region en bodega.Outputs[Salida de entradas coincidentes de búsqueda]" />
-            <path
-              refId="Package\Dim_Parque.Paths[Salida de entradas coincidentes de búsqueda]"
               endId="Package\Dim_Parque\Crear descripcion del error 2.Inputs[Entrada de columna derivada]"
               name="Salida de entradas coincidentes de búsqueda"
               startId="Package\Dim_Parque\Revisar si existe en bodega.Outputs[Salida de entradas coincidentes de búsqueda]" />
             <path
-              refId="Package\Dim_Parque.Paths[Salida de entradas no coincidentes de búsqueda1]"
-              endId="Package\Dim_Parque\Crear descripcion del error 3.Inputs[Entrada de columna derivada]"
-              name="Salida de entradas no coincidentes de búsqueda"
-              startId="Package\Dim_Parque\Revisar que exista la region en bodega.Outputs[Salida de entradas no coincidentes de búsqueda]" />
+              refId="Package\Dim_Parque.Paths[Salida de entradas coincidentes de búsqueda]"
+              endId="Package\Dim_Parque\Destino de OLE DB.Inputs[Entrada de destino de OLE DB]"
+              name="Salida de entradas coincidentes de búsqueda"
+              startId="Package\Dim_Parque\Revisar que exista la region en bodega.Outputs[Salida de entradas coincidentes de búsqueda]" />
             <path
-              refId="Package\Dim_Parque.Paths[Salida de entradas no coincidentes de búsqueda]"
+              refId="Package\Dim_Parque.Paths[Salida de entradas no coincidentes de búsqueda1]"
               endId="Package\Dim_Parque\Revisar que exista la region en bodega.Inputs[Entrada de búsqueda]"
               name="Salida de entradas no coincidentes de búsqueda"
               startId="Package\Dim_Parque\Revisar si existe en bodega.Outputs[Salida de entradas no coincidentes de búsqueda]" />
+            <path
+              refId="Package\Dim_Parque.Paths[Salida de entradas no coincidentes de búsqueda]"
+              endId="Package\Dim_Parque\Crear descripcion del error 3.Inputs[Entrada de columna derivada]"
+              name="Salida de entradas no coincidentes de búsqueda"
+              startId="Package\Dim_Parque\Revisar que exista la region en bodega.Outputs[Salida de entradas no coincidentes de búsqueda]" />
             <path
               refId="Package\Dim_Parque.Paths[Salida de origen de Excel]"
               endId="Package\Dim_Parque\División condicional.Inputs[Entrada de división condicional]"
@@ -2732,7 +2732,7 @@ where [refTable].[idParque] = ? and [refTable].[nombreParque] = ? and [refTable]
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package\Dim_Parque.Paths[Salida de columna derivada]"
+          Id="Package\Dim_Parque.Paths[Salida de columna derivada1]"
           TopLeft="695,390">
           <EdgeLayout.Curve>
             <mssgle:Curve
@@ -2770,7 +2770,7 @@ where [refTable].[idParque] = ? and [refTable].[nombreParque] = ? and [refTable]
           Id="Package\Dim_Parque\Crear descripcion del error 2"
           TopLeft="443,542" />
         <EdgeLayout
-          Id="Package\Dim_Parque.Paths[Salida de entradas coincidentes de búsqueda]"
+          Id="Package\Dim_Parque.Paths[Salida de entradas coincidentes de búsqueda1]"
           TopLeft="347,434">
           <EdgeLayout.Curve>
             <mssgle:Curve
@@ -2810,7 +2810,7 @@ where [refTable].[idParque] = ? and [refTable].[nombreParque] = ? and [refTable]
           Id="Package\Dim_Parque\Generar reporte error 2"
           TopLeft="509,640" />
         <EdgeLayout
-          Id="Package\Dim_Parque.Paths[Salida de columna derivada1]"
+          Id="Package\Dim_Parque.Paths[Salida de columna derivada]"
           TopLeft="550.5,584">
           <EdgeLayout.Curve>
             <mssgle:Curve
@@ -2852,7 +2852,7 @@ where [refTable].[idParque] = ? and [refTable].[nombreParque] = ? and [refTable]
           Id="Package\Dim_Parque\Revisar que exista la region en bodega"
           TopLeft="46,544" />
         <EdgeLayout
-          Id="Package\Dim_Parque.Paths[Salida de entradas no coincidentes de búsqueda]"
+          Id="Package\Dim_Parque.Paths[Salida de entradas no coincidentes de búsqueda1]"
           TopLeft="280,434">
           <EdgeLayout.Curve>
             <mssgle:Curve
@@ -2888,7 +2888,7 @@ where [refTable].[idParque] = ? and [refTable].[nombreParque] = ? and [refTable]
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package\Dim_Parque.Paths[Salida de entradas coincidentes de búsqueda1]"
+          Id="Package\Dim_Parque.Paths[Salida de entradas coincidentes de búsqueda]"
           TopLeft="135.333333333333,586">
           <EdgeLayout.Curve>
             <mssgle:Curve
@@ -2954,7 +2954,7 @@ where [refTable].[idParque] = ? and [refTable].[nombreParque] = ? and [refTable]
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package\Dim_Parque.Paths[Salida de entradas no coincidentes de búsqueda1]"
+          Id="Package\Dim_Parque.Paths[Salida de entradas no coincidentes de búsqueda]"
           TopLeft="220.666666666667,586">
           <EdgeLayout.Curve>
             <mssgle:Curve

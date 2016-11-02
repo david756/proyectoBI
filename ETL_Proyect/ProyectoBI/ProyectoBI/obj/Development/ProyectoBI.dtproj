@@ -26,7 +26,7 @@
           <SSIS:Property SSIS:Name="CreatorComputerName">WJGIRALDO-PC</SSIS:Property>
           <SSIS:Property SSIS:Name="Description">
           </SSIS:Property>
-          <SSIS:Property SSIS:Name="PasswordVerifier" SSIS:Sensitive="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAPw9GJJoUzEeTHpnbOW7xsQAAAAACAAAAAAAQZgAAAAEAACAAAAANA8TUqEVbp70XRJpvhWSAxYR+jWXSEEFT1wVkTnRi/wAAAAAOgAAAAAIAACAAAACRCv74j8NkrhpucYqDxBuZKiWVuWpAEpM0a9F8Vw0ulJAAAADmtva2VF9vyAhjddHsbJw5N7csaHEI+DxFhvJ69z5btoTugGAWjHFGbyOk+Ht8l/gwlKWt/fUyT2Q8EXZmWFYh4PCfjPcPZo4a8hJlppzndhdPT6hzcrL1Q1YwoYZlY5DvL3g0Dovq518+WEZooIqBitR3X928+yjoNRpRxPoCG8OT0deDcWMxUYa8zxkW21BAAAAAxiB24jpIp6UTvAmnYW9fwyYq9pSr7QhgBDl+pl6y2jAqrQAyJ7CT1AeBsTUcmCWdVlcBSqBU6Pry9hFVQVcbNw==</SSIS:Property>
+          <SSIS:Property SSIS:Name="PasswordVerifier" SSIS:Sensitive="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAPw9GJJoUzEeTHpnbOW7xsQAAAAACAAAAAAAQZgAAAAEAACAAAAAfuvlsYXWZkk7WqkLSUnFgcUtQ80hzcfpGDd4Qf2Uu3QAAAAAOgAAAAAIAACAAAABVGLTH1/SDqcbkEceY8oAm8ZbOXv68Hm7cPoLORtjZSpAAAACBv/ttFZDVy3aa28aAQQTsxHwgyuWRlXRb75fXUzDW0p3IG0Bd+MSAVyWUy/W/bozQsRxESWem+seWXCOYMLMKSsN0bovhi+U/lfs2S9BhtuVOr7mGK0qKZoxjUZu74rnMvPviBYCBq1UUtiUg9tObEAP4dRQX9177OlwxhUmIR1YM8nvMoT8x7wCg4sJat8lAAAAAh1AV6ELfGZ4CzOVyNiFYnm6SLQ1B0hA1jAivTCs7Ag3eU+WRfWXeQaveJCs0RIog4EPVUrfEmvHRoJgOhIYA0g==</SSIS:Property>
           <SSIS:Property SSIS:Name="FormatVersion">1</SSIS:Property>
         </SSIS:Properties>
         <SSIS:Packages>
@@ -494,7 +494,7 @@
                 <SSIS:Property SSIS:Name="IncludeInDebugDump">0</SSIS:Property>
                 <SSIS:Property SSIS:Name="Required">0</SSIS:Property>
                 <SSIS:Property SSIS:Name="Sensitive">0</SSIS:Property>
-                <SSIS:Property SSIS:Name="Value">Provider=Microsoft.Jet.OLEDB.4.0;Data Source=C:\Users\wjGiraldo\Desktop\proyectoBI\fuente excel\log Errrores.xls;Extended Properties="Excel 8.0;HDR=YES";</SSIS:Property>
+                <SSIS:Property SSIS:Name="Value">Provider=Microsoft.Jet.OLEDB.4.0;Data Source=C:\Users\wjGiraldo\Desktop\proyectoBI\fuente excel\log Errrores.xls;Extended Properties="EXCEL 8.0;HDR=YES";</SSIS:Property>
                 <SSIS:Property SSIS:Name="DataType">18</SSIS:Property>
               </SSIS:Properties>
             </SSIS:Parameter>
@@ -611,7 +611,7 @@
                 <SSIS:Property SSIS:Name="IncludeInDebugDump">0</SSIS:Property>
                 <SSIS:Property SSIS:Name="Required">0</SSIS:Property>
                 <SSIS:Property SSIS:Name="Sensitive">0</SSIS:Property>
-                <SSIS:Property SSIS:Name="Value">Provider=Microsoft.Jet.OLEDB.4.0;Data Source=C:\Users\wjGiraldo\Desktop\proyectoBI\fuente excel\complemento.xls;Extended Properties="Excel 8.0;HDR=YES";</SSIS:Property>
+                <SSIS:Property SSIS:Name="Value">Provider=Microsoft.Jet.OLEDB.4.0;Data Source=C:\Users\wjGiraldo\Desktop\proyectoBI\fuente excel\complemento.xls;Extended Properties="EXCEL 8.0;HDR=YES";</SSIS:Property>
                 <SSIS:Property SSIS:Name="DataType">18</SSIS:Property>
               </SSIS:Properties>
             </SSIS:Parameter>
@@ -725,10 +725,10 @@
                 <SSIS:Property SSIS:Name="Name">Package</SSIS:Property>
                 <SSIS:Property SSIS:Name="VersionMajor">1</SSIS:Property>
                 <SSIS:Property SSIS:Name="VersionMinor">0</SSIS:Property>
-                <SSIS:Property SSIS:Name="VersionBuild">12</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionBuild">13</SSIS:Property>
                 <SSIS:Property SSIS:Name="VersionComments">
                 </SSIS:Property>
-                <SSIS:Property SSIS:Name="VersionGUID">{ECDD27BA-CABD-41A0-AE62-AB1F3FE7EF10}</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionGUID">{9E80359B-0967-463F-9390-323244E16823}</SSIS:Property>
                 <SSIS:Property SSIS:Name="PackageFormatVersion">6</SSIS:Property>
                 <SSIS:Property SSIS:Name="Description">
                 </SSIS:Property>
@@ -746,7 +746,7 @@
                     <SSIS:Property SSIS:Name="IncludeInDebugDump">0</SSIS:Property>
                     <SSIS:Property SSIS:Name="Required">0</SSIS:Property>
                     <SSIS:Property SSIS:Name="Sensitive">0</SSIS:Property>
-                    <SSIS:Property SSIS:Name="Value">Provider=Microsoft.ACE.OLEDB.12.0;Data Source=C:\Users\wjGiraldo\Desktop\proyectoBI\parqueBD script\BD_complemento.xlsx;Extended Properties="Excel 12.0 XML;HDR=YES";</SSIS:Property>
+                    <SSIS:Property SSIS:Name="Value">Provider=Microsoft.ACE.OLEDB.12.0;Data Source=C:\Users\wjGiraldo\Desktop\proyectoBI\parqueBD script\BD_complemento.xlsx;Extended Properties="EXCEL 12.0 XML;HDR=YES";</SSIS:Property>
                     <SSIS:Property SSIS:Name="DataType">18</SSIS:Property>
                   </SSIS:Properties>
                 </SSIS:Parameter>
@@ -863,7 +863,7 @@
                     <SSIS:Property SSIS:Name="IncludeInDebugDump">0</SSIS:Property>
                     <SSIS:Property SSIS:Name="Required">0</SSIS:Property>
                     <SSIS:Property SSIS:Name="Sensitive">0</SSIS:Property>
-                    <SSIS:Property SSIS:Name="Value">Provider=Microsoft.Jet.OLEDB.4.0;Data Source=C:\Users\wjGiraldo\Desktop\Libro1.xls;Extended Properties="Excel 8.0;HDR=YES";</SSIS:Property>
+                    <SSIS:Property SSIS:Name="Value">Provider=Microsoft.Jet.OLEDB.4.0;Data Source=C:\Users\wjGiraldo\Desktop\Libro1.xls;Extended Properties="EXCEL 8.0;HDR=YES";</SSIS:Property>
                     <SSIS:Property SSIS:Name="DataType">18</SSIS:Property>
                   </SSIS:Properties>
                 </SSIS:Parameter>
@@ -980,7 +980,7 @@
                     <SSIS:Property SSIS:Name="IncludeInDebugDump">0</SSIS:Property>
                     <SSIS:Property SSIS:Name="Required">0</SSIS:Property>
                     <SSIS:Property SSIS:Name="Sensitive">0</SSIS:Property>
-                    <SSIS:Property SSIS:Name="Value">Provider=Microsoft.Jet.OLEDB.4.0;Data Source=C:\Users\wjGiraldo\Desktop\proyectoBI\fuente excel\complemento.xls;Extended Properties="Excel 8.0;HDR=YES";</SSIS:Property>
+                    <SSIS:Property SSIS:Name="Value">Provider=Microsoft.Jet.OLEDB.4.0;Data Source=C:\Users\wjGiraldo\Desktop\proyectoBI\fuente excel\complemento.xls;Extended Properties="EXCEL 8.0;HDR=YES";</SSIS:Property>
                     <SSIS:Property SSIS:Name="DataType">18</SSIS:Property>
                   </SSIS:Properties>
                 </SSIS:Parameter>
