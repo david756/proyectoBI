@@ -11,8 +11,8 @@
   DTS:LocaleID="3082"
   DTS:ObjectName="Package"
   DTS:PackageType="5"
-  DTS:VersionBuild="13"
-  DTS:VersionGUID="{9E80359B-0967-463F-9390-323244E16823}">
+  DTS:VersionBuild="39"
+  DTS:VersionGUID="{63EABDF9-5563-4442-9B88-E73C0219E648}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">6</DTS:Property>
   <DTS:ConnectionManagers>
@@ -402,6 +402,28 @@
                           name="FriendlyExpression">@[$Project::Error_DatoNull]</property>
                       </properties>
                     </outputColumn>
+                    <outputColumn
+                      refId="Package\Dim_Parque\Crear descripcion del error.Outputs[Salida de columna derivada].Columns[Fecha]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Cálculo"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\Dim_Parque\Crear descripcion del error.Outputs[Salida de columna derivada].Columns[Fecha]"
+                      name="Fecha"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Expresión de columna derivada"
+                          name="Expression">[GETDATE]()</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Expresión descriptiva de columna derivada"
+                          expressionType="Notify"
+                          name="FriendlyExpression">GETDATE()</property>
+                      </properties>
+                    </outputColumn>
                   </outputColumns>
                   <externalMetadataColumns />
                 </output>
@@ -553,7 +575,7 @@
                       dataType="wstr"
                       errorOrTruncationOperation="Cálculo"
                       errorRowDisposition="FailComponent"
-                      length="36"
+                      length="51"
                       lineageId="Package\Dim_Parque\Crear descripcion del error 2.Outputs[Salida de columna derivada].Columns[Descripcion]"
                       name="Descripcion"
                       truncationRowDisposition="FailComponent">
@@ -562,13 +584,35 @@
                           containsID="true"
                           dataType="System.String"
                           description="Expresión de columna derivada"
-                          name="Expression">@[$Project::Error_Dato_Ya_Existe]</property>
+                          name="Expression">@[$Project::ErrorRegistroYaExiste]</property>
                         <property
                           containsID="true"
                           dataType="System.String"
                           description="Expresión descriptiva de columna derivada"
                           expressionType="Notify"
-                          name="FriendlyExpression">@[$Project::Error_Dato_Ya_Existe]</property>
+                          name="FriendlyExpression">@[$Project::ErrorRegistroYaExiste]</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Dim_Parque\Crear descripcion del error 2.Outputs[Salida de columna derivada].Columns[Fecha]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Cálculo"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\Dim_Parque\Crear descripcion del error 2.Outputs[Salida de columna derivada].Columns[Fecha]"
+                      name="Fecha"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Expresión de columna derivada"
+                          name="Expression">[GETDATE]()</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Expresión descriptiva de columna derivada"
+                          expressionType="Notify"
+                          name="FriendlyExpression">GETDATE()</property>
                       </properties>
                     </outputColumn>
                   </outputColumns>
@@ -722,7 +766,7 @@
                       dataType="wstr"
                       errorOrTruncationOperation="Cálculo"
                       errorRowDisposition="FailComponent"
-                      length="29"
+                      length="45"
                       lineageId="Package\Dim_Parque\Crear descripcion del error 3.Outputs[Salida de columna derivada].Columns[Descripcion]"
                       name="Descripcion"
                       truncationRowDisposition="FailComponent">
@@ -731,13 +775,35 @@
                           containsID="true"
                           dataType="System.String"
                           description="Expresión de columna derivada"
-                          name="Expression">@[$Project::Error_No_Se_Encontro_Dato]</property>
+                          name="Expression">@[$Project::ErrorForaneaNoExiste]</property>
                         <property
                           containsID="true"
                           dataType="System.String"
                           description="Expresión descriptiva de columna derivada"
                           expressionType="Notify"
-                          name="FriendlyExpression">@[$Project::Error_No_Se_Encontro_Dato]</property>
+                          name="FriendlyExpression">@[$Project::ErrorForaneaNoExiste]</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Dim_Parque\Crear descripcion del error 3.Outputs[Salida de columna derivada].Columns[fecha]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Cálculo"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\Dim_Parque\Crear descripcion del error 3.Outputs[Salida de columna derivada].Columns[fecha]"
+                      name="fecha"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Expresión de columna derivada"
+                          name="Expression">[GETDATE]()</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Expresión descriptiva de columna derivada"
+                          expressionType="Notify"
+                          name="FriendlyExpression">GETDATE()</property>
                       </properties>
                     </outputColumn>
                   </outputColumns>
@@ -1100,6 +1166,12 @@
                       cachedName="Descripcion"
                       externalMetadataColumnId="Package\Dim_Parque\Generar reporte error.Inputs[Entrada de destino de Excel].ExternalColumns[Descripcion]"
                       lineageId="Package\Dim_Parque\Crear descripcion del error.Outputs[Salida de columna derivada].Columns[Descripcion]" />
+                    <inputColumn
+                      refId="Package\Dim_Parque\Generar reporte error.Inputs[Entrada de destino de Excel].Columns[Fecha]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="Fecha"
+                      externalMetadataColumnId="Package\Dim_Parque\Generar reporte error.Inputs[Entrada de destino de Excel].ExternalColumns[Fecha]"
+                      lineageId="Package\Dim_Parque\Crear descripcion del error.Outputs[Salida de columna derivada].Columns[Fecha]" />
                   </inputColumns>
                   <externalMetadataColumns
                     isUsed="True">
@@ -1133,6 +1205,11 @@
                       dataType="wstr"
                       length="255"
                       name="Auxiliar 4" />
+                    <externalMetadataColumn
+                      refId="Package\Dim_Parque\Generar reporte error.Inputs[Entrada de destino de Excel].ExternalColumns[Fecha]"
+                      dataType="wstr"
+                      length="255"
+                      name="Fecha" />
                   </externalMetadataColumns>
                 </input>
               </inputs>
@@ -1253,10 +1330,16 @@
                     <inputColumn
                       refId="Package\Dim_Parque\Generar reporte error 2.Inputs[Entrada de destino de Excel].Columns[Descripcion]"
                       cachedDataType="wstr"
-                      cachedLength="36"
+                      cachedLength="51"
                       cachedName="Descripcion"
                       externalMetadataColumnId="Package\Dim_Parque\Generar reporte error 2.Inputs[Entrada de destino de Excel].ExternalColumns[Descripcion]"
                       lineageId="Package\Dim_Parque\Crear descripcion del error 2.Outputs[Salida de columna derivada].Columns[Descripcion]" />
+                    <inputColumn
+                      refId="Package\Dim_Parque\Generar reporte error 2.Inputs[Entrada de destino de Excel].Columns[Fecha]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="Fecha"
+                      externalMetadataColumnId="Package\Dim_Parque\Generar reporte error 2.Inputs[Entrada de destino de Excel].ExternalColumns[Fecha]"
+                      lineageId="Package\Dim_Parque\Crear descripcion del error 2.Outputs[Salida de columna derivada].Columns[Fecha]" />
                   </inputColumns>
                   <externalMetadataColumns
                     isUsed="True">
@@ -1290,6 +1373,11 @@
                       dataType="wstr"
                       length="255"
                       name="Auxiliar 4" />
+                    <externalMetadataColumn
+                      refId="Package\Dim_Parque\Generar reporte error 2.Inputs[Entrada de destino de Excel].ExternalColumns[Fecha]"
+                      dataType="wstr"
+                      length="255"
+                      name="Fecha" />
                   </externalMetadataColumns>
                 </input>
               </inputs>
@@ -1410,10 +1498,16 @@
                     <inputColumn
                       refId="Package\Dim_Parque\Generar reporte error 3.Inputs[Entrada de destino de Excel].Columns[Descripcion]"
                       cachedDataType="wstr"
-                      cachedLength="29"
+                      cachedLength="45"
                       cachedName="Descripcion"
                       externalMetadataColumnId="Package\Dim_Parque\Generar reporte error 3.Inputs[Entrada de destino de Excel].ExternalColumns[Descripcion]"
                       lineageId="Package\Dim_Parque\Crear descripcion del error 3.Outputs[Salida de columna derivada].Columns[Descripcion]" />
+                    <inputColumn
+                      refId="Package\Dim_Parque\Generar reporte error 3.Inputs[Entrada de destino de Excel].Columns[fecha]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="fecha"
+                      externalMetadataColumnId="Package\Dim_Parque\Generar reporte error 3.Inputs[Entrada de destino de Excel].ExternalColumns[Fecha]"
+                      lineageId="Package\Dim_Parque\Crear descripcion del error 3.Outputs[Salida de columna derivada].Columns[fecha]" />
                   </inputColumns>
                   <externalMetadataColumns
                     isUsed="True">
@@ -1447,6 +1541,11 @@
                       dataType="wstr"
                       length="255"
                       name="Auxiliar 4" />
+                    <externalMetadataColumn
+                      refId="Package\Dim_Parque\Generar reporte error 3.Inputs[Entrada de destino de Excel].ExternalColumns[Fecha]"
+                      dataType="wstr"
+                      length="255"
+                      name="Fecha" />
                   </externalMetadataColumns>
                 </input>
               </inputs>
@@ -1633,7 +1732,7 @@
                   expressionType="Notify"
                   name="SqlCommandParam"
                   UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">select * from (select * from [dbo].[Dim_Region]) [refTable]
-where [refTable].[regionKey] = ?</property>
+where [refTable].[idRegion] = ?</property>
                 <property
                   dataType="System.Int32"
                   description="Especifica el tipo de conexión utilizado para tener acceso al conjunto de datos de referencia."
@@ -1701,7 +1800,7 @@ where [refTable].[regionKey] = ?</property>
                         <property
                           dataType="System.String"
                           description="Especifica la columna de la tabla de referencia con la que se combina una columna."
-                          name="JoinToReferenceColumn">regionKey</property>
+                          name="JoinToReferenceColumn">idRegion</property>
                         <property
                           dataType="System.Null"
                           description="Especifica la columna de la tabla de referencia de la que se copia una columna."
@@ -1754,11 +1853,11 @@ where [refTable].[regionKey] = ?</property>
               </outputs>
             </component>
             <component
-              refId="Package\Dim_Parque\Revisar si existe en bodega"
+              refId="Package\Dim_Parque\Revisar si ya existe en bodega"
               componentClassID="{671046B0-AA63-4C9F-90E4-C06E0B710CE3}"
               contactInfo="Búsqueda;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;6"
               description="Combina columnas adicionales con el flujo de datos mediante la búsqueda de valores en una tabla. Por ejemplo, se combina la columna 'id. de empleado' con la tabla de empleados para obtener la 'fecha de contratación' y 'el nombre de empleado'. Se recomienda esta transformación cuando hay suficiente espacio en memoria para la tabla de búsqueda."
-              name="Revisar si existe en bodega"
+              name="Revisar si ya existe en bodega"
               usesDispositions="true"
               version="6">
               <properties>
@@ -1822,7 +1921,7 @@ where [refTable].[idParque] = ? and [refTable].[nombreParque] = ? and [refTable]
               </properties>
               <connections>
                 <connection
-                  refId="Package\Dim_Parque\Revisar si existe en bodega.Connections[OleDbConnection]"
+                  refId="Package\Dim_Parque\Revisar si ya existe en bodega.Connections[OleDbConnection]"
                   connectionManagerID="Package.ConnectionManagers[WJGIRALDO-PC.DW_Parque 1]"
                   connectionManagerRefId="Package.ConnectionManagers[WJGIRALDO-PC.DW_Parque 1]"
                   description="Administrador de conexiones utilizado para obtener acceso a los datos de búsqueda."
@@ -1830,11 +1929,11 @@ where [refTable].[idParque] = ? and [refTable].[nombreParque] = ? and [refTable]
               </connections>
               <inputs>
                 <input
-                  refId="Package\Dim_Parque\Revisar si existe en bodega.Inputs[Entrada de búsqueda]"
+                  refId="Package\Dim_Parque\Revisar si ya existe en bodega.Inputs[Entrada de búsqueda]"
                   name="Entrada de búsqueda">
                   <inputColumns>
                     <inputColumn
-                      refId="Package\Dim_Parque\Revisar si existe en bodega.Inputs[Entrada de búsqueda].Columns[Copia de idParque]"
+                      refId="Package\Dim_Parque\Revisar si ya existe en bodega.Inputs[Entrada de búsqueda].Columns[Copia de idParque]"
                       cachedDataType="i4"
                       cachedName="Copia de idParque"
                       lineageId="Package\Dim_Parque\Conversión de datos.Outputs[Salida de conversión de datos].Columns[Copia de idParque]">
@@ -1850,7 +1949,7 @@ where [refTable].[idParque] = ? and [refTable].[nombreParque] = ? and [refTable]
                       </properties>
                     </inputColumn>
                     <inputColumn
-                      refId="Package\Dim_Parque\Revisar si existe en bodega.Inputs[Entrada de búsqueda].Columns[Copia de fk_region]"
+                      refId="Package\Dim_Parque\Revisar si ya existe en bodega.Inputs[Entrada de búsqueda].Columns[Copia de fk_region]"
                       cachedDataType="i4"
                       cachedName="Copia de fk_region"
                       lineageId="Package\Dim_Parque\Conversión de datos.Outputs[Salida de conversión de datos].Columns[Copia de fk_region]">
@@ -1866,7 +1965,7 @@ where [refTable].[idParque] = ? and [refTable].[nombreParque] = ? and [refTable]
                       </properties>
                     </inputColumn>
                     <inputColumn
-                      refId="Package\Dim_Parque\Revisar si existe en bodega.Inputs[Entrada de búsqueda].Columns[Copia de nombre]"
+                      refId="Package\Dim_Parque\Revisar si ya existe en bodega.Inputs[Entrada de búsqueda].Columns[Copia de nombre]"
                       cachedCodepage="1252"
                       cachedDataType="str"
                       cachedLength="50"
@@ -1889,38 +1988,38 @@ where [refTable].[idParque] = ? and [refTable].[nombreParque] = ? and [refTable]
               </inputs>
               <outputs>
                 <output
-                  refId="Package\Dim_Parque\Revisar si existe en bodega.Outputs[Salida de entradas coincidentes de búsqueda]"
+                  refId="Package\Dim_Parque\Revisar si ya existe en bodega.Outputs[Salida de entradas coincidentes de búsqueda]"
                   errorOrTruncationOperation="Búsqueda"
                   exclusionGroup="1"
                   name="Salida de entradas coincidentes de búsqueda"
-                  synchronousInputId="Package\Dim_Parque\Revisar si existe en bodega.Inputs[Entrada de búsqueda]">
+                  synchronousInputId="Package\Dim_Parque\Revisar si ya existe en bodega.Inputs[Entrada de búsqueda]">
                   <externalMetadataColumns />
                 </output>
                 <output
-                  refId="Package\Dim_Parque\Revisar si existe en bodega.Outputs[Salida de entradas no coincidentes de búsqueda]"
+                  refId="Package\Dim_Parque\Revisar si ya existe en bodega.Outputs[Salida de entradas no coincidentes de búsqueda]"
                   description="Salida de búsqueda que trata las filas sin entradas coincidentes en el conjunto de datos de referencia. Utilice esta salida cuando la propiedad NoMatchBehavior esté establecida en &quot;Enviar las filas sin entradas coincidentes a la salida de entradas no coincidentes&quot;."
                   exclusionGroup="1"
                   name="Salida de entradas no coincidentes de búsqueda"
-                  synchronousInputId="Package\Dim_Parque\Revisar si existe en bodega.Inputs[Entrada de búsqueda]">
+                  synchronousInputId="Package\Dim_Parque\Revisar si ya existe en bodega.Inputs[Entrada de búsqueda]">
                   <externalMetadataColumns />
                 </output>
                 <output
-                  refId="Package\Dim_Parque\Revisar si existe en bodega.Outputs[Salida de error de búsqueda]"
+                  refId="Package\Dim_Parque\Revisar si ya existe en bodega.Outputs[Salida de error de búsqueda]"
                   exclusionGroup="1"
                   isErrorOut="true"
                   name="Salida de error de búsqueda"
-                  synchronousInputId="Package\Dim_Parque\Revisar si existe en bodega.Inputs[Entrada de búsqueda]">
+                  synchronousInputId="Package\Dim_Parque\Revisar si ya existe en bodega.Inputs[Entrada de búsqueda]">
                   <outputColumns>
                     <outputColumn
-                      refId="Package\Dim_Parque\Revisar si existe en bodega.Outputs[Salida de error de búsqueda].Columns[ErrorCode]"
+                      refId="Package\Dim_Parque\Revisar si ya existe en bodega.Outputs[Salida de error de búsqueda].Columns[ErrorCode]"
                       dataType="i4"
-                      lineageId="Package\Dim_Parque\Revisar si existe en bodega.Outputs[Salida de error de búsqueda].Columns[ErrorCode]"
+                      lineageId="Package\Dim_Parque\Revisar si ya existe en bodega.Outputs[Salida de error de búsqueda].Columns[ErrorCode]"
                       name="ErrorCode"
                       specialFlags="1" />
                     <outputColumn
-                      refId="Package\Dim_Parque\Revisar si existe en bodega.Outputs[Salida de error de búsqueda].Columns[ErrorColumn]"
+                      refId="Package\Dim_Parque\Revisar si ya existe en bodega.Outputs[Salida de error de búsqueda].Columns[ErrorColumn]"
                       dataType="i4"
-                      lineageId="Package\Dim_Parque\Revisar si existe en bodega.Outputs[Salida de error de búsqueda].Columns[ErrorColumn]"
+                      lineageId="Package\Dim_Parque\Revisar si ya existe en bodega.Outputs[Salida de error de búsqueda].Columns[ErrorColumn]"
                       name="ErrorColumn"
                       specialFlags="2" />
                   </outputColumns>
@@ -1937,9 +2036,9 @@ where [refTable].[idParque] = ? and [refTable].[nombreParque] = ? and [refTable]
               startId="Package\Dim_Parque\División condicional.Outputs[Con Datos nulos]" />
             <path
               refId="Package\Dim_Parque.Paths[Salida de columna derivada2]"
-              endId="Package\Dim_Parque\Generar reporte error 3.Inputs[Entrada de destino de Excel]"
+              endId="Package\Dim_Parque\Generar reporte error 2.Inputs[Entrada de destino de Excel]"
               name="Salida de columna derivada"
-              startId="Package\Dim_Parque\Crear descripcion del error 3.Outputs[Salida de columna derivada]" />
+              startId="Package\Dim_Parque\Crear descripcion del error 2.Outputs[Salida de columna derivada]" />
             <path
               refId="Package\Dim_Parque.Paths[Salida de columna derivada1]"
               endId="Package\Dim_Parque\Generar reporte error.Inputs[Entrada de destino de Excel]"
@@ -1947,34 +2046,34 @@ where [refTable].[idParque] = ? and [refTable].[nombreParque] = ? and [refTable]
               startId="Package\Dim_Parque\Crear descripcion del error.Outputs[Salida de columna derivada]" />
             <path
               refId="Package\Dim_Parque.Paths[Salida de columna derivada]"
-              endId="Package\Dim_Parque\Generar reporte error 2.Inputs[Entrada de destino de Excel]"
+              endId="Package\Dim_Parque\Generar reporte error 3.Inputs[Entrada de destino de Excel]"
               name="Salida de columna derivada"
-              startId="Package\Dim_Parque\Crear descripcion del error 2.Outputs[Salida de columna derivada]" />
+              startId="Package\Dim_Parque\Crear descripcion del error 3.Outputs[Salida de columna derivada]" />
             <path
               refId="Package\Dim_Parque.Paths[Salida de conversión de datos]"
-              endId="Package\Dim_Parque\Revisar si existe en bodega.Inputs[Entrada de búsqueda]"
+              endId="Package\Dim_Parque\Revisar si ya existe en bodega.Inputs[Entrada de búsqueda]"
               name="Salida de conversión de datos"
               startId="Package\Dim_Parque\Conversión de datos.Outputs[Salida de conversión de datos]" />
             <path
               refId="Package\Dim_Parque.Paths[Salida de entradas coincidentes de búsqueda1]"
-              endId="Package\Dim_Parque\Crear descripcion del error 2.Inputs[Entrada de columna derivada]"
-              name="Salida de entradas coincidentes de búsqueda"
-              startId="Package\Dim_Parque\Revisar si existe en bodega.Outputs[Salida de entradas coincidentes de búsqueda]" />
-            <path
-              refId="Package\Dim_Parque.Paths[Salida de entradas coincidentes de búsqueda]"
               endId="Package\Dim_Parque\Destino de OLE DB.Inputs[Entrada de destino de OLE DB]"
               name="Salida de entradas coincidentes de búsqueda"
               startId="Package\Dim_Parque\Revisar que exista la region en bodega.Outputs[Salida de entradas coincidentes de búsqueda]" />
             <path
-              refId="Package\Dim_Parque.Paths[Salida de entradas no coincidentes de búsqueda1]"
-              endId="Package\Dim_Parque\Revisar que exista la region en bodega.Inputs[Entrada de búsqueda]"
-              name="Salida de entradas no coincidentes de búsqueda"
-              startId="Package\Dim_Parque\Revisar si existe en bodega.Outputs[Salida de entradas no coincidentes de búsqueda]" />
+              refId="Package\Dim_Parque.Paths[Salida de entradas coincidentes de búsqueda]"
+              endId="Package\Dim_Parque\Crear descripcion del error 2.Inputs[Entrada de columna derivada]"
+              name="Salida de entradas coincidentes de búsqueda"
+              startId="Package\Dim_Parque\Revisar si ya existe en bodega.Outputs[Salida de entradas coincidentes de búsqueda]" />
             <path
-              refId="Package\Dim_Parque.Paths[Salida de entradas no coincidentes de búsqueda]"
+              refId="Package\Dim_Parque.Paths[Salida de entradas no coincidentes de búsqueda1]"
               endId="Package\Dim_Parque\Crear descripcion del error 3.Inputs[Entrada de columna derivada]"
               name="Salida de entradas no coincidentes de búsqueda"
               startId="Package\Dim_Parque\Revisar que exista la region en bodega.Outputs[Salida de entradas no coincidentes de búsqueda]" />
+            <path
+              refId="Package\Dim_Parque.Paths[Salida de entradas no coincidentes de búsqueda]"
+              endId="Package\Dim_Parque\Revisar que exista la region en bodega.Inputs[Entrada de búsqueda]"
+              name="Salida de entradas no coincidentes de búsqueda"
+              startId="Package\Dim_Parque\Revisar si ya existe en bodega.Outputs[Salida de entradas no coincidentes de búsqueda]" />
             <path
               refId="Package\Dim_Parque.Paths[Salida de origen de Excel]"
               endId="Package\Dim_Parque\División condicional.Inputs[Entrada de división condicional]"
@@ -2016,7 +2115,1679 @@ where [refTable].[idParque] = ? and [refTable].[nombreParque] = ? and [refTable]
       <DTS:Variables />
       <DTS:ObjectData>
         <pipeline
-          version="1" />
+          version="1">
+          <components>
+            <component
+              refId="Package\Dim_Region\Conversión de datos"
+              componentClassID="{62B1106C-7DB8-4EC8-ADD6-4C664DFFC54A}"
+              contactInfo="Conversión de datos;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;0"
+              description="Conversión de datos"
+              name="Conversión de datos"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\Dim_Region\Conversión de datos.Inputs[Entrada de conversión de datos]"
+                  name="Entrada de conversión de datos">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Dim_Region\Conversión de datos.Inputs[Entrada de conversión de datos].Columns[idRegion]"
+                      cachedDataType="r8"
+                      cachedName="idRegion"
+                      lineageId="Package\Dim_Region\Origen de Excel.Outputs[Salida de origen de Excel].Columns[idRegion]" />
+                    <inputColumn
+                      refId="Package\Dim_Region\Conversión de datos.Inputs[Entrada de conversión de datos].Columns[nombre]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="nombre"
+                      lineageId="Package\Dim_Region\Origen de Excel.Outputs[Salida de origen de Excel].Columns[nombre]" />
+                    <inputColumn
+                      refId="Package\Dim_Region\Conversión de datos.Inputs[Entrada de conversión de datos].Columns[zona_geografica]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="zona_geografica"
+                      lineageId="Package\Dim_Region\Origen de Excel.Outputs[Salida de origen de Excel].Columns[zona_geografica]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Dim_Region\Conversión de datos.Outputs[Salida de conversión de datos]"
+                  exclusionGroup="1"
+                  name="Salida de conversión de datos"
+                  synchronousInputId="Package\Dim_Region\Conversión de datos.Inputs[Entrada de conversión de datos]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Dim_Region\Conversión de datos.Outputs[Salida de conversión de datos].Columns[Copia de idRegion]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\Dim_Region\Conversión de datos.Outputs[Salida de conversión de datos].Columns[Copia de idRegion]"
+                      name="Copia de idRegion"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Especifica la columna de entrada usada como origen de datos para la conversión."
+                          name="SourceInputColumnLineageID">#{Package\Dim_Region\Origen de Excel.Outputs[Salida de origen de Excel].Columns[idRegion]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indica si la columna usa las rutinas de análisis más rápidas independientes de la configuración regional."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Dim_Region\Conversión de datos.Outputs[Salida de conversión de datos].Columns[Copia de nombre]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      length="50"
+                      lineageId="Package\Dim_Region\Conversión de datos.Outputs[Salida de conversión de datos].Columns[Copia de nombre]"
+                      name="Copia de nombre"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Especifica la columna de entrada usada como origen de datos para la conversión."
+                          name="SourceInputColumnLineageID">#{Package\Dim_Region\Origen de Excel.Outputs[Salida de origen de Excel].Columns[nombre]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indica si la columna usa las rutinas de análisis más rápidas independientes de la configuración regional."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Dim_Region\Conversión de datos.Outputs[Salida de conversión de datos].Columns[Copia de zona_geografica]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      length="50"
+                      lineageId="Package\Dim_Region\Conversión de datos.Outputs[Salida de conversión de datos].Columns[Copia de zona_geografica]"
+                      name="Copia de zona_geografica"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Especifica la columna de entrada usada como origen de datos para la conversión."
+                          name="SourceInputColumnLineageID">#{Package\Dim_Region\Origen de Excel.Outputs[Salida de origen de Excel].Columns[zona_geografica]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indica si la columna usa las rutinas de análisis más rápidas independientes de la configuración regional."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Dim_Region\Conversión de datos.Outputs[Salida de error de conversión de datos]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Salida de error de conversión de datos"
+                  synchronousInputId="Package\Dim_Region\Conversión de datos.Inputs[Entrada de conversión de datos]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Dim_Region\Conversión de datos.Outputs[Salida de error de conversión de datos].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Dim_Region\Conversión de datos.Outputs[Salida de error de conversión de datos].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Dim_Region\Conversión de datos.Outputs[Salida de error de conversión de datos].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Dim_Region\Conversión de datos.Outputs[Salida de error de conversión de datos].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Dim_Region\Crear descripcion del error"
+              componentClassID="{49928E82-9C4E-49F0-AABE-3812B82707EC}"
+              contactInfo="Columna derivada;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;0"
+              description="Crea nuevos valores de columna aplicando expresiones a las columnas de entrada de la transformación. Crea nuevas columnas o sobrescribe las columnas existentes. Por ejemplo, se concatenan los valores de las columnas 'nombre' y 'apellidos' para crear una columna 'nombre completo'."
+              name="Crear descripcion del error"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\Dim_Region\Crear descripcion del error.Inputs[Entrada de columna derivada]"
+                  description="Entrada en la transformación Columna derivada"
+                  name="Entrada de columna derivada">
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Dim_Region\Crear descripcion del error.Outputs[Salida de columna derivada]"
+                  description="Salida predeterminada de la transformación Columna derivada"
+                  exclusionGroup="1"
+                  name="Salida de columna derivada"
+                  synchronousInputId="Package\Dim_Region\Crear descripcion del error.Inputs[Entrada de columna derivada]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Dim_Region\Crear descripcion del error.Outputs[Salida de columna derivada].Columns[Error]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Cálculo"
+                      errorRowDisposition="FailComponent"
+                      length="16"
+                      lineageId="Package\Dim_Region\Crear descripcion del error.Outputs[Salida de columna derivada].Columns[Error]"
+                      name="Error"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Expresión de columna derivada"
+                          name="Expression">@[$Project::Error_Region]</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Expresión descriptiva de columna derivada"
+                          expressionType="Notify"
+                          name="FriendlyExpression">@[$Project::Error_Region]</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Dim_Region\Crear descripcion del error.Outputs[Salida de columna derivada].Columns[Descripcion]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Cálculo"
+                      errorRowDisposition="FailComponent"
+                      length="30"
+                      lineageId="Package\Dim_Region\Crear descripcion del error.Outputs[Salida de columna derivada].Columns[Descripcion]"
+                      name="Descripcion"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Expresión de columna derivada"
+                          name="Expression">@[$Project::Error_DatoNull]</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Expresión descriptiva de columna derivada"
+                          expressionType="Notify"
+                          name="FriendlyExpression">@[$Project::Error_DatoNull]</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Dim_Region\Crear descripcion del error.Outputs[Salida de columna derivada].Columns[Fecha]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Cálculo"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\Dim_Region\Crear descripcion del error.Outputs[Salida de columna derivada].Columns[Fecha]"
+                      name="Fecha"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Expresión de columna derivada"
+                          name="Expression">[GETDATE]()</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Expresión descriptiva de columna derivada"
+                          expressionType="Notify"
+                          name="FriendlyExpression">GETDATE()</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Dim_Region\Crear descripcion del error.Outputs[Salida de error de columna derivada]"
+                  description="Salida de error de la transformación Columna derivada"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Salida de error de columna derivada"
+                  synchronousInputId="Package\Dim_Region\Crear descripcion del error.Inputs[Entrada de columna derivada]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Dim_Region\Crear descripcion del error.Outputs[Salida de error de columna derivada].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Dim_Region\Crear descripcion del error.Outputs[Salida de error de columna derivada].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Dim_Region\Crear descripcion del error.Outputs[Salida de error de columna derivada].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Dim_Region\Crear descripcion del error.Outputs[Salida de error de columna derivada].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Dim_Region\Crear descripcion del error 2"
+              componentClassID="{49928E82-9C4E-49F0-AABE-3812B82707EC}"
+              contactInfo="Columna derivada;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;0"
+              description="Crea nuevos valores de columna aplicando expresiones a las columnas de entrada de la transformación. Crea nuevas columnas o sobrescribe las columnas existentes. Por ejemplo, se concatenan los valores de las columnas 'nombre' y 'apellidos' para crear una columna 'nombre completo'."
+              name="Crear descripcion del error 2"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\Dim_Region\Crear descripcion del error 2.Inputs[Entrada de columna derivada]"
+                  description="Entrada en la transformación Columna derivada"
+                  name="Entrada de columna derivada">
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Dim_Region\Crear descripcion del error 2.Outputs[Salida de columna derivada]"
+                  description="Salida predeterminada de la transformación Columna derivada"
+                  exclusionGroup="1"
+                  name="Salida de columna derivada"
+                  synchronousInputId="Package\Dim_Region\Crear descripcion del error 2.Inputs[Entrada de columna derivada]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Dim_Region\Crear descripcion del error 2.Outputs[Salida de columna derivada].Columns[error]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Cálculo"
+                      errorRowDisposition="FailComponent"
+                      length="16"
+                      lineageId="Package\Dim_Region\Crear descripcion del error 2.Outputs[Salida de columna derivada].Columns[error]"
+                      name="error"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Expresión de columna derivada"
+                          name="Expression">@[$Project::Error_Region]</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Expresión descriptiva de columna derivada"
+                          expressionType="Notify"
+                          name="FriendlyExpression">@[$Project::Error_Region]</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Dim_Region\Crear descripcion del error 2.Outputs[Salida de columna derivada].Columns[descripcion]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Cálculo"
+                      errorRowDisposition="FailComponent"
+                      length="39"
+                      lineageId="Package\Dim_Region\Crear descripcion del error 2.Outputs[Salida de columna derivada].Columns[descripcion]"
+                      name="descripcion"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Expresión de columna derivada"
+                          name="Expression">@[$Project::Error_Zona_Geografica]</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Expresión descriptiva de columna derivada"
+                          expressionType="Notify"
+                          name="FriendlyExpression">@[$Project::Error_Zona_Geografica]</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Dim_Region\Crear descripcion del error 2.Outputs[Salida de columna derivada].Columns[fecha]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Cálculo"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\Dim_Region\Crear descripcion del error 2.Outputs[Salida de columna derivada].Columns[fecha]"
+                      name="fecha"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Expresión de columna derivada"
+                          name="Expression">[GETDATE]()</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Expresión descriptiva de columna derivada"
+                          expressionType="Notify"
+                          name="FriendlyExpression">GETDATE()</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Dim_Region\Crear descripcion del error 2.Outputs[Salida de error de columna derivada]"
+                  description="Salida de error de la transformación Columna derivada"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Salida de error de columna derivada"
+                  synchronousInputId="Package\Dim_Region\Crear descripcion del error 2.Inputs[Entrada de columna derivada]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Dim_Region\Crear descripcion del error 2.Outputs[Salida de error de columna derivada].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Dim_Region\Crear descripcion del error 2.Outputs[Salida de error de columna derivada].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Dim_Region\Crear descripcion del error 2.Outputs[Salida de error de columna derivada].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Dim_Region\Crear descripcion del error 2.Outputs[Salida de error de columna derivada].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Dim_Region\Crear descripcion del error 3"
+              componentClassID="{49928E82-9C4E-49F0-AABE-3812B82707EC}"
+              contactInfo="Columna derivada;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;0"
+              description="Crea nuevos valores de columna aplicando expresiones a las columnas de entrada de la transformación. Crea nuevas columnas o sobrescribe las columnas existentes. Por ejemplo, se concatenan los valores de las columnas 'nombre' y 'apellidos' para crear una columna 'nombre completo'."
+              name="Crear descripcion del error 3"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\Dim_Region\Crear descripcion del error 3.Inputs[Entrada de columna derivada]"
+                  description="Entrada en la transformación Columna derivada"
+                  name="Entrada de columna derivada">
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Dim_Region\Crear descripcion del error 3.Outputs[Salida de columna derivada]"
+                  description="Salida predeterminada de la transformación Columna derivada"
+                  exclusionGroup="1"
+                  name="Salida de columna derivada"
+                  synchronousInputId="Package\Dim_Region\Crear descripcion del error 3.Inputs[Entrada de columna derivada]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Dim_Region\Crear descripcion del error 3.Outputs[Salida de columna derivada].Columns[error]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Cálculo"
+                      errorRowDisposition="FailComponent"
+                      length="16"
+                      lineageId="Package\Dim_Region\Crear descripcion del error 3.Outputs[Salida de columna derivada].Columns[error]"
+                      name="error"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Expresión de columna derivada"
+                          name="Expression">@[$Project::Error_Region]</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Expresión descriptiva de columna derivada"
+                          expressionType="Notify"
+                          name="FriendlyExpression">@[$Project::Error_Region]</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Dim_Region\Crear descripcion del error 3.Outputs[Salida de columna derivada].Columns[descripcion]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Cálculo"
+                      errorRowDisposition="FailComponent"
+                      length="51"
+                      lineageId="Package\Dim_Region\Crear descripcion del error 3.Outputs[Salida de columna derivada].Columns[descripcion]"
+                      name="descripcion"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Expresión de columna derivada"
+                          name="Expression">@[$Project::ErrorRegistroYaExiste]</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Expresión descriptiva de columna derivada"
+                          expressionType="Notify"
+                          name="FriendlyExpression">@[$Project::ErrorRegistroYaExiste]</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Dim_Region\Crear descripcion del error 3.Outputs[Salida de columna derivada].Columns[fecha]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Cálculo"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\Dim_Region\Crear descripcion del error 3.Outputs[Salida de columna derivada].Columns[fecha]"
+                      name="fecha"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Expresión de columna derivada"
+                          name="Expression">[GETDATE]()</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Expresión descriptiva de columna derivada"
+                          expressionType="Notify"
+                          name="FriendlyExpression">GETDATE()</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Dim_Region\Crear descripcion del error 3.Outputs[Salida de error de columna derivada]"
+                  description="Salida de error de la transformación Columna derivada"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Salida de error de columna derivada"
+                  synchronousInputId="Package\Dim_Region\Crear descripcion del error 3.Inputs[Entrada de columna derivada]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Dim_Region\Crear descripcion del error 3.Outputs[Salida de error de columna derivada].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Dim_Region\Crear descripcion del error 3.Outputs[Salida de error de columna derivada].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Dim_Region\Crear descripcion del error 3.Outputs[Salida de error de columna derivada].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Dim_Region\Crear descripcion del error 3.Outputs[Salida de error de columna derivada].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Dim_Region\Guardar en bodega"
+              componentClassID="{4ADA7EAA-136C-4215-8098-D7A7C27FC0D1}"
+              contactInfo="Destino de OLE DB;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;4"
+              description="Destino de OLE DB"
+              name="Guardar en bodega"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="Número de segundos antes de que se agote el tiempo de espera de un comando. Un valor de 0 indica un tiempo de espera infinito."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Especifica el nombre del objeto de base de datos usado para abrir un conjunto de filas."
+                  name="OpenRowset">[dbo].[Dim_Region]</property>
+                <property
+                  dataType="System.String"
+                  description="Especifica la variable que contiene el nombre del objeto de base de datos usado para abrir un conjunto de filas."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="Comando SQL para ejecutar."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica la página de códigos de columna para utilizar cuando la información de página de códigos no está disponible en el origen de datos."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Fuerza el uso del valor de la propiedad DefaultCodePage al describir caracteres."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica el modo utilizado para obtener acceso a la base de datos."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indica si los valores proporcionados para columnas de identidad se van a copiar al destino. Si es False, los valores de las columnas de identidad se generan automáticamente en el destino. Sólo se aplica si está activada la carga rápida."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indica si las columnas que contienen NULL tendrán NULL insertado en el destino. Si es False, las columnas que contienen NULL tendrán sus valores predeterminados insertados en el destino. Sólo se aplica si está activada la carga rápida."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Especifica opciones para usar con la carga rápida. Sólo se aplica si está activada la carga rápida."
+                  name="FastLoadOptions"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica cuándo se emiten confirmaciones durante la inserción de datos. El valor 0 especifica que se emitirá una confirmación al final de la inserción de datos. Sólo se aplica si está activada la carga rápida."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Dim_Region\Guardar en bodega.Connections[OleDbConnection]"
+                  connectionManagerID="{F9A6CEB1-538A-410A-86F2-D2A1D39EC67F}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[WJGIRALDO-PC.DW_Parque]"
+                  description="La conexión de tiempo de ejecución OLE DB usada para obtener acceso a la base de datos."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Dim_Region\Guardar en bodega.Inputs[Entrada de destino de OLE DB]"
+                  errorOrTruncationOperation="Insertar"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="Entrada de destino de OLE DB">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Dim_Region\Guardar en bodega.Inputs[Entrada de destino de OLE DB].Columns[Copia de idRegion]"
+                      cachedDataType="i4"
+                      cachedName="Copia de idRegion"
+                      externalMetadataColumnId="Package\Dim_Region\Guardar en bodega.Inputs[Entrada de destino de OLE DB].ExternalColumns[idRegion]"
+                      lineageId="Package\Dim_Region\Conversión de datos.Outputs[Salida de conversión de datos].Columns[Copia de idRegion]" />
+                    <inputColumn
+                      refId="Package\Dim_Region\Guardar en bodega.Inputs[Entrada de destino de OLE DB].Columns[Copia de nombre]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="Copia de nombre"
+                      externalMetadataColumnId="Package\Dim_Region\Guardar en bodega.Inputs[Entrada de destino de OLE DB].ExternalColumns[nombreRegion]"
+                      lineageId="Package\Dim_Region\Conversión de datos.Outputs[Salida de conversión de datos].Columns[Copia de nombre]" />
+                    <inputColumn
+                      refId="Package\Dim_Region\Guardar en bodega.Inputs[Entrada de destino de OLE DB].Columns[Copia de zona_geografica]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="Copia de zona_geografica"
+                      externalMetadataColumnId="Package\Dim_Region\Guardar en bodega.Inputs[Entrada de destino de OLE DB].ExternalColumns[zonaGeografica]"
+                      lineageId="Package\Dim_Region\Conversión de datos.Outputs[Salida de conversión de datos].Columns[Copia de zona_geografica]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Dim_Region\Guardar en bodega.Inputs[Entrada de destino de OLE DB].ExternalColumns[regionKey]"
+                      dataType="i4"
+                      name="regionKey" />
+                    <externalMetadataColumn
+                      refId="Package\Dim_Region\Guardar en bodega.Inputs[Entrada de destino de OLE DB].ExternalColumns[idRegion]"
+                      dataType="i4"
+                      name="idRegion" />
+                    <externalMetadataColumn
+                      refId="Package\Dim_Region\Guardar en bodega.Inputs[Entrada de destino de OLE DB].ExternalColumns[nombreRegion]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="nombreRegion" />
+                    <externalMetadataColumn
+                      refId="Package\Dim_Region\Guardar en bodega.Inputs[Entrada de destino de OLE DB].ExternalColumns[zonaGeografica]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="zonaGeografica" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Dim_Region\Guardar en bodega.Outputs[Salida de error de destino de OLE DB]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Salida de error de destino de OLE DB"
+                  synchronousInputId="Package\Dim_Region\Guardar en bodega.Inputs[Entrada de destino de OLE DB]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Dim_Region\Guardar en bodega.Outputs[Salida de error de destino de OLE DB].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Dim_Region\Guardar en bodega.Outputs[Salida de error de destino de OLE DB].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Dim_Region\Guardar en bodega.Outputs[Salida de error de destino de OLE DB].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Dim_Region\Guardar en bodega.Outputs[Salida de error de destino de OLE DB].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Dim_Region\Guardar log de error"
+              componentClassID="{1F5D5712-2FBA-4CB9-A95A-86C1F336E1DA}"
+              contactInfo="Destino de Excel;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;0"
+              description="Destino de Excel"
+              name="Guardar log de error"
+              usesDispositions="true">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="Número de segundos antes de que se agote el tiempo de espera de un comando. Un valor de 0 indica un tiempo de espera infinito."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Especifica el nombre del objeto de base de datos usado para abrir un conjunto de filas."
+                  name="OpenRowset">Errores$</property>
+                <property
+                  dataType="System.String"
+                  description="Especifica la variable que contiene el nombre del objeto de base de datos usado para abrir un conjunto de filas."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="Comando SQL para ejecutar."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica el modo utilizado para obtener acceso a la base de datos."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indica si los valores proporcionados para columnas de identidad se van a copiar al destino. Si es False, los valores de las columnas de identidad se generan automáticamente en el destino. Sólo se aplica si está activada la carga rápida."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indica si las columnas que contienen NULL tendrán NULL insertado en el destino. Si es False, las columnas que contienen NULL tendrán sus valores predeterminados insertados en el destino. Sólo se aplica si está activada la carga rápida."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Especifica opciones para usar con la carga rápida. Sólo se aplica si está activada la carga rápida."
+                  name="FastLoadOptions"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica cuándo se emiten confirmaciones durante la inserción de datos. El valor 0 especifica que se emitirá una confirmación al final de la inserción de datos. Sólo se aplica si está activada la carga rápida."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Dim_Region\Guardar log de error.Connections[OleDbConnection]"
+                  connectionManagerID="{A10E25AD-D3E7-4778-979A-835536D36EA4}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[logErrores]"
+                  description="La conexión de tiempo de ejecución OLE DB usada para obtener acceso a la base de datos."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Dim_Region\Guardar log de error.Inputs[Entrada de destino de Excel]"
+                  errorOrTruncationOperation="Insertar"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="Entrada de destino de Excel">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Dim_Region\Guardar log de error.Inputs[Entrada de destino de Excel].Columns[Error]"
+                      cachedDataType="wstr"
+                      cachedLength="16"
+                      cachedName="Error"
+                      externalMetadataColumnId="Package\Dim_Region\Guardar log de error.Inputs[Entrada de destino de Excel].ExternalColumns[Error]"
+                      lineageId="Package\Dim_Region\Crear descripcion del error.Outputs[Salida de columna derivada].Columns[Error]" />
+                    <inputColumn
+                      refId="Package\Dim_Region\Guardar log de error.Inputs[Entrada de destino de Excel].Columns[Descripcion]"
+                      cachedDataType="wstr"
+                      cachedLength="30"
+                      cachedName="Descripcion"
+                      externalMetadataColumnId="Package\Dim_Region\Guardar log de error.Inputs[Entrada de destino de Excel].ExternalColumns[Descripcion]"
+                      lineageId="Package\Dim_Region\Crear descripcion del error.Outputs[Salida de columna derivada].Columns[Descripcion]" />
+                    <inputColumn
+                      refId="Package\Dim_Region\Guardar log de error.Inputs[Entrada de destino de Excel].Columns[idRegion]"
+                      cachedDataType="r8"
+                      cachedName="idRegion"
+                      externalMetadataColumnId="Package\Dim_Region\Guardar log de error.Inputs[Entrada de destino de Excel].ExternalColumns[Auxiliar 1]"
+                      lineageId="Package\Dim_Region\Origen de Excel.Outputs[Salida de origen de Excel].Columns[idRegion]" />
+                    <inputColumn
+                      refId="Package\Dim_Region\Guardar log de error.Inputs[Entrada de destino de Excel].Columns[nombre]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="nombre"
+                      externalMetadataColumnId="Package\Dim_Region\Guardar log de error.Inputs[Entrada de destino de Excel].ExternalColumns[Auxiliar 2]"
+                      lineageId="Package\Dim_Region\Origen de Excel.Outputs[Salida de origen de Excel].Columns[nombre]" />
+                    <inputColumn
+                      refId="Package\Dim_Region\Guardar log de error.Inputs[Entrada de destino de Excel].Columns[zona_geografica]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="zona_geografica"
+                      externalMetadataColumnId="Package\Dim_Region\Guardar log de error.Inputs[Entrada de destino de Excel].ExternalColumns[Auxiliar 3]"
+                      lineageId="Package\Dim_Region\Origen de Excel.Outputs[Salida de origen de Excel].Columns[zona_geografica]" />
+                    <inputColumn
+                      refId="Package\Dim_Region\Guardar log de error.Inputs[Entrada de destino de Excel].Columns[Fecha]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="Fecha"
+                      externalMetadataColumnId="Package\Dim_Region\Guardar log de error.Inputs[Entrada de destino de Excel].ExternalColumns[Fecha]"
+                      lineageId="Package\Dim_Region\Crear descripcion del error.Outputs[Salida de columna derivada].Columns[Fecha]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Dim_Region\Guardar log de error.Inputs[Entrada de destino de Excel].ExternalColumns[Fecha]"
+                      dataType="wstr"
+                      length="255"
+                      name="Fecha" />
+                    <externalMetadataColumn
+                      refId="Package\Dim_Region\Guardar log de error.Inputs[Entrada de destino de Excel].ExternalColumns[Error]"
+                      dataType="wstr"
+                      length="255"
+                      name="Error" />
+                    <externalMetadataColumn
+                      refId="Package\Dim_Region\Guardar log de error.Inputs[Entrada de destino de Excel].ExternalColumns[Descripcion]"
+                      dataType="wstr"
+                      length="255"
+                      name="Descripcion" />
+                    <externalMetadataColumn
+                      refId="Package\Dim_Region\Guardar log de error.Inputs[Entrada de destino de Excel].ExternalColumns[Auxiliar 1]"
+                      dataType="wstr"
+                      length="255"
+                      name="Auxiliar 1" />
+                    <externalMetadataColumn
+                      refId="Package\Dim_Region\Guardar log de error.Inputs[Entrada de destino de Excel].ExternalColumns[Auxiliar 2]"
+                      dataType="wstr"
+                      length="255"
+                      name="Auxiliar 2" />
+                    <externalMetadataColumn
+                      refId="Package\Dim_Region\Guardar log de error.Inputs[Entrada de destino de Excel].ExternalColumns[Auxiliar 3]"
+                      dataType="wstr"
+                      length="255"
+                      name="Auxiliar 3" />
+                    <externalMetadataColumn
+                      refId="Package\Dim_Region\Guardar log de error.Inputs[Entrada de destino de Excel].ExternalColumns[Auxiliar 4]"
+                      dataType="wstr"
+                      length="255"
+                      name="Auxiliar 4" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Dim_Region\Guardar log de error.Outputs[Salida de error de destino de Excel]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Salida de error de destino de Excel"
+                  synchronousInputId="Package\Dim_Region\Guardar log de error.Inputs[Entrada de destino de Excel]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Dim_Region\Guardar log de error.Outputs[Salida de error de destino de Excel].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Dim_Region\Guardar log de error.Outputs[Salida de error de destino de Excel].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Dim_Region\Guardar log de error.Outputs[Salida de error de destino de Excel].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Dim_Region\Guardar log de error.Outputs[Salida de error de destino de Excel].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Dim_Region\Guardar log de error 2"
+              componentClassID="{1F5D5712-2FBA-4CB9-A95A-86C1F336E1DA}"
+              contactInfo="Destino de Excel;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;0"
+              description="Destino de Excel"
+              name="Guardar log de error 2"
+              usesDispositions="true">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="Número de segundos antes de que se agote el tiempo de espera de un comando. Un valor de 0 indica un tiempo de espera infinito."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Especifica el nombre del objeto de base de datos usado para abrir un conjunto de filas."
+                  name="OpenRowset">Errores$</property>
+                <property
+                  dataType="System.String"
+                  description="Especifica la variable que contiene el nombre del objeto de base de datos usado para abrir un conjunto de filas."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="Comando SQL para ejecutar."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica el modo utilizado para obtener acceso a la base de datos."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indica si los valores proporcionados para columnas de identidad se van a copiar al destino. Si es False, los valores de las columnas de identidad se generan automáticamente en el destino. Sólo se aplica si está activada la carga rápida."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indica si las columnas que contienen NULL tendrán NULL insertado en el destino. Si es False, las columnas que contienen NULL tendrán sus valores predeterminados insertados en el destino. Sólo se aplica si está activada la carga rápida."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Especifica opciones para usar con la carga rápida. Sólo se aplica si está activada la carga rápida."
+                  name="FastLoadOptions"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica cuándo se emiten confirmaciones durante la inserción de datos. El valor 0 especifica que se emitirá una confirmación al final de la inserción de datos. Sólo se aplica si está activada la carga rápida."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Dim_Region\Guardar log de error 2.Connections[OleDbConnection]"
+                  connectionManagerID="{A10E25AD-D3E7-4778-979A-835536D36EA4}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[logErrores]"
+                  description="La conexión de tiempo de ejecución OLE DB usada para obtener acceso a la base de datos."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Dim_Region\Guardar log de error 2.Inputs[Entrada de destino de Excel]"
+                  errorOrTruncationOperation="Insertar"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="Entrada de destino de Excel">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Dim_Region\Guardar log de error 2.Inputs[Entrada de destino de Excel].Columns[zona_geografica]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="zona_geografica"
+                      externalMetadataColumnId="Package\Dim_Region\Guardar log de error 2.Inputs[Entrada de destino de Excel].ExternalColumns[Auxiliar 3]"
+                      lineageId="Package\Dim_Region\Origen de Excel.Outputs[Salida de origen de Excel].Columns[zona_geografica]" />
+                    <inputColumn
+                      refId="Package\Dim_Region\Guardar log de error 2.Inputs[Entrada de destino de Excel].Columns[nombre]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="nombre"
+                      externalMetadataColumnId="Package\Dim_Region\Guardar log de error 2.Inputs[Entrada de destino de Excel].ExternalColumns[Auxiliar 2]"
+                      lineageId="Package\Dim_Region\Origen de Excel.Outputs[Salida de origen de Excel].Columns[nombre]" />
+                    <inputColumn
+                      refId="Package\Dim_Region\Guardar log de error 2.Inputs[Entrada de destino de Excel].Columns[idRegion]"
+                      cachedDataType="r8"
+                      cachedName="idRegion"
+                      externalMetadataColumnId="Package\Dim_Region\Guardar log de error 2.Inputs[Entrada de destino de Excel].ExternalColumns[Auxiliar 1]"
+                      lineageId="Package\Dim_Region\Origen de Excel.Outputs[Salida de origen de Excel].Columns[idRegion]" />
+                    <inputColumn
+                      refId="Package\Dim_Region\Guardar log de error 2.Inputs[Entrada de destino de Excel].Columns[fecha]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="fecha"
+                      externalMetadataColumnId="Package\Dim_Region\Guardar log de error 2.Inputs[Entrada de destino de Excel].ExternalColumns[Fecha]"
+                      lineageId="Package\Dim_Region\Crear descripcion del error 2.Outputs[Salida de columna derivada].Columns[fecha]" />
+                    <inputColumn
+                      refId="Package\Dim_Region\Guardar log de error 2.Inputs[Entrada de destino de Excel].Columns[error]"
+                      cachedDataType="wstr"
+                      cachedLength="16"
+                      cachedName="error"
+                      externalMetadataColumnId="Package\Dim_Region\Guardar log de error 2.Inputs[Entrada de destino de Excel].ExternalColumns[Error]"
+                      lineageId="Package\Dim_Region\Crear descripcion del error 2.Outputs[Salida de columna derivada].Columns[error]" />
+                    <inputColumn
+                      refId="Package\Dim_Region\Guardar log de error 2.Inputs[Entrada de destino de Excel].Columns[descripcion]"
+                      cachedDataType="wstr"
+                      cachedLength="39"
+                      cachedName="descripcion"
+                      externalMetadataColumnId="Package\Dim_Region\Guardar log de error 2.Inputs[Entrada de destino de Excel].ExternalColumns[Descripcion]"
+                      lineageId="Package\Dim_Region\Crear descripcion del error 2.Outputs[Salida de columna derivada].Columns[descripcion]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Dim_Region\Guardar log de error 2.Inputs[Entrada de destino de Excel].ExternalColumns[Fecha]"
+                      dataType="wstr"
+                      length="255"
+                      name="Fecha" />
+                    <externalMetadataColumn
+                      refId="Package\Dim_Region\Guardar log de error 2.Inputs[Entrada de destino de Excel].ExternalColumns[Error]"
+                      dataType="wstr"
+                      length="255"
+                      name="Error" />
+                    <externalMetadataColumn
+                      refId="Package\Dim_Region\Guardar log de error 2.Inputs[Entrada de destino de Excel].ExternalColumns[Descripcion]"
+                      dataType="wstr"
+                      length="255"
+                      name="Descripcion" />
+                    <externalMetadataColumn
+                      refId="Package\Dim_Region\Guardar log de error 2.Inputs[Entrada de destino de Excel].ExternalColumns[Auxiliar 1]"
+                      dataType="wstr"
+                      length="255"
+                      name="Auxiliar 1" />
+                    <externalMetadataColumn
+                      refId="Package\Dim_Region\Guardar log de error 2.Inputs[Entrada de destino de Excel].ExternalColumns[Auxiliar 2]"
+                      dataType="wstr"
+                      length="255"
+                      name="Auxiliar 2" />
+                    <externalMetadataColumn
+                      refId="Package\Dim_Region\Guardar log de error 2.Inputs[Entrada de destino de Excel].ExternalColumns[Auxiliar 3]"
+                      dataType="wstr"
+                      length="255"
+                      name="Auxiliar 3" />
+                    <externalMetadataColumn
+                      refId="Package\Dim_Region\Guardar log de error 2.Inputs[Entrada de destino de Excel].ExternalColumns[Auxiliar 4]"
+                      dataType="wstr"
+                      length="255"
+                      name="Auxiliar 4" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Dim_Region\Guardar log de error 2.Outputs[Salida de error de destino de Excel]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Salida de error de destino de Excel"
+                  synchronousInputId="Package\Dim_Region\Guardar log de error 2.Inputs[Entrada de destino de Excel]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Dim_Region\Guardar log de error 2.Outputs[Salida de error de destino de Excel].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Dim_Region\Guardar log de error 2.Outputs[Salida de error de destino de Excel].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Dim_Region\Guardar log de error 2.Outputs[Salida de error de destino de Excel].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Dim_Region\Guardar log de error 2.Outputs[Salida de error de destino de Excel].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Dim_Region\Guardar log de error 3"
+              componentClassID="{1F5D5712-2FBA-4CB9-A95A-86C1F336E1DA}"
+              contactInfo="Destino de Excel;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;0"
+              description="Destino de Excel"
+              name="Guardar log de error 3"
+              usesDispositions="true">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="Número de segundos antes de que se agote el tiempo de espera de un comando. Un valor de 0 indica un tiempo de espera infinito."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Especifica el nombre del objeto de base de datos usado para abrir un conjunto de filas."
+                  name="OpenRowset">Errores$</property>
+                <property
+                  dataType="System.String"
+                  description="Especifica la variable que contiene el nombre del objeto de base de datos usado para abrir un conjunto de filas."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="Comando SQL para ejecutar."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica el modo utilizado para obtener acceso a la base de datos."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indica si los valores proporcionados para columnas de identidad se van a copiar al destino. Si es False, los valores de las columnas de identidad se generan automáticamente en el destino. Sólo se aplica si está activada la carga rápida."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indica si las columnas que contienen NULL tendrán NULL insertado en el destino. Si es False, las columnas que contienen NULL tendrán sus valores predeterminados insertados en el destino. Sólo se aplica si está activada la carga rápida."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Especifica opciones para usar con la carga rápida. Sólo se aplica si está activada la carga rápida."
+                  name="FastLoadOptions"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica cuándo se emiten confirmaciones durante la inserción de datos. El valor 0 especifica que se emitirá una confirmación al final de la inserción de datos. Sólo se aplica si está activada la carga rápida."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Dim_Region\Guardar log de error 3.Connections[OleDbConnection]"
+                  connectionManagerID="{A10E25AD-D3E7-4778-979A-835536D36EA4}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[logErrores]"
+                  description="La conexión de tiempo de ejecución OLE DB usada para obtener acceso a la base de datos."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Dim_Region\Guardar log de error 3.Inputs[Entrada de destino de Excel]"
+                  errorOrTruncationOperation="Insertar"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="Entrada de destino de Excel">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Dim_Region\Guardar log de error 3.Inputs[Entrada de destino de Excel].Columns[zona_geografica]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="zona_geografica"
+                      externalMetadataColumnId="Package\Dim_Region\Guardar log de error 3.Inputs[Entrada de destino de Excel].ExternalColumns[Auxiliar 3]"
+                      lineageId="Package\Dim_Region\Origen de Excel.Outputs[Salida de origen de Excel].Columns[zona_geografica]" />
+                    <inputColumn
+                      refId="Package\Dim_Region\Guardar log de error 3.Inputs[Entrada de destino de Excel].Columns[nombre]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="nombre"
+                      externalMetadataColumnId="Package\Dim_Region\Guardar log de error 3.Inputs[Entrada de destino de Excel].ExternalColumns[Auxiliar 2]"
+                      lineageId="Package\Dim_Region\Origen de Excel.Outputs[Salida de origen de Excel].Columns[nombre]" />
+                    <inputColumn
+                      refId="Package\Dim_Region\Guardar log de error 3.Inputs[Entrada de destino de Excel].Columns[idRegion]"
+                      cachedDataType="r8"
+                      cachedName="idRegion"
+                      externalMetadataColumnId="Package\Dim_Region\Guardar log de error 3.Inputs[Entrada de destino de Excel].ExternalColumns[Auxiliar 1]"
+                      lineageId="Package\Dim_Region\Origen de Excel.Outputs[Salida de origen de Excel].Columns[idRegion]" />
+                    <inputColumn
+                      refId="Package\Dim_Region\Guardar log de error 3.Inputs[Entrada de destino de Excel].Columns[fecha]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="fecha"
+                      externalMetadataColumnId="Package\Dim_Region\Guardar log de error 3.Inputs[Entrada de destino de Excel].ExternalColumns[Fecha]"
+                      lineageId="Package\Dim_Region\Crear descripcion del error 3.Outputs[Salida de columna derivada].Columns[fecha]" />
+                    <inputColumn
+                      refId="Package\Dim_Region\Guardar log de error 3.Inputs[Entrada de destino de Excel].Columns[error]"
+                      cachedDataType="wstr"
+                      cachedLength="16"
+                      cachedName="error"
+                      externalMetadataColumnId="Package\Dim_Region\Guardar log de error 3.Inputs[Entrada de destino de Excel].ExternalColumns[Error]"
+                      lineageId="Package\Dim_Region\Crear descripcion del error 3.Outputs[Salida de columna derivada].Columns[error]" />
+                    <inputColumn
+                      refId="Package\Dim_Region\Guardar log de error 3.Inputs[Entrada de destino de Excel].Columns[descripcion]"
+                      cachedDataType="wstr"
+                      cachedLength="51"
+                      cachedName="descripcion"
+                      externalMetadataColumnId="Package\Dim_Region\Guardar log de error 3.Inputs[Entrada de destino de Excel].ExternalColumns[Descripcion]"
+                      lineageId="Package\Dim_Region\Crear descripcion del error 3.Outputs[Salida de columna derivada].Columns[descripcion]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Dim_Region\Guardar log de error 3.Inputs[Entrada de destino de Excel].ExternalColumns[Fecha]"
+                      dataType="wstr"
+                      length="255"
+                      name="Fecha" />
+                    <externalMetadataColumn
+                      refId="Package\Dim_Region\Guardar log de error 3.Inputs[Entrada de destino de Excel].ExternalColumns[Error]"
+                      dataType="wstr"
+                      length="255"
+                      name="Error" />
+                    <externalMetadataColumn
+                      refId="Package\Dim_Region\Guardar log de error 3.Inputs[Entrada de destino de Excel].ExternalColumns[Descripcion]"
+                      dataType="wstr"
+                      length="255"
+                      name="Descripcion" />
+                    <externalMetadataColumn
+                      refId="Package\Dim_Region\Guardar log de error 3.Inputs[Entrada de destino de Excel].ExternalColumns[Auxiliar 1]"
+                      dataType="wstr"
+                      length="255"
+                      name="Auxiliar 1" />
+                    <externalMetadataColumn
+                      refId="Package\Dim_Region\Guardar log de error 3.Inputs[Entrada de destino de Excel].ExternalColumns[Auxiliar 2]"
+                      dataType="wstr"
+                      length="255"
+                      name="Auxiliar 2" />
+                    <externalMetadataColumn
+                      refId="Package\Dim_Region\Guardar log de error 3.Inputs[Entrada de destino de Excel].ExternalColumns[Auxiliar 3]"
+                      dataType="wstr"
+                      length="255"
+                      name="Auxiliar 3" />
+                    <externalMetadataColumn
+                      refId="Package\Dim_Region\Guardar log de error 3.Inputs[Entrada de destino de Excel].ExternalColumns[Auxiliar 4]"
+                      dataType="wstr"
+                      length="255"
+                      name="Auxiliar 4" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Dim_Region\Guardar log de error 3.Outputs[Salida de error de destino de Excel]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Salida de error de destino de Excel"
+                  synchronousInputId="Package\Dim_Region\Guardar log de error 3.Inputs[Entrada de destino de Excel]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Dim_Region\Guardar log de error 3.Outputs[Salida de error de destino de Excel].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Dim_Region\Guardar log de error 3.Outputs[Salida de error de destino de Excel].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Dim_Region\Guardar log de error 3.Outputs[Salida de error de destino de Excel].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Dim_Region\Guardar log de error 3.Outputs[Salida de error de destino de Excel].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Dim_Region\Origen de Excel"
+              componentClassID="{8C084929-27D1-479F-9641-ABB7CDADF1AC}"
+              contactInfo="Origen de Excel;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;1"
+              description="Origen de Excel"
+              name="Origen de Excel"
+              usesDispositions="true"
+              version="1">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="Número de segundos antes de que se agote el tiempo de espera de un comando. Un valor de 0 indica un tiempo de espera infinito."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Especifica el nombre del objeto de base de datos usado para abrir un conjunto de filas."
+                  name="OpenRowset">Regiones$</property>
+                <property
+                  dataType="System.String"
+                  description="Especifica la variable que contiene el nombre del objeto de base de datos usado para abrir un conjunto de filas."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="Comando SQL para ejecutar."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                <property
+                  dataType="System.String"
+                  description="Variable que contiene el comando SQL para ejecutar."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica el modo utilizado para obtener acceso a la base de datos."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.String"
+                  description="La asignación de parámetros del comando SQL a variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Dim_Region\Origen de Excel.Connections[OleDbConnection]"
+                  connectionManagerID="{07A1E97A-7435-4A64-821A-F49185EADC25}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[Complemento]"
+                  description="La conexión de tiempo de ejecución OLE DB usada para obtener acceso a la base de datos."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Dim_Region\Origen de Excel.Outputs[Salida de origen de Excel]"
+                  name="Salida de origen de Excel">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Dim_Region\Origen de Excel.Outputs[Salida de origen de Excel].Columns[idRegion]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Dim_Region\Origen de Excel.Outputs[Salida de origen de Excel].ExternalColumns[idRegion]"
+                      lineageId="Package\Dim_Region\Origen de Excel.Outputs[Salida de origen de Excel].Columns[idRegion]"
+                      name="idRegion"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Dim_Region\Origen de Excel.Outputs[Salida de origen de Excel].Columns[nombre]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Dim_Region\Origen de Excel.Outputs[Salida de origen de Excel].ExternalColumns[nombre]"
+                      length="255"
+                      lineageId="Package\Dim_Region\Origen de Excel.Outputs[Salida de origen de Excel].Columns[nombre]"
+                      name="nombre"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Dim_Region\Origen de Excel.Outputs[Salida de origen de Excel].Columns[zona_geografica]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Dim_Region\Origen de Excel.Outputs[Salida de origen de Excel].ExternalColumns[zona_geografica]"
+                      length="255"
+                      lineageId="Package\Dim_Region\Origen de Excel.Outputs[Salida de origen de Excel].Columns[zona_geografica]"
+                      name="zona_geografica"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Dim_Region\Origen de Excel.Outputs[Salida de origen de Excel].ExternalColumns[idRegion]"
+                      dataType="r8"
+                      name="idRegion" />
+                    <externalMetadataColumn
+                      refId="Package\Dim_Region\Origen de Excel.Outputs[Salida de origen de Excel].ExternalColumns[nombre]"
+                      dataType="wstr"
+                      length="255"
+                      name="nombre" />
+                    <externalMetadataColumn
+                      refId="Package\Dim_Region\Origen de Excel.Outputs[Salida de origen de Excel].ExternalColumns[zona_geografica]"
+                      dataType="wstr"
+                      length="255"
+                      name="zona_geografica" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Dim_Region\Origen de Excel.Outputs[Salida de error de origen de Excel]"
+                  isErrorOut="true"
+                  name="Salida de error de origen de Excel">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Dim_Region\Origen de Excel.Outputs[Salida de error de origen de Excel].Columns[idRegion]"
+                      dataType="r8"
+                      lineageId="Package\Dim_Region\Origen de Excel.Outputs[Salida de error de origen de Excel].Columns[idRegion]"
+                      name="idRegion" />
+                    <outputColumn
+                      refId="Package\Dim_Region\Origen de Excel.Outputs[Salida de error de origen de Excel].Columns[nombre]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Dim_Region\Origen de Excel.Outputs[Salida de error de origen de Excel].Columns[nombre]"
+                      name="nombre" />
+                    <outputColumn
+                      refId="Package\Dim_Region\Origen de Excel.Outputs[Salida de error de origen de Excel].Columns[zona_geografica]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Dim_Region\Origen de Excel.Outputs[Salida de error de origen de Excel].Columns[zona_geografica]"
+                      name="zona_geografica" />
+                    <outputColumn
+                      refId="Package\Dim_Region\Origen de Excel.Outputs[Salida de error de origen de Excel].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Dim_Region\Origen de Excel.Outputs[Salida de error de origen de Excel].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Dim_Region\Origen de Excel.Outputs[Salida de error de origen de Excel].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Dim_Region\Origen de Excel.Outputs[Salida de error de origen de Excel].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Dim_Region\Revisar datos nulos"
+              componentClassID="{7F88F654-4E20-4D14-84F4-AF9C925D3087}"
+              contactInfo="División condicional;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;0"
+              description="Enruta filas de datos a diferentes salidas según el contenido de los datos. Se usan condiciones (expresiones de SSIS) para especificar las filas que se van a enrutar. Por ejemplo, se usa para separar los registros que deben limpiarse de los registros listos para ser cargados o para enrutar solamente un subconjunto de registros."
+              name="Revisar datos nulos"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\Dim_Region\Revisar datos nulos.Inputs[Entrada de división condicional]"
+                  description="Entrada en la transformación División condicional"
+                  name="Entrada de división condicional">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Dim_Region\Revisar datos nulos.Inputs[Entrada de división condicional].Columns[idRegion]"
+                      cachedDataType="r8"
+                      cachedName="idRegion"
+                      lineageId="Package\Dim_Region\Origen de Excel.Outputs[Salida de origen de Excel].Columns[idRegion]" />
+                    <inputColumn
+                      refId="Package\Dim_Region\Revisar datos nulos.Inputs[Entrada de división condicional].Columns[nombre]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="nombre"
+                      lineageId="Package\Dim_Region\Origen de Excel.Outputs[Salida de origen de Excel].Columns[nombre]" />
+                    <inputColumn
+                      refId="Package\Dim_Region\Revisar datos nulos.Inputs[Entrada de división condicional].Columns[zona_geografica]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="zona_geografica"
+                      lineageId="Package\Dim_Region\Origen de Excel.Outputs[Salida de origen de Excel].Columns[zona_geografica]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Dim_Region\Revisar datos nulos.Outputs[Sin datos nulos]"
+                  description="Salida 1 de la transformación División condicional"
+                  errorOrTruncationOperation="Cálculo"
+                  errorRowDisposition="FailComponent"
+                  exclusionGroup="1"
+                  name="Sin datos nulos"
+                  synchronousInputId="Package\Dim_Region\Revisar datos nulos.Inputs[Entrada de división condicional]"
+                  truncationRowDisposition="FailComponent">
+                  <properties>
+                    <property
+                      containsID="true"
+                      dataType="System.String"
+                      description="Especifica la expresión. Esta versión de expresión usa identificadores de linaje en lugar de nombres de columna."
+                      name="Expression">![ISNULL](#{Package\Dim_Region\Origen de Excel.Outputs[Salida de origen de Excel].Columns[idRegion]}) &amp;&amp; ![ISNULL](#{Package\Dim_Region\Origen de Excel.Outputs[Salida de origen de Excel].Columns[nombre]}) &amp;&amp; ![ISNULL](#{Package\Dim_Region\Origen de Excel.Outputs[Salida de origen de Excel].Columns[zona_geografica]})</property>
+                    <property
+                      containsID="true"
+                      dataType="System.String"
+                      description="Especifica la versión descriptiva de la expresión. Esta versión de expresión usa nombres de columna."
+                      expressionType="Notify"
+                      name="FriendlyExpression">!ISNULL(idRegion) &amp;&amp; !ISNULL(nombre) &amp;&amp; !ISNULL(zona_geografica)</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Especifica la posición de la condición en la lista de condiciones que evalúa la transformación. El orden de evaluación es del menor al mayor valor."
+                      name="EvaluationOrder">0</property>
+                  </properties>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Dim_Region\Revisar datos nulos.Outputs[Hay datos nulos]"
+                  description="Salida predeterminada de la transformación División condicional"
+                  exclusionGroup="1"
+                  name="Hay datos nulos"
+                  synchronousInputId="Package\Dim_Region\Revisar datos nulos.Inputs[Entrada de división condicional]">
+                  <properties>
+                    <property
+                      dataType="System.Boolean"
+                      name="IsDefaultOut">true</property>
+                  </properties>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Dim_Region\Revisar datos nulos.Outputs[Salida de error de división condicional]"
+                  description="Salida de error de la transformación División condicional"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Salida de error de división condicional"
+                  synchronousInputId="Package\Dim_Region\Revisar datos nulos.Inputs[Entrada de división condicional]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Dim_Region\Revisar datos nulos.Outputs[Salida de error de división condicional].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Dim_Region\Revisar datos nulos.Outputs[Salida de error de división condicional].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Dim_Region\Revisar datos nulos.Outputs[Salida de error de división condicional].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Dim_Region\Revisar datos nulos.Outputs[Salida de error de división condicional].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Dim_Region\Revisar si region ya existe"
+              componentClassID="{671046B0-AA63-4C9F-90E4-C06E0B710CE3}"
+              contactInfo="Búsqueda;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;6"
+              description="Combina columnas adicionales con el flujo de datos mediante la búsqueda de valores en una tabla. Por ejemplo, se combina la columna 'id. de empleado' con la tabla de empleados para obtener la 'fecha de contratación' y 'el nombre de empleado'. Se recomienda esta transformación cuando hay suficiente espacio en memoria para la tabla de búsqueda."
+              name="Revisar si region ya existe"
+              usesDispositions="true"
+              version="6">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Especifica la instrucción SQL que genera la tabla de búsqueda."
+                  expressionType="Notify"
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">select * from [dbo].[Dim_Region]</property>
+                <property
+                  dataType="System.String"
+                  description="Especifica una instrucción SQL que usa parámetros para generar la tabla de búsqueda."
+                  expressionType="Notify"
+                  name="SqlCommandParam"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">select * from (select * from [dbo].[Dim_Region]) [refTable]
+where [refTable].[idRegion] = ?</property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica el tipo de conexión utilizado para tener acceso al conjunto de datos de referencia."
+                  name="ConnectionType"
+                  typeConverter="LookupConnectionType">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica el tipo de caché de la tabla de búsqueda."
+                  name="CacheType"
+                  typeConverter="CacheType">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica cómo la transformación de búsquedas trata las filas sin entradas coincidentes en el conjunto de datos de referencia."
+                  name="NoMatchBehavior"
+                  typeConverter="LookupNoMatchBehavior">1</property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica el porcentaje de la caché asignado a las filas sin entradas coincidentes en el conjunto de datos de referencia."
+                  name="NoMatchCachePercentage">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Uso de memoria máximo para la caché de referencia en una plataforma de 32 bits."
+                  name="MaxMemoryUsage">25</property>
+                <property
+                  dataType="System.Int64"
+                  description="Uso de memoria máximo para la caché de referencia en una plataforma de 64 bits."
+                  name="MaxMemoryUsage64">25</property>
+                <property
+                  dataType="System.String"
+                  description="Indica si se debe hacer referencia a metadatos en formato XML."
+                  name="ReferenceMetadataXml">&lt;referenceMetadata&gt;&lt;referenceColumns&gt;&lt;referenceColumn name="regionKey" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="idRegion" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="nombreRegion" dataType="DT_STR" length="50" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="zonaGeografica" dataType="DT_STR" length="50" precision="0" scale="0" codePage="1252"/&gt;&lt;/referenceColumns&gt;&lt;/referenceMetadata&gt;</property>
+                <property
+                  containsID="true"
+                  dataType="System.String"
+                  description="Especifica la lista de identificadores de linaje que están asignados a los parámetros que usa la instrucción SQL de la propiedad SQLCommand. Las entradas de la lista están separadas por puntos y comas."
+                  name="ParameterMap">#{Package\Dim_Region\Conversión de datos.Outputs[Salida de conversión de datos].Columns[Copia de idRegion]};</property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica la página de códigos de columna para utilizar cuando la información de página de códigos no está disponible en el origen de datos."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Determina si las claves duplicadas de los datos de referencia se deben tratar como errores cuando se usa el modo de caché."
+                  name="TreatDuplicateKeysAsError">false</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Dim_Region\Revisar si region ya existe.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[WJGIRALDO-PC.DW_Parque 1]"
+                  connectionManagerRefId="Package.ConnectionManagers[WJGIRALDO-PC.DW_Parque 1]"
+                  description="Administrador de conexiones utilizado para obtener acceso a los datos de búsqueda."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Dim_Region\Revisar si region ya existe.Inputs[Entrada de búsqueda]"
+                  name="Entrada de búsqueda">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Dim_Region\Revisar si region ya existe.Inputs[Entrada de búsqueda].Columns[Copia de idRegion]"
+                      cachedDataType="i4"
+                      cachedName="Copia de idRegion"
+                      lineageId="Package\Dim_Region\Conversión de datos.Outputs[Salida de conversión de datos].Columns[Copia de idRegion]">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Especifica la columna de la tabla de referencia con la que se combina una columna."
+                          name="JoinToReferenceColumn">idRegion</property>
+                        <property
+                          dataType="System.Null"
+                          description="Especifica la columna de la tabla de referencia de la que se copia una columna."
+                          name="CopyFromReferenceColumn" />
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Dim_Region\Revisar si region ya existe.Outputs[Salida de entradas coincidentes de búsqueda]"
+                  errorOrTruncationOperation="Búsqueda"
+                  exclusionGroup="1"
+                  name="Salida de entradas coincidentes de búsqueda"
+                  synchronousInputId="Package\Dim_Region\Revisar si region ya existe.Inputs[Entrada de búsqueda]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Dim_Region\Revisar si region ya existe.Outputs[Salida de entradas no coincidentes de búsqueda]"
+                  description="Salida de búsqueda que trata las filas sin entradas coincidentes en el conjunto de datos de referencia. Utilice esta salida cuando la propiedad NoMatchBehavior esté establecida en &quot;Enviar las filas sin entradas coincidentes a la salida de entradas no coincidentes&quot;."
+                  exclusionGroup="1"
+                  name="Salida de entradas no coincidentes de búsqueda"
+                  synchronousInputId="Package\Dim_Region\Revisar si region ya existe.Inputs[Entrada de búsqueda]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Dim_Region\Revisar si region ya existe.Outputs[Salida de error de búsqueda]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Salida de error de búsqueda"
+                  synchronousInputId="Package\Dim_Region\Revisar si region ya existe.Inputs[Entrada de búsqueda]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Dim_Region\Revisar si region ya existe.Outputs[Salida de error de búsqueda].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Dim_Region\Revisar si region ya existe.Outputs[Salida de error de búsqueda].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Dim_Region\Revisar si region ya existe.Outputs[Salida de error de búsqueda].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Dim_Region\Revisar si region ya existe.Outputs[Salida de error de búsqueda].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Dim_Region\Revisar Zona Geografica"
+              componentClassID="{7F88F654-4E20-4D14-84F4-AF9C925D3087}"
+              contactInfo="División condicional;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;0"
+              description="Enruta filas de datos a diferentes salidas según el contenido de los datos. Se usan condiciones (expresiones de SSIS) para especificar las filas que se van a enrutar. Por ejemplo, se usa para separar los registros que deben limpiarse de los registros listos para ser cargados o para enrutar solamente un subconjunto de registros."
+              name="Revisar Zona Geografica"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\Dim_Region\Revisar Zona Geografica.Inputs[Entrada de división condicional]"
+                  description="Entrada en la transformación División condicional"
+                  name="Entrada de división condicional">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Dim_Region\Revisar Zona Geografica.Inputs[Entrada de división condicional].Columns[zona_geografica]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="zona_geografica"
+                      lineageId="Package\Dim_Region\Origen de Excel.Outputs[Salida de origen de Excel].Columns[zona_geografica]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Dim_Region\Revisar Zona Geografica.Outputs[ZG Reconocida]"
+                  description="Salida 1 de la transformación División condicional"
+                  errorOrTruncationOperation="Cálculo"
+                  errorRowDisposition="FailComponent"
+                  exclusionGroup="1"
+                  name="ZG Reconocida"
+                  synchronousInputId="Package\Dim_Region\Revisar Zona Geografica.Inputs[Entrada de división condicional]"
+                  truncationRowDisposition="FailComponent">
+                  <properties>
+                    <property
+                      containsID="true"
+                      dataType="System.String"
+                      description="Especifica la expresión. Esta versión de expresión usa identificadores de linaje en lugar de nombres de columna."
+                      name="Expression">#{Package\Dim_Region\Origen de Excel.Outputs[Salida de origen de Excel].Columns[zona_geografica]} == "America del norte" || #{Package\Dim_Region\Origen de Excel.Outputs[Salida de origen de Excel].Columns[zona_geografica]} == "America del sur" || #{Package\Dim_Region\Origen de Excel.Outputs[Salida de origen de Excel].Columns[zona_geografica]} == "Centro America" || #{Package\Dim_Region\Origen de Excel.Outputs[Salida de origen de Excel].Columns[zona_geografica]} == "Europa" || #{Package\Dim_Region\Origen de Excel.Outputs[Salida de origen de Excel].Columns[zona_geografica]} == "Asia" || #{Package\Dim_Region\Origen de Excel.Outputs[Salida de origen de Excel].Columns[zona_geografica]} == "Africa" || #{Package\Dim_Region\Origen de Excel.Outputs[Salida de origen de Excel].Columns[zona_geografica]} == "Oceania"</property>
+                    <property
+                      containsID="true"
+                      dataType="System.String"
+                      description="Especifica la versión descriptiva de la expresión. Esta versión de expresión usa nombres de columna."
+                      expressionType="Notify"
+                      name="FriendlyExpression">zona_geografica == "America del norte" || zona_geografica == "America del sur" || zona_geografica == "Centro America" || zona_geografica == "Europa" || zona_geografica == "Asia" || zona_geografica == "Africa" || zona_geografica == "Oceania"</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Especifica la posición de la condición en la lista de condiciones que evalúa la transformación. El orden de evaluación es del menor al mayor valor."
+                      name="EvaluationOrder">0</property>
+                  </properties>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Dim_Region\Revisar Zona Geografica.Outputs[ZG no reconocida]"
+                  description="Salida predeterminada de la transformación División condicional"
+                  exclusionGroup="1"
+                  name="ZG no reconocida"
+                  synchronousInputId="Package\Dim_Region\Revisar Zona Geografica.Inputs[Entrada de división condicional]">
+                  <properties>
+                    <property
+                      dataType="System.Boolean"
+                      name="IsDefaultOut">true</property>
+                  </properties>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Dim_Region\Revisar Zona Geografica.Outputs[Salida de error de división condicional]"
+                  description="Salida de error de la transformación División condicional"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Salida de error de división condicional"
+                  synchronousInputId="Package\Dim_Region\Revisar Zona Geografica.Inputs[Entrada de división condicional]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Dim_Region\Revisar Zona Geografica.Outputs[Salida de error de división condicional].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Dim_Region\Revisar Zona Geografica.Outputs[Salida de error de división condicional].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Dim_Region\Revisar Zona Geografica.Outputs[Salida de error de división condicional].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Dim_Region\Revisar Zona Geografica.Outputs[Salida de error de división condicional].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\Dim_Region.Paths[Hay datos nulos]"
+              endId="Package\Dim_Region\Crear descripcion del error.Inputs[Entrada de columna derivada]"
+              name="Hay datos nulos"
+              startId="Package\Dim_Region\Revisar datos nulos.Outputs[Hay datos nulos]" />
+            <path
+              refId="Package\Dim_Region.Paths[Salida de columna derivada2]"
+              endId="Package\Dim_Region\Guardar log de error 2.Inputs[Entrada de destino de Excel]"
+              name="Salida de columna derivada"
+              startId="Package\Dim_Region\Crear descripcion del error 2.Outputs[Salida de columna derivada]" />
+            <path
+              refId="Package\Dim_Region.Paths[Salida de columna derivada1]"
+              endId="Package\Dim_Region\Guardar log de error.Inputs[Entrada de destino de Excel]"
+              name="Salida de columna derivada"
+              startId="Package\Dim_Region\Crear descripcion del error.Outputs[Salida de columna derivada]" />
+            <path
+              refId="Package\Dim_Region.Paths[Salida de columna derivada]"
+              endId="Package\Dim_Region\Guardar log de error 3.Inputs[Entrada de destino de Excel]"
+              name="Salida de columna derivada"
+              startId="Package\Dim_Region\Crear descripcion del error 3.Outputs[Salida de columna derivada]" />
+            <path
+              refId="Package\Dim_Region.Paths[Salida de conversión de datos]"
+              endId="Package\Dim_Region\Revisar Zona Geografica.Inputs[Entrada de división condicional]"
+              name="Salida de conversión de datos"
+              startId="Package\Dim_Region\Conversión de datos.Outputs[Salida de conversión de datos]" />
+            <path
+              refId="Package\Dim_Region.Paths[Salida de entradas coincidentes de búsqueda]"
+              endId="Package\Dim_Region\Crear descripcion del error 3.Inputs[Entrada de columna derivada]"
+              name="Salida de entradas coincidentes de búsqueda"
+              startId="Package\Dim_Region\Revisar si region ya existe.Outputs[Salida de entradas coincidentes de búsqueda]" />
+            <path
+              refId="Package\Dim_Region.Paths[Salida de entradas no coincidentes de búsqueda]"
+              endId="Package\Dim_Region\Guardar en bodega.Inputs[Entrada de destino de OLE DB]"
+              name="Salida de entradas no coincidentes de búsqueda"
+              startId="Package\Dim_Region\Revisar si region ya existe.Outputs[Salida de entradas no coincidentes de búsqueda]" />
+            <path
+              refId="Package\Dim_Region.Paths[Salida de origen de Excel]"
+              endId="Package\Dim_Region\Revisar datos nulos.Inputs[Entrada de división condicional]"
+              name="Salida de origen de Excel"
+              startId="Package\Dim_Region\Origen de Excel.Outputs[Salida de origen de Excel]" />
+            <path
+              refId="Package\Dim_Region.Paths[Sin datos nulos]"
+              endId="Package\Dim_Region\Conversión de datos.Inputs[Entrada de conversión de datos]"
+              name="Sin datos nulos"
+              startId="Package\Dim_Region\Revisar datos nulos.Outputs[Sin datos nulos]" />
+            <path
+              refId="Package\Dim_Region.Paths[ZG no reconocida]"
+              endId="Package\Dim_Region\Crear descripcion del error 2.Inputs[Entrada de columna derivada]"
+              name="ZG no reconocida"
+              startId="Package\Dim_Region\Revisar Zona Geografica.Outputs[ZG no reconocida]" />
+            <path
+              refId="Package\Dim_Region.Paths[ZG Reconocida]"
+              endId="Package\Dim_Region\Revisar si region ya existe.Inputs[Entrada de búsqueda]"
+              name="ZG Reconocida"
+              startId="Package\Dim_Region\Revisar Zona Geografica.Outputs[ZG Reconocida]" />
+          </paths>
+        </pipeline>
       </DTS:ObjectData>
     </DTS:Executable>
     <DTS:Executable
@@ -2113,14 +3884,6 @@ where [refTable].[idParque] = ? and [refTable].[nombreParque] = ? and [refTable]
       DTS:ObjectName="Restricción 1"
       DTS:To="Package\Dim_Cliente" />
     <DTS:PrecedenceConstraint
-      DTS:refId="Package.PrecedenceConstraints[Restricción 1 1]"
-      DTS:CreationName=""
-      DTS:DTSID="{d898e93a-e277-4ee0-98fd-53eae2587424}"
-      DTS:From="Package\Dim_Region"
-      DTS:LogicalAnd="True"
-      DTS:ObjectName="Restricción 1 1"
-      DTS:To="Package\Fact_Venta_Entrada_Escuela" />
-    <DTS:PrecedenceConstraint
       DTS:refId="Package.PrecedenceConstraints[Restricción 2]"
       DTS:CreationName=""
       DTS:DTSID="{5DA1FBDD-A938-4DFD-9928-FE5729CD8EAF}"
@@ -2184,6 +3947,14 @@ where [refTable].[idParque] = ? and [refTable].[nombreParque] = ? and [refTable]
       DTS:LogicalAnd="True"
       DTS:ObjectName="Restricción 6"
       DTS:To="Package\Fact_Stock_Disponible" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Restricción 7]"
+      DTS:CreationName=""
+      DTS:DTSID="{96883868-F5A2-4C0A-A3F7-F8206F5D2737}"
+      DTS:From="Package\Dim_Region"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Restricción 7"
+      DTS:To="Package\Dim_Parque" />
   </DTS:PrecedenceConstraints>
   <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
 <!--Esta sección CDATA contiene la información de diseño del paquete. Esta sección incluye información como, por ejemplo, las coordenadas (x,y), el ancho y el alto.-->
@@ -2216,7 +3987,7 @@ where [refTable].[idParque] = ? and [refTable].[nombreParque] = ? and [refTable]
         <NodeLayout
           Size="138,42"
           Id="Package\Dim_Parque"
-          TopLeft="251.555555555555,64" />
+          TopLeft="189.555555555555,119" />
         <NodeLayout
           Size="147,42"
           Id="Package\Dim_Producto"
@@ -2224,7 +3995,7 @@ where [refTable].[idParque] = ? and [refTable].[nombreParque] = ? and [refTable]
         <NodeLayout
           Size="138,42"
           Id="Package\Dim_Region"
-          TopLeft="81.555555555555,66" />
+          TopLeft="74.555555555555,39" />
         <NodeLayout
           Size="186,42"
           Id="Package\Fact_Stock_Disponible"
@@ -2293,40 +4064,6 @@ where [refTable].[idParque] = ? and [refTable].[nombreParque] = ? and [refTable]
                   Capacity="5">
                   <mssgle:LineSegment
                     End="0,38.5000000000001" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package.PrecedenceConstraints[Restricción 1 1]"
-          TopLeft="150.555555555555,108">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="226.8,88"
-              Start="0,0"
-              End="226.8,80.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,57.8794556059624" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,57.8794556059624"
-                    Point2="0,61.8794556059624"
-                    Point3="4,61.8794556059624" />
-                  <mssgle:LineSegment
-                    End="222.8,61.8794556059624" />
-                  <mssgle:CubicBezierSegment
-                    Point1="222.8,61.8794556059624"
-                    Point2="226.8,61.8794556059624"
-                    Point3="226.8,65.8794556059624" />
-                  <mssgle:LineSegment
-                    End="226.8,80.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -2505,30 +4242,30 @@ where [refTable].[idParque] = ? and [refTable].[nombreParque] = ? and [refTable]
         </EdgeLayout>
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Restricción 5]"
-          TopLeft="320.555555555555,106">
+          TopLeft="258.555555555555,161">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="98.6,90"
+              EndConnector="129.25,35"
               Start="0,0"
-              End="98.6,82.5">
+              End="129.25,27.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,45.7960224375319" />
+                    End="0,19.0500758725341" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,45.7960224375319"
-                    Point2="0,49.7960224375319"
-                    Point3="4,49.7960224375319" />
+                    Point1="0,19.0500758725341"
+                    Point2="0,23.0500758725341"
+                    Point3="4,23.0500758725341" />
                   <mssgle:LineSegment
-                    End="94.6,49.7960224375319" />
+                    End="125.25,23.0500758725341" />
                   <mssgle:CubicBezierSegment
-                    Point1="94.6,49.7960224375319"
-                    Point2="98.6,49.7960224375319"
-                    Point3="98.6,53.7960224375319" />
+                    Point1="125.25,23.0500758725341"
+                    Point2="129.25,23.0500758725341"
+                    Point3="129.25,27.0500758725341" />
                   <mssgle:LineSegment
-                    End="98.6,82.5" />
+                    End="129.25,27.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -2559,6 +4296,40 @@ where [refTable].[idParque] = ? and [refTable].[nombreParque] = ? and [refTable]
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Restricción 7]"
+          TopLeft="143.555555555555,81">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="115,38"
+              Start="0,0"
+              End="115,30.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,15" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,15"
+                    Point2="0,19"
+                    Point3="4,19" />
+                  <mssgle:LineSegment
+                    End="111,19" />
+                  <mssgle:CubicBezierSegment
+                    Point1="111,19"
+                    Point2="115,19"
+                    Point3="115,23" />
+                  <mssgle:LineSegment
+                    End="115,30.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
       </GraphLayout>
     </LayoutInfo>
   </Package>
@@ -2568,133 +4339,87 @@ where [refTable].[idParque] = ? and [refTable].[nombreParque] = ? and [refTable]
       <GraphLayout
         Capacity="32" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
-          Size="114,42"
-          Id="Package\Dim_Parque\Parque"
-          TopLeft="256,57" />
-        <NodeLayout
-          Size="209,42"
-          Id="Package\Dim_Parque\Revisar si existe en bodega"
+          Size="223,42"
+          Id="Package\Dim_Parque\Revisar si ya existe en bodega"
           TopLeft="209,392" />
         <NodeLayout
-          Size="177,42"
-          Id="Package\Dim_Parque\Conversión de datos"
-          TopLeft="290,278" />
-        <EdgeLayout
-          Id="Package\Dim_Parque.Paths[Salida de conversión de datos]"
-          TopLeft="378.5,320">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="-65,72"
-              Start="0,0"
-              End="-65,64.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,32" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,32"
-                    Point2="0,36"
-                    Point3="-4,36" />
-                  <mssgle:LineSegment
-                    End="-61,36" />
-                  <mssgle:CubicBezierSegment
-                    Point1="-61,36"
-                    Point2="-65,36"
-                    Point3="-65,40" />
-                  <mssgle:LineSegment
-                    End="-65,64.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
+          Size="215,42"
+          Id="Package\Dim_Parque\Crear descripcion del error 3"
+          TopLeft="356.666666666667,665.666666666667" />
         <NodeLayout
-          Size="173,42"
-          Id="Package\Dim_Parque\División condicional"
-          TopLeft="400,174" />
-        <EdgeLayout
-          Id="Package\Dim_Parque.Paths[Salida de origen de Excel]"
-          TopLeft="313,99">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="173.5,75"
-              Start="0,0"
-              End="173.5,67.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,33.5" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,33.5"
-                    Point2="0,37.5"
-                    Point3="4,37.5" />
-                  <mssgle:LineSegment
-                    End="169.5,37.5" />
-                  <mssgle:CubicBezierSegment
-                    Point1="169.5,37.5"
-                    Point2="173.5,37.5"
-                    Point3="173.5,41.5" />
-                  <mssgle:LineSegment
-                    End="173.5,67.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
+          Size="114,42"
+          Id="Package\Dim_Parque\Parque"
+          TopLeft="258.222222222222,93.6666666666667" />
         <NodeLayout
           Size="182,42"
           Id="Package\Dim_Parque\Generar reporte error"
           TopLeft="590,446" />
+        <NodeLayout
+          Size="206,42"
+          Id="Package\Dim_Parque\Crear descripcion del error"
+          TopLeft="592,348" />
+        <NodeLayout
+          Size="170,42"
+          Id="Package\Dim_Parque\Destino de OLE DB"
+          TopLeft="0,660" />
+        <NodeLayout
+          Size="264,42"
+          Id="Package\Dim_Parque\Revisar que exista la region en bodega"
+          TopLeft="46,544" />
+        <NodeLayout
+          Size="192,42"
+          Id="Package\Dim_Parque\Generar reporte error 2"
+          TopLeft="675.666666666667,606.666666666667" />
+        <NodeLayout
+          Size="215,42"
+          Id="Package\Dim_Parque\Crear descripcion del error 2"
+          TopLeft="443,542" />
+        <NodeLayout
+          Size="173,42"
+          Id="Package\Dim_Parque\División condicional"
+          TopLeft="400,174" />
+        <NodeLayout
+          Size="177,42"
+          Id="Package\Dim_Parque\Conversión de datos"
+          TopLeft="290,278" />
+        <NodeLayout
+          Size="192,42"
+          Id="Package\Dim_Parque\Generar reporte error 3"
+          TopLeft="167.222222222222,725.777777777778" />
         <EdgeLayout
-          Id="Package\Dim_Parque.Paths[Sin Datos nulos]"
-          TopLeft="459,216">
+          Id="Package\Dim_Parque.Paths[Salida de columna derivada2]"
+          TopLeft="550.5,584">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="-80.5,62"
+              EndConnector="221.166666666667,22.6666666666667"
               Start="0,0"
-              End="-80.5,54.5">
+              End="221.166666666667,15.1666666666667">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,21.1408934707904" />
+                    End="0,7.33333333333337" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,21.1408934707904"
-                    Point2="0,25.1408934707904"
-                    Point3="-4,25.1408934707904" />
+                    Point1="0,7.33333333333337"
+                    Point2="0,11.3333333333334"
+                    Point3="4,11.3333333333334" />
                   <mssgle:LineSegment
-                    End="-76.5,25.1408934707904" />
+                    End="217.166666666667,11.3333333333334" />
                   <mssgle:CubicBezierSegment
-                    Point1="-76.5,25.1408934707904"
-                    Point2="-80.5,25.1408934707904"
-                    Point3="-80.5,29.1408934707904" />
+                    Point1="217.166666666667,11.3333333333334"
+                    Point2="221.166666666667,11.3333333333334"
+                    Point3="221.166666666667,15.3333333333334" />
                   <mssgle:LineSegment
-                    End="-80.5,54.5" />
+                    End="221.166666666667,15.1666666666667" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="-74.1182421875,30.1408934707904,67.736484375,7.7490234375"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="206,42"
-          Id="Package\Dim_Parque\Crear descripcion del error"
-          TopLeft="592,348" />
         <EdgeLayout
           Id="Package\Dim_Parque.Paths[Con Datos nulos]"
           TopLeft="514,216">
@@ -2732,109 +4457,67 @@ where [refTable].[idParque] = ? and [refTable].[nombreParque] = ? and [refTable]
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package\Dim_Parque.Paths[Salida de columna derivada1]"
-          TopLeft="695,390">
+          Id="Package\Dim_Parque.Paths[Sin Datos nulos]"
+          TopLeft="459,216">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="-14,56"
+              EndConnector="-80.5,62"
               Start="0,0"
-              End="-14,48.5">
+              End="-80.5,54.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,24" />
+                    End="0,21.1408934707904" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,24"
-                    Point2="0,28"
-                    Point3="-4,28" />
+                    Point1="0,21.1408934707904"
+                    Point2="0,25.1408934707904"
+                    Point3="-4,25.1408934707904" />
                   <mssgle:LineSegment
-                    End="-10,28" />
+                    End="-76.5,25.1408934707904" />
                   <mssgle:CubicBezierSegment
-                    Point1="-10,28"
-                    Point2="-14,28"
-                    Point3="-14,32" />
+                    Point1="-76.5,25.1408934707904"
+                    Point2="-80.5,25.1408934707904"
+                    Point3="-80.5,29.1408934707904" />
                   <mssgle:LineSegment
-                    End="-14,48.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <NodeLayout
-          Size="215,42"
-          Id="Package\Dim_Parque\Crear descripcion del error 2"
-          TopLeft="443,542" />
-        <EdgeLayout
-          Id="Package\Dim_Parque.Paths[Salida de entradas coincidentes de búsqueda1]"
-          TopLeft="347,434">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="203.5,108"
-              Start="0,0"
-              End="203.5,100.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,39.6923076923077" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,39.6923076923077"
-                    Point2="0,43.6923076923077"
-                    Point3="4,43.6923076923077" />
-                  <mssgle:LineSegment
-                    End="199.5,43.6923076923077" />
-                  <mssgle:CubicBezierSegment
-                    Point1="199.5,43.6923076923077"
-                    Point2="203.5,43.6923076923077"
-                    Point3="203.5,47.6923076923077" />
-                  <mssgle:LineSegment
-                    End="203.5,100.5" />
+                    End="-80.5,54.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="2.93097656249999,48.6923076923077,197.638046875,10.1953125"
+              BoundingBox="-74.1182421875,30.1408934707904,67.736484375,7.7490234375"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="192,42"
-          Id="Package\Dim_Parque\Generar reporte error 2"
-          TopLeft="509,640" />
         <EdgeLayout
-          Id="Package\Dim_Parque.Paths[Salida de columna derivada]"
-          TopLeft="550.5,584">
+          Id="Package\Dim_Parque.Paths[Salida de origen de Excel]"
+          TopLeft="315.222222222222,135.666666666667">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="54.5,56"
+              EndConnector="171.277777777778,38.3333333333333"
               Start="0,0"
-              End="54.5,48.5">
+              End="171.277777777778,30.8333333333333">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,24" />
+                    End="0,15.1666666666667" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,24"
-                    Point2="0,28"
-                    Point3="4,28" />
+                    Point1="0,15.1666666666667"
+                    Point2="0,19.1666666666667"
+                    Point3="4,19.1666666666667" />
                   <mssgle:LineSegment
-                    End="50.5,28" />
+                    End="167.277777777778,19.1666666666667" />
                   <mssgle:CubicBezierSegment
-                    Point1="50.5,28"
-                    Point2="54.5,28"
-                    Point3="54.5,32" />
+                    Point1="167.277777777778,19.1666666666667"
+                    Point2="171.277777777778,19.1666666666667"
+                    Point3="171.277777777778,23.1666666666667" />
                   <mssgle:LineSegment
-                    End="54.5,48.5" />
+                    End="171.277777777778,30.8333333333333" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -2843,52 +4526,116 @@ where [refTable].[idParque] = ? and [refTable].[nombreParque] = ? and [refTable]
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="170,42"
-          Id="Package\Dim_Parque\Destino de OLE DB"
-          TopLeft="0,660" />
-        <NodeLayout
-          Size="264,42"
-          Id="Package\Dim_Parque\Revisar que exista la region en bodega"
-          TopLeft="46,544" />
         <EdgeLayout
-          Id="Package\Dim_Parque.Paths[Salida de entradas no coincidentes de búsqueda1]"
-          TopLeft="280,434">
+          Id="Package\Dim_Parque.Paths[Salida de entradas no coincidentes de búsqueda]"
+          TopLeft="284.666666666667,434">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="-102,110"
+              EndConnector="-106.666666666667,110"
               Start="0,0"
-              End="-102,102.5">
+              End="-106.666666666667,102.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,40.5014245014245" />
+                    End="0,40.4701691896705" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,40.5014245014245"
-                    Point2="0,44.5014245014245"
-                    Point3="-4,44.5014245014245" />
+                    Point1="0,40.4701691896705"
+                    Point2="0,44.4701691896705"
+                    Point3="-4,44.4701691896705" />
                   <mssgle:LineSegment
-                    End="-98,44.5014245014245" />
+                    End="-102.666666666667,44.4701691896705" />
                   <mssgle:CubicBezierSegment
-                    Point1="-98,44.5014245014245"
-                    Point2="-102,44.5014245014245"
-                    Point3="-102,48.5014245014245" />
+                    Point1="-102.666666666667,44.4701691896705"
+                    Point2="-106.666666666667,44.4701691896705"
+                    Point3="-106.666666666667,48.4701691896705" />
                   <mssgle:LineSegment
-                    End="-102,102.5" />
+                    End="-106.666666666667,102.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="-156.8890234375,49.5014245014245,211.778046875,10.1953125"
+              BoundingBox="-159.222356770833,49.4701691896705,211.778046875,10.1953125"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Dim_Parque.Paths[Salida de entradas no coincidentes de búsqueda1]"
+          TopLeft="220.666666666667,586">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="243.5,79.6666666666667"
+              Start="0,0"
+              End="243.5,72.1666666666667">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,28.1546184738956" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,28.1546184738956"
+                    Point2="0,32.1546184738956"
+                    Point3="4,32.1546184738956" />
+                  <mssgle:LineSegment
+                    End="239.5,32.1546184738956" />
+                  <mssgle:CubicBezierSegment
+                    Point1="239.5,32.1546184738956"
+                    Point2="243.5,32.1546184738956"
+                    Point3="243.5,36.1546184738956" />
+                  <mssgle:LineSegment
+                    End="243.5,72.1666666666667" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="15.8609765625,37.1546184738956,211.778046875,10.1953125"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
           Id="Package\Dim_Parque.Paths[Salida de entradas coincidentes de búsqueda]"
+          TopLeft="356.333333333333,434">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="194.166666666667,108"
+              Start="0,0"
+              End="194.166666666667,100.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,39.6616206589492" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,39.6616206589492"
+                    Point2="0,43.6616206589492"
+                    Point3="4,43.6616206589492" />
+                  <mssgle:LineSegment
+                    End="190.166666666667,43.6616206589492" />
+                  <mssgle:CubicBezierSegment
+                    Point1="190.166666666667,43.6616206589492"
+                    Point2="194.166666666667,43.6616206589492"
+                    Point3="194.166666666667,47.6616206589492" />
+                  <mssgle:LineSegment
+                    End="194.166666666667,100.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-1.73569010416666,48.6616206589492,197.638046875,10.1953125"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Dim_Parque.Paths[Salida de entradas coincidentes de búsqueda1]"
           TopLeft="135.333333333333,586">
           <EdgeLayout.Curve>
             <mssgle:Curve
@@ -2923,28 +4670,32 @@ where [refTable].[idParque] = ? and [refTable].[nombreParque] = ? and [refTable]
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="215,42"
-          Id="Package\Dim_Parque\Crear descripcion del error 3"
-          TopLeft="350,709" />
-        <NodeLayout
-          Size="192,42"
-          Id="Package\Dim_Parque\Generar reporte error 3"
-          TopLeft="355,788" />
         <EdgeLayout
-          Id="Package\Dim_Parque.Paths[Salida de columna derivada2]"
-          TopLeft="454.25,751">
+          Id="Package\Dim_Parque.Paths[Salida de conversión de datos]"
+          TopLeft="378.5,320">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,37"
+              EndConnector="-58,72"
               Start="0,0"
-              End="0,29.5">
+              End="-58,64.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,29.5" />
+                    End="0,32" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,32"
+                    Point2="0,36"
+                    Point3="-4,36" />
+                  <mssgle:LineSegment
+                    End="-54,36" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-54,36"
+                    Point2="-58,36"
+                    Point3="-58,40" />
+                  <mssgle:LineSegment
+                    End="-58,64.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -2954,44 +4705,651 @@ where [refTable].[idParque] = ? and [refTable].[nombreParque] = ? and [refTable]
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package\Dim_Parque.Paths[Salida de entradas no coincidentes de búsqueda]"
-          TopLeft="220.666666666667,586">
+          Id="Package\Dim_Parque.Paths[Salida de columna derivada]"
+          TopLeft="356.666666666667,686.666666666667">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="236.833333333333,123"
+              EndConnector="-93.4444444444445,39.111111111111"
               Start="0,0"
-              End="236.833333333333,115.5">
+              End="-93.4444444444445,31.611111111111">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,45.644578313253" />
+                    End="-89.4444444444445,0" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,45.644578313253"
-                    Point2="0,49.644578313253"
-                    Point3="4,49.644578313253" />
+                    Point1="-89.4444444444445,0"
+                    Point2="-93.4444444444445,0"
+                    Point3="-93.4444444444445,4" />
                   <mssgle:LineSegment
-                    End="232.833333333333,49.644578313253" />
+                    End="-93.4444444444445,31.611111111111" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Dim_Parque.Paths[Salida de columna derivada1]"
+          TopLeft="695,390">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-14,56"
+              Start="0,0"
+              End="-14,48.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,24" />
                   <mssgle:CubicBezierSegment
-                    Point1="232.833333333333,49.644578313253"
-                    Point2="236.833333333333,49.644578313253"
-                    Point3="236.833333333333,53.644578313253" />
+                    Point1="0,24"
+                    Point2="0,28"
+                    Point3="-4,28" />
                   <mssgle:LineSegment
-                    End="236.833333333333,115.5" />
+                    End="-10,28" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-10,28"
+                    Point2="-14,28"
+                    Point3="-14,32" />
+                  <mssgle:LineSegment
+                    End="-14,48.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Dim_Parque\Generar reporte error">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Dim_Parque\Generar reporte error 3">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Dim_Parque\Revisar si ya existe en bodega">
+    <Properties>
+      <Property>
+        <Name>OverwriteParamsSQLProp</Name>
+        <Value
+          type="q2:string">false</Value>
+      </Property>
+      <Property>
+        <Name>UsedTableName</Name>
+        <Value
+          type="q3:string">[dbo].[Dim_Parque]</Value>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q4:string">0</Value>
+      </Property>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Dim_Parque\Parque">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Dim_Parque\Destino de OLE DB">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Dim_Parque\Revisar que exista la region en bodega">
+    <Properties>
+      <Property>
+        <Name>OverwriteParamsSQLProp</Name>
+        <Value
+          type="q2:boolean">false</Value>
+      </Property>
+      <Property>
+        <Name>UsedTableName</Name>
+        <Value
+          type="q3:string">[dbo].[Dim_Region]</Value>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q4:int">0</Value>
+      </Property>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Dim_Parque\Generar reporte error 2">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <TaskHost
+    design-time-name="Package\Dim_Region">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="32" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="155,42"
+          Id="Package\Dim_Region\Origen de Excel"
+          TopLeft="414,55" />
+        <NodeLayout
+          Size="172,42"
+          Id="Package\Dim_Region\Guardar en bodega"
+          TopLeft="16,607" />
+        <NodeLayout
+          Size="177,42"
+          Id="Package\Dim_Region\Guardar log de error"
+          TopLeft="677,368" />
+        <NodeLayout
+          Size="177,42"
+          Id="Package\Dim_Region\Conversión de datos"
+          TopLeft="343,278" />
+        <NodeLayout
+          Size="172,42"
+          Id="Package\Dim_Region\Revisar datos nulos"
+          TopLeft="402,162" />
+        <NodeLayout
+          Size="195,42"
+          Id="Package\Dim_Region\Revisar Zona Geografica"
+          TopLeft="310,391" />
+        <NodeLayout
+          Size="206,42"
+          Id="Package\Dim_Region\Crear descripcion del error"
+          TopLeft="662,273" />
+        <NodeLayout
+          Size="187,42"
+          Id="Package\Dim_Region\Guardar log de error 2"
+          TopLeft="472,600" />
+        <NodeLayout
+          Size="215,42"
+          Id="Package\Dim_Region\Crear descripcion del error 2"
+          TopLeft="439,489" />
+        <EdgeLayout
+          Id="Package\Dim_Region.Paths[Hay datos nulos]"
+          TopLeft="515.333333333333,204">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="249.666666666667,69"
+              Start="0,0"
+              End="249.666666666667,61.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,23.9815668202765" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,23.9815668202765"
+                    Point2="0,27.9815668202765"
+                    Point3="4,27.9815668202765" />
+                  <mssgle:LineSegment
+                    End="245.666666666667,27.9815668202765" />
+                  <mssgle:CubicBezierSegment
+                    Point1="245.666666666667,27.9815668202765"
+                    Point2="249.666666666667,27.9815668202765"
+                    Point3="249.666666666667,31.9815668202765" />
+                  <mssgle:LineSegment
+                    End="249.666666666667,61.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="12.5276432291667,54.644578313253,211.778046875,10.1953125"
+              BoundingBox="90.0007552083333,32.9815668202765,69.66515625,9.609375"
               RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Dim_Region.Paths[ZG no reconocida]"
+          TopLeft="438.666666666667,433">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="107.833333333333,56"
+              Start="0,0"
+              End="107.833333333333,48.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,18.6734486266531" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,18.6734486266531"
+                    Point2="0,22.6734486266531"
+                    Point3="4,22.6734486266531" />
+                  <mssgle:LineSegment
+                    End="103.833333333333,22.6734486266531" />
+                  <mssgle:CubicBezierSegment
+                    Point1="103.833333333333,22.6734486266531"
+                    Point2="107.833333333333,22.6734486266531"
+                    Point3="107.833333333333,26.6734486266531" />
+                  <mssgle:LineSegment
+                    End="107.833333333333,48.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="15.8161393229167,27.6734486266531,76.2010546875,7.7490234375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Dim_Region.Paths[Sin datos nulos]"
+          TopLeft="460.666666666667,204">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-29.1666666666667,74"
+              Start="0,0"
+              End="-29.1666666666667,66.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,26.0092165898618" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,26.0092165898618"
+                    Point2="0,30.0092165898618"
+                    Point3="-4,30.0092165898618" />
+                  <mssgle:LineSegment
+                    End="-25.1666666666667,30.0092165898618" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-25.1666666666667,30.0092165898618"
+                    Point2="-29.1666666666667,30.0092165898618"
+                    Point3="-29.1666666666667,34.0092165898618" />
+                  <mssgle:LineSegment
+                    End="-29.1666666666667,66.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-47.8265755208333,35.0092165898618,66.486484375,7.7490234375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Dim_Region.Paths[Salida de origen de Excel]"
+          TopLeft="489.75,97">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,65"
+              Start="0,0"
+              End="0,57.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,57.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Dim_Region.Paths[Salida de conversión de datos]"
+          TopLeft="431.5,320">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-24,71"
+              Start="0,0"
+              End="-24,63.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,31.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,31.5"
+                    Point2="0,35.5"
+                    Point3="-4,35.5" />
+                  <mssgle:LineSegment
+                    End="-20,35.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-20,35.5"
+                    Point2="-24,35.5"
+                    Point3="-24,39.5" />
+                  <mssgle:LineSegment
+                    End="-24,63.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Dim_Region.Paths[Salida de columna derivada1]"
+          TopLeft="765.25,315">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,53"
+              Start="0,0"
+              End="0,45.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,45.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Dim_Region.Paths[Salida de columna derivada2]"
+          TopLeft="546.5,531">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="19,69"
+              Start="0,0"
+              End="19,61.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,30.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,30.5"
+                    Point2="0,34.5"
+                    Point3="4,34.5" />
+                  <mssgle:LineSegment
+                    End="15,34.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="15,34.5"
+                    Point2="19,34.5"
+                    Point3="19,38.5" />
+                  <mssgle:LineSegment
+                    End="19,61.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="203,42"
+          Id="Package\Dim_Region\Revisar si region ya existe"
+          TopLeft="210,494" />
+        <EdgeLayout
+          Id="Package\Dim_Region.Paths[ZG Reconocida]"
+          TopLeft="376.333333333333,433">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-64.8333333333333,61"
+              Start="0,0"
+              End="-64.8333333333333,53.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,20.6978636826043" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,20.6978636826043"
+                    Point2="0,24.6978636826043"
+                    Point3="-4,24.6978636826043" />
+                  <mssgle:LineSegment
+                    End="-60.8333333333333,24.6978636826043" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-60.8333333333333,24.6978636826043"
+                    Point2="-64.8333333333333,24.6978636826043"
+                    Point3="-64.8333333333333,28.6978636826043" />
+                  <mssgle:LineSegment
+                    End="-64.8333333333333,53.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-64.7521940104167,29.6978636826043,64.6710546875,7.7490234375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Dim_Region.Paths[Salida de entradas no coincidentes de búsqueda]"
+          TopLeft="279,536">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-177,71"
+              Start="0,0"
+              End="-177,63.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,24.733137829912" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,24.733137829912"
+                    Point2="0,28.733137829912"
+                    Point3="-4,28.733137829912" />
+                  <mssgle:LineSegment
+                    End="-173,28.733137829912" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-173,28.733137829912"
+                    Point2="-177,28.733137829912"
+                    Point3="-177,32.733137829912" />
+                  <mssgle:LineSegment
+                    End="-177,63.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-194.3890234375,33.733137829912,211.778046875,10.1953125"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="215,42"
+          Id="Package\Dim_Region\Crear descripcion del error 3"
+          TopLeft="296,671" />
+        <NodeLayout
+          Size="187,42"
+          Id="Package\Dim_Region\Guardar log de error 3"
+          TopLeft="332,764" />
+        <EdgeLayout
+          Id="Package\Dim_Region.Paths[Salida de entradas coincidentes de búsqueda]"
+          TopLeft="344,536">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="59.5,135"
+              Start="0,0"
+              End="59.5,127.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,50.633431085044" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,50.633431085044"
+                    Point2="0,54.633431085044"
+                    Point3="4,54.633431085044" />
+                  <mssgle:LineSegment
+                    End="55.5,54.633431085044" />
+                  <mssgle:CubicBezierSegment
+                    Point1="55.5,54.633431085044"
+                    Point2="59.5,54.633431085044"
+                    Point3="59.5,58.633431085044" />
+                  <mssgle:LineSegment
+                    End="59.5,127.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-69.0690234375,59.633431085044,197.638046875,10.1953125"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Dim_Region.Paths[Salida de columna derivada]"
+          TopLeft="403.5,713">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="22,51"
+              Start="0,0"
+              End="22,43.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,21.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,21.5"
+                    Point2="0,25.5"
+                    Point3="4,25.5" />
+                  <mssgle:LineSegment
+                    End="18,25.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="18,25.5"
+                    Point2="22,25.5"
+                    Point3="22,29.5" />
+                  <mssgle:LineSegment
+                    End="22,43.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
     </LayoutInfo>
   </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Dim_Region\Origen de Excel">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Dim_Region\Guardar en bodega">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Dim_Region\Guardar log de error">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Dim_Region\Guardar log de error 2">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
   <TaskHost
     design-time-name="Package\Fact_Venta_Entrada_Clientes">
     <LayoutInfo>
@@ -3041,69 +5399,7 @@ where [refTable].[idParque] = ? and [refTable].[nombreParque] = ? and [refTable]
     </LayoutInfo>
   </TaskHost>
   <PipelineComponentMetadata
-    design-time-name="Package\Dim_Parque\Parque">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q2:string">Table</Value>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\Dim_Parque\Revisar si existe en bodega">
-    <Properties>
-      <Property>
-        <Name>OverwriteParamsSQLProp</Name>
-        <Value
-          type="q2:boolean">false</Value>
-      </Property>
-      <Property>
-        <Name>UsedTableName</Name>
-        <Value
-          type="q3:string">[dbo].[Dim_Parque]</Value>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q4:int">0</Value>
-      </Property>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\Dim_Parque\Generar reporte error">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q2:string">Table</Value>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\Dim_Parque\Destino de OLE DB">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q2:string">Table</Value>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\Dim_Parque\Revisar que exista la region en bodega">
+    design-time-name="Package\Dim_Region\Revisar si region ya existe">
     <Properties>
       <Property>
         <Name>OverwriteParamsSQLProp</Name>
@@ -3126,7 +5422,7 @@ where [refTable].[idParque] = ? and [refTable].[nombreParque] = ? and [refTable]
     </Properties>
   </PipelineComponentMetadata>
   <PipelineComponentMetadata
-    design-time-name="Package\Dim_Parque\Generar reporte error 3">
+    design-time-name="Package\Dim_Region\Guardar log de error 3">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
