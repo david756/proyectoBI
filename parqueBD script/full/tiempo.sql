@@ -35,7 +35,7 @@ BEGIN TRANSACTION
     SELECT @NSemana = 'Sem ' +CAST(@Semana AS CHAR(2)) + '/' + RIGHT(RTRIM(CAST(@Año as CHAR(4))),2)
     SELECT @NDia = CAST(@Dia as CHAR(2)) + ' ' + RTRIM(@NMes)
     SELECT @NDiaSemana = DATENAME(dw, @FechaDesde)
-    INSERT INTO DIM_TIEMPO
+    INSERT INTO Dim_Tiempo
     (
         tiempoKey,
         Fecha,
