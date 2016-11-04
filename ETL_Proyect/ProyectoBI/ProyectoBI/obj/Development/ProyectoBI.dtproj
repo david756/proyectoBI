@@ -26,7 +26,7 @@
           <SSIS:Property SSIS:Name="CreatorComputerName">WJGIRALDO-PC</SSIS:Property>
           <SSIS:Property SSIS:Name="Description">
           </SSIS:Property>
-          <SSIS:Property SSIS:Name="PasswordVerifier" SSIS:Sensitive="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAgZI6TXo8LECYgNPOanBWyAAAAAACAAAAAAAQZgAAAAEAACAAAACOosWUaoFBI8u5Wxdwlp/PKM3oaOHe2SQSBUHrZ/Mc3AAAAAAOgAAAAAIAACAAAAB6QeE/HmeyXESIdU53aUjoaUhhlQOS9SOmwnI687sR95AAAAAvkg4MnK3iTS2xyMW0KNxRnijmBOf5Va7gFNIGSlnsz8OT2bdiJkPG9kArIVO5t5PqeUWjB/0960JANRSBc6F5uVu4lMNfvYMNz6RGANlBpIHCsRUVVlTMx3p+RcfgncoxPcLF0uCeL9DGkrHjA2vcB0BEAUeFsNUZxLrnbrvboWZuBPELBONMVgmlb9B7PbRAAAAAqeOgDFmyjLyfNfLaSNorLUGFFhaTOBZ8BKv6Q07zkvYJOQ+ukLaXwdTmeuPAemrfYTtVFCoBegOYt4ohxhB5/Q==</SSIS:Property>
+          <SSIS:Property SSIS:Name="PasswordVerifier" SSIS:Sensitive="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAZQuMeVkXFESMkQfTatruLwAAAAACAAAAAAAQZgAAAAEAACAAAACJdphoEi2y0UZ/CEx0mAiGNWdOWASbM3F3nefMJZSqewAAAAAOgAAAAAIAACAAAABibx7xqHP0YDKEEumvM6XWMHT+tlXBVWXyIQKKPs0Jj5AAAACAU2kz7VauCW2flsJjnfkLBz3BeYT/9fuTtqSwfAvnpKbqkIoV6GuY6/fTr80Fv3LSFJSq0lMag59iInVSbpBcjRX2c4js2sgkT4Patl6MpwoZSb4XeJ4tfbg9SS8Vvb/Yv3mFSV8VskPGOzZV0X4KHwnLpO5BmEUwcoja6aV0tvd6wEZ7j2wcU7LpGTMECq1AAAAAPlp72r5aV7A2ImpJiPUu9Z1tZJ7JioyAIeSgyouWhp+9ac5WDiPAFRyiKhR6ekI7dZtIAU48mOCcelmjkMe9Iw==</SSIS:Property>
           <SSIS:Property SSIS:Name="FormatVersion">1</SSIS:Property>
         </SSIS:Properties>
         <SSIS:Packages>
@@ -611,7 +611,7 @@
                 <SSIS:Property SSIS:Name="IncludeInDebugDump">0</SSIS:Property>
                 <SSIS:Property SSIS:Name="Required">0</SSIS:Property>
                 <SSIS:Property SSIS:Name="Sensitive">0</SSIS:Property>
-                <SSIS:Property SSIS:Name="Value">Provider=Microsoft.Jet.OLEDB.4.0;Data Source=C:\Users\wjGiraldo\Desktop\proyectoBI\fuente excel\complemento.xls;Extended Properties="EXCEL 8.0;HDR=YES";</SSIS:Property>
+                <SSIS:Property SSIS:Name="Value">Provider=Microsoft.Jet.OLEDB.4.0;Data Source=C:\Users\wjGiraldo\Desktop\proyectoBI\fuente excel\complemento2.xls;Extended Properties="EXCEL 8.0;HDR=YES";</SSIS:Property>
                 <SSIS:Property SSIS:Name="DataType">18</SSIS:Property>
               </SSIS:Properties>
             </SSIS:Parameter>
@@ -626,7 +626,7 @@
                 <SSIS:Property SSIS:Name="IncludeInDebugDump">0</SSIS:Property>
                 <SSIS:Property SSIS:Name="Required">0</SSIS:Property>
                 <SSIS:Property SSIS:Name="Sensitive">0</SSIS:Property>
-                <SSIS:Property SSIS:Name="Value">C:\Users\wjGiraldo\Desktop\proyectoBI\fuente excel\complemento.xls</SSIS:Property>
+                <SSIS:Property SSIS:Name="Value">C:\Users\wjGiraldo\Desktop\proyectoBI\fuente excel\complemento2.xls</SSIS:Property>
                 <SSIS:Property SSIS:Name="DataType">18</SSIS:Property>
               </SSIS:Properties>
             </SSIS:Parameter>
@@ -699,7 +699,7 @@
                 <SSIS:Property SSIS:Name="IncludeInDebugDump">0</SSIS:Property>
                 <SSIS:Property SSIS:Name="Required">0</SSIS:Property>
                 <SSIS:Property SSIS:Name="Sensitive">0</SSIS:Property>
-                <SSIS:Property SSIS:Name="Value">C:\Users\wjGiraldo\Desktop\proyectoBI\fuente excel\complemento.xls</SSIS:Property>
+                <SSIS:Property SSIS:Name="Value">C:\Users\wjGiraldo\Desktop\proyectoBI\fuente excel\complemento2.xls</SSIS:Property>
                 <SSIS:Property SSIS:Name="DataType">18</SSIS:Property>
               </SSIS:Properties>
             </SSIS:Parameter>
@@ -725,10 +725,10 @@
                 <SSIS:Property SSIS:Name="Name">Package</SSIS:Property>
                 <SSIS:Property SSIS:Name="VersionMajor">1</SSIS:Property>
                 <SSIS:Property SSIS:Name="VersionMinor">0</SSIS:Property>
-                <SSIS:Property SSIS:Name="VersionBuild">65</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionBuild">83</SSIS:Property>
                 <SSIS:Property SSIS:Name="VersionComments">
                 </SSIS:Property>
-                <SSIS:Property SSIS:Name="VersionGUID">{E0BE0C6E-5371-4742-BCD0-48245209E467}</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionGUID">{F4F8347B-FF5B-485A-B43C-153910121239}</SSIS:Property>
                 <SSIS:Property SSIS:Name="PackageFormatVersion">6</SSIS:Property>
                 <SSIS:Property SSIS:Name="Description">
                 </SSIS:Property>
