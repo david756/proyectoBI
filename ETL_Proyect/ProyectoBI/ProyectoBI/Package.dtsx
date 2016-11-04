@@ -11,8 +11,8 @@
   DTS:LocaleID="3082"
   DTS:ObjectName="Package"
   DTS:PackageType="5"
-  DTS:VersionBuild="84"
-  DTS:VersionGUID="{D115C1CE-7B65-4139-946C-EA21683080BC}">
+  DTS:VersionBuild="89"
+  DTS:VersionGUID="{5C05D62E-ECEF-4226-8631-21EE722A46F2}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">6</DTS:Property>
   <DTS:ConnectionManagers>
@@ -78,7 +78,6 @@
       DTS:refId="Package\Dim_Empleado"
       DTS:CreationName="SSIS.Pipeline.3"
       DTS:Description="Tarea Flujo de datos"
-      DTS:Disabled="True"
       DTS:DTSID="{39a33060-4dc4-42d4-99a3-88137c80c5e2}"
       DTS:ExecutableType="SSIS.Pipeline.3"
       DTS:LocaleID="-1"
@@ -4755,7 +4754,6 @@ where [refTable].[idEmpleado] = ?</property>
       DTS:refId="Package\Dim_Escuela"
       DTS:CreationName="SSIS.Pipeline.3"
       DTS:Description="Tarea Flujo de datos"
-      DTS:Disabled="True"
       DTS:DTSID="{5cf086fc-0344-485e-a1e6-3e779d6f697a}"
       DTS:ExecutableType="SSIS.Pipeline.3"
       DTS:LocaleID="-1"
@@ -7485,7 +7483,6 @@ where [refTable].[idEscuela] = ?</property>
       DTS:refId="Package\Dim_Parque"
       DTS:CreationName="SSIS.Pipeline.3"
       DTS:Description="Tarea Flujo de datos"
-      DTS:Disabled="True"
       DTS:DTSID="{fe5a2242-3309-42ab-bc22-7aa2a7fa9cbb}"
       DTS:ExecutableType="SSIS.Pipeline.3"
       DTS:LocaleID="-1"
@@ -9470,7 +9467,6 @@ where [refTable].[idParque] = ? and [refTable].[nombreParque] = ? and [refTable]
       DTS:refId="Package\Dim_Region"
       DTS:CreationName="SSIS.Pipeline.3"
       DTS:Description="Tarea Flujo de datos"
-      DTS:Disabled="True"
       DTS:DTSID="{b5829016-cb93-4554-a9c0-464d94e5077b}"
       DTS:ExecutableType="SSIS.Pipeline.3"
       DTS:LocaleID="-1"
@@ -11199,6 +11195,341 @@ where [refTable].[idRegion] = ?</property>
           version="1">
           <components>
             <component
+              refId="Package\Fact_Venta_Entrada_Escuela\Columna derivada"
+              componentClassID="{49928E82-9C4E-49F0-AABE-3812B82707EC}"
+              contactInfo="Columna derivada;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;0"
+              description="Crea nuevos valores de columna aplicando expresiones a las columnas de entrada de la transformación. Crea nuevas columnas o sobrescribe las columnas existentes. Por ejemplo, se concatenan los valores de las columnas 'nombre' y 'apellidos' para crear una columna 'nombre completo'."
+              name="Columna derivada"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\Fact_Venta_Entrada_Escuela\Columna derivada.Inputs[Entrada de columna derivada]"
+                  description="Entrada en la transformación Columna derivada"
+                  name="Entrada de columna derivada">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Fact_Venta_Entrada_Escuela\Columna derivada.Inputs[Entrada de columna derivada].Columns[Arancel_por_Alumno]"
+                      cachedDataType="r8"
+                      cachedName="Arancel_por_Alumno"
+                      lineageId="Package\Fact_Venta_Entrada_Escuela\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[Arancel_por_Alumno]" />
+                    <inputColumn
+                      refId="Package\Fact_Venta_Entrada_Escuela\Columna derivada.Inputs[Entrada de columna derivada].Columns[Cantidad_Alumnos_Reales]"
+                      cachedDataType="i4"
+                      cachedName="Cantidad_Alumnos_Reales"
+                      lineageId="Package\Fact_Venta_Entrada_Escuela\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[Cantidad_Alumnos_Reales]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Fact_Venta_Entrada_Escuela\Columna derivada.Outputs[Salida de columna derivada]"
+                  description="Salida predeterminada de la transformación Columna derivada"
+                  exclusionGroup="1"
+                  name="Salida de columna derivada"
+                  synchronousInputId="Package\Fact_Venta_Entrada_Escuela\Columna derivada.Inputs[Entrada de columna derivada]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Fact_Venta_Entrada_Escuela\Columna derivada.Outputs[Salida de columna derivada].Columns[idTiempoCreado]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Cálculo"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\Fact_Venta_Entrada_Escuela\Columna derivada.Outputs[Salida de columna derivada].Columns[idTiempoCreado]"
+                      name="idTiempoCreado"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Expresión de columna derivada"
+                          name="Expression">[YEAR]([GETDATE]()) + [MONTH]([GETDATE]()) + [DAY]([GETDATE]())</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Expresión descriptiva de columna derivada"
+                          expressionType="Notify"
+                          name="FriendlyExpression">YEAR(GETDATE()) + MONTH(GETDATE()) + DAY(GETDATE())</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Fact_Venta_Entrada_Escuela\Columna derivada.Outputs[Salida de columna derivada].Columns[total]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Cálculo"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\Fact_Venta_Entrada_Escuela\Columna derivada.Outputs[Salida de columna derivada].Columns[total]"
+                      name="total"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Expresión de columna derivada"
+                          name="Expression">#{Package\Fact_Venta_Entrada_Escuela\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[Cantidad_Alumnos_Reales]} * #{Package\Fact_Venta_Entrada_Escuela\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[Arancel_por_Alumno]}</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Expresión descriptiva de columna derivada"
+                          expressionType="Notify"
+                          name="FriendlyExpression">Cantidad_Alumnos_Reales * Arancel_por_Alumno</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Fact_Venta_Entrada_Escuela\Columna derivada.Outputs[Salida de error de columna derivada]"
+                  description="Salida de error de la transformación Columna derivada"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Salida de error de columna derivada"
+                  synchronousInputId="Package\Fact_Venta_Entrada_Escuela\Columna derivada.Inputs[Entrada de columna derivada]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Fact_Venta_Entrada_Escuela\Columna derivada.Outputs[Salida de error de columna derivada].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Fact_Venta_Entrada_Escuela\Columna derivada.Outputs[Salida de error de columna derivada].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Fact_Venta_Entrada_Escuela\Columna derivada.Outputs[Salida de error de columna derivada].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Fact_Venta_Entrada_Escuela\Columna derivada.Outputs[Salida de error de columna derivada].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Fact_Venta_Entrada_Escuela\Combinación de mezcla"
+              componentClassID="{14D43A4F-D7BD-489D-829E-6DE35750CFE4}"
+              contactInfo="Combinación de mezcla;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;1"
+              description="Combina dos flujos de datos ordenados en uno solo mediante la combinación FULL, LEFT o INNER. Se recomienda esta transformación cuando se pueden ordenar los flujos de datos en sus orígenes."
+              name="Combinación de mezcla"
+              version="1">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica el tipo de combinación que se debe realizar."
+                  name="JoinType"
+                  typeConverter="JoinType">2</property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica el número de columnas de la clave de ordenación."
+                  name="NumKeyColumns">1</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indica si los valores NULL se tratan como valores iguales."
+                  name="TreatNullsAsEqual">true</property>
+                <property
+                  dataType="System.Int32"
+                  description="Indica la cantidad máxima solicitada de búferes por entrada antes del bloqueo."
+                  name="MaxBuffersPerInput">5</property>
+              </properties>
+              <inputs>
+                <input
+                  refId="Package\Fact_Venta_Entrada_Escuela\Combinación de mezcla.Inputs[Entrada izquierda de combinación de mezcla]"
+                  hasSideEffects="true"
+                  name="Entrada izquierda de combinación de mezcla">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Fact_Venta_Entrada_Escuela\Combinación de mezcla.Inputs[Entrada izquierda de combinación de mezcla].Columns[copia_fk_venta_entrada]"
+                      cachedDataType="i4"
+                      cachedName="copia_fk_venta_entrada"
+                      cachedSortKeyPosition="1"
+                      lineageId="Package\Fact_Venta_Entrada_Escuela\Ordenar.Outputs[Salida de ordenación].Columns[copia_fk_venta_entrada]" />
+                    <inputColumn
+                      refId="Package\Fact_Venta_Entrada_Escuela\Combinación de mezcla.Inputs[Entrada izquierda de combinación de mezcla].Columns[fk_parque]"
+                      cachedDataType="r8"
+                      cachedName="fk_parque"
+                      cachedSortKeyPosition="2"
+                      lineageId="Package\Fact_Venta_Entrada_Escuela\Ordenar.Outputs[Salida de ordenación].Columns[fk_parque]" />
+                    <inputColumn
+                      refId="Package\Fact_Venta_Entrada_Escuela\Combinación de mezcla.Inputs[Entrada izquierda de combinación de mezcla].Columns[fk_region]"
+                      cachedDataType="r8"
+                      cachedName="fk_region"
+                      cachedSortKeyPosition="3"
+                      lineageId="Package\Fact_Venta_Entrada_Escuela\Ordenar.Outputs[Salida de ordenación].Columns[fk_region]" />
+                    <inputColumn
+                      refId="Package\Fact_Venta_Entrada_Escuela\Combinación de mezcla.Inputs[Entrada izquierda de combinación de mezcla].Columns[copia_fk_parque]"
+                      cachedDataType="i4"
+                      cachedName="copia_fk_parque"
+                      cachedSortKeyPosition="4"
+                      lineageId="Package\Fact_Venta_Entrada_Escuela\Ordenar.Outputs[Salida de ordenación].Columns[copia_fk_parque]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+                <input
+                  refId="Package\Fact_Venta_Entrada_Escuela\Combinación de mezcla.Inputs[Entrada derecha de combinación de mezcla]"
+                  hasSideEffects="true"
+                  name="Entrada derecha de combinación de mezcla">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Fact_Venta_Entrada_Escuela\Combinación de mezcla.Inputs[Entrada derecha de combinación de mezcla].Columns[Copia de Numero_Ticket]"
+                      cachedDataType="i4"
+                      cachedName="Copia de Numero_Ticket"
+                      cachedSortKeyPosition="1"
+                      lineageId="Package\Fact_Venta_Entrada_Escuela\Ordenar 1.Outputs[Salida de ordenación].Columns[Copia de Numero_Ticket]" />
+                    <inputColumn
+                      refId="Package\Fact_Venta_Entrada_Escuela\Combinación de mezcla.Inputs[Entrada derecha de combinación de mezcla].Columns[Fecha]"
+                      cachedDataType="dbDate"
+                      cachedName="Fecha"
+                      lineageId="Package\Fact_Venta_Entrada_Escuela\Ordenar 1.Outputs[Salida de ordenación].Columns[Fecha]" />
+                    <inputColumn
+                      refId="Package\Fact_Venta_Entrada_Escuela\Combinación de mezcla.Inputs[Entrada derecha de combinación de mezcla].Columns[Codigo_Empleado]"
+                      cachedDataType="i4"
+                      cachedName="Codigo_Empleado"
+                      lineageId="Package\Fact_Venta_Entrada_Escuela\Ordenar 1.Outputs[Salida de ordenación].Columns[Codigo_Empleado]" />
+                    <inputColumn
+                      refId="Package\Fact_Venta_Entrada_Escuela\Combinación de mezcla.Inputs[Entrada derecha de combinación de mezcla].Columns[Codigo_Escuela]"
+                      cachedDataType="i4"
+                      cachedName="Codigo_Escuela"
+                      lineageId="Package\Fact_Venta_Entrada_Escuela\Ordenar 1.Outputs[Salida de ordenación].Columns[Codigo_Escuela]" />
+                    <inputColumn
+                      refId="Package\Fact_Venta_Entrada_Escuela\Combinación de mezcla.Inputs[Entrada derecha de combinación de mezcla].Columns[Arancel_por_Alumno]"
+                      cachedDataType="r8"
+                      cachedName="Arancel_por_Alumno"
+                      lineageId="Package\Fact_Venta_Entrada_Escuela\Ordenar 1.Outputs[Salida de ordenación].Columns[Arancel_por_Alumno]" />
+                    <inputColumn
+                      refId="Package\Fact_Venta_Entrada_Escuela\Combinación de mezcla.Inputs[Entrada derecha de combinación de mezcla].Columns[Cantidad_Alumnos_Reales]"
+                      cachedDataType="i4"
+                      cachedName="Cantidad_Alumnos_Reales"
+                      lineageId="Package\Fact_Venta_Entrada_Escuela\Ordenar 1.Outputs[Salida de ordenación].Columns[Cantidad_Alumnos_Reales]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Fact_Venta_Entrada_Escuela\Combinación de mezcla.Outputs[Salida de combinación de mezcla]"
+                  isSorted="true"
+                  name="Salida de combinación de mezcla">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Fact_Venta_Entrada_Escuela\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[copia_fk_venta_entrada]"
+                      dataType="i4"
+                      lineageId="Package\Fact_Venta_Entrada_Escuela\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[copia_fk_venta_entrada]"
+                      name="copia_fk_venta_entrada"
+                      sortKeyPosition="1">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="La columna de entrada asociada a esta columna de salida"
+                          name="InputColumnID">#{Package\Fact_Venta_Entrada_Escuela\Combinación de mezcla.Inputs[Entrada izquierda de combinación de mezcla].Columns[copia_fk_venta_entrada]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Fact_Venta_Entrada_Escuela\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[fk_parque]"
+                      dataType="r8"
+                      lineageId="Package\Fact_Venta_Entrada_Escuela\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[fk_parque]"
+                      name="fk_parque">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="La columna de entrada asociada a esta columna de salida"
+                          name="InputColumnID">#{Package\Fact_Venta_Entrada_Escuela\Combinación de mezcla.Inputs[Entrada izquierda de combinación de mezcla].Columns[fk_parque]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Fact_Venta_Entrada_Escuela\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[Fecha]"
+                      dataType="dbDate"
+                      lineageId="Package\Fact_Venta_Entrada_Escuela\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[Fecha]"
+                      name="Fecha">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="La columna de entrada asociada a esta columna de salida"
+                          name="InputColumnID">#{Package\Fact_Venta_Entrada_Escuela\Combinación de mezcla.Inputs[Entrada derecha de combinación de mezcla].Columns[Fecha]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Fact_Venta_Entrada_Escuela\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[Codigo_Empleado]"
+                      dataType="i4"
+                      lineageId="Package\Fact_Venta_Entrada_Escuela\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[Codigo_Empleado]"
+                      name="Codigo_Empleado">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="La columna de entrada asociada a esta columna de salida"
+                          name="InputColumnID">#{Package\Fact_Venta_Entrada_Escuela\Combinación de mezcla.Inputs[Entrada derecha de combinación de mezcla].Columns[Codigo_Empleado]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Fact_Venta_Entrada_Escuela\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[Codigo_Escuela]"
+                      dataType="i4"
+                      lineageId="Package\Fact_Venta_Entrada_Escuela\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[Codigo_Escuela]"
+                      name="Codigo_Escuela">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="La columna de entrada asociada a esta columna de salida"
+                          name="InputColumnID">#{Package\Fact_Venta_Entrada_Escuela\Combinación de mezcla.Inputs[Entrada derecha de combinación de mezcla].Columns[Codigo_Escuela]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Fact_Venta_Entrada_Escuela\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[Arancel_por_Alumno]"
+                      dataType="r8"
+                      lineageId="Package\Fact_Venta_Entrada_Escuela\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[Arancel_por_Alumno]"
+                      name="Arancel_por_Alumno">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="La columna de entrada asociada a esta columna de salida"
+                          name="InputColumnID">#{Package\Fact_Venta_Entrada_Escuela\Combinación de mezcla.Inputs[Entrada derecha de combinación de mezcla].Columns[Arancel_por_Alumno]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Fact_Venta_Entrada_Escuela\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[Cantidad_Alumnos_Reales]"
+                      dataType="i4"
+                      lineageId="Package\Fact_Venta_Entrada_Escuela\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[Cantidad_Alumnos_Reales]"
+                      name="Cantidad_Alumnos_Reales">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="La columna de entrada asociada a esta columna de salida"
+                          name="InputColumnID">#{Package\Fact_Venta_Entrada_Escuela\Combinación de mezcla.Inputs[Entrada derecha de combinación de mezcla].Columns[Cantidad_Alumnos_Reales]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Fact_Venta_Entrada_Escuela\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[fk_region]"
+                      dataType="r8"
+                      lineageId="Package\Fact_Venta_Entrada_Escuela\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[fk_region]"
+                      name="fk_region">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="La columna de entrada asociada a esta columna de salida"
+                          name="InputColumnID">#{Package\Fact_Venta_Entrada_Escuela\Combinación de mezcla.Inputs[Entrada izquierda de combinación de mezcla].Columns[fk_region]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Fact_Venta_Entrada_Escuela\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[copia_fk_parque]"
+                      dataType="i4"
+                      lineageId="Package\Fact_Venta_Entrada_Escuela\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[copia_fk_parque]"
+                      name="copia_fk_parque">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="La columna de entrada asociada a esta columna de salida"
+                          name="InputColumnID">#{Package\Fact_Venta_Entrada_Escuela\Combinación de mezcla.Inputs[Entrada izquierda de combinación de mezcla].Columns[copia_fk_parque]}</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
               refId="Package\Fact_Venta_Entrada_Escuela\Conversión de datos"
               componentClassID="{62B1106C-7DB8-4EC8-ADD6-4C664DFFC54A}"
               contactInfo="Conversión de datos;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;0"
@@ -11214,13 +11545,12 @@ where [refTable].[idRegion] = ?</property>
                       refId="Package\Fact_Venta_Entrada_Escuela\Conversión de datos.Inputs[Entrada de conversión de datos].Columns[fk_venta_entrada]"
                       cachedDataType="r8"
                       cachedName="fk_venta_entrada"
-                      cachedSortKeyPosition="1"
-                      lineageId="Package\Fact_Venta_Entrada_Escuela\Ordenar.Outputs[Salida de ordenación].Columns[fk_venta_entrada]" />
+                      lineageId="Package\Fact_Venta_Entrada_Escuela\Origen de Excel.Outputs[Salida de origen de Excel].Columns[fk_venta_entrada]" />
                     <inputColumn
                       refId="Package\Fact_Venta_Entrada_Escuela\Conversión de datos.Inputs[Entrada de conversión de datos].Columns[fk_parque]"
                       cachedDataType="r8"
                       cachedName="fk_parque"
-                      lineageId="Package\Fact_Venta_Entrada_Escuela\Ordenar.Outputs[Salida de ordenación].Columns[fk_parque]" />
+                      lineageId="Package\Fact_Venta_Entrada_Escuela\Origen de Excel.Outputs[Salida de origen de Excel].Columns[fk_parque]" />
                   </inputColumns>
                   <externalMetadataColumns />
                 </input>
@@ -11233,19 +11563,19 @@ where [refTable].[idRegion] = ?</property>
                   synchronousInputId="Package\Fact_Venta_Entrada_Escuela\Conversión de datos.Inputs[Entrada de conversión de datos]">
                   <outputColumns>
                     <outputColumn
-                      refId="Package\Fact_Venta_Entrada_Escuela\Conversión de datos.Outputs[Salida de conversión de datos].Columns[Copia de fk_venta_entrada]"
+                      refId="Package\Fact_Venta_Entrada_Escuela\Conversión de datos.Outputs[Salida de conversión de datos].Columns[copia_fk_venta_entrada]"
                       dataType="i4"
                       errorOrTruncationOperation="Conversión"
                       errorRowDisposition="FailComponent"
-                      lineageId="Package\Fact_Venta_Entrada_Escuela\Conversión de datos.Outputs[Salida de conversión de datos].Columns[Copia de fk_venta_entrada]"
-                      name="Copia de fk_venta_entrada"
+                      lineageId="Package\Fact_Venta_Entrada_Escuela\Conversión de datos.Outputs[Salida de conversión de datos].Columns[copia_fk_venta_entrada]"
+                      name="copia_fk_venta_entrada"
                       truncationRowDisposition="FailComponent">
                       <properties>
                         <property
                           containsID="true"
                           dataType="System.Int32"
                           description="Especifica la columna de entrada usada como origen de datos para la conversión."
-                          name="SourceInputColumnLineageID">#{Package\Fact_Venta_Entrada_Escuela\Ordenar.Outputs[Salida de ordenación].Columns[fk_venta_entrada]}</property>
+                          name="SourceInputColumnLineageID">#{Package\Fact_Venta_Entrada_Escuela\Origen de Excel.Outputs[Salida de origen de Excel].Columns[fk_venta_entrada]}</property>
                         <property
                           dataType="System.Boolean"
                           description="Indica si la columna usa las rutinas de análisis más rápidas independientes de la configuración regional."
@@ -11253,19 +11583,19 @@ where [refTable].[idRegion] = ?</property>
                       </properties>
                     </outputColumn>
                     <outputColumn
-                      refId="Package\Fact_Venta_Entrada_Escuela\Conversión de datos.Outputs[Salida de conversión de datos].Columns[Copia de fk_parque]"
+                      refId="Package\Fact_Venta_Entrada_Escuela\Conversión de datos.Outputs[Salida de conversión de datos].Columns[copia_fk_parque]"
                       dataType="i4"
                       errorOrTruncationOperation="Conversión"
                       errorRowDisposition="FailComponent"
-                      lineageId="Package\Fact_Venta_Entrada_Escuela\Conversión de datos.Outputs[Salida de conversión de datos].Columns[Copia de fk_parque]"
-                      name="Copia de fk_parque"
+                      lineageId="Package\Fact_Venta_Entrada_Escuela\Conversión de datos.Outputs[Salida de conversión de datos].Columns[copia_fk_parque]"
+                      name="copia_fk_parque"
                       truncationRowDisposition="FailComponent">
                       <properties>
                         <property
                           containsID="true"
                           dataType="System.Int32"
                           description="Especifica la columna de entrada usada como origen de datos para la conversión."
-                          name="SourceInputColumnLineageID">#{Package\Fact_Venta_Entrada_Escuela\Ordenar.Outputs[Salida de ordenación].Columns[fk_parque]}</property>
+                          name="SourceInputColumnLineageID">#{Package\Fact_Venta_Entrada_Escuela\Origen de Excel.Outputs[Salida de origen de Excel].Columns[fk_parque]}</property>
                         <property
                           dataType="System.Boolean"
                           description="Indica si la columna usa las rutinas de análisis más rápidas independientes de la configuración regional."
@@ -11315,33 +11645,32 @@ where [refTable].[idRegion] = ?</property>
                       refId="Package\Fact_Venta_Entrada_Escuela\Conversión de datos 1.Inputs[Entrada de conversión de datos].Columns[Numero_Ticket]"
                       cachedDataType="i4"
                       cachedName="Numero_Ticket"
-                      cachedSortKeyPosition="1"
-                      lineageId="Package\Fact_Venta_Entrada_Escuela\Ordenar 1.Outputs[Salida de ordenación].Columns[Numero_Ticket]" />
+                      lineageId="Package\Fact_Venta_Entrada_Escuela\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[Numero_Ticket]" />
                     <inputColumn
                       refId="Package\Fact_Venta_Entrada_Escuela\Conversión de datos 1.Inputs[Entrada de conversión de datos].Columns[Fecha]"
                       cachedDataType="dbDate"
                       cachedName="Fecha"
-                      lineageId="Package\Fact_Venta_Entrada_Escuela\Ordenar 1.Outputs[Salida de ordenación].Columns[Fecha]" />
+                      lineageId="Package\Fact_Venta_Entrada_Escuela\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[Fecha]" />
                     <inputColumn
                       refId="Package\Fact_Venta_Entrada_Escuela\Conversión de datos 1.Inputs[Entrada de conversión de datos].Columns[Codigo_Empleado]"
                       cachedDataType="i4"
                       cachedName="Codigo_Empleado"
-                      lineageId="Package\Fact_Venta_Entrada_Escuela\Ordenar 1.Outputs[Salida de ordenación].Columns[Codigo_Empleado]" />
+                      lineageId="Package\Fact_Venta_Entrada_Escuela\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[Codigo_Empleado]" />
                     <inputColumn
                       refId="Package\Fact_Venta_Entrada_Escuela\Conversión de datos 1.Inputs[Entrada de conversión de datos].Columns[Codigo_Escuela]"
                       cachedDataType="i4"
                       cachedName="Codigo_Escuela"
-                      lineageId="Package\Fact_Venta_Entrada_Escuela\Ordenar 1.Outputs[Salida de ordenación].Columns[Codigo_Escuela]" />
+                      lineageId="Package\Fact_Venta_Entrada_Escuela\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[Codigo_Escuela]" />
                     <inputColumn
                       refId="Package\Fact_Venta_Entrada_Escuela\Conversión de datos 1.Inputs[Entrada de conversión de datos].Columns[Arancel_por_Alumno]"
                       cachedDataType="r8"
                       cachedName="Arancel_por_Alumno"
-                      lineageId="Package\Fact_Venta_Entrada_Escuela\Ordenar 1.Outputs[Salida de ordenación].Columns[Arancel_por_Alumno]" />
+                      lineageId="Package\Fact_Venta_Entrada_Escuela\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[Arancel_por_Alumno]" />
                     <inputColumn
                       refId="Package\Fact_Venta_Entrada_Escuela\Conversión de datos 1.Inputs[Entrada de conversión de datos].Columns[Cantidad_Alumnos_Reales]"
                       cachedDataType="i4"
                       cachedName="Cantidad_Alumnos_Reales"
-                      lineageId="Package\Fact_Venta_Entrada_Escuela\Ordenar 1.Outputs[Salida de ordenación].Columns[Cantidad_Alumnos_Reales]" />
+                      lineageId="Package\Fact_Venta_Entrada_Escuela\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[Cantidad_Alumnos_Reales]" />
                   </inputColumns>
                   <externalMetadataColumns />
                 </input>
@@ -11366,7 +11695,7 @@ where [refTable].[idRegion] = ?</property>
                           containsID="true"
                           dataType="System.Int32"
                           description="Especifica la columna de entrada usada como origen de datos para la conversión."
-                          name="SourceInputColumnLineageID">#{Package\Fact_Venta_Entrada_Escuela\Ordenar 1.Outputs[Salida de ordenación].Columns[Numero_Ticket]}</property>
+                          name="SourceInputColumnLineageID">#{Package\Fact_Venta_Entrada_Escuela\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[Numero_Ticket]}</property>
                         <property
                           dataType="System.Boolean"
                           description="Indica si la columna usa las rutinas de análisis más rápidas independientes de la configuración regional."
@@ -11386,7 +11715,7 @@ where [refTable].[idRegion] = ?</property>
                           containsID="true"
                           dataType="System.Int32"
                           description="Especifica la columna de entrada usada como origen de datos para la conversión."
-                          name="SourceInputColumnLineageID">#{Package\Fact_Venta_Entrada_Escuela\Ordenar 1.Outputs[Salida de ordenación].Columns[Fecha]}</property>
+                          name="SourceInputColumnLineageID">#{Package\Fact_Venta_Entrada_Escuela\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[Fecha]}</property>
                         <property
                           dataType="System.Boolean"
                           description="Indica si la columna usa las rutinas de análisis más rápidas independientes de la configuración regional."
@@ -11406,7 +11735,7 @@ where [refTable].[idRegion] = ?</property>
                           containsID="true"
                           dataType="System.Int32"
                           description="Especifica la columna de entrada usada como origen de datos para la conversión."
-                          name="SourceInputColumnLineageID">#{Package\Fact_Venta_Entrada_Escuela\Ordenar 1.Outputs[Salida de ordenación].Columns[Codigo_Empleado]}</property>
+                          name="SourceInputColumnLineageID">#{Package\Fact_Venta_Entrada_Escuela\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[Codigo_Empleado]}</property>
                         <property
                           dataType="System.Boolean"
                           description="Indica si la columna usa las rutinas de análisis más rápidas independientes de la configuración regional."
@@ -11426,7 +11755,7 @@ where [refTable].[idRegion] = ?</property>
                           containsID="true"
                           dataType="System.Int32"
                           description="Especifica la columna de entrada usada como origen de datos para la conversión."
-                          name="SourceInputColumnLineageID">#{Package\Fact_Venta_Entrada_Escuela\Ordenar 1.Outputs[Salida de ordenación].Columns[Codigo_Escuela]}</property>
+                          name="SourceInputColumnLineageID">#{Package\Fact_Venta_Entrada_Escuela\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[Codigo_Escuela]}</property>
                         <property
                           dataType="System.Boolean"
                           description="Indica si la columna usa las rutinas de análisis más rápidas independientes de la configuración regional."
@@ -11446,7 +11775,7 @@ where [refTable].[idRegion] = ?</property>
                           containsID="true"
                           dataType="System.Int32"
                           description="Especifica la columna de entrada usada como origen de datos para la conversión."
-                          name="SourceInputColumnLineageID">#{Package\Fact_Venta_Entrada_Escuela\Ordenar 1.Outputs[Salida de ordenación].Columns[Arancel_por_Alumno]}</property>
+                          name="SourceInputColumnLineageID">#{Package\Fact_Venta_Entrada_Escuela\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[Arancel_por_Alumno]}</property>
                         <property
                           dataType="System.Boolean"
                           description="Indica si la columna usa las rutinas de análisis más rápidas independientes de la configuración regional."
@@ -11466,7 +11795,7 @@ where [refTable].[idRegion] = ?</property>
                           containsID="true"
                           dataType="System.Int32"
                           description="Especifica la columna de entrada usada como origen de datos para la conversión."
-                          name="SourceInputColumnLineageID">#{Package\Fact_Venta_Entrada_Escuela\Ordenar 1.Outputs[Salida de ordenación].Columns[Cantidad_Alumnos_Reales]}</property>
+                          name="SourceInputColumnLineageID">#{Package\Fact_Venta_Entrada_Escuela\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[Cantidad_Alumnos_Reales]}</property>
                         <property
                           dataType="System.Boolean"
                           description="Indica si la columna usa las rutinas de análisis más rápidas independientes de la configuración regional."
@@ -11501,104 +11830,182 @@ where [refTable].[idRegion] = ?</property>
               </outputs>
             </component>
             <component
-              refId="Package\Fact_Venta_Entrada_Escuela\Mezclar"
-              componentClassID="{36E0E750-2510-4776-AA6E-17EAE84FD63E}"
-              contactInfo="Mezclar;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;1"
-              description="Combina las filas de varios flujos de datos ordenados en un solo flujo de datos ordenados. A diferencia de la combinación de mezcla, todas las filas fluyen hacia la salida. Por ejemplo, se combinan dos listas ordenadas de clientes en una sola lista ordenada. Si el orden no es importante, use la transformación Unión de todo. "
-              name="Mezclar"
-              version="1">
+              refId="Package\Fact_Venta_Entrada_Escuela\Destino de OLE DB"
+              componentClassID="{4ADA7EAA-136C-4215-8098-D7A7C27FC0D1}"
+              contactInfo="Destino de OLE DB;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;4"
+              description="Destino de OLE DB"
+              name="Destino de OLE DB"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="Número de segundos antes de que se agote el tiempo de espera de un comando. Un valor de 0 indica un tiempo de espera infinito."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Especifica el nombre del objeto de base de datos usado para abrir un conjunto de filas."
+                  name="OpenRowset">[dbo].[Fac_Venta_Entrada_Escuela]</property>
+                <property
+                  dataType="System.String"
+                  description="Especifica la variable que contiene el nombre del objeto de base de datos usado para abrir un conjunto de filas."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="Comando SQL para ejecutar."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica la página de códigos de columna para utilizar cuando la información de página de códigos no está disponible en el origen de datos."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Fuerza el uso del valor de la propiedad DefaultCodePage al describir caracteres."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica el modo utilizado para obtener acceso a la base de datos."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indica si los valores proporcionados para columnas de identidad se van a copiar al destino. Si es False, los valores de las columnas de identidad se generan automáticamente en el destino. Sólo se aplica si está activada la carga rápida."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indica si las columnas que contienen NULL tendrán NULL insertado en el destino. Si es False, las columnas que contienen NULL tendrán sus valores predeterminados insertados en el destino. Sólo se aplica si está activada la carga rápida."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Especifica opciones para usar con la carga rápida. Sólo se aplica si está activada la carga rápida."
+                  name="FastLoadOptions"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica cuándo se emiten confirmaciones durante la inserción de datos. El valor 0 especifica que se emitirá una confirmación al final de la inserción de datos. Sólo se aplica si está activada la carga rápida."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Fact_Venta_Entrada_Escuela\Destino de OLE DB.Connections[OleDbConnection]"
+                  connectionManagerID="{F9A6CEB1-538A-410A-86F2-D2A1D39EC67F}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[WJGIRALDO-PC.DW_Parque]"
+                  description="La conexión de tiempo de ejecución OLE DB usada para obtener acceso a la base de datos."
+                  name="OleDbConnection" />
+              </connections>
               <inputs>
                 <input
-                  refId="Package\Fact_Venta_Entrada_Escuela\Mezclar.Inputs[Entrada de Mezclar 1]"
-                  name="Entrada de Mezclar 1">
+                  refId="Package\Fact_Venta_Entrada_Escuela\Destino de OLE DB.Inputs[Entrada de destino de OLE DB]"
+                  errorOrTruncationOperation="Insertar"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="Entrada de destino de OLE DB">
                   <inputColumns>
                     <inputColumn
-                      refId="Package\Fact_Venta_Entrada_Escuela\Mezclar.Inputs[Entrada de Mezclar 1].Columns[fk_venta_entrada]"
-                      cachedDataType="r8"
-                      cachedName="fk_venta_entrada"
-                      cachedSortKeyPosition="1"
-                      lineageId="Package\Fact_Venta_Entrada_Escuela\Ordenar.Outputs[Salida de ordenación].Columns[fk_venta_entrada]">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="Id. de linaje de columna de salida"
-                          name="OutputColumnLineageID">#{Package\Fact_Venta_Entrada_Escuela\Mezclar.Outputs[Salida de Mezclar 1].Columns[fk_venta_entrada]}</property>
-                      </properties>
-                    </inputColumn>
-                    <inputColumn
-                      refId="Package\Fact_Venta_Entrada_Escuela\Mezclar.Inputs[Entrada de Mezclar 1].Columns[fk_parque]"
+                      refId="Package\Fact_Venta_Entrada_Escuela\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].Columns[fk_parque]"
                       cachedDataType="r8"
                       cachedName="fk_parque"
-                      lineageId="Package\Fact_Venta_Entrada_Escuela\Ordenar.Outputs[Salida de ordenación].Columns[fk_parque]">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="Id. de linaje de columna de salida"
-                          name="OutputColumnLineageID">#{Package\Fact_Venta_Entrada_Escuela\Mezclar.Outputs[Salida de Mezclar 1].Columns[fk_parque]}</property>
-                      </properties>
-                    </inputColumn>
+                      externalMetadataColumnId="Package\Fact_Venta_Entrada_Escuela\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[fk_parqueKey]"
+                      lineageId="Package\Fact_Venta_Entrada_Escuela\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[fk_parque]" />
                     <inputColumn
-                      refId="Package\Fact_Venta_Entrada_Escuela\Mezclar.Inputs[Entrada de Mezclar 1].Columns[Copia de fk_venta_entrada]"
+                      refId="Package\Fact_Venta_Entrada_Escuela\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].Columns[Codigo_Empleado]"
                       cachedDataType="i4"
-                      cachedName="Copia de fk_venta_entrada"
-                      lineageId="Package\Fact_Venta_Entrada_Escuela\Conversión de datos.Outputs[Salida de conversión de datos].Columns[Copia de fk_venta_entrada]">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="Id. de linaje de columna de salida"
-                          name="OutputColumnLineageID">#{Package\Fact_Venta_Entrada_Escuela\Mezclar.Outputs[Salida de Mezclar 1].Columns[Copia de fk_venta_entrada]}</property>
-                      </properties>
-                    </inputColumn>
+                      cachedName="Codigo_Empleado"
+                      externalMetadataColumnId="Package\Fact_Venta_Entrada_Escuela\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[fk_empleadoKey]"
+                      lineageId="Package\Fact_Venta_Entrada_Escuela\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[Codigo_Empleado]" />
                     <inputColumn
-                      refId="Package\Fact_Venta_Entrada_Escuela\Mezclar.Inputs[Entrada de Mezclar 1].Columns[Copia de fk_parque]"
+                      refId="Package\Fact_Venta_Entrada_Escuela\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].Columns[Codigo_Escuela]"
                       cachedDataType="i4"
-                      cachedName="Copia de fk_parque"
-                      lineageId="Package\Fact_Venta_Entrada_Escuela\Conversión de datos.Outputs[Salida de conversión de datos].Columns[Copia de fk_parque]">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="Id. de linaje de columna de salida"
-                          name="OutputColumnLineageID">#{Package\Fact_Venta_Entrada_Escuela\Mezclar.Outputs[Salida de Mezclar 1].Columns[Copia de fk_parque]}</property>
-                      </properties>
-                    </inputColumn>
+                      cachedName="Codigo_Escuela"
+                      externalMetadataColumnId="Package\Fact_Venta_Entrada_Escuela\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[fk_escuelaKey]"
+                      lineageId="Package\Fact_Venta_Entrada_Escuela\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[Codigo_Escuela]" />
+                    <inputColumn
+                      refId="Package\Fact_Venta_Entrada_Escuela\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].Columns[Arancel_por_Alumno]"
+                      cachedDataType="r8"
+                      cachedName="Arancel_por_Alumno"
+                      externalMetadataColumnId="Package\Fact_Venta_Entrada_Escuela\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[valorUnidad]"
+                      lineageId="Package\Fact_Venta_Entrada_Escuela\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[Arancel_por_Alumno]" />
+                    <inputColumn
+                      refId="Package\Fact_Venta_Entrada_Escuela\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].Columns[Cantidad_Alumnos_Reales]"
+                      cachedDataType="i4"
+                      cachedName="Cantidad_Alumnos_Reales"
+                      externalMetadataColumnId="Package\Fact_Venta_Entrada_Escuela\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[cantidad]"
+                      lineageId="Package\Fact_Venta_Entrada_Escuela\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[Cantidad_Alumnos_Reales]" />
+                    <inputColumn
+                      refId="Package\Fact_Venta_Entrada_Escuela\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].Columns[idTiempoCreado]"
+                      cachedDataType="i4"
+                      cachedName="idTiempoCreado"
+                      externalMetadataColumnId="Package\Fact_Venta_Entrada_Escuela\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[fk_tiempoKey]"
+                      lineageId="Package\Fact_Venta_Entrada_Escuela\Columna derivada.Outputs[Salida de columna derivada].Columns[idTiempoCreado]" />
+                    <inputColumn
+                      refId="Package\Fact_Venta_Entrada_Escuela\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].Columns[total]"
+                      cachedDataType="r8"
+                      cachedName="total"
+                      externalMetadataColumnId="Package\Fact_Venta_Entrada_Escuela\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[valorTotal]"
+                      lineageId="Package\Fact_Venta_Entrada_Escuela\Columna derivada.Outputs[Salida de columna derivada].Columns[total]" />
                   </inputColumns>
-                  <externalMetadataColumns />
-                </input>
-                <input
-                  refId="Package\Fact_Venta_Entrada_Escuela\Mezclar.Inputs[Entrada de Mezclar 2]"
-                  name="Entrada de Mezclar 2">
-                  <externalMetadataColumns />
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Fact_Venta_Entrada_Escuela\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[id_venta_entrada_escuela]"
+                      dataType="wstr"
+                      length="10"
+                      name="id_venta_entrada_escuela" />
+                    <externalMetadataColumn
+                      refId="Package\Fact_Venta_Entrada_Escuela\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[fk_tiempoKey]"
+                      dataType="i4"
+                      name="fk_tiempoKey" />
+                    <externalMetadataColumn
+                      refId="Package\Fact_Venta_Entrada_Escuela\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[fk_parqueKey]"
+                      dataType="i4"
+                      name="fk_parqueKey" />
+                    <externalMetadataColumn
+                      refId="Package\Fact_Venta_Entrada_Escuela\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[fk_regionKey]"
+                      dataType="i4"
+                      name="fk_regionKey" />
+                    <externalMetadataColumn
+                      refId="Package\Fact_Venta_Entrada_Escuela\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[fk_escuelaKey]"
+                      dataType="i4"
+                      name="fk_escuelaKey" />
+                    <externalMetadataColumn
+                      refId="Package\Fact_Venta_Entrada_Escuela\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[fk_empleadoKey]"
+                      dataType="i4"
+                      name="fk_empleadoKey" />
+                    <externalMetadataColumn
+                      refId="Package\Fact_Venta_Entrada_Escuela\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[cantidad]"
+                      dataType="i4"
+                      name="cantidad" />
+                    <externalMetadataColumn
+                      refId="Package\Fact_Venta_Entrada_Escuela\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[valorUnidad]"
+                      dataType="r8"
+                      name="valorUnidad" />
+                    <externalMetadataColumn
+                      refId="Package\Fact_Venta_Entrada_Escuela\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[valorTotal]"
+                      dataType="r8"
+                      name="valorTotal" />
+                  </externalMetadataColumns>
                 </input>
               </inputs>
               <outputs>
                 <output
-                  refId="Package\Fact_Venta_Entrada_Escuela\Mezclar.Outputs[Salida de Mezclar 1]"
-                  name="Salida de Mezclar 1">
+                  refId="Package\Fact_Venta_Entrada_Escuela\Destino de OLE DB.Outputs[Salida de error de destino de OLE DB]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Salida de error de destino de OLE DB"
+                  synchronousInputId="Package\Fact_Venta_Entrada_Escuela\Destino de OLE DB.Inputs[Entrada de destino de OLE DB]">
                   <outputColumns>
                     <outputColumn
-                      refId="Package\Fact_Venta_Entrada_Escuela\Mezclar.Outputs[Salida de Mezclar 1].Columns[fk_venta_entrada]"
-                      dataType="r8"
-                      lineageId="Package\Fact_Venta_Entrada_Escuela\Mezclar.Outputs[Salida de Mezclar 1].Columns[fk_venta_entrada]"
-                      name="fk_venta_entrada" />
-                    <outputColumn
-                      refId="Package\Fact_Venta_Entrada_Escuela\Mezclar.Outputs[Salida de Mezclar 1].Columns[fk_parque]"
-                      dataType="r8"
-                      lineageId="Package\Fact_Venta_Entrada_Escuela\Mezclar.Outputs[Salida de Mezclar 1].Columns[fk_parque]"
-                      name="fk_parque" />
-                    <outputColumn
-                      refId="Package\Fact_Venta_Entrada_Escuela\Mezclar.Outputs[Salida de Mezclar 1].Columns[Copia de fk_venta_entrada]"
+                      refId="Package\Fact_Venta_Entrada_Escuela\Destino de OLE DB.Outputs[Salida de error de destino de OLE DB].Columns[ErrorCode]"
                       dataType="i4"
-                      lineageId="Package\Fact_Venta_Entrada_Escuela\Mezclar.Outputs[Salida de Mezclar 1].Columns[Copia de fk_venta_entrada]"
-                      name="Copia de fk_venta_entrada" />
+                      lineageId="Package\Fact_Venta_Entrada_Escuela\Destino de OLE DB.Outputs[Salida de error de destino de OLE DB].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
                     <outputColumn
-                      refId="Package\Fact_Venta_Entrada_Escuela\Mezclar.Outputs[Salida de Mezclar 1].Columns[Copia de fk_parque]"
+                      refId="Package\Fact_Venta_Entrada_Escuela\Destino de OLE DB.Outputs[Salida de error de destino de OLE DB].Columns[ErrorColumn]"
                       dataType="i4"
-                      lineageId="Package\Fact_Venta_Entrada_Escuela\Mezclar.Outputs[Salida de Mezclar 1].Columns[Copia de fk_parque]"
-                      name="Copia de fk_parque" />
+                      lineageId="Package\Fact_Venta_Entrada_Escuela\Destino de OLE DB.Outputs[Salida de error de destino de OLE DB].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
                   </outputColumns>
                   <externalMetadataColumns />
                 </output>
@@ -11640,7 +12047,7 @@ where [refTable].[idRegion] = ?</property>
                         <property
                           dataType="System.Int32"
                           description="Especifica el criterio de ordenación de la columna."
-                          name="NewSortKeyPosition">1</property>
+                          name="NewSortKeyPosition">0</property>
                       </properties>
                     </inputColumn>
                     <inputColumn
@@ -11656,7 +12063,55 @@ where [refTable].[idRegion] = ?</property>
                         <property
                           dataType="System.Int32"
                           description="Especifica el criterio de ordenación de la columna."
-                          name="NewSortKeyPosition">0</property>
+                          name="NewSortKeyPosition">2</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Fact_Venta_Entrada_Escuela\Ordenar.Inputs[Entrada de ordenación].Columns[copia_fk_venta_entrada]"
+                      cachedDataType="i4"
+                      cachedName="copia_fk_venta_entrada"
+                      lineageId="Package\Fact_Venta_Entrada_Escuela\Conversión de datos.Outputs[Salida de conversión de datos].Columns[copia_fk_venta_entrada]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Especifica las opciones de comparación para datos de caracteres."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Especifica el criterio de ordenación de la columna."
+                          name="NewSortKeyPosition">1</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Fact_Venta_Entrada_Escuela\Ordenar.Inputs[Entrada de ordenación].Columns[fk_region]"
+                      cachedDataType="r8"
+                      cachedName="fk_region"
+                      lineageId="Package\Fact_Venta_Entrada_Escuela\Origen de Excel.Outputs[Salida de origen de Excel].Columns[fk_region]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Especifica las opciones de comparación para datos de caracteres."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Especifica el criterio de ordenación de la columna."
+                          name="NewSortKeyPosition">3</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Fact_Venta_Entrada_Escuela\Ordenar.Inputs[Entrada de ordenación].Columns[copia_fk_parque]"
+                      cachedDataType="i4"
+                      cachedName="copia_fk_parque"
+                      lineageId="Package\Fact_Venta_Entrada_Escuela\Conversión de datos.Outputs[Salida de conversión de datos].Columns[copia_fk_parque]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Especifica las opciones de comparación para datos de caracteres."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Especifica el criterio de ordenación de la columna."
+                          name="NewSortKeyPosition">4</property>
                       </properties>
                     </inputColumn>
                   </inputColumns>
@@ -11673,8 +12128,7 @@ where [refTable].[idRegion] = ?</property>
                       refId="Package\Fact_Venta_Entrada_Escuela\Ordenar.Outputs[Salida de ordenación].Columns[fk_venta_entrada]"
                       dataType="r8"
                       lineageId="Package\Fact_Venta_Entrada_Escuela\Ordenar.Outputs[Salida de ordenación].Columns[fk_venta_entrada]"
-                      name="fk_venta_entrada"
-                      sortKeyPosition="1">
+                      name="fk_venta_entrada">
                       <properties>
                         <property
                           containsID="true"
@@ -11687,13 +12141,56 @@ where [refTable].[idRegion] = ?</property>
                       refId="Package\Fact_Venta_Entrada_Escuela\Ordenar.Outputs[Salida de ordenación].Columns[fk_parque]"
                       dataType="r8"
                       lineageId="Package\Fact_Venta_Entrada_Escuela\Ordenar.Outputs[Salida de ordenación].Columns[fk_parque]"
-                      name="fk_parque">
+                      name="fk_parque"
+                      sortKeyPosition="2">
                       <properties>
                         <property
                           containsID="true"
                           dataType="System.Int32"
                           description="Especifica el identificador de linaje de la columna de entrada que está asociada a esta columna de salida."
                           name="SortColumnId">#{Package\Fact_Venta_Entrada_Escuela\Origen de Excel.Outputs[Salida de origen de Excel].Columns[fk_parque]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Fact_Venta_Entrada_Escuela\Ordenar.Outputs[Salida de ordenación].Columns[copia_fk_venta_entrada]"
+                      dataType="i4"
+                      lineageId="Package\Fact_Venta_Entrada_Escuela\Ordenar.Outputs[Salida de ordenación].Columns[copia_fk_venta_entrada]"
+                      name="copia_fk_venta_entrada"
+                      sortKeyPosition="1">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Especifica el identificador de linaje de la columna de entrada que está asociada a esta columna de salida."
+                          name="SortColumnId">#{Package\Fact_Venta_Entrada_Escuela\Conversión de datos.Outputs[Salida de conversión de datos].Columns[copia_fk_venta_entrada]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Fact_Venta_Entrada_Escuela\Ordenar.Outputs[Salida de ordenación].Columns[fk_region]"
+                      dataType="r8"
+                      lineageId="Package\Fact_Venta_Entrada_Escuela\Ordenar.Outputs[Salida de ordenación].Columns[fk_region]"
+                      name="fk_region"
+                      sortKeyPosition="3">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Especifica el identificador de linaje de la columna de entrada que está asociada a esta columna de salida."
+                          name="SortColumnId">#{Package\Fact_Venta_Entrada_Escuela\Origen de Excel.Outputs[Salida de origen de Excel].Columns[fk_region]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Fact_Venta_Entrada_Escuela\Ordenar.Outputs[Salida de ordenación].Columns[copia_fk_parque]"
+                      dataType="i4"
+                      lineageId="Package\Fact_Venta_Entrada_Escuela\Ordenar.Outputs[Salida de ordenación].Columns[copia_fk_parque]"
+                      name="copia_fk_parque"
+                      sortKeyPosition="4">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Especifica el identificador de linaje de la columna de entrada que está asociada a esta columna de salida."
+                          name="SortColumnId">#{Package\Fact_Venta_Entrada_Escuela\Conversión de datos.Outputs[Salida de conversión de datos].Columns[copia_fk_parque]}</property>
                       </properties>
                     </outputColumn>
                   </outputColumns>
@@ -11737,7 +12234,7 @@ where [refTable].[idRegion] = ?</property>
                         <property
                           dataType="System.Int32"
                           description="Especifica el criterio de ordenación de la columna."
-                          name="NewSortKeyPosition">1</property>
+                          name="NewSortKeyPosition">0</property>
                       </properties>
                     </inputColumn>
                     <inputColumn
@@ -11820,6 +12317,22 @@ where [refTable].[idRegion] = ?</property>
                           name="NewSortKeyPosition">0</property>
                       </properties>
                     </inputColumn>
+                    <inputColumn
+                      refId="Package\Fact_Venta_Entrada_Escuela\Ordenar 1.Inputs[Entrada de ordenación].Columns[Copia de Numero_Ticket]"
+                      cachedDataType="i4"
+                      cachedName="Copia de Numero_Ticket"
+                      lineageId="Package\Fact_Venta_Entrada_Escuela\Conversión de datos 1.Outputs[Salida de conversión de datos].Columns[Copia de Numero_Ticket]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Especifica las opciones de comparación para datos de caracteres."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Especifica el criterio de ordenación de la columna."
+                          name="NewSortKeyPosition">1</property>
+                      </properties>
+                    </inputColumn>
                   </inputColumns>
                   <externalMetadataColumns />
                 </input>
@@ -11834,8 +12347,7 @@ where [refTable].[idRegion] = ?</property>
                       refId="Package\Fact_Venta_Entrada_Escuela\Ordenar 1.Outputs[Salida de ordenación].Columns[Numero_Ticket]"
                       dataType="i4"
                       lineageId="Package\Fact_Venta_Entrada_Escuela\Ordenar 1.Outputs[Salida de ordenación].Columns[Numero_Ticket]"
-                      name="Numero_Ticket"
-                      sortKeyPosition="1">
+                      name="Numero_Ticket">
                       <properties>
                         <property
                           containsID="true"
@@ -11909,6 +12421,20 @@ where [refTable].[idRegion] = ?</property>
                           name="SortColumnId">#{Package\Fact_Venta_Entrada_Escuela\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[Cantidad_Alumnos_Reales]}</property>
                       </properties>
                     </outputColumn>
+                    <outputColumn
+                      refId="Package\Fact_Venta_Entrada_Escuela\Ordenar 1.Outputs[Salida de ordenación].Columns[Copia de Numero_Ticket]"
+                      dataType="i4"
+                      lineageId="Package\Fact_Venta_Entrada_Escuela\Ordenar 1.Outputs[Salida de ordenación].Columns[Copia de Numero_Ticket]"
+                      name="Copia de Numero_Ticket"
+                      sortKeyPosition="1">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Especifica el identificador de linaje de la columna de entrada que está asociada a esta columna de salida."
+                          name="SortColumnId">#{Package\Fact_Venta_Entrada_Escuela\Conversión de datos 1.Outputs[Salida de conversión de datos].Columns[Copia de Numero_Ticket]}</property>
+                      </properties>
+                    </outputColumn>
                   </outputColumns>
                   <externalMetadataColumns />
                 </output>
@@ -11939,7 +12465,10 @@ where [refTable].[idRegion] = ?</property>
                   dataType="System.String"
                   description="Comando SQL para ejecutar."
                   name="SqlCommand"
-                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">SELECT        [VentasEntradasEscuelas$].fk_venta_entrada, [VentasEntradasEscuelas$].fk_parque, [Parques$].fk_region, [Regiones$].idRegion
+FROM            (([Parques$] INNER JOIN
+                         [Regiones$] ON [Parques$].fk_region = [Regiones$].idRegion) INNER JOIN
+                         [VentasEntradasEscuelas$] ON [Parques$].idParque = [VentasEntradasEscuelas$].fk_parque)</property>
                 <property
                   dataType="System.String"
                   description="Variable que contiene el comando SQL para ejecutar."
@@ -11948,7 +12477,7 @@ where [refTable].[idRegion] = ?</property>
                   dataType="System.Int32"
                   description="Especifica el modo utilizado para obtener acceso a la base de datos."
                   name="AccessMode"
-                  typeConverter="AccessMode">0</property>
+                  typeConverter="AccessMode">2</property>
                 <property
                   dataType="System.String"
                   description="La asignación de parámetros del comando SQL a variables."
@@ -11985,6 +12514,24 @@ where [refTable].[idRegion] = ?</property>
                       lineageId="Package\Fact_Venta_Entrada_Escuela\Origen de Excel.Outputs[Salida de origen de Excel].Columns[fk_parque]"
                       name="fk_parque"
                       truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Fact_Venta_Entrada_Escuela\Origen de Excel.Outputs[Salida de origen de Excel].Columns[fk_region]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Fact_Venta_Entrada_Escuela\Origen de Excel.Outputs[Salida de origen de Excel].ExternalColumns[fk_region]"
+                      lineageId="Package\Fact_Venta_Entrada_Escuela\Origen de Excel.Outputs[Salida de origen de Excel].Columns[fk_region]"
+                      name="fk_region"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Fact_Venta_Entrada_Escuela\Origen de Excel.Outputs[Salida de origen de Excel].Columns[idRegion]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Fact_Venta_Entrada_Escuela\Origen de Excel.Outputs[Salida de origen de Excel].ExternalColumns[idRegion]"
+                      lineageId="Package\Fact_Venta_Entrada_Escuela\Origen de Excel.Outputs[Salida de origen de Excel].Columns[idRegion]"
+                      name="idRegion"
+                      truncationRowDisposition="FailComponent" />
                   </outputColumns>
                   <externalMetadataColumns
                     isUsed="True">
@@ -11996,6 +12543,14 @@ where [refTable].[idRegion] = ?</property>
                       refId="Package\Fact_Venta_Entrada_Escuela\Origen de Excel.Outputs[Salida de origen de Excel].ExternalColumns[fk_parque]"
                       dataType="r8"
                       name="fk_parque" />
+                    <externalMetadataColumn
+                      refId="Package\Fact_Venta_Entrada_Escuela\Origen de Excel.Outputs[Salida de origen de Excel].ExternalColumns[fk_region]"
+                      dataType="r8"
+                      name="fk_region" />
+                    <externalMetadataColumn
+                      refId="Package\Fact_Venta_Entrada_Escuela\Origen de Excel.Outputs[Salida de origen de Excel].ExternalColumns[idRegion]"
+                      dataType="r8"
+                      name="idRegion" />
                   </externalMetadataColumns>
                 </output>
                 <output
@@ -12013,6 +12568,16 @@ where [refTable].[idRegion] = ?</property>
                       dataType="r8"
                       lineageId="Package\Fact_Venta_Entrada_Escuela\Origen de Excel.Outputs[Salida de error de origen de Excel].Columns[fk_parque]"
                       name="fk_parque" />
+                    <outputColumn
+                      refId="Package\Fact_Venta_Entrada_Escuela\Origen de Excel.Outputs[Salida de error de origen de Excel].Columns[fk_region]"
+                      dataType="r8"
+                      lineageId="Package\Fact_Venta_Entrada_Escuela\Origen de Excel.Outputs[Salida de error de origen de Excel].Columns[fk_region]"
+                      name="fk_region" />
+                    <outputColumn
+                      refId="Package\Fact_Venta_Entrada_Escuela\Origen de Excel.Outputs[Salida de error de origen de Excel].Columns[idRegion]"
+                      dataType="r8"
+                      lineageId="Package\Fact_Venta_Entrada_Escuela\Origen de Excel.Outputs[Salida de error de origen de Excel].Columns[idRegion]"
+                      name="idRegion" />
                     <outputColumn
                       refId="Package\Fact_Venta_Entrada_Escuela\Origen de Excel.Outputs[Salida de error de origen de Excel].Columns[ErrorCode]"
                       dataType="i4"
@@ -12241,38 +12806,183 @@ FROM            VENTA INNER JOIN
                 </output>
               </outputs>
             </component>
+            <component
+              refId="Package\Fact_Venta_Entrada_Escuela\Verificar datos null"
+              componentClassID="{7F88F654-4E20-4D14-84F4-AF9C925D3087}"
+              contactInfo="División condicional;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;0"
+              description="Enruta filas de datos a diferentes salidas según el contenido de los datos. Se usan condiciones (expresiones de SSIS) para especificar las filas que se van a enrutar. Por ejemplo, se usa para separar los registros que deben limpiarse de los registros listos para ser cargados o para enrutar solamente un subconjunto de registros."
+              name="Verificar datos null"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\Fact_Venta_Entrada_Escuela\Verificar datos null.Inputs[Entrada de división condicional]"
+                  description="Entrada en la transformación División condicional"
+                  name="Entrada de división condicional">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Fact_Venta_Entrada_Escuela\Verificar datos null.Inputs[Entrada de división condicional].Columns[copia_fk_venta_entrada]"
+                      cachedDataType="i4"
+                      cachedName="copia_fk_venta_entrada"
+                      cachedSortKeyPosition="1"
+                      lineageId="Package\Fact_Venta_Entrada_Escuela\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[copia_fk_venta_entrada]" />
+                    <inputColumn
+                      refId="Package\Fact_Venta_Entrada_Escuela\Verificar datos null.Inputs[Entrada de división condicional].Columns[fk_parque]"
+                      cachedDataType="r8"
+                      cachedName="fk_parque"
+                      lineageId="Package\Fact_Venta_Entrada_Escuela\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[fk_parque]" />
+                    <inputColumn
+                      refId="Package\Fact_Venta_Entrada_Escuela\Verificar datos null.Inputs[Entrada de división condicional].Columns[Fecha]"
+                      cachedDataType="dbDate"
+                      cachedName="Fecha"
+                      lineageId="Package\Fact_Venta_Entrada_Escuela\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[Fecha]" />
+                    <inputColumn
+                      refId="Package\Fact_Venta_Entrada_Escuela\Verificar datos null.Inputs[Entrada de división condicional].Columns[Codigo_Empleado]"
+                      cachedDataType="i4"
+                      cachedName="Codigo_Empleado"
+                      lineageId="Package\Fact_Venta_Entrada_Escuela\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[Codigo_Empleado]" />
+                    <inputColumn
+                      refId="Package\Fact_Venta_Entrada_Escuela\Verificar datos null.Inputs[Entrada de división condicional].Columns[Codigo_Escuela]"
+                      cachedDataType="i4"
+                      cachedName="Codigo_Escuela"
+                      lineageId="Package\Fact_Venta_Entrada_Escuela\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[Codigo_Escuela]" />
+                    <inputColumn
+                      refId="Package\Fact_Venta_Entrada_Escuela\Verificar datos null.Inputs[Entrada de división condicional].Columns[Arancel_por_Alumno]"
+                      cachedDataType="r8"
+                      cachedName="Arancel_por_Alumno"
+                      lineageId="Package\Fact_Venta_Entrada_Escuela\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[Arancel_por_Alumno]" />
+                    <inputColumn
+                      refId="Package\Fact_Venta_Entrada_Escuela\Verificar datos null.Inputs[Entrada de división condicional].Columns[Cantidad_Alumnos_Reales]"
+                      cachedDataType="i4"
+                      cachedName="Cantidad_Alumnos_Reales"
+                      lineageId="Package\Fact_Venta_Entrada_Escuela\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[Cantidad_Alumnos_Reales]" />
+                    <inputColumn
+                      refId="Package\Fact_Venta_Entrada_Escuela\Verificar datos null.Inputs[Entrada de división condicional].Columns[fk_region]"
+                      cachedDataType="r8"
+                      cachedName="fk_region"
+                      lineageId="Package\Fact_Venta_Entrada_Escuela\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[fk_region]" />
+                    <inputColumn
+                      refId="Package\Fact_Venta_Entrada_Escuela\Verificar datos null.Inputs[Entrada de división condicional].Columns[copia_fk_parque]"
+                      cachedDataType="i4"
+                      cachedName="copia_fk_parque"
+                      lineageId="Package\Fact_Venta_Entrada_Escuela\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[copia_fk_parque]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Fact_Venta_Entrada_Escuela\Verificar datos null.Outputs[Sin datos nulos]"
+                  description="Salida 1 de la transformación División condicional"
+                  errorOrTruncationOperation="Cálculo"
+                  errorRowDisposition="FailComponent"
+                  exclusionGroup="1"
+                  name="Sin datos nulos"
+                  synchronousInputId="Package\Fact_Venta_Entrada_Escuela\Verificar datos null.Inputs[Entrada de división condicional]"
+                  truncationRowDisposition="FailComponent">
+                  <properties>
+                    <property
+                      containsID="true"
+                      dataType="System.String"
+                      description="Especifica la expresión. Esta versión de expresión usa identificadores de linaje en lugar de nombres de columna."
+                      name="Expression">![ISNULL](#{Package\Fact_Venta_Entrada_Escuela\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[copia_fk_venta_entrada]}) || ![ISNULL](#{Package\Fact_Venta_Entrada_Escuela\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[fk_parque]}) || ![ISNULL](#{Package\Fact_Venta_Entrada_Escuela\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[Fecha]}) || ![ISNULL](#{Package\Fact_Venta_Entrada_Escuela\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[Codigo_Empleado]}) || ![ISNULL](#{Package\Fact_Venta_Entrada_Escuela\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[Codigo_Escuela]}) || ![ISNULL](#{Package\Fact_Venta_Entrada_Escuela\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[Arancel_por_Alumno]}) || ![ISNULL](#{Package\Fact_Venta_Entrada_Escuela\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[Cantidad_Alumnos_Reales]}) || ![ISNULL](#{Package\Fact_Venta_Entrada_Escuela\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[fk_region]}) || ![ISNULL](#{Package\Fact_Venta_Entrada_Escuela\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[copia_fk_parque]})</property>
+                    <property
+                      containsID="true"
+                      dataType="System.String"
+                      description="Especifica la versión descriptiva de la expresión. Esta versión de expresión usa nombres de columna."
+                      expressionType="Notify"
+                      name="FriendlyExpression">!ISNULL(copia_fk_venta_entrada) || !ISNULL(fk_parque) || !ISNULL(Fecha) || !ISNULL(Codigo_Empleado) || !ISNULL(Codigo_Escuela) || !ISNULL(Arancel_por_Alumno) || !ISNULL(Cantidad_Alumnos_Reales) || !ISNULL(fk_region) || !ISNULL(copia_fk_parque)</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Especifica la posición de la condición en la lista de condiciones que evalúa la transformación. El orden de evaluación es del menor al mayor valor."
+                      name="EvaluationOrder">0</property>
+                  </properties>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Fact_Venta_Entrada_Escuela\Verificar datos null.Outputs[Con datos nulos]"
+                  description="Salida predeterminada de la transformación División condicional"
+                  exclusionGroup="1"
+                  name="Con datos nulos"
+                  synchronousInputId="Package\Fact_Venta_Entrada_Escuela\Verificar datos null.Inputs[Entrada de división condicional]">
+                  <properties>
+                    <property
+                      dataType="System.Boolean"
+                      name="IsDefaultOut">true</property>
+                  </properties>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Fact_Venta_Entrada_Escuela\Verificar datos null.Outputs[Salida de error de división condicional]"
+                  description="Salida de error de la transformación División condicional"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Salida de error de división condicional"
+                  synchronousInputId="Package\Fact_Venta_Entrada_Escuela\Verificar datos null.Inputs[Entrada de división condicional]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Fact_Venta_Entrada_Escuela\Verificar datos null.Outputs[Salida de error de división condicional].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Fact_Venta_Entrada_Escuela\Verificar datos null.Outputs[Salida de error de división condicional].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Fact_Venta_Entrada_Escuela\Verificar datos null.Outputs[Salida de error de división condicional].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Fact_Venta_Entrada_Escuela\Verificar datos null.Outputs[Salida de error de división condicional].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
           </components>
           <paths>
             <path
-              refId="Package\Fact_Venta_Entrada_Escuela.Paths[Salida de conversión de datos]"
-              endId="Package\Fact_Venta_Entrada_Escuela\Mezclar.Inputs[Entrada de Mezclar 1]"
-              name="Salida de conversión de datos"
-              startId="Package\Fact_Venta_Entrada_Escuela\Conversión de datos.Outputs[Salida de conversión de datos]" />
+              refId="Package\Fact_Venta_Entrada_Escuela.Paths[Salida de columna derivada]"
+              endId="Package\Fact_Venta_Entrada_Escuela\Destino de OLE DB.Inputs[Entrada de destino de OLE DB]"
+              name="Salida de columna derivada"
+              startId="Package\Fact_Venta_Entrada_Escuela\Columna derivada.Outputs[Salida de columna derivada]" />
+            <path
+              refId="Package\Fact_Venta_Entrada_Escuela.Paths[Salida de combinación de mezcla]"
+              endId="Package\Fact_Venta_Entrada_Escuela\Verificar datos null.Inputs[Entrada de división condicional]"
+              name="Salida de combinación de mezcla"
+              startId="Package\Fact_Venta_Entrada_Escuela\Combinación de mezcla.Outputs[Salida de combinación de mezcla]" />
             <path
               refId="Package\Fact_Venta_Entrada_Escuela.Paths[Salida de conversión de datos1]"
-              endId="Package\Fact_Venta_Entrada_Escuela\Mezclar.Inputs[Entrada de Mezclar 2]"
+              endId="Package\Fact_Venta_Entrada_Escuela\Ordenar 1.Inputs[Entrada de ordenación]"
               name="Salida de conversión de datos"
               startId="Package\Fact_Venta_Entrada_Escuela\Conversión de datos 1.Outputs[Salida de conversión de datos]" />
             <path
+              refId="Package\Fact_Venta_Entrada_Escuela.Paths[Salida de conversión de datos]"
+              endId="Package\Fact_Venta_Entrada_Escuela\Ordenar.Inputs[Entrada de ordenación]"
+              name="Salida de conversión de datos"
+              startId="Package\Fact_Venta_Entrada_Escuela\Conversión de datos.Outputs[Salida de conversión de datos]" />
+            <path
               refId="Package\Fact_Venta_Entrada_Escuela.Paths[Salida de ordenación1]"
-              endId="Package\Fact_Venta_Entrada_Escuela\Conversión de datos 1.Inputs[Entrada de conversión de datos]"
+              endId="Package\Fact_Venta_Entrada_Escuela\Combinación de mezcla.Inputs[Entrada derecha de combinación de mezcla]"
               name="Salida de ordenación"
               startId="Package\Fact_Venta_Entrada_Escuela\Ordenar 1.Outputs[Salida de ordenación]" />
             <path
               refId="Package\Fact_Venta_Entrada_Escuela.Paths[Salida de ordenación]"
-              endId="Package\Fact_Venta_Entrada_Escuela\Conversión de datos.Inputs[Entrada de conversión de datos]"
+              endId="Package\Fact_Venta_Entrada_Escuela\Combinación de mezcla.Inputs[Entrada izquierda de combinación de mezcla]"
               name="Salida de ordenación"
               startId="Package\Fact_Venta_Entrada_Escuela\Ordenar.Outputs[Salida de ordenación]" />
             <path
               refId="Package\Fact_Venta_Entrada_Escuela.Paths[Salida de origen de Excel]"
-              endId="Package\Fact_Venta_Entrada_Escuela\Ordenar.Inputs[Entrada de ordenación]"
+              endId="Package\Fact_Venta_Entrada_Escuela\Conversión de datos.Inputs[Entrada de conversión de datos]"
               name="Salida de origen de Excel"
               startId="Package\Fact_Venta_Entrada_Escuela\Origen de Excel.Outputs[Salida de origen de Excel]" />
             <path
               refId="Package\Fact_Venta_Entrada_Escuela.Paths[Salida de origen de OLE DB]"
-              endId="Package\Fact_Venta_Entrada_Escuela\Ordenar 1.Inputs[Entrada de ordenación]"
+              endId="Package\Fact_Venta_Entrada_Escuela\Conversión de datos 1.Inputs[Entrada de conversión de datos]"
               name="Salida de origen de OLE DB"
               startId="Package\Fact_Venta_Entrada_Escuela\Origen de OLE DB.Outputs[Salida de origen de OLE DB]" />
+            <path
+              refId="Package\Fact_Venta_Entrada_Escuela.Paths[Sin datos nulos]"
+              endId="Package\Fact_Venta_Entrada_Escuela\Columna derivada.Inputs[Entrada de columna derivada]"
+              name="Sin datos nulos"
+              startId="Package\Fact_Venta_Entrada_Escuela\Verificar datos null.Outputs[Sin datos nulos]" />
           </paths>
         </pipeline>
       </DTS:ObjectData>
@@ -15500,7 +16210,7 @@ FROM            VENTA INNER JOIN
     design-time-name="Package\Fact_Venta_Entrada_Escuela">
     <LayoutInfo>
       <GraphLayout
-        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        Capacity="32" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
           Size="155,42"
           Id="Package\Fact_Venta_Entrada_Escuela\Origen de Excel"
@@ -15510,101 +16220,31 @@ FROM            VENTA INNER JOIN
           Id="Package\Fact_Venta_Entrada_Escuela\Origen de OLE DB"
           TopLeft="457,72" />
         <NodeLayout
-          Size="119,42"
-          Id="Package\Fact_Venta_Entrada_Escuela\Ordenar"
-          TopLeft="255,157" />
-        <NodeLayout
-          Size="128,42"
-          Id="Package\Fact_Venta_Entrada_Escuela\Ordenar 1"
-          TopLeft="479,159" />
-        <EdgeLayout
-          Id="Package\Fact_Venta_Entrada_Escuela.Paths[Salida de origen de Excel]"
-          TopLeft="312,115">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,42"
-              Start="0,0"
-              End="0,34.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,34.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Fact_Venta_Entrada_Escuela.Paths[Salida de origen de OLE DB]"
-          TopLeft="541.5,114">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,45"
-              Start="0,0"
-              End="0,37.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,37.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <NodeLayout
           Size="177,42"
           Id="Package\Fact_Venta_Entrada_Escuela\Conversión de datos"
-          TopLeft="226,226" />
+          TopLeft="220,170" />
         <NodeLayout
           Size="186,42"
           Id="Package\Fact_Venta_Entrada_Escuela\Conversión de datos 1"
-          TopLeft="450,224" />
+          TopLeft="452,167" />
+        <NodeLayout
+          Size="119,42"
+          Id="Package\Fact_Venta_Entrada_Escuela\Ordenar"
+          TopLeft="252,241" />
         <EdgeLayout
-          Id="Package\Fact_Venta_Entrada_Escuela.Paths[Salida de ordenación]"
-          TopLeft="314.5,199">
+          Id="Package\Fact_Venta_Entrada_Escuela.Paths[Salida de origen de Excel]"
+          TopLeft="309,115">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,27"
+              EndConnector="0,55"
               Start="0,0"
-              End="0,19.5">
+              End="0,47.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,19.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Fact_Venta_Entrada_Escuela.Paths[Salida de ordenación1]"
-          TopLeft="543,201">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,23"
-              Start="0,0"
-              End="0,15.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,15.5" />
+                    End="0,47.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -15614,35 +16254,45 @@ FROM            VENTA INNER JOIN
           </EdgeLayout.Labels>
         </EdgeLayout>
         <NodeLayout
-          Size="116,42"
-          Id="Package\Fact_Venta_Entrada_Escuela\Mezclar"
-          TopLeft="369,316" />
+          Size="128,42"
+          Id="Package\Fact_Venta_Entrada_Escuela\Ordenar 1"
+          TopLeft="481,245" />
         <EdgeLayout
-          Id="Package\Fact_Venta_Entrada_Escuela.Paths[Salida de conversión de datos]"
-          TopLeft="314.5,268">
+          Id="Package\Fact_Venta_Entrada_Escuela.Paths[Salida de origen de OLE DB]"
+          TopLeft="542.5,114">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="112.5,48"
+              EndConnector="0,53"
               Start="0,0"
-              End="112.5,40.5">
+              End="0,45.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,20" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,20"
-                    Point2="0,24"
-                    Point3="4,24" />
+                    End="0,45.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Fact_Venta_Entrada_Escuela.Paths[Salida de conversión de datos]"
+          TopLeft="310,212">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,29"
+              Start="0,0"
+              End="0,21.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
                   <mssgle:LineSegment
-                    End="108.5,24" />
-                  <mssgle:CubicBezierSegment
-                    Point1="108.5,24"
-                    Point2="112.5,24"
-                    Point3="112.5,28" />
-                  <mssgle:LineSegment
-                    End="112.5,40.5" />
+                    End="0,21.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -15653,36 +16303,202 @@ FROM            VENTA INNER JOIN
         </EdgeLayout>
         <EdgeLayout
           Id="Package\Fact_Venta_Entrada_Escuela.Paths[Salida de conversión de datos1]"
-          TopLeft="543,266">
+          TopLeft="545,209">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="-98,50"
+              EndConnector="0,36"
               Start="0,0"
-              End="-98,42.5">
+              End="0,28.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,25.5918367346939" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,25.5918367346939"
-                    Point2="0,29.5918367346939"
-                    Point3="-4,29.5918367346939" />
-                  <mssgle:LineSegment
-                    End="-94,29.5918367346939" />
-                  <mssgle:CubicBezierSegment
-                    Point1="-94,29.5918367346939"
-                    Point2="-98,29.5918367346939"
-                    Point3="-98,33.5918367346939" />
-                  <mssgle:LineSegment
-                    End="-98,42.5" />
+                    End="0,28.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="192,42"
+          Id="Package\Fact_Venta_Entrada_Escuela\Combinación de mezcla"
+          TopLeft="361,337" />
+        <EdgeLayout
+          Id="Package\Fact_Venta_Entrada_Escuela.Paths[Salida de ordenación]"
+          TopLeft="311.5,283">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="114.833333333333,54"
+              Start="0,0"
+              End="114.833333333333,46.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,28.1322314049587" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,28.1322314049587"
+                    Point2="0,32.1322314049587"
+                    Point3="4,32.1322314049587" />
+                  <mssgle:LineSegment
+                    End="110.833333333333,32.1322314049587" />
+                  <mssgle:CubicBezierSegment
+                    Point1="110.833333333333,32.1322314049587"
+                    Point2="114.833333333333,32.1322314049587"
+                    Point3="114.833333333333,36.1322314049587" />
+                  <mssgle:LineSegment
+                    End="114.833333333333,46.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Fact_Venta_Entrada_Escuela.Paths[Salida de ordenación1]"
+          TopLeft="545,287">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-57.3333333333334,50"
+              Start="0,0"
+              End="-57.3333333333334,42.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,25.7520661157025" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,25.7520661157025"
+                    Point2="0,29.7520661157025"
+                    Point3="-4,29.7520661157025" />
+                  <mssgle:LineSegment
+                    End="-53.3333333333334,29.7520661157025" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-53.3333333333334,29.7520661157025"
+                    Point2="-57.3333333333334,29.7520661157025"
+                    Point3="-57.3333333333334,33.7520661157025" />
+                  <mssgle:LineSegment
+                    End="-57.3333333333334,42.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="169,42"
+          Id="Package\Fact_Venta_Entrada_Escuela\Verificar datos null"
+          TopLeft="382,408" />
+        <EdgeLayout
+          Id="Package\Fact_Venta_Entrada_Escuela.Paths[Salida de combinación de mezcla]"
+          TopLeft="457,379">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="9.5,29"
+              Start="0,0"
+              End="9.5,21.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,10.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,10.5"
+                    Point2="0,14.5"
+                    Point3="4,14.5" />
+                  <mssgle:LineSegment
+                    End="5.5,14.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="5.5,14.5"
+                    Point2="9.5,14.5"
+                    Point3="9.5,18.5" />
+                  <mssgle:LineSegment
+                    End="9.5,21.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="170,42"
+          Id="Package\Fact_Venta_Entrada_Escuela\Destino de OLE DB"
+          TopLeft="158,597" />
+        <NodeLayout
+          Size="166,42"
+          Id="Package\Fact_Venta_Entrada_Escuela\Columna derivada"
+          TopLeft="155,508" />
+        <EdgeLayout
+          Id="Package\Fact_Venta_Entrada_Escuela.Paths[Sin datos nulos]"
+          TopLeft="466.5,450">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-228.5,58"
+              Start="0,0"
+              End="-228.5,50.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,25" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,25"
+                    Point2="0,29"
+                    Point3="-4,29" />
+                  <mssgle:LineSegment
+                    End="-224.5,29" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-224.5,29"
+                    Point2="-228.5,29"
+                    Point3="-228.5,33" />
+                  <mssgle:LineSegment
+                    End="-228.5,50.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-147.4932421875,34,66.486484375,7.7490234375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Fact_Venta_Entrada_Escuela.Paths[Salida de columna derivada]"
+          TopLeft="240.5,550">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,47"
+              Start="0,0"
+              End="0,39.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,39.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-8,11.75,16,16"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
@@ -15740,6 +16556,19 @@ FROM            VENTA INNER JOIN
   </PipelineComponentMetadata>
   <PipelineComponentMetadata
     design-time-name="Package\Fact_Venta_Entrada_Escuela\Origen de OLE DB">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Fact_Venta_Entrada_Escuela\Destino de OLE DB">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
