@@ -11,8 +11,8 @@
   DTS:LocaleID="3082"
   DTS:ObjectName="Package"
   DTS:PackageType="5"
-  DTS:VersionBuild="123"
-  DTS:VersionGUID="{0C86440E-4CC9-412C-B1BC-009B1F0B8B95}">
+  DTS:VersionBuild="124"
+  DTS:VersionGUID="{E32F3A23-7CB8-494A-BFF8-E42852E6A166}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">6</DTS:Property>
   <DTS:ConnectionManagers>
@@ -14203,6 +14203,147 @@ where [refTable].[idParque] = ? and [refTable].[nombreParque] = ? and [refTable]
           version="1">
           <components>
             <component
+              refId="Package\Dim_Producto\Buscar si el producto existe"
+              componentClassID="{671046B0-AA63-4C9F-90E4-C06E0B710CE3}"
+              contactInfo="Búsqueda;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;6"
+              description="Combina columnas adicionales con el flujo de datos mediante la búsqueda de valores en una tabla. Por ejemplo, se combina la columna 'id. de empleado' con la tabla de empleados para obtener la 'fecha de contratación' y 'el nombre de empleado'. Se recomienda esta transformación cuando hay suficiente espacio en memoria para la tabla de búsqueda."
+              name="Buscar si el producto existe"
+              usesDispositions="true"
+              version="6">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Especifica la instrucción SQL que genera la tabla de búsqueda."
+                  expressionType="Notify"
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">select * from [dbo].[Dim_Producto]</property>
+                <property
+                  dataType="System.String"
+                  description="Especifica una instrucción SQL que usa parámetros para generar la tabla de búsqueda."
+                  expressionType="Notify"
+                  name="SqlCommandParam"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">select * from (select * from [dbo].[Dim_Producto]) [refTable]
+where [refTable].[idProducto] = ?</property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica el tipo de conexión utilizado para tener acceso al conjunto de datos de referencia."
+                  name="ConnectionType"
+                  typeConverter="LookupConnectionType">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica el tipo de caché de la tabla de búsqueda."
+                  name="CacheType"
+                  typeConverter="CacheType">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica cómo la transformación de búsquedas trata las filas sin entradas coincidentes en el conjunto de datos de referencia."
+                  name="NoMatchBehavior"
+                  typeConverter="LookupNoMatchBehavior">1</property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica el porcentaje de la caché asignado a las filas sin entradas coincidentes en el conjunto de datos de referencia."
+                  name="NoMatchCachePercentage">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Uso de memoria máximo para la caché de referencia en una plataforma de 32 bits."
+                  name="MaxMemoryUsage">25</property>
+                <property
+                  dataType="System.Int64"
+                  description="Uso de memoria máximo para la caché de referencia en una plataforma de 64 bits."
+                  name="MaxMemoryUsage64">25</property>
+                <property
+                  dataType="System.String"
+                  description="Indica si se debe hacer referencia a metadatos en formato XML."
+                  name="ReferenceMetadataXml">&lt;referenceMetadata&gt;&lt;referenceColumns&gt;&lt;referenceColumn name="productoKey" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="idProducto" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="nombreProducto" dataType="DT_STR" length="50" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="subcategoria" dataType="DT_STR" length="50" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="categoria" dataType="DT_STR" length="50" precision="0" scale="0" codePage="1252"/&gt;&lt;/referenceColumns&gt;&lt;/referenceMetadata&gt;</property>
+                <property
+                  containsID="true"
+                  dataType="System.String"
+                  description="Especifica la lista de identificadores de linaje que están asignados a los parámetros que usa la instrucción SQL de la propiedad SQLCommand. Las entradas de la lista están separadas por puntos y comas."
+                  name="ParameterMap">#{Package\Dim_Producto\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[ID_Producto]};</property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica la página de códigos de columna para utilizar cuando la información de página de códigos no está disponible en el origen de datos."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Determina si las claves duplicadas de los datos de referencia se deben tratar como errores cuando se usa el modo de caché."
+                  name="TreatDuplicateKeysAsError">false</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Dim_Producto\Buscar si el producto existe.Connections[OleDbConnection]"
+                  connectionManagerID="{F9A6CEB1-538A-410A-86F2-D2A1D39EC67F}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[WJGIRALDO-PC.DW_Parque]"
+                  description="Administrador de conexiones utilizado para obtener acceso a los datos de búsqueda."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Dim_Producto\Buscar si el producto existe.Inputs[Entrada de búsqueda]"
+                  name="Entrada de búsqueda">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Dim_Producto\Buscar si el producto existe.Inputs[Entrada de búsqueda].Columns[ID_Producto]"
+                      cachedDataType="i4"
+                      cachedName="ID_Producto"
+                      lineageId="Package\Dim_Producto\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[ID_Producto]">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Especifica la columna de la tabla de referencia con la que se combina una columna."
+                          name="JoinToReferenceColumn">idProducto</property>
+                        <property
+                          dataType="System.Null"
+                          description="Especifica la columna de la tabla de referencia de la que se copia una columna."
+                          name="CopyFromReferenceColumn" />
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Dim_Producto\Buscar si el producto existe.Outputs[Salida de entradas coincidentes de búsqueda]"
+                  errorOrTruncationOperation="Búsqueda"
+                  exclusionGroup="1"
+                  name="Salida de entradas coincidentes de búsqueda"
+                  synchronousInputId="Package\Dim_Producto\Buscar si el producto existe.Inputs[Entrada de búsqueda]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Dim_Producto\Buscar si el producto existe.Outputs[Salida de entradas no coincidentes de búsqueda]"
+                  description="Salida de búsqueda que trata las filas sin entradas coincidentes en el conjunto de datos de referencia. Utilice esta salida cuando la propiedad NoMatchBehavior esté establecida en &quot;Enviar las filas sin entradas coincidentes a la salida de entradas no coincidentes&quot;."
+                  exclusionGroup="1"
+                  name="Salida de entradas no coincidentes de búsqueda"
+                  synchronousInputId="Package\Dim_Producto\Buscar si el producto existe.Inputs[Entrada de búsqueda]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Dim_Producto\Buscar si el producto existe.Outputs[Salida de error de búsqueda]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Salida de error de búsqueda"
+                  synchronousInputId="Package\Dim_Producto\Buscar si el producto existe.Inputs[Entrada de búsqueda]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Dim_Producto\Buscar si el producto existe.Outputs[Salida de error de búsqueda].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Dim_Producto\Buscar si el producto existe.Outputs[Salida de error de búsqueda].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Dim_Producto\Buscar si el producto existe.Outputs[Salida de error de búsqueda].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Dim_Producto\Buscar si el producto existe.Outputs[Salida de error de búsqueda].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
               refId="Package\Dim_Producto\categorias 1"
               componentClassID="{165A526D-D5DE-47FF-96A6-F8274C19826B}"
               contactInfo="Origen de OLE DB;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;7"
@@ -14574,6 +14715,76 @@ GROUP BY SUBCATEGORIA.ID_Subcategoria, SUBCATEGORIA.Descripcion, CATEGORIA.ID_Ca
                   exclusionGroup="1"
                   name="Salida de columna derivada"
                   synchronousInputId="Package\Dim_Producto\Columna derivada.Inputs[Entrada de columna derivada]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Dim_Producto\Columna derivada.Outputs[Salida de columna derivada].Columns[fecha]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Cálculo"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\Dim_Producto\Columna derivada.Outputs[Salida de columna derivada].Columns[fecha]"
+                      name="fecha"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Expresión de columna derivada"
+                          name="Expression">[GETDATE]()</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Expresión descriptiva de columna derivada"
+                          expressionType="Notify"
+                          name="FriendlyExpression">GETDATE()</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Dim_Producto\Columna derivada.Outputs[Salida de columna derivada].Columns[error]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Cálculo"
+                      errorRowDisposition="FailComponent"
+                      length="18"
+                      lineageId="Package\Dim_Producto\Columna derivada.Outputs[Salida de columna derivada].Columns[error]"
+                      name="error"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Expresión de columna derivada"
+                          name="Expression">@[$Project::Error_Producto]</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Expresión descriptiva de columna derivada"
+                          expressionType="Notify"
+                          name="FriendlyExpression">@[$Project::Error_Producto]</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Dim_Producto\Columna derivada.Outputs[Salida de columna derivada].Columns[descripcion]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Cálculo"
+                      errorRowDisposition="FailComponent"
+                      length="51"
+                      lineageId="Package\Dim_Producto\Columna derivada.Outputs[Salida de columna derivada].Columns[descripcion]"
+                      name="descripcion"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Expresión de columna derivada"
+                          name="Expression">@[$Project::ErrorRegistroYaExiste]</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Expresión descriptiva de columna derivada"
+                          expressionType="Notify"
+                          name="FriendlyExpression">@[$Project::ErrorRegistroYaExiste]</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
                   <externalMetadataColumns />
                 </output>
                 <output
@@ -14602,6 +14813,226 @@ GROUP BY SUBCATEGORIA.ID_Subcategoria, SUBCATEGORIA.Descripcion, CATEGORIA.ID_Ca
               </outputs>
             </component>
             <component
+              refId="Package\Dim_Producto\Columna derivada 1"
+              componentClassID="{49928E82-9C4E-49F0-AABE-3812B82707EC}"
+              contactInfo="Columna derivada;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;0"
+              description="Crea nuevos valores de columna aplicando expresiones a las columnas de entrada de la transformación. Crea nuevas columnas o sobrescribe las columnas existentes. Por ejemplo, se concatenan los valores de las columnas 'nombre' y 'apellidos' para crear una columna 'nombre completo'."
+              name="Columna derivada 1"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\Dim_Producto\Columna derivada 1.Inputs[Entrada de columna derivada]"
+                  description="Entrada en la transformación Columna derivada"
+                  name="Entrada de columna derivada">
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Dim_Producto\Columna derivada 1.Outputs[Salida de columna derivada]"
+                  description="Salida predeterminada de la transformación Columna derivada"
+                  exclusionGroup="1"
+                  name="Salida de columna derivada"
+                  synchronousInputId="Package\Dim_Producto\Columna derivada 1.Inputs[Entrada de columna derivada]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Dim_Producto\Columna derivada 1.Outputs[Salida de columna derivada].Columns[fecha]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Cálculo"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\Dim_Producto\Columna derivada 1.Outputs[Salida de columna derivada].Columns[fecha]"
+                      name="fecha"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Expresión de columna derivada"
+                          name="Expression">[GETDATE]()</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Expresión descriptiva de columna derivada"
+                          expressionType="Notify"
+                          name="FriendlyExpression">GETDATE()</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Dim_Producto\Columna derivada 1.Outputs[Salida de columna derivada].Columns[error]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Cálculo"
+                      errorRowDisposition="FailComponent"
+                      length="18"
+                      lineageId="Package\Dim_Producto\Columna derivada 1.Outputs[Salida de columna derivada].Columns[error]"
+                      name="error"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Expresión de columna derivada"
+                          name="Expression">@[$Project::Error_Producto]</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Expresión descriptiva de columna derivada"
+                          expressionType="Notify"
+                          name="FriendlyExpression">@[$Project::Error_Producto]</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Dim_Producto\Columna derivada 1.Outputs[Salida de columna derivada].Columns[descripcion]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Cálculo"
+                      errorRowDisposition="FailComponent"
+                      length="30"
+                      lineageId="Package\Dim_Producto\Columna derivada 1.Outputs[Salida de columna derivada].Columns[descripcion]"
+                      name="descripcion"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Expresión de columna derivada"
+                          name="Expression">@[$Project::Error_DatoNull]</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Expresión descriptiva de columna derivada"
+                          expressionType="Notify"
+                          name="FriendlyExpression">@[$Project::Error_DatoNull]</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Dim_Producto\Columna derivada 1.Outputs[Salida de error de columna derivada]"
+                  description="Salida de error de la transformación Columna derivada"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Salida de error de columna derivada"
+                  synchronousInputId="Package\Dim_Producto\Columna derivada 1.Inputs[Entrada de columna derivada]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Dim_Producto\Columna derivada 1.Outputs[Salida de error de columna derivada].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Dim_Producto\Columna derivada 1.Outputs[Salida de error de columna derivada].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Dim_Producto\Columna derivada 1.Outputs[Salida de error de columna derivada].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Dim_Producto\Columna derivada 1.Outputs[Salida de error de columna derivada].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Dim_Producto\Columna derivada 2"
+              componentClassID="{49928E82-9C4E-49F0-AABE-3812B82707EC}"
+              contactInfo="Columna derivada;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;0"
+              description="Crea nuevos valores de columna aplicando expresiones a las columnas de entrada de la transformación. Crea nuevas columnas o sobrescribe las columnas existentes. Por ejemplo, se concatenan los valores de las columnas 'nombre' y 'apellidos' para crear una columna 'nombre completo'."
+              name="Columna derivada 2"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\Dim_Producto\Columna derivada 2.Inputs[Entrada de columna derivada]"
+                  description="Entrada en la transformación Columna derivada"
+                  name="Entrada de columna derivada">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Dim_Producto\Columna derivada 2.Inputs[Entrada de columna derivada].Columns[descSub]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="300"
+                      cachedName="descSub"
+                      errorOrTruncationOperation="Cálculo"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\Dim_Producto\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[descSub]"
+                      truncationRowDisposition="FailComponent"
+                      usageType="readWrite">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Expresión de columna derivada"
+                          name="Expression">"sin subcategoria"</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Expresión descriptiva de columna derivada"
+                          expressionType="Notify"
+                          name="FriendlyExpression">"sin subcategoria"</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Dim_Producto\Columna derivada 2.Inputs[Entrada de columna derivada].Columns[Descripcion categoria]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="300"
+                      cachedName="Descripcion categoria"
+                      errorOrTruncationOperation="Cálculo"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\Dim_Producto\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[Descripcion categoria]"
+                      truncationRowDisposition="FailComponent"
+                      usageType="readWrite">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Expresión de columna derivada"
+                          name="Expression">"sin categoria"</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Expresión descriptiva de columna derivada"
+                          expressionType="Notify"
+                          name="FriendlyExpression">"sin categoria"</property>
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Dim_Producto\Columna derivada 2.Outputs[Salida de columna derivada]"
+                  description="Salida predeterminada de la transformación Columna derivada"
+                  exclusionGroup="1"
+                  name="Salida de columna derivada"
+                  synchronousInputId="Package\Dim_Producto\Columna derivada 2.Inputs[Entrada de columna derivada]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Dim_Producto\Columna derivada 2.Outputs[Salida de error de columna derivada]"
+                  description="Salida de error de la transformación Columna derivada"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Salida de error de columna derivada"
+                  synchronousInputId="Package\Dim_Producto\Columna derivada 2.Inputs[Entrada de columna derivada]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Dim_Producto\Columna derivada 2.Outputs[Salida de error de columna derivada].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Dim_Producto\Columna derivada 2.Outputs[Salida de error de columna derivada].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Dim_Producto\Columna derivada 2.Outputs[Salida de error de columna derivada].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Dim_Producto\Columna derivada 2.Outputs[Salida de error de columna derivada].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
               refId="Package\Dim_Producto\Combinación de mezcla"
               componentClassID="{14D43A4F-D7BD-489D-829E-6DE35750CFE4}"
               contactInfo="Combinación de mezcla;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;1"
@@ -14613,7 +15044,7 @@ GROUP BY SUBCATEGORIA.ID_Subcategoria, SUBCATEGORIA.Descripcion, CATEGORIA.ID_Ca
                   dataType="System.Int32"
                   description="Especifica el tipo de combinación que se debe realizar."
                   name="JoinType"
-                  typeConverter="JoinType">2</property>
+                  typeConverter="JoinType">1</property>
                 <property
                   dataType="System.Int32"
                   description="Especifica el número de columnas de la clave de ordenación."
@@ -15093,6 +15524,755 @@ GROUP BY SUBCATEGORIA.ID_Subcategoria, SUBCATEGORIA.Descripcion, CATEGORIA.ID_Ca
               </outputs>
             </component>
             <component
+              refId="Package\Dim_Producto\Conversión de datos"
+              componentClassID="{62B1106C-7DB8-4EC8-ADD6-4C664DFFC54A}"
+              contactInfo="Conversión de datos;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;0"
+              description="Conversión de datos"
+              name="Conversión de datos"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\Dim_Producto\Conversión de datos.Inputs[Entrada de conversión de datos]"
+                  name="Entrada de conversión de datos">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Dim_Producto\Conversión de datos.Inputs[Entrada de conversión de datos].Columns[ID_Producto]"
+                      cachedDataType="i4"
+                      cachedName="ID_Producto"
+                      lineageId="Package\Dim_Producto\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[ID_Producto]" />
+                    <inputColumn
+                      refId="Package\Dim_Producto\Conversión de datos.Inputs[Entrada de conversión de datos].Columns[Descripcion]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="Descripcion"
+                      lineageId="Package\Dim_Producto\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[Descripcion]" />
+                    <inputColumn
+                      refId="Package\Dim_Producto\Conversión de datos.Inputs[Entrada de conversión de datos].Columns[descSub]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="300"
+                      cachedName="descSub"
+                      lineageId="Package\Dim_Producto\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[descSub]" />
+                    <inputColumn
+                      refId="Package\Dim_Producto\Conversión de datos.Inputs[Entrada de conversión de datos].Columns[Descripcion categoria]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="300"
+                      cachedName="Descripcion categoria"
+                      lineageId="Package\Dim_Producto\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[Descripcion categoria]" />
+                    <inputColumn
+                      refId="Package\Dim_Producto\Conversión de datos.Inputs[Entrada de conversión de datos].Columns[fecha]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="fecha"
+                      lineageId="Package\Dim_Producto\Columna derivada 1.Outputs[Salida de columna derivada].Columns[fecha]" />
+                    <inputColumn
+                      refId="Package\Dim_Producto\Conversión de datos.Inputs[Entrada de conversión de datos].Columns[error]"
+                      cachedDataType="wstr"
+                      cachedLength="18"
+                      cachedName="error"
+                      lineageId="Package\Dim_Producto\Columna derivada 1.Outputs[Salida de columna derivada].Columns[error]" />
+                    <inputColumn
+                      refId="Package\Dim_Producto\Conversión de datos.Inputs[Entrada de conversión de datos].Columns[descripcion]"
+                      cachedDataType="wstr"
+                      cachedLength="30"
+                      cachedName="descripcion"
+                      lineageId="Package\Dim_Producto\Columna derivada 1.Outputs[Salida de columna derivada].Columns[descripcion]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Dim_Producto\Conversión de datos.Outputs[Salida de conversión de datos]"
+                  exclusionGroup="1"
+                  name="Salida de conversión de datos"
+                  synchronousInputId="Package\Dim_Producto\Conversión de datos.Inputs[Entrada de conversión de datos]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Dim_Producto\Conversión de datos.Outputs[Salida de conversión de datos].Columns[Copia de ID_Producto]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\Dim_Producto\Conversión de datos.Outputs[Salida de conversión de datos].Columns[Copia de ID_Producto]"
+                      name="Copia de ID_Producto"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Especifica la columna de entrada usada como origen de datos para la conversión."
+                          name="SourceInputColumnLineageID">#{Package\Dim_Producto\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[ID_Producto]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indica si la columna usa las rutinas de análisis más rápidas independientes de la configuración regional."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Dim_Producto\Conversión de datos.Outputs[Salida de conversión de datos].Columns[Copia de Descripcion]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      length="50"
+                      lineageId="Package\Dim_Producto\Conversión de datos.Outputs[Salida de conversión de datos].Columns[Copia de Descripcion]"
+                      name="Copia de Descripcion"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Especifica la columna de entrada usada como origen de datos para la conversión."
+                          name="SourceInputColumnLineageID">#{Package\Dim_Producto\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[Descripcion]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indica si la columna usa las rutinas de análisis más rápidas independientes de la configuración regional."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Dim_Producto\Conversión de datos.Outputs[Salida de conversión de datos].Columns[Copia de descSub]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      length="300"
+                      lineageId="Package\Dim_Producto\Conversión de datos.Outputs[Salida de conversión de datos].Columns[Copia de descSub]"
+                      name="Copia de descSub"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Especifica la columna de entrada usada como origen de datos para la conversión."
+                          name="SourceInputColumnLineageID">#{Package\Dim_Producto\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[descSub]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indica si la columna usa las rutinas de análisis más rápidas independientes de la configuración regional."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Dim_Producto\Conversión de datos.Outputs[Salida de conversión de datos].Columns[Copia de Descripcion categoria]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      length="300"
+                      lineageId="Package\Dim_Producto\Conversión de datos.Outputs[Salida de conversión de datos].Columns[Copia de Descripcion categoria]"
+                      name="Copia de Descripcion categoria"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Especifica la columna de entrada usada como origen de datos para la conversión."
+                          name="SourceInputColumnLineageID">#{Package\Dim_Producto\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[Descripcion categoria]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indica si la columna usa las rutinas de análisis más rápidas independientes de la configuración regional."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Dim_Producto\Conversión de datos.Outputs[Salida de conversión de datos].Columns[Copia de fecha]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\Dim_Producto\Conversión de datos.Outputs[Salida de conversión de datos].Columns[Copia de fecha]"
+                      name="Copia de fecha"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Especifica la columna de entrada usada como origen de datos para la conversión."
+                          name="SourceInputColumnLineageID">#{Package\Dim_Producto\Columna derivada 1.Outputs[Salida de columna derivada].Columns[fecha]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indica si la columna usa las rutinas de análisis más rápidas independientes de la configuración regional."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Dim_Producto\Conversión de datos.Outputs[Salida de conversión de datos].Columns[Copia de error]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      length="18"
+                      lineageId="Package\Dim_Producto\Conversión de datos.Outputs[Salida de conversión de datos].Columns[Copia de error]"
+                      name="Copia de error"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Especifica la columna de entrada usada como origen de datos para la conversión."
+                          name="SourceInputColumnLineageID">#{Package\Dim_Producto\Columna derivada 1.Outputs[Salida de columna derivada].Columns[error]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indica si la columna usa las rutinas de análisis más rápidas independientes de la configuración regional."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Dim_Producto\Conversión de datos.Outputs[Salida de conversión de datos].Columns[Copia de descripcion]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      length="30"
+                      lineageId="Package\Dim_Producto\Conversión de datos.Outputs[Salida de conversión de datos].Columns[Copia de descripcion]"
+                      name="Copia de descripcion"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Especifica la columna de entrada usada como origen de datos para la conversión."
+                          name="SourceInputColumnLineageID">#{Package\Dim_Producto\Columna derivada 1.Outputs[Salida de columna derivada].Columns[descripcion]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indica si la columna usa las rutinas de análisis más rápidas independientes de la configuración regional."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Dim_Producto\Conversión de datos.Outputs[Salida de error de conversión de datos]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Salida de error de conversión de datos"
+                  synchronousInputId="Package\Dim_Producto\Conversión de datos.Inputs[Entrada de conversión de datos]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Dim_Producto\Conversión de datos.Outputs[Salida de error de conversión de datos].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Dim_Producto\Conversión de datos.Outputs[Salida de error de conversión de datos].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Dim_Producto\Conversión de datos.Outputs[Salida de error de conversión de datos].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Dim_Producto\Conversión de datos.Outputs[Salida de error de conversión de datos].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Dim_Producto\Conversión de datos 1"
+              componentClassID="{62B1106C-7DB8-4EC8-ADD6-4C664DFFC54A}"
+              contactInfo="Conversión de datos;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;0"
+              description="Conversión de datos"
+              name="Conversión de datos 1"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\Dim_Producto\Conversión de datos 1.Inputs[Entrada de conversión de datos]"
+                  name="Entrada de conversión de datos">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Dim_Producto\Conversión de datos 1.Inputs[Entrada de conversión de datos].Columns[ID_Producto]"
+                      cachedDataType="i4"
+                      cachedName="ID_Producto"
+                      lineageId="Package\Dim_Producto\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[ID_Producto]" />
+                    <inputColumn
+                      refId="Package\Dim_Producto\Conversión de datos 1.Inputs[Entrada de conversión de datos].Columns[Descripcion]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="Descripcion"
+                      lineageId="Package\Dim_Producto\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[Descripcion]" />
+                    <inputColumn
+                      refId="Package\Dim_Producto\Conversión de datos 1.Inputs[Entrada de conversión de datos].Columns[descSub]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="300"
+                      cachedName="descSub"
+                      lineageId="Package\Dim_Producto\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[descSub]" />
+                    <inputColumn
+                      refId="Package\Dim_Producto\Conversión de datos 1.Inputs[Entrada de conversión de datos].Columns[Descripcion categoria]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="300"
+                      cachedName="Descripcion categoria"
+                      lineageId="Package\Dim_Producto\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[Descripcion categoria]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Dim_Producto\Conversión de datos 1.Outputs[Salida de conversión de datos]"
+                  exclusionGroup="1"
+                  name="Salida de conversión de datos"
+                  synchronousInputId="Package\Dim_Producto\Conversión de datos 1.Inputs[Entrada de conversión de datos]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Dim_Producto\Conversión de datos 1.Outputs[Salida de conversión de datos].Columns[Copia de ID_Producto]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\Dim_Producto\Conversión de datos 1.Outputs[Salida de conversión de datos].Columns[Copia de ID_Producto]"
+                      name="Copia de ID_Producto"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Especifica la columna de entrada usada como origen de datos para la conversión."
+                          name="SourceInputColumnLineageID">#{Package\Dim_Producto\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[ID_Producto]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indica si la columna usa las rutinas de análisis más rápidas independientes de la configuración regional."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Dim_Producto\Conversión de datos 1.Outputs[Salida de conversión de datos].Columns[Copia de Descripcion]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      length="50"
+                      lineageId="Package\Dim_Producto\Conversión de datos 1.Outputs[Salida de conversión de datos].Columns[Copia de Descripcion]"
+                      name="Copia de Descripcion"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Especifica la columna de entrada usada como origen de datos para la conversión."
+                          name="SourceInputColumnLineageID">#{Package\Dim_Producto\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[Descripcion]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indica si la columna usa las rutinas de análisis más rápidas independientes de la configuración regional."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Dim_Producto\Conversión de datos 1.Outputs[Salida de conversión de datos].Columns[Copia de descSub]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      length="300"
+                      lineageId="Package\Dim_Producto\Conversión de datos 1.Outputs[Salida de conversión de datos].Columns[Copia de descSub]"
+                      name="Copia de descSub"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Especifica la columna de entrada usada como origen de datos para la conversión."
+                          name="SourceInputColumnLineageID">#{Package\Dim_Producto\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[descSub]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indica si la columna usa las rutinas de análisis más rápidas independientes de la configuración regional."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Dim_Producto\Conversión de datos 1.Outputs[Salida de conversión de datos].Columns[Copia de Descripcion categoria]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      length="300"
+                      lineageId="Package\Dim_Producto\Conversión de datos 1.Outputs[Salida de conversión de datos].Columns[Copia de Descripcion categoria]"
+                      name="Copia de Descripcion categoria"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Especifica la columna de entrada usada como origen de datos para la conversión."
+                          name="SourceInputColumnLineageID">#{Package\Dim_Producto\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[Descripcion categoria]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indica si la columna usa las rutinas de análisis más rápidas independientes de la configuración regional."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Dim_Producto\Conversión de datos 1.Outputs[Salida de error de conversión de datos]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Salida de error de conversión de datos"
+                  synchronousInputId="Package\Dim_Producto\Conversión de datos 1.Inputs[Entrada de conversión de datos]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Dim_Producto\Conversión de datos 1.Outputs[Salida de error de conversión de datos].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Dim_Producto\Conversión de datos 1.Outputs[Salida de error de conversión de datos].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Dim_Producto\Conversión de datos 1.Outputs[Salida de error de conversión de datos].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Dim_Producto\Conversión de datos 1.Outputs[Salida de error de conversión de datos].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Dim_Producto\Destino de Excel"
+              componentClassID="{1F5D5712-2FBA-4CB9-A95A-86C1F336E1DA}"
+              contactInfo="Destino de Excel;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;0"
+              description="Destino de Excel"
+              name="Destino de Excel"
+              usesDispositions="true">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="Número de segundos antes de que se agote el tiempo de espera de un comando. Un valor de 0 indica un tiempo de espera infinito."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Especifica el nombre del objeto de base de datos usado para abrir un conjunto de filas."
+                  name="OpenRowset">Errores$</property>
+                <property
+                  dataType="System.String"
+                  description="Especifica la variable que contiene el nombre del objeto de base de datos usado para abrir un conjunto de filas."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="Comando SQL para ejecutar."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica el modo utilizado para obtener acceso a la base de datos."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indica si los valores proporcionados para columnas de identidad se van a copiar al destino. Si es False, los valores de las columnas de identidad se generan automáticamente en el destino. Sólo se aplica si está activada la carga rápida."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indica si las columnas que contienen NULL tendrán NULL insertado en el destino. Si es False, las columnas que contienen NULL tendrán sus valores predeterminados insertados en el destino. Sólo se aplica si está activada la carga rápida."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Especifica opciones para usar con la carga rápida. Sólo se aplica si está activada la carga rápida."
+                  name="FastLoadOptions"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica cuándo se emiten confirmaciones durante la inserción de datos. El valor 0 especifica que se emitirá una confirmación al final de la inserción de datos. Sólo se aplica si está activada la carga rápida."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Dim_Producto\Destino de Excel.Connections[OleDbConnection]"
+                  connectionManagerID="{A10E25AD-D3E7-4778-979A-835536D36EA4}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[logErrores]"
+                  description="La conexión de tiempo de ejecución OLE DB usada para obtener acceso a la base de datos."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Dim_Producto\Destino de Excel.Inputs[Entrada de destino de Excel]"
+                  errorOrTruncationOperation="Insertar"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="Entrada de destino de Excel">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Dim_Producto\Destino de Excel.Inputs[Entrada de destino de Excel].Columns[fecha]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="fecha"
+                      externalMetadataColumnId="Package\Dim_Producto\Destino de Excel.Inputs[Entrada de destino de Excel].ExternalColumns[Fecha]"
+                      lineageId="Package\Dim_Producto\Columna derivada 1.Outputs[Salida de columna derivada].Columns[fecha]" />
+                    <inputColumn
+                      refId="Package\Dim_Producto\Destino de Excel.Inputs[Entrada de destino de Excel].Columns[error]"
+                      cachedDataType="wstr"
+                      cachedLength="18"
+                      cachedName="error"
+                      externalMetadataColumnId="Package\Dim_Producto\Destino de Excel.Inputs[Entrada de destino de Excel].ExternalColumns[Error]"
+                      lineageId="Package\Dim_Producto\Columna derivada 1.Outputs[Salida de columna derivada].Columns[error]" />
+                    <inputColumn
+                      refId="Package\Dim_Producto\Destino de Excel.Inputs[Entrada de destino de Excel].Columns[descripcion]"
+                      cachedDataType="wstr"
+                      cachedLength="30"
+                      cachedName="descripcion"
+                      externalMetadataColumnId="Package\Dim_Producto\Destino de Excel.Inputs[Entrada de destino de Excel].ExternalColumns[Descripcion]"
+                      lineageId="Package\Dim_Producto\Columna derivada 1.Outputs[Salida de columna derivada].Columns[descripcion]" />
+                    <inputColumn
+                      refId="Package\Dim_Producto\Destino de Excel.Inputs[Entrada de destino de Excel].Columns[Copia de ID_Producto]"
+                      cachedDataType="i4"
+                      cachedName="Copia de ID_Producto"
+                      externalMetadataColumnId="Package\Dim_Producto\Destino de Excel.Inputs[Entrada de destino de Excel].ExternalColumns[Auxiliar 1]"
+                      lineageId="Package\Dim_Producto\Conversión de datos.Outputs[Salida de conversión de datos].Columns[Copia de ID_Producto]" />
+                    <inputColumn
+                      refId="Package\Dim_Producto\Destino de Excel.Inputs[Entrada de destino de Excel].Columns[Copia de Descripcion]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="Copia de Descripcion"
+                      externalMetadataColumnId="Package\Dim_Producto\Destino de Excel.Inputs[Entrada de destino de Excel].ExternalColumns[Auxiliar 2]"
+                      lineageId="Package\Dim_Producto\Conversión de datos.Outputs[Salida de conversión de datos].Columns[Copia de Descripcion]" />
+                    <inputColumn
+                      refId="Package\Dim_Producto\Destino de Excel.Inputs[Entrada de destino de Excel].Columns[Copia de descSub]"
+                      cachedDataType="wstr"
+                      cachedLength="300"
+                      cachedName="Copia de descSub"
+                      externalMetadataColumnId="Package\Dim_Producto\Destino de Excel.Inputs[Entrada de destino de Excel].ExternalColumns[Auxiliar 3]"
+                      lineageId="Package\Dim_Producto\Conversión de datos.Outputs[Salida de conversión de datos].Columns[Copia de descSub]" />
+                    <inputColumn
+                      refId="Package\Dim_Producto\Destino de Excel.Inputs[Entrada de destino de Excel].Columns[Copia de Descripcion categoria]"
+                      cachedDataType="wstr"
+                      cachedLength="300"
+                      cachedName="Copia de Descripcion categoria"
+                      externalMetadataColumnId="Package\Dim_Producto\Destino de Excel.Inputs[Entrada de destino de Excel].ExternalColumns[Auxiliar 4]"
+                      lineageId="Package\Dim_Producto\Conversión de datos.Outputs[Salida de conversión de datos].Columns[Copia de Descripcion categoria]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Dim_Producto\Destino de Excel.Inputs[Entrada de destino de Excel].ExternalColumns[Fecha]"
+                      dataType="wstr"
+                      length="255"
+                      name="Fecha" />
+                    <externalMetadataColumn
+                      refId="Package\Dim_Producto\Destino de Excel.Inputs[Entrada de destino de Excel].ExternalColumns[Error]"
+                      dataType="wstr"
+                      length="255"
+                      name="Error" />
+                    <externalMetadataColumn
+                      refId="Package\Dim_Producto\Destino de Excel.Inputs[Entrada de destino de Excel].ExternalColumns[Descripcion]"
+                      dataType="wstr"
+                      length="255"
+                      name="Descripcion" />
+                    <externalMetadataColumn
+                      refId="Package\Dim_Producto\Destino de Excel.Inputs[Entrada de destino de Excel].ExternalColumns[Auxiliar 1]"
+                      dataType="wstr"
+                      length="255"
+                      name="Auxiliar 1" />
+                    <externalMetadataColumn
+                      refId="Package\Dim_Producto\Destino de Excel.Inputs[Entrada de destino de Excel].ExternalColumns[Auxiliar 2]"
+                      dataType="wstr"
+                      length="255"
+                      name="Auxiliar 2" />
+                    <externalMetadataColumn
+                      refId="Package\Dim_Producto\Destino de Excel.Inputs[Entrada de destino de Excel].ExternalColumns[Auxiliar 3]"
+                      dataType="wstr"
+                      length="255"
+                      name="Auxiliar 3" />
+                    <externalMetadataColumn
+                      refId="Package\Dim_Producto\Destino de Excel.Inputs[Entrada de destino de Excel].ExternalColumns[Auxiliar 4]"
+                      dataType="wstr"
+                      length="255"
+                      name="Auxiliar 4" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Dim_Producto\Destino de Excel.Outputs[Salida de error de destino de Excel]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Salida de error de destino de Excel"
+                  synchronousInputId="Package\Dim_Producto\Destino de Excel.Inputs[Entrada de destino de Excel]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Dim_Producto\Destino de Excel.Outputs[Salida de error de destino de Excel].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Dim_Producto\Destino de Excel.Outputs[Salida de error de destino de Excel].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Dim_Producto\Destino de Excel.Outputs[Salida de error de destino de Excel].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Dim_Producto\Destino de Excel.Outputs[Salida de error de destino de Excel].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Dim_Producto\Destino de Excel 1"
+              componentClassID="{1F5D5712-2FBA-4CB9-A95A-86C1F336E1DA}"
+              contactInfo="Destino de Excel;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;0"
+              description="Destino de Excel"
+              name="Destino de Excel 1"
+              usesDispositions="true">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="Número de segundos antes de que se agote el tiempo de espera de un comando. Un valor de 0 indica un tiempo de espera infinito."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Especifica el nombre del objeto de base de datos usado para abrir un conjunto de filas."
+                  name="OpenRowset">Errores$</property>
+                <property
+                  dataType="System.String"
+                  description="Especifica la variable que contiene el nombre del objeto de base de datos usado para abrir un conjunto de filas."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="Comando SQL para ejecutar."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica el modo utilizado para obtener acceso a la base de datos."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indica si los valores proporcionados para columnas de identidad se van a copiar al destino. Si es False, los valores de las columnas de identidad se generan automáticamente en el destino. Sólo se aplica si está activada la carga rápida."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indica si las columnas que contienen NULL tendrán NULL insertado en el destino. Si es False, las columnas que contienen NULL tendrán sus valores predeterminados insertados en el destino. Sólo se aplica si está activada la carga rápida."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Especifica opciones para usar con la carga rápida. Sólo se aplica si está activada la carga rápida."
+                  name="FastLoadOptions"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica cuándo se emiten confirmaciones durante la inserción de datos. El valor 0 especifica que se emitirá una confirmación al final de la inserción de datos. Sólo se aplica si está activada la carga rápida."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Dim_Producto\Destino de Excel 1.Connections[OleDbConnection]"
+                  connectionManagerID="{A10E25AD-D3E7-4778-979A-835536D36EA4}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[logErrores]"
+                  description="La conexión de tiempo de ejecución OLE DB usada para obtener acceso a la base de datos."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Dim_Producto\Destino de Excel 1.Inputs[Entrada de destino de Excel]"
+                  errorOrTruncationOperation="Insertar"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="Entrada de destino de Excel">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Dim_Producto\Destino de Excel 1.Inputs[Entrada de destino de Excel].Columns[fecha]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="fecha"
+                      externalMetadataColumnId="Package\Dim_Producto\Destino de Excel 1.Inputs[Entrada de destino de Excel].ExternalColumns[Fecha]"
+                      lineageId="Package\Dim_Producto\Columna derivada.Outputs[Salida de columna derivada].Columns[fecha]" />
+                    <inputColumn
+                      refId="Package\Dim_Producto\Destino de Excel 1.Inputs[Entrada de destino de Excel].Columns[error]"
+                      cachedDataType="wstr"
+                      cachedLength="18"
+                      cachedName="error"
+                      externalMetadataColumnId="Package\Dim_Producto\Destino de Excel 1.Inputs[Entrada de destino de Excel].ExternalColumns[Error]"
+                      lineageId="Package\Dim_Producto\Columna derivada.Outputs[Salida de columna derivada].Columns[error]" />
+                    <inputColumn
+                      refId="Package\Dim_Producto\Destino de Excel 1.Inputs[Entrada de destino de Excel].Columns[descripcion]"
+                      cachedDataType="wstr"
+                      cachedLength="51"
+                      cachedName="descripcion"
+                      externalMetadataColumnId="Package\Dim_Producto\Destino de Excel 1.Inputs[Entrada de destino de Excel].ExternalColumns[Descripcion]"
+                      lineageId="Package\Dim_Producto\Columna derivada.Outputs[Salida de columna derivada].Columns[descripcion]" />
+                    <inputColumn
+                      refId="Package\Dim_Producto\Destino de Excel 1.Inputs[Entrada de destino de Excel].Columns[Copia de ID_Producto]"
+                      cachedDataType="i4"
+                      cachedName="Copia de ID_Producto"
+                      externalMetadataColumnId="Package\Dim_Producto\Destino de Excel 1.Inputs[Entrada de destino de Excel].ExternalColumns[Auxiliar 1]"
+                      lineageId="Package\Dim_Producto\Conversión de datos 1.Outputs[Salida de conversión de datos].Columns[Copia de ID_Producto]" />
+                    <inputColumn
+                      refId="Package\Dim_Producto\Destino de Excel 1.Inputs[Entrada de destino de Excel].Columns[Copia de Descripcion]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="Copia de Descripcion"
+                      externalMetadataColumnId="Package\Dim_Producto\Destino de Excel 1.Inputs[Entrada de destino de Excel].ExternalColumns[Auxiliar 2]"
+                      lineageId="Package\Dim_Producto\Conversión de datos 1.Outputs[Salida de conversión de datos].Columns[Copia de Descripcion]" />
+                    <inputColumn
+                      refId="Package\Dim_Producto\Destino de Excel 1.Inputs[Entrada de destino de Excel].Columns[Copia de descSub]"
+                      cachedDataType="wstr"
+                      cachedLength="300"
+                      cachedName="Copia de descSub"
+                      externalMetadataColumnId="Package\Dim_Producto\Destino de Excel 1.Inputs[Entrada de destino de Excel].ExternalColumns[Auxiliar 3]"
+                      lineageId="Package\Dim_Producto\Conversión de datos 1.Outputs[Salida de conversión de datos].Columns[Copia de descSub]" />
+                    <inputColumn
+                      refId="Package\Dim_Producto\Destino de Excel 1.Inputs[Entrada de destino de Excel].Columns[Copia de Descripcion categoria]"
+                      cachedDataType="wstr"
+                      cachedLength="300"
+                      cachedName="Copia de Descripcion categoria"
+                      externalMetadataColumnId="Package\Dim_Producto\Destino de Excel 1.Inputs[Entrada de destino de Excel].ExternalColumns[Auxiliar 4]"
+                      lineageId="Package\Dim_Producto\Conversión de datos 1.Outputs[Salida de conversión de datos].Columns[Copia de Descripcion categoria]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Dim_Producto\Destino de Excel 1.Inputs[Entrada de destino de Excel].ExternalColumns[Fecha]"
+                      dataType="wstr"
+                      length="255"
+                      name="Fecha" />
+                    <externalMetadataColumn
+                      refId="Package\Dim_Producto\Destino de Excel 1.Inputs[Entrada de destino de Excel].ExternalColumns[Error]"
+                      dataType="wstr"
+                      length="255"
+                      name="Error" />
+                    <externalMetadataColumn
+                      refId="Package\Dim_Producto\Destino de Excel 1.Inputs[Entrada de destino de Excel].ExternalColumns[Descripcion]"
+                      dataType="wstr"
+                      length="255"
+                      name="Descripcion" />
+                    <externalMetadataColumn
+                      refId="Package\Dim_Producto\Destino de Excel 1.Inputs[Entrada de destino de Excel].ExternalColumns[Auxiliar 1]"
+                      dataType="wstr"
+                      length="255"
+                      name="Auxiliar 1" />
+                    <externalMetadataColumn
+                      refId="Package\Dim_Producto\Destino de Excel 1.Inputs[Entrada de destino de Excel].ExternalColumns[Auxiliar 2]"
+                      dataType="wstr"
+                      length="255"
+                      name="Auxiliar 2" />
+                    <externalMetadataColumn
+                      refId="Package\Dim_Producto\Destino de Excel 1.Inputs[Entrada de destino de Excel].ExternalColumns[Auxiliar 3]"
+                      dataType="wstr"
+                      length="255"
+                      name="Auxiliar 3" />
+                    <externalMetadataColumn
+                      refId="Package\Dim_Producto\Destino de Excel 1.Inputs[Entrada de destino de Excel].ExternalColumns[Auxiliar 4]"
+                      dataType="wstr"
+                      length="255"
+                      name="Auxiliar 4" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Dim_Producto\Destino de Excel 1.Outputs[Salida de error de destino de Excel]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Salida de error de destino de Excel"
+                  synchronousInputId="Package\Dim_Producto\Destino de Excel 1.Inputs[Entrada de destino de Excel]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Dim_Producto\Destino de Excel 1.Outputs[Salida de error de destino de Excel].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Dim_Producto\Destino de Excel 1.Outputs[Salida de error de destino de Excel].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Dim_Producto\Destino de Excel 1.Outputs[Salida de error de destino de Excel].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Dim_Producto\Destino de Excel 1.Outputs[Salida de error de destino de Excel].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
               refId="Package\Dim_Producto\Destino de OLE DB"
               componentClassID="{4ADA7EAA-136C-4215-8098-D7A7C27FC0D1}"
               contactInfo="Destino de OLE DB;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;4"
@@ -15244,6 +16424,165 @@ GROUP BY SUBCATEGORIA.ID_Subcategoria, SUBCATEGORIA.Descripcion, CATEGORIA.ID_Ca
                       refId="Package\Dim_Producto\Destino de OLE DB.Outputs[Salida de error de destino de OLE DB].Columns[ErrorColumn]"
                       dataType="i4"
                       lineageId="Package\Dim_Producto\Destino de OLE DB.Outputs[Salida de error de destino de OLE DB].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Dim_Producto\Destino de OLE DB 2"
+              componentClassID="{4ADA7EAA-136C-4215-8098-D7A7C27FC0D1}"
+              contactInfo="Destino de OLE DB;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;4"
+              description="Destino de OLE DB"
+              name="Destino de OLE DB 2"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="Número de segundos antes de que se agote el tiempo de espera de un comando. Un valor de 0 indica un tiempo de espera infinito."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Especifica el nombre del objeto de base de datos usado para abrir un conjunto de filas."
+                  name="OpenRowset">[dbo].[Dim_Producto]</property>
+                <property
+                  dataType="System.String"
+                  description="Especifica la variable que contiene el nombre del objeto de base de datos usado para abrir un conjunto de filas."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="Comando SQL para ejecutar."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica la página de códigos de columna para utilizar cuando la información de página de códigos no está disponible en el origen de datos."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Fuerza el uso del valor de la propiedad DefaultCodePage al describir caracteres."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica el modo utilizado para obtener acceso a la base de datos."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indica si los valores proporcionados para columnas de identidad se van a copiar al destino. Si es False, los valores de las columnas de identidad se generan automáticamente en el destino. Sólo se aplica si está activada la carga rápida."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indica si las columnas que contienen NULL tendrán NULL insertado en el destino. Si es False, las columnas que contienen NULL tendrán sus valores predeterminados insertados en el destino. Sólo se aplica si está activada la carga rápida."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Especifica opciones para usar con la carga rápida. Sólo se aplica si está activada la carga rápida."
+                  name="FastLoadOptions"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica cuándo se emiten confirmaciones durante la inserción de datos. El valor 0 especifica que se emitirá una confirmación al final de la inserción de datos. Sólo se aplica si está activada la carga rápida."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Dim_Producto\Destino de OLE DB 2.Connections[OleDbConnection]"
+                  connectionManagerID="{F9A6CEB1-538A-410A-86F2-D2A1D39EC67F}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[WJGIRALDO-PC.DW_Parque]"
+                  description="La conexión de tiempo de ejecución OLE DB usada para obtener acceso a la base de datos."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Dim_Producto\Destino de OLE DB 2.Inputs[Entrada de destino de OLE DB]"
+                  errorOrTruncationOperation="Insertar"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="Entrada de destino de OLE DB">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Dim_Producto\Destino de OLE DB 2.Inputs[Entrada de destino de OLE DB].Columns[ID_Producto]"
+                      cachedDataType="i4"
+                      cachedName="ID_Producto"
+                      externalMetadataColumnId="Package\Dim_Producto\Destino de OLE DB 2.Inputs[Entrada de destino de OLE DB].ExternalColumns[idProducto]"
+                      lineageId="Package\Dim_Producto\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[ID_Producto]" />
+                    <inputColumn
+                      refId="Package\Dim_Producto\Destino de OLE DB 2.Inputs[Entrada de destino de OLE DB].Columns[Descripcion]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="Descripcion"
+                      externalMetadataColumnId="Package\Dim_Producto\Destino de OLE DB 2.Inputs[Entrada de destino de OLE DB].ExternalColumns[nombreProducto]"
+                      lineageId="Package\Dim_Producto\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[Descripcion]" />
+                    <inputColumn
+                      refId="Package\Dim_Producto\Destino de OLE DB 2.Inputs[Entrada de destino de OLE DB].Columns[descSub]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="300"
+                      cachedName="descSub"
+                      externalMetadataColumnId="Package\Dim_Producto\Destino de OLE DB 2.Inputs[Entrada de destino de OLE DB].ExternalColumns[subcategoria]"
+                      lineageId="Package\Dim_Producto\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[descSub]" />
+                    <inputColumn
+                      refId="Package\Dim_Producto\Destino de OLE DB 2.Inputs[Entrada de destino de OLE DB].Columns[Descripcion categoria]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="300"
+                      cachedName="Descripcion categoria"
+                      externalMetadataColumnId="Package\Dim_Producto\Destino de OLE DB 2.Inputs[Entrada de destino de OLE DB].ExternalColumns[categoria]"
+                      lineageId="Package\Dim_Producto\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[Descripcion categoria]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Dim_Producto\Destino de OLE DB 2.Inputs[Entrada de destino de OLE DB].ExternalColumns[productoKey]"
+                      dataType="i4"
+                      name="productoKey" />
+                    <externalMetadataColumn
+                      refId="Package\Dim_Producto\Destino de OLE DB 2.Inputs[Entrada de destino de OLE DB].ExternalColumns[idProducto]"
+                      dataType="i4"
+                      name="idProducto" />
+                    <externalMetadataColumn
+                      refId="Package\Dim_Producto\Destino de OLE DB 2.Inputs[Entrada de destino de OLE DB].ExternalColumns[nombreProducto]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="nombreProducto" />
+                    <externalMetadataColumn
+                      refId="Package\Dim_Producto\Destino de OLE DB 2.Inputs[Entrada de destino de OLE DB].ExternalColumns[subcategoria]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="subcategoria" />
+                    <externalMetadataColumn
+                      refId="Package\Dim_Producto\Destino de OLE DB 2.Inputs[Entrada de destino de OLE DB].ExternalColumns[categoria]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="categoria" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Dim_Producto\Destino de OLE DB 2.Outputs[Salida de error de destino de OLE DB]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Salida de error de destino de OLE DB"
+                  synchronousInputId="Package\Dim_Producto\Destino de OLE DB 2.Inputs[Entrada de destino de OLE DB]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Dim_Producto\Destino de OLE DB 2.Outputs[Salida de error de destino de OLE DB].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Dim_Producto\Destino de OLE DB 2.Outputs[Salida de error de destino de OLE DB].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Dim_Producto\Destino de OLE DB 2.Outputs[Salida de error de destino de OLE DB].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Dim_Producto\Destino de OLE DB 2.Outputs[Salida de error de destino de OLE DB].Columns[ErrorColumn]"
                       name="ErrorColumn"
                       specialFlags="2" />
                   </outputColumns>
@@ -16554,18 +17893,177 @@ GROUP BY SUBCATEGORIA.ID_Subcategoria, SUBCATEGORIA.Descripcion, CATEGORIA.ID_Ca
                 </output>
               </outputs>
             </component>
+            <component
+              refId="Package\Dim_Producto\Verificar datos null"
+              componentClassID="{7F88F654-4E20-4D14-84F4-AF9C925D3087}"
+              contactInfo="División condicional;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;0"
+              description="Enruta filas de datos a diferentes salidas según el contenido de los datos. Se usan condiciones (expresiones de SSIS) para especificar las filas que se van a enrutar. Por ejemplo, se usa para separar los registros que deben limpiarse de los registros listos para ser cargados o para enrutar solamente un subconjunto de registros."
+              name="Verificar datos null"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\Dim_Producto\Verificar datos null.Inputs[Entrada de división condicional]"
+                  description="Entrada en la transformación División condicional"
+                  name="Entrada de división condicional">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Dim_Producto\Verificar datos null.Inputs[Entrada de división condicional].Columns[ID_Producto]"
+                      cachedDataType="i4"
+                      cachedName="ID_Producto"
+                      lineageId="Package\Dim_Producto\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[ID_Producto]" />
+                    <inputColumn
+                      refId="Package\Dim_Producto\Verificar datos null.Inputs[Entrada de división condicional].Columns[Descripcion]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="Descripcion"
+                      lineageId="Package\Dim_Producto\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[Descripcion]" />
+                    <inputColumn
+                      refId="Package\Dim_Producto\Verificar datos null.Inputs[Entrada de división condicional].Columns[descSub]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="300"
+                      cachedName="descSub"
+                      lineageId="Package\Dim_Producto\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[descSub]" />
+                    <inputColumn
+                      refId="Package\Dim_Producto\Verificar datos null.Inputs[Entrada de división condicional].Columns[Descripcion categoria]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="300"
+                      cachedName="Descripcion categoria"
+                      lineageId="Package\Dim_Producto\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[Descripcion categoria]" />
+                    <inputColumn
+                      refId="Package\Dim_Producto\Verificar datos null.Inputs[Entrada de división condicional].Columns[codSub]"
+                      cachedDataType="i4"
+                      cachedName="codSub"
+                      cachedSortKeyPosition="1"
+                      lineageId="Package\Dim_Producto\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[codSub]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Dim_Producto\Verificar datos null.Outputs[sin datos nulos]"
+                  description="Salida 1 de la transformación División condicional"
+                  errorOrTruncationOperation="Cálculo"
+                  errorRowDisposition="FailComponent"
+                  exclusionGroup="1"
+                  name="sin datos nulos"
+                  synchronousInputId="Package\Dim_Producto\Verificar datos null.Inputs[Entrada de división condicional]"
+                  truncationRowDisposition="FailComponent">
+                  <properties>
+                    <property
+                      containsID="true"
+                      dataType="System.String"
+                      description="Especifica la expresión. Esta versión de expresión usa identificadores de linaje en lugar de nombres de columna."
+                      name="Expression">![ISNULL](#{Package\Dim_Producto\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[ID_Producto]}) || ![ISNULL](#{Package\Dim_Producto\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[Descripcion]}) || ![ISNULL](#{Package\Dim_Producto\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[descSub]}) || ![ISNULL](#{Package\Dim_Producto\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[Descripcion categoria]})</property>
+                    <property
+                      containsID="true"
+                      dataType="System.String"
+                      description="Especifica la versión descriptiva de la expresión. Esta versión de expresión usa nombres de columna."
+                      expressionType="Notify"
+                      name="FriendlyExpression">!ISNULL(ID_Producto) || !ISNULL(Descripcion) || !ISNULL(descSub) || !ISNULL([Descripcion categoria])</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Especifica la posición de la condición en la lista de condiciones que evalúa la transformación. El orden de evaluación es del menor al mayor valor."
+                      name="EvaluationOrder">0</property>
+                  </properties>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Dim_Producto\Verificar datos null.Outputs[subcategoria null]"
+                  description="Salida 2 de la transformación División condicional"
+                  errorOrTruncationOperation="Cálculo"
+                  errorRowDisposition="FailComponent"
+                  exclusionGroup="1"
+                  name="subcategoria null"
+                  synchronousInputId="Package\Dim_Producto\Verificar datos null.Inputs[Entrada de división condicional]"
+                  truncationRowDisposition="FailComponent">
+                  <properties>
+                    <property
+                      containsID="true"
+                      dataType="System.String"
+                      description="Especifica la expresión. Esta versión de expresión usa identificadores de linaje en lugar de nombres de columna."
+                      name="Expression">[ISNULL](#{Package\Dim_Producto\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[codSub]})</property>
+                    <property
+                      containsID="true"
+                      dataType="System.String"
+                      description="Especifica la versión descriptiva de la expresión. Esta versión de expresión usa nombres de columna."
+                      expressionType="Notify"
+                      name="FriendlyExpression">ISNULL(codSub)</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Especifica la posición de la condición en la lista de condiciones que evalúa la transformación. El orden de evaluación es del menor al mayor valor."
+                      name="EvaluationOrder">1</property>
+                  </properties>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Dim_Producto\Verificar datos null.Outputs[con datos nulos]"
+                  description="Salida predeterminada de la transformación División condicional"
+                  exclusionGroup="1"
+                  name="con datos nulos"
+                  synchronousInputId="Package\Dim_Producto\Verificar datos null.Inputs[Entrada de división condicional]">
+                  <properties>
+                    <property
+                      dataType="System.Boolean"
+                      name="IsDefaultOut">true</property>
+                  </properties>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Dim_Producto\Verificar datos null.Outputs[Salida de error de división condicional]"
+                  description="Salida de error de la transformación División condicional"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Salida de error de división condicional"
+                  synchronousInputId="Package\Dim_Producto\Verificar datos null.Inputs[Entrada de división condicional]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Dim_Producto\Verificar datos null.Outputs[Salida de error de división condicional].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Dim_Producto\Verificar datos null.Outputs[Salida de error de división condicional].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Dim_Producto\Verificar datos null.Outputs[Salida de error de división condicional].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Dim_Producto\Verificar datos null.Outputs[Salida de error de división condicional].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
           </components>
           <paths>
             <path
-              refId="Package\Dim_Producto.Paths[Salida de columna derivada]"
-              endId="Package\Dim_Producto\Destino de OLE DB.Inputs[Entrada de destino de OLE DB]"
+              refId="Package\Dim_Producto.Paths[con datos nulos]"
+              endId="Package\Dim_Producto\Columna derivada 1.Inputs[Entrada de columna derivada]"
+              name="con datos nulos"
+              startId="Package\Dim_Producto\Verificar datos null.Outputs[con datos nulos]" />
+            <path
+              refId="Package\Dim_Producto.Paths[Salida de columna derivada2]"
+              endId="Package\Dim_Producto\Conversión de datos 1.Inputs[Entrada de conversión de datos]"
               name="Salida de columna derivada"
               startId="Package\Dim_Producto\Columna derivada.Outputs[Salida de columna derivada]" />
             <path
+              refId="Package\Dim_Producto.Paths[Salida de columna derivada1]"
+              endId="Package\Dim_Producto\Destino de OLE DB 2.Inputs[Entrada de destino de OLE DB]"
+              name="Salida de columna derivada"
+              startId="Package\Dim_Producto\Columna derivada 2.Outputs[Salida de columna derivada]" />
+            <path
+              refId="Package\Dim_Producto.Paths[Salida de columna derivada]"
+              endId="Package\Dim_Producto\Conversión de datos.Inputs[Entrada de conversión de datos]"
+              name="Salida de columna derivada"
+              startId="Package\Dim_Producto\Columna derivada 1.Outputs[Salida de columna derivada]" />
+            <path
               refId="Package\Dim_Producto.Paths[Salida de combinación de mezcla2]"
-              endId="Package\Dim_Producto\Columna derivada.Inputs[Entrada de columna derivada]"
+              endId="Package\Dim_Producto\Ordenar 4.Inputs[Entrada de ordenación]"
               name="Salida de combinación de mezcla"
-              startId="Package\Dim_Producto\Combinación de mezcla.Outputs[Salida de combinación de mezcla]" />
+              startId="Package\Dim_Producto\Combinación de mezcla 1.Outputs[Salida de combinación de mezcla]" />
             <path
               refId="Package\Dim_Producto.Paths[Salida de combinación de mezcla1]"
               endId="Package\Dim_Producto\Ordenar 5.Inputs[Entrada de ordenación]"
@@ -16573,59 +18071,89 @@ GROUP BY SUBCATEGORIA.ID_Subcategoria, SUBCATEGORIA.Descripcion, CATEGORIA.ID_Ca
               startId="Package\Dim_Producto\Combinación de mezcla 2.Outputs[Salida de combinación de mezcla]" />
             <path
               refId="Package\Dim_Producto.Paths[Salida de combinación de mezcla]"
-              endId="Package\Dim_Producto\Ordenar 4.Inputs[Entrada de ordenación]"
+              endId="Package\Dim_Producto\Buscar si el producto existe.Inputs[Entrada de búsqueda]"
               name="Salida de combinación de mezcla"
-              startId="Package\Dim_Producto\Combinación de mezcla 1.Outputs[Salida de combinación de mezcla]" />
+              startId="Package\Dim_Producto\Combinación de mezcla.Outputs[Salida de combinación de mezcla]" />
+            <path
+              refId="Package\Dim_Producto.Paths[Salida de conversión de datos1]"
+              endId="Package\Dim_Producto\Destino de Excel.Inputs[Entrada de destino de Excel]"
+              name="Salida de conversión de datos"
+              startId="Package\Dim_Producto\Conversión de datos.Outputs[Salida de conversión de datos]" />
+            <path
+              refId="Package\Dim_Producto.Paths[Salida de conversión de datos]"
+              endId="Package\Dim_Producto\Destino de Excel 1.Inputs[Entrada de destino de Excel]"
+              name="Salida de conversión de datos"
+              startId="Package\Dim_Producto\Conversión de datos 1.Outputs[Salida de conversión de datos]" />
+            <path
+              refId="Package\Dim_Producto.Paths[Salida de entradas coincidentes de búsqueda]"
+              endId="Package\Dim_Producto\Columna derivada.Inputs[Entrada de columna derivada]"
+              name="Salida de entradas coincidentes de búsqueda"
+              startId="Package\Dim_Producto\Buscar si el producto existe.Outputs[Salida de entradas coincidentes de búsqueda]" />
+            <path
+              refId="Package\Dim_Producto.Paths[Salida de entradas no coincidentes de búsqueda]"
+              endId="Package\Dim_Producto\Verificar datos null.Inputs[Entrada de división condicional]"
+              name="Salida de entradas no coincidentes de búsqueda"
+              startId="Package\Dim_Producto\Buscar si el producto existe.Outputs[Salida de entradas no coincidentes de búsqueda]" />
             <path
               refId="Package\Dim_Producto.Paths[Salida de ordenación3]"
-              endId="Package\Dim_Producto\Combinación de mezcla.Inputs[Entrada derecha de combinación de mezcla]"
-              name="Salida de ordenación"
-              startId="Package\Dim_Producto\Ordenar 5.Outputs[Salida de ordenación]" />
-            <path
-              refId="Package\Dim_Producto.Paths[Salida de ordenación4]"
               endId="Package\Dim_Producto\Combinación de mezcla 1.Inputs[Entrada derecha de combinación de mezcla]"
               name="Salida de ordenación"
               startId="Package\Dim_Producto\Ordenar 2.Outputs[Salida de ordenación]" />
             <path
-              refId="Package\Dim_Producto.Paths[Salida de ordenación5]"
-              endId="Package\Dim_Producto\Combinación de mezcla 1.Inputs[Entrada izquierda de combinación de mezcla]"
-              name="Salida de ordenación"
-              startId="Package\Dim_Producto\Ordenar.Outputs[Salida de ordenación]" />
-            <path
-              refId="Package\Dim_Producto.Paths[Salida de ordenación]"
-              endId="Package\Dim_Producto\Combinación de mezcla 2.Inputs[Entrada izquierda de combinación de mezcla]"
-              name="Salida de ordenación"
-              startId="Package\Dim_Producto\Ordenar 1.Outputs[Salida de ordenación]" />
-            <path
-              refId="Package\Dim_Producto.Paths[Salida de ordenación1]"
-              endId="Package\Dim_Producto\Combinación de mezcla 2.Inputs[Entrada derecha de combinación de mezcla]"
-              name="Salida de ordenación"
-              startId="Package\Dim_Producto\Ordenar 3.Outputs[Salida de ordenación]" />
-            <path
-              refId="Package\Dim_Producto.Paths[Salida de ordenación2]"
+              refId="Package\Dim_Producto.Paths[Salida de ordenación4]"
               endId="Package\Dim_Producto\Combinación de mezcla.Inputs[Entrada izquierda de combinación de mezcla]"
               name="Salida de ordenación"
               startId="Package\Dim_Producto\Ordenar 4.Outputs[Salida de ordenación]" />
             <path
-              refId="Package\Dim_Producto.Paths[Salida de origen de OLE DB2]"
-              endId="Package\Dim_Producto\Ordenar 3.Inputs[Entrada de ordenación]"
-              name="Salida de origen de OLE DB"
-              startId="Package\Dim_Producto\categorias 1.Outputs[Salida de origen de OLE DB]" />
+              refId="Package\Dim_Producto.Paths[Salida de ordenación5]"
+              endId="Package\Dim_Producto\Combinación de mezcla 2.Inputs[Entrada derecha de combinación de mezcla]"
+              name="Salida de ordenación"
+              startId="Package\Dim_Producto\Ordenar 3.Outputs[Salida de ordenación]" />
             <path
-              refId="Package\Dim_Producto.Paths[Salida de origen de OLE DB3]"
+              refId="Package\Dim_Producto.Paths[Salida de ordenación]"
+              endId="Package\Dim_Producto\Combinación de mezcla.Inputs[Entrada derecha de combinación de mezcla]"
+              name="Salida de ordenación"
+              startId="Package\Dim_Producto\Ordenar 5.Outputs[Salida de ordenación]" />
+            <path
+              refId="Package\Dim_Producto.Paths[Salida de ordenación1]"
+              endId="Package\Dim_Producto\Combinación de mezcla 2.Inputs[Entrada izquierda de combinación de mezcla]"
+              name="Salida de ordenación"
+              startId="Package\Dim_Producto\Ordenar 1.Outputs[Salida de ordenación]" />
+            <path
+              refId="Package\Dim_Producto.Paths[Salida de ordenación2]"
+              endId="Package\Dim_Producto\Combinación de mezcla 1.Inputs[Entrada izquierda de combinación de mezcla]"
+              name="Salida de ordenación"
+              startId="Package\Dim_Producto\Ordenar.Outputs[Salida de ordenación]" />
+            <path
+              refId="Package\Dim_Producto.Paths[Salida de origen de OLE DB2]"
               endId="Package\Dim_Producto\Ordenar 1.Inputs[Entrada de ordenación]"
               name="Salida de origen de OLE DB"
               startId="Package\Dim_Producto\categorias 2.Outputs[Salida de origen de OLE DB]" />
             <path
-              refId="Package\Dim_Producto.Paths[Salida de origen de OLE DB]"
+              refId="Package\Dim_Producto.Paths[Salida de origen de OLE DB3]"
               endId="Package\Dim_Producto\Ordenar.Inputs[Entrada de ordenación]"
               name="Salida de origen de OLE DB"
               startId="Package\Dim_Producto\Ventas 1.Outputs[Salida de origen de OLE DB]" />
             <path
-              refId="Package\Dim_Producto.Paths[Salida de origen de OLE DB1]"
+              refId="Package\Dim_Producto.Paths[Salida de origen de OLE DB]"
               endId="Package\Dim_Producto\Ordenar 2.Inputs[Entrada de ordenación]"
               name="Salida de origen de OLE DB"
               startId="Package\Dim_Producto\Ventas 2.Outputs[Salida de origen de OLE DB]" />
+            <path
+              refId="Package\Dim_Producto.Paths[Salida de origen de OLE DB1]"
+              endId="Package\Dim_Producto\Ordenar 3.Inputs[Entrada de ordenación]"
+              name="Salida de origen de OLE DB"
+              startId="Package\Dim_Producto\categorias 1.Outputs[Salida de origen de OLE DB]" />
+            <path
+              refId="Package\Dim_Producto.Paths[sin datos nulos]"
+              endId="Package\Dim_Producto\Destino de OLE DB.Inputs[Entrada de destino de OLE DB]"
+              name="sin datos nulos"
+              startId="Package\Dim_Producto\Verificar datos null.Outputs[sin datos nulos]" />
+            <path
+              refId="Package\Dim_Producto.Paths[subcategoria null]"
+              endId="Package\Dim_Producto\Columna derivada 2.Inputs[Entrada de columna derivada]"
+              name="subcategoria null"
+              startId="Package\Dim_Producto\Verificar datos null.Outputs[subcategoria null]" />
           </paths>
         </pipeline>
       </DTS:ObjectData>
@@ -24149,7 +25677,7 @@ FROM            VENTA INNER JOIN
     design-time-name="Package\Dim_Producto">
     <LayoutInfo>
       <GraphLayout
-        Capacity="32" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        Capacity="64" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
           Size="138,42"
           Id="Package\Dim_Producto\categorias 2"
@@ -24175,7 +25703,7 @@ FROM            VENTA INNER JOIN
           Id="Package\Dim_Producto\Ordenar 2"
           TopLeft="381,147" />
         <EdgeLayout
-          Id="Package\Dim_Producto.Paths[Salida de origen de OLE DB]"
+          Id="Package\Dim_Producto.Paths[Salida de origen de OLE DB3]"
           TopLeft="260.75,104">
           <EdgeLayout.Curve>
             <mssgle:Curve
@@ -24197,7 +25725,7 @@ FROM            VENTA INNER JOIN
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package\Dim_Producto.Paths[Salida de origen de OLE DB1]"
+          Id="Package\Dim_Producto.Paths[Salida de origen de OLE DB]"
           TopLeft="445,96">
           <EdgeLayout.Curve>
             <mssgle:Curve
@@ -24223,7 +25751,7 @@ FROM            VENTA INNER JOIN
           Id="Package\Dim_Producto\Combinación de mezcla 1"
           TopLeft="255,240" />
         <EdgeLayout
-          Id="Package\Dim_Producto.Paths[Salida de ordenación5]"
+          Id="Package\Dim_Producto.Paths[Salida de ordenación2]"
           TopLeft="262.5,185">
           <EdgeLayout.Curve>
             <mssgle:Curve
@@ -24257,7 +25785,7 @@ FROM            VENTA INNER JOIN
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package\Dim_Producto.Paths[Salida de ordenación4]"
+          Id="Package\Dim_Producto.Paths[Salida de ordenación3]"
           TopLeft="445,189">
           <EdgeLayout.Curve>
             <mssgle:Curve
@@ -24295,7 +25823,7 @@ FROM            VENTA INNER JOIN
           Id="Package\Dim_Producto\Ordenar 3"
           TopLeft="728,255" />
         <EdgeLayout
-          Id="Package\Dim_Producto.Paths[Salida de origen de OLE DB2]"
+          Id="Package\Dim_Producto.Paths[Salida de origen de OLE DB1]"
           TopLeft="789.5,219">
           <EdgeLayout.Curve>
             <mssgle:Curve
@@ -24321,7 +25849,7 @@ FROM            VENTA INNER JOIN
           Id="Package\Dim_Producto\Ordenar 4"
           TopLeft="289,333" />
         <EdgeLayout
-          Id="Package\Dim_Producto.Paths[Salida de combinación de mezcla]"
+          Id="Package\Dim_Producto.Paths[Salida de combinación de mezcla2]"
           TopLeft="354.25,282">
           <EdgeLayout.Curve>
             <mssgle:Curve
@@ -24343,15 +25871,11 @@ FROM            VENTA INNER JOIN
           </EdgeLayout.Labels>
         </EdgeLayout>
         <NodeLayout
-          Size="166,42"
-          Id="Package\Dim_Producto\Columna derivada"
-          TopLeft="382,571" />
-        <NodeLayout
           Size="128,42"
           Id="Package\Dim_Producto\Ordenar 1"
           TopLeft="565,254" />
         <EdgeLayout
-          Id="Package\Dim_Producto.Paths[Salida de origen de OLE DB3]"
+          Id="Package\Dim_Producto.Paths[Salida de origen de OLE DB2]"
           TopLeft="627,216">
           <EdgeLayout.Curve>
             <mssgle:Curve
@@ -24377,7 +25901,7 @@ FROM            VENTA INNER JOIN
           Id="Package\Dim_Producto\Combinación de mezcla 2"
           TopLeft="616,356" />
         <EdgeLayout
-          Id="Package\Dim_Producto.Paths[Salida de ordenación]"
+          Id="Package\Dim_Producto.Paths[Salida de ordenación1]"
           TopLeft="629,296">
           <EdgeLayout.Curve>
             <mssgle:Curve
@@ -24411,7 +25935,7 @@ FROM            VENTA INNER JOIN
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package\Dim_Producto.Paths[Salida de ordenación1]"
+          Id="Package\Dim_Producto.Paths[Salida de ordenación5]"
           TopLeft="792,297">
           <EdgeLayout.Curve>
             <mssgle:Curve
@@ -24447,63 +25971,39 @@ FROM            VENTA INNER JOIN
         <NodeLayout
           Size="192,42"
           Id="Package\Dim_Producto\Combinación de mezcla"
-          TopLeft="369,465" />
+          TopLeft="364,464" />
         <EdgeLayout
-          Id="Package\Dim_Producto.Paths[Salida de ordenación2]"
+          Id="Package\Dim_Producto.Paths[Salida de ordenación4]"
           TopLeft="353,375">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="112,90"
+              EndConnector="107,89"
               Start="0,0"
-              End="112,82.5">
+              End="107,81.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,41" />
+                    End="0,40.5" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,41"
-                    Point2="0,45"
-                    Point3="4,45" />
+                    Point1="0,40.5"
+                    Point2="0,44.5"
+                    Point3="4,44.5" />
                   <mssgle:LineSegment
-                    End="108,45" />
+                    End="103,44.5" />
                   <mssgle:CubicBezierSegment
-                    Point1="108,45"
-                    Point2="112,45"
-                    Point3="112,49" />
+                    Point1="103,44.5"
+                    Point2="107,44.5"
+                    Point3="107,48.5" />
                   <mssgle:LineSegment
-                    End="112,82.5" />
+                    End="107,81.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Dim_Producto.Paths[Salida de combinación de mezcla2]"
-          TopLeft="465,507">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,64"
-              Start="0,0"
-              End="0,56.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,56.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="-8,20.25,16,16"
-              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <NodeLayout
@@ -24545,31 +26045,31 @@ FROM            VENTA INNER JOIN
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package\Dim_Producto.Paths[Salida de ordenación3]"
+          Id="Package\Dim_Producto.Paths[Salida de ordenación]"
           TopLeft="628,444">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="-67,42"
+              EndConnector="-72,41"
               Start="0,0"
-              End="-59.5,42">
+              End="-64.5,41">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="-29.5,0" />
+                    End="-32,0" />
                   <mssgle:CubicBezierSegment
-                    Point1="-29.5,0"
-                    Point2="-33.5,0"
-                    Point3="-33.5,4" />
+                    Point1="-32,0"
+                    Point2="-36,0"
+                    Point3="-36,4" />
                   <mssgle:LineSegment
-                    End="-33.5,38" />
+                    End="-36,37" />
                   <mssgle:CubicBezierSegment
-                    Point1="-33.5,38"
-                    Point2="-33.5,42"
-                    Point3="-37.5,42" />
+                    Point1="-36,37"
+                    Point2="-36,41"
+                    Point3="-40,41" />
                   <mssgle:LineSegment
-                    End="-59.5,42" />
+                    End="-64.5,41" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -24581,21 +26081,387 @@ FROM            VENTA INNER JOIN
         <NodeLayout
           Size="170,42"
           Id="Package\Dim_Producto\Destino de OLE DB"
-          TopLeft="383,649" />
+          TopLeft="152,754" />
+        <NodeLayout
+          Size="169,42"
+          Id="Package\Dim_Producto\Verificar datos null"
+          TopLeft="313,654" />
+        <NodeLayout
+          Size="210,42"
+          Id="Package\Dim_Producto\Buscar si el producto existe"
+          TopLeft="350,552" />
         <EdgeLayout
-          Id="Package\Dim_Producto.Paths[Salida de columna derivada]"
-          TopLeft="466.5,613">
+          Id="Package\Dim_Producto.Paths[Salida de combinación de mezcla]"
+          TopLeft="457.5,506">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,36"
+              EndConnector="0,46"
               Start="0,0"
-              End="0,28.5">
+              End="0,38.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,28.5" />
+                    End="0,38.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Dim_Producto.Paths[Salida de entradas no coincidentes de búsqueda]"
+          TopLeft="455,594">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-57.5,60"
+              Start="0,0"
+              End="-57.5,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,26" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,26"
+                    Point2="0,30"
+                    Point3="-4,30" />
+                  <mssgle:LineSegment
+                    End="-53.5,30" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-53.5,30"
+                    Point2="-57.5,30"
+                    Point3="-57.5,34" />
+                  <mssgle:LineSegment
+                    End="-57.5,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-134.6390234375,35,211.778046875,10.1953125"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Dim_Producto.Paths[sin datos nulos]"
+          TopLeft="357.25,696">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-120.25,58"
+              Start="0,0"
+              End="-120.25,50.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,15.9339805825243" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,15.9339805825243"
+                    Point2="0,19.9339805825243"
+                    Point3="-4,19.9339805825243" />
+                  <mssgle:LineSegment
+                    End="-116.25,19.9339805825243" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-116.25,19.9339805825243"
+                    Point2="-120.25,19.9339805825243"
+                    Point3="-120.25,23.9339805825243" />
+                  <mssgle:LineSegment
+                    End="-120.25,50.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-92.83765625,24.9339805825243,65.4253125,7.7490234375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="166,42"
+          Id="Package\Dim_Producto\Columna derivada"
+          TopLeft="731,607" />
+        <NodeLayout
+          Size="166,42"
+          Id="Package\Dim_Producto\Columna derivada 1"
+          TopLeft="437,845" />
+        <EdgeLayout
+          Id="Package\Dim_Producto.Paths[con datos nulos]"
+          TopLeft="397.5,696">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="122.5,149"
+              Start="0,0"
+              End="122.5,141.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,70.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,70.5"
+                    Point2="0,74.5"
+                    Point3="4,74.5" />
+                  <mssgle:LineSegment
+                    End="118.5,74.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="118.5,74.5"
+                    Point2="122.5,74.5"
+                    Point3="122.5,78.5" />
+                  <mssgle:LineSegment
+                    End="122.5,141.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="26.8728125,79.5,68.754375,7.7490234375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Dim_Producto.Paths[Salida de entradas coincidentes de búsqueda]"
+          TopLeft="560,573">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="171,55"
+              Start="0,0"
+              End="163.5,55">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="81.5,0" />
+                  <mssgle:CubicBezierSegment
+                    Point1="81.5,0"
+                    Point2="85.5,0"
+                    Point3="85.5,4" />
+                  <mssgle:LineSegment
+                    End="85.5,51" />
+                  <mssgle:CubicBezierSegment
+                    Point1="85.5,51"
+                    Point2="85.5,55"
+                    Point3="89.5,55" />
+                  <mssgle:LineSegment
+                    End="163.5,55" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-13.3190234375,-16.1953125,197.638046875,10.1953125"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="175,42"
+          Id="Package\Dim_Producto\Columna derivada 2"
+          TopLeft="580,771" />
+        <EdgeLayout
+          Id="Package\Dim_Producto.Paths[subcategoria null]"
+          TopLeft="437.75,696">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="229.75,75"
+              Start="0,0"
+              End="229.75,67.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,21.7766990291262" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,21.7766990291262"
+                    Point2="0,25.7766990291262"
+                    Point3="4,25.7766990291262" />
+                  <mssgle:LineSegment
+                    End="225.75,25.7766990291262" />
+                  <mssgle:CubicBezierSegment
+                    Point1="225.75,25.7766990291262"
+                    Point2="229.75,25.7766990291262"
+                    Point3="229.75,29.7766990291262" />
+                  <mssgle:LineSegment
+                    End="229.75,67.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="77.88279296875,30.7766990291262,73.9844140625,9.6630859375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="179,42"
+          Id="Package\Dim_Producto\Destino de OLE DB 2"
+          TopLeft="685,899" />
+        <EdgeLayout
+          Id="Package\Dim_Producto.Paths[Salida de columna derivada1]"
+          TopLeft="667.5,813">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="107,86"
+              Start="0,0"
+              End="107,78.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,39" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,39"
+                    Point2="0,43"
+                    Point3="4,43" />
+                  <mssgle:LineSegment
+                    End="103,43" />
+                  <mssgle:CubicBezierSegment
+                    Point1="103,43"
+                    Point2="107,43"
+                    Point3="107,47" />
+                  <mssgle:LineSegment
+                    End="107,78.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="177,42"
+          Id="Package\Dim_Producto\Conversión de datos"
+          TopLeft="433,924" />
+        <EdgeLayout
+          Id="Package\Dim_Producto.Paths[Salida de columna derivada]"
+          TopLeft="520.75,887">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,37"
+              Start="0,0"
+              End="0,29.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,29.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="159,42"
+          Id="Package\Dim_Producto\Destino de Excel"
+          TopLeft="440,1003" />
+        <EdgeLayout
+          Id="Package\Dim_Producto.Paths[Salida de conversión de datos1]"
+          TopLeft="520.5,966">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,37"
+              Start="0,0"
+              End="0,29.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,29.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="168,42"
+          Id="Package\Dim_Producto\Destino de Excel 1"
+          TopLeft="798,776" />
+        <NodeLayout
+          Size="186,42"
+          Id="Package\Dim_Producto\Conversión de datos 1"
+          TopLeft="762,699" />
+        <EdgeLayout
+          Id="Package\Dim_Producto.Paths[Salida de columna derivada2]"
+          TopLeft="814,649">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="41,50"
+              Start="0,0"
+              End="41,42.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,21" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,21"
+                    Point2="0,25"
+                    Point3="4,25" />
+                  <mssgle:LineSegment
+                    End="37,25" />
+                  <mssgle:CubicBezierSegment
+                    Point1="37,25"
+                    Point2="41,25"
+                    Point3="41,29" />
+                  <mssgle:LineSegment
+                    End="41,42.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Dim_Producto.Paths[Salida de conversión de datos]"
+          TopLeft="855,741">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="27,35"
+              Start="0,0"
+              End="27,27.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,13.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,13.5"
+                    Point2="0,17.5"
+                    Point3="4,17.5" />
+                  <mssgle:LineSegment
+                    End="23,17.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="23,17.5"
+                    Point2="27,17.5"
+                    Point3="27,21.5" />
+                  <mssgle:LineSegment
+                    End="27,27.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -25786,6 +27652,68 @@ FROM            VENTA INNER JOIN
   </TaskHost>
   <PipelineComponentMetadata
     design-time-name="Package\Dim_Producto\Destino de OLE DB">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Dim_Producto\Buscar si el producto existe">
+    <Properties>
+      <Property>
+        <Name>OverwriteParamsSQLProp</Name>
+        <Value
+          type="q2:boolean">false</Value>
+      </Property>
+      <Property>
+        <Name>UsedTableName</Name>
+        <Value
+          type="q3:string">[dbo].[Dim_Producto]</Value>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q4:int">0</Value>
+      </Property>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Dim_Producto\Destino de OLE DB 2">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Dim_Producto\Destino de Excel">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Dim_Producto\Destino de Excel 1">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
