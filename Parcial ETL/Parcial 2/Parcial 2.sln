@@ -1,0 +1,17 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{159641D6-6404-4A2A-AE62-294DE0FE8301}") = "Parcial 2", "Parcial 2\Parcial 2.dtproj", "{A046C7F1-C4BE-4668-80AD-67E376B4E242}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Development|Default = Development|Default
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{A046C7F1-C4BE-4668-80AD-67E376B4E242}.Development|Default.ActiveCfg = Development
+		{A046C7F1-C4BE-4668-80AD-67E376B4E242}.Development|Default.Build.0 = Development
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
