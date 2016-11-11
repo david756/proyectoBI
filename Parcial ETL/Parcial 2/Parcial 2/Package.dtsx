@@ -11,8 +11,8 @@
   DTS:LocaleID="3082"
   DTS:ObjectName="Package"
   DTS:PackageType="5"
-  DTS:VersionBuild="4"
-  DTS:VersionGUID="{E2E4D850-63C8-4BD8-824B-CD67894986D3}">
+  DTS:VersionBuild="9"
+  DTS:VersionGUID="{F3E638DF-27D8-4CC2-9BA3-6895DE5884A8}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">6</DTS:Property>
   <DTS:Variables />
@@ -32,11 +32,11 @@
           version="1">
           <components>
             <component
-              refId="Package\Dim_Producto\Actualizarlo"
+              refId="Package\Dim_Producto\Comando de OLE DB"
               componentClassID="{93FFEC66-CBC8-4C7F-9C6A-CB1C17A7567D}"
               contactInfo="Comando de OLE DB;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;2"
               description="Ejecuta una instrucción SQL para cada fila de un flujo de datos. Por ejemplo, se usa para llamar al procedimiento almacenado de configuración de nuevo empleado para cada fila de la tabla de nuevos empleados. Nota: la ejecución de una instrucción SQL para cada fila de un flujo de datos de gran tamaño puede tardar mucho tiempo."
-              name="Actualizarlo"
+              name="Comando de OLE DB"
               usesDispositions="true"
               version="2">
               <properties>
@@ -59,7 +59,7 @@ WHERE idProducto=?</property>
               </properties>
               <connections>
                 <connection
-                  refId="Package\Dim_Producto\Actualizarlo.Connections[OleDbConnection]"
+                  refId="Package\Dim_Producto\Comando de OLE DB.Connections[OleDbConnection]"
                   connectionManagerID="{D675DE97-74BC-4F9D-B66C-DFA943796F80}:external"
                   connectionManagerRefId="Project.ConnectionManagers[WJGIRALDO-PC.DW_Parcial]"
                   description="La conexión de tiempo de ejecución OLE DB usada para obtener acceso a la base de datos."
@@ -67,42 +67,43 @@ WHERE idProducto=?</property>
               </connections>
               <inputs>
                 <input
-                  refId="Package\Dim_Producto\Actualizarlo.Inputs[Entrada de comando de OLE DB]"
+                  refId="Package\Dim_Producto\Comando de OLE DB.Inputs[Entrada de comando de OLE DB]"
                   errorOrTruncationOperation="Ejecución de comando"
                   errorRowDisposition="FailComponent"
                   hasSideEffects="true"
                   name="Entrada de comando de OLE DB">
                   <inputColumns>
                     <inputColumn
-                      refId="Package\Dim_Producto\Actualizarlo.Inputs[Entrada de comando de OLE DB].Columns[idProducto]"
-                      cachedDataType="i4"
-                      cachedName="idProducto"
-                      externalMetadataColumnId="Package\Dim_Producto\Actualizarlo.Inputs[Entrada de comando de OLE DB].ExternalColumns[Param_1]"
-                      lineageId="Package\Dim_Producto\Unión de todo.Outputs[Salida de Unión de todo 1].Columns[idProducto]" />
-                    <inputColumn
-                      refId="Package\Dim_Producto\Actualizarlo.Inputs[Entrada de comando de OLE DB].Columns[Naccion]"
+                      refId="Package\Dim_Producto\Comando de OLE DB.Inputs[Entrada de comando de OLE DB].Columns[Naccion]"
                       cachedDataType="wstr"
                       cachedLength="50"
                       cachedName="Naccion"
-                      externalMetadataColumnId="Package\Dim_Producto\Actualizarlo.Inputs[Entrada de comando de OLE DB].ExternalColumns[Param_0]"
+                      externalMetadataColumnId="Package\Dim_Producto\Comando de OLE DB.Inputs[Entrada de comando de OLE DB].ExternalColumns[Param_0]"
                       lineageId="Package\Dim_Producto\Unión de todo.Outputs[Salida de Unión de todo 1].Columns[Naccion]" />
+                    <inputColumn
+                      refId="Package\Dim_Producto\Comando de OLE DB.Inputs[Entrada de comando de OLE DB].Columns[Nvigencia]"
+                      cachedDataType="dbDate"
+                      cachedName="Nvigencia"
+                      externalMetadataColumnId="Package\Dim_Producto\Comando de OLE DB.Inputs[Entrada de comando de OLE DB].ExternalColumns[Param_1]"
+                      lineageId="Package\Dim_Producto\Unión de todo.Outputs[Salida de Unión de todo 1].Columns[Nvigencia]" />
                   </inputColumns>
                   <externalMetadataColumns
                     isUsed="True">
                     <externalMetadataColumn
-                      refId="Package\Dim_Producto\Actualizarlo.Inputs[Entrada de comando de OLE DB].ExternalColumns[Param_0]"
-                      dataType="wstr"
-                      length="10"
+                      refId="Package\Dim_Producto\Comando de OLE DB.Inputs[Entrada de comando de OLE DB].ExternalColumns[Param_0]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
                       name="Param_0">
                       <properties>
                         <property
                           dataType="System.Int32"
                           description="Información de parámetros. Coincide con los valores de DBPARAMFLAGSENUM de OLE DB."
-                          name="DBParamInfoFlags">81</property>
+                          name="DBParamInfoFlags">65</property>
                       </properties>
                     </externalMetadataColumn>
                     <externalMetadataColumn
-                      refId="Package\Dim_Producto\Actualizarlo.Inputs[Entrada de comando de OLE DB].ExternalColumns[Param_1]"
+                      refId="Package\Dim_Producto\Comando de OLE DB.Inputs[Entrada de comando de OLE DB].ExternalColumns[Param_1]"
                       dataType="i4"
                       name="Param_1">
                       <properties>
@@ -117,29 +118,105 @@ WHERE idProducto=?</property>
               </inputs>
               <outputs>
                 <output
-                  refId="Package\Dim_Producto\Actualizarlo.Outputs[Salida de comando de OLE DB]"
+                  refId="Package\Dim_Producto\Comando de OLE DB.Outputs[Salida de comando de OLE DB]"
                   exclusionGroup="1"
                   name="Salida de comando de OLE DB"
-                  synchronousInputId="Package\Dim_Producto\Actualizarlo.Inputs[Entrada de comando de OLE DB]">
+                  synchronousInputId="Package\Dim_Producto\Comando de OLE DB.Inputs[Entrada de comando de OLE DB]">
                   <externalMetadataColumns />
                 </output>
                 <output
-                  refId="Package\Dim_Producto\Actualizarlo.Outputs[Salida de error de comando de OLE DB]"
+                  refId="Package\Dim_Producto\Comando de OLE DB.Outputs[Salida de error de comando de OLE DB]"
                   exclusionGroup="1"
                   isErrorOut="true"
                   name="Salida de error de comando de OLE DB"
-                  synchronousInputId="Package\Dim_Producto\Actualizarlo.Inputs[Entrada de comando de OLE DB]">
+                  synchronousInputId="Package\Dim_Producto\Comando de OLE DB.Inputs[Entrada de comando de OLE DB]">
                   <outputColumns>
                     <outputColumn
-                      refId="Package\Dim_Producto\Actualizarlo.Outputs[Salida de error de comando de OLE DB].Columns[ErrorCode]"
+                      refId="Package\Dim_Producto\Comando de OLE DB.Outputs[Salida de error de comando de OLE DB].Columns[ErrorCode]"
                       dataType="i4"
-                      lineageId="Package\Dim_Producto\Actualizarlo.Outputs[Salida de error de comando de OLE DB].Columns[ErrorCode]"
+                      lineageId="Package\Dim_Producto\Comando de OLE DB.Outputs[Salida de error de comando de OLE DB].Columns[ErrorCode]"
                       name="ErrorCode"
                       specialFlags="1" />
                     <outputColumn
-                      refId="Package\Dim_Producto\Actualizarlo.Outputs[Salida de error de comando de OLE DB].Columns[ErrorColumn]"
+                      refId="Package\Dim_Producto\Comando de OLE DB.Outputs[Salida de error de comando de OLE DB].Columns[ErrorColumn]"
                       dataType="i4"
-                      lineageId="Package\Dim_Producto\Actualizarlo.Outputs[Salida de error de comando de OLE DB].Columns[ErrorColumn]"
+                      lineageId="Package\Dim_Producto\Comando de OLE DB.Outputs[Salida de error de comando de OLE DB].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Dim_Producto\Conversión de datos"
+              componentClassID="{62B1106C-7DB8-4EC8-ADD6-4C664DFFC54A}"
+              contactInfo="Conversión de datos;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;0"
+              description="Conversión de datos"
+              name="Conversión de datos"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\Dim_Producto\Conversión de datos.Inputs[Entrada de conversión de datos]"
+                  name="Entrada de conversión de datos">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Dim_Producto\Conversión de datos.Inputs[Entrada de conversión de datos].Columns[Naccion]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="Naccion"
+                      lineageId="Package\Dim_Producto\Unión de todo.Outputs[Salida de Unión de todo 1].Columns[Naccion]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Dim_Producto\Conversión de datos.Outputs[Salida de conversión de datos]"
+                  exclusionGroup="1"
+                  name="Salida de conversión de datos"
+                  synchronousInputId="Package\Dim_Producto\Conversión de datos.Inputs[Entrada de conversión de datos]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Dim_Producto\Conversión de datos.Outputs[Salida de conversión de datos].Columns[Copia (2) de Naccion]"
+                      dataType="dbDate"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\Dim_Producto\Conversión de datos.Outputs[Salida de conversión de datos].Columns[Copia (2) de Naccion]"
+                      name="Copia (2) de Naccion"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Especifica la columna de entrada usada como origen de datos para la conversión."
+                          name="SourceInputColumnLineageID">#{Package\Dim_Producto\Unión de todo.Outputs[Salida de Unión de todo 1].Columns[Naccion]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indica si la columna usa las rutinas de análisis más rápidas independientes de la configuración regional."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Dim_Producto\Conversión de datos.Outputs[Salida de error de conversión de datos]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Salida de error de conversión de datos"
+                  synchronousInputId="Package\Dim_Producto\Conversión de datos.Inputs[Entrada de conversión de datos]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Dim_Producto\Conversión de datos.Outputs[Salida de error de conversión de datos].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Dim_Producto\Conversión de datos.Outputs[Salida de error de conversión de datos].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Dim_Producto\Conversión de datos.Outputs[Salida de error de conversión de datos].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Dim_Producto\Conversión de datos.Outputs[Salida de error de conversión de datos].Columns[ErrorColumn]"
                       name="ErrorColumn"
                       specialFlags="2" />
                   </outputColumns>
@@ -334,94 +411,47 @@ WHERE idProducto=?</property>
               </outputs>
             </component>
             <component
-              refId="Package\Dim_Producto\División condicional"
-              componentClassID="{7F88F654-4E20-4D14-84F4-AF9C925D3087}"
-              contactInfo="División condicional;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;0"
-              description="Enruta filas de datos a diferentes salidas según el contenido de los datos. Se usan condiciones (expresiones de SSIS) para especificar las filas que se van a enrutar. Por ejemplo, se usa para separar los registros que deben limpiarse de los registros listos para ser cargados o para enrutar solamente un subconjunto de registros."
-              name="División condicional"
+              refId="Package\Dim_Producto\Describir error"
+              componentClassID="{49928E82-9C4E-49F0-AABE-3812B82707EC}"
+              contactInfo="Columna derivada;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;0"
+              description="Crea nuevos valores de columna aplicando expresiones a las columnas de entrada de la transformación. Crea nuevas columnas o sobrescribe las columnas existentes. Por ejemplo, se concatenan los valores de las columnas 'nombre' y 'apellidos' para crear una columna 'nombre completo'."
+              name="Describir error"
               usesDispositions="true">
               <inputs>
                 <input
-                  refId="Package\Dim_Producto\División condicional.Inputs[Entrada de división condicional]"
-                  description="Entrada en la transformación División condicional"
-                  name="Entrada de división condicional">
-                  <inputColumns>
-                    <inputColumn
-                      refId="Package\Dim_Producto\División condicional.Inputs[Entrada de división condicional].Columns[fechaAcción]"
-                      cachedDataType="dbDate"
-                      cachedName="fechaAcción"
-                      lineageId="Package\Dim_Producto\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[fechaAcción]" />
-                    <inputColumn
-                      refId="Package\Dim_Producto\División condicional.Inputs[Entrada de división condicional].Columns[tipoAccion]"
-                      cachedCodepage="1252"
-                      cachedDataType="str"
-                      cachedLength="50"
-                      cachedName="tipoAccion"
-                      lineageId="Package\Dim_Producto\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[tipoAccion]" />
-                  </inputColumns>
+                  refId="Package\Dim_Producto\Describir error.Inputs[Entrada de columna derivada]"
+                  description="Entrada en la transformación Columna derivada"
+                  name="Entrada de columna derivada">
                   <externalMetadataColumns />
                 </input>
               </inputs>
               <outputs>
                 <output
-                  refId="Package\Dim_Producto\División condicional.Outputs[producto Inactivo]"
-                  description="Salida 1 de la transformación División condicional"
-                  errorOrTruncationOperation="Cálculo"
-                  errorRowDisposition="FailComponent"
+                  refId="Package\Dim_Producto\Describir error.Outputs[Salida de columna derivada]"
+                  description="Salida predeterminada de la transformación Columna derivada"
                   exclusionGroup="1"
-                  name="producto Inactivo"
-                  synchronousInputId="Package\Dim_Producto\División condicional.Inputs[Entrada de división condicional]"
-                  truncationRowDisposition="FailComponent">
-                  <properties>
-                    <property
-                      containsID="true"
-                      dataType="System.String"
-                      description="Especifica la expresión. Esta versión de expresión usa identificadores de linaje en lugar de nombres de columna."
-                      name="Expression">#{Package\Dim_Producto\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[tipoAccion]} == "Inactivo" &amp;&amp; ![ISNULL](#{Package\Dim_Producto\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[fechaAcción]})</property>
-                    <property
-                      containsID="true"
-                      dataType="System.String"
-                      description="Especifica la versión descriptiva de la expresión. Esta versión de expresión usa nombres de columna."
-                      expressionType="Notify"
-                      name="FriendlyExpression">tipoAccion == "Inactivo" &amp;&amp; !ISNULL([fechaAcción])</property>
-                    <property
-                      dataType="System.Int32"
-                      description="Especifica la posición de la condición en la lista de condiciones que evalúa la transformación. El orden de evaluación es del menor al mayor valor."
-                      name="EvaluationOrder">0</property>
-                  </properties>
+                  name="Salida de columna derivada"
+                  synchronousInputId="Package\Dim_Producto\Describir error.Inputs[Entrada de columna derivada]">
                   <externalMetadataColumns />
                 </output>
                 <output
-                  refId="Package\Dim_Producto\División condicional.Outputs[Producto activo]"
-                  description="Salida predeterminada de la transformación División condicional"
-                  exclusionGroup="1"
-                  name="Producto activo"
-                  synchronousInputId="Package\Dim_Producto\División condicional.Inputs[Entrada de división condicional]">
-                  <properties>
-                    <property
-                      dataType="System.Boolean"
-                      name="IsDefaultOut">true</property>
-                  </properties>
-                  <externalMetadataColumns />
-                </output>
-                <output
-                  refId="Package\Dim_Producto\División condicional.Outputs[Salida de error de división condicional]"
-                  description="Salida de error de la transformación División condicional"
+                  refId="Package\Dim_Producto\Describir error.Outputs[Salida de error de columna derivada]"
+                  description="Salida de error de la transformación Columna derivada"
                   exclusionGroup="1"
                   isErrorOut="true"
-                  name="Salida de error de división condicional"
-                  synchronousInputId="Package\Dim_Producto\División condicional.Inputs[Entrada de división condicional]">
+                  name="Salida de error de columna derivada"
+                  synchronousInputId="Package\Dim_Producto\Describir error.Inputs[Entrada de columna derivada]">
                   <outputColumns>
                     <outputColumn
-                      refId="Package\Dim_Producto\División condicional.Outputs[Salida de error de división condicional].Columns[ErrorCode]"
+                      refId="Package\Dim_Producto\Describir error.Outputs[Salida de error de columna derivada].Columns[ErrorCode]"
                       dataType="i4"
-                      lineageId="Package\Dim_Producto\División condicional.Outputs[Salida de error de división condicional].Columns[ErrorCode]"
+                      lineageId="Package\Dim_Producto\Describir error.Outputs[Salida de error de columna derivada].Columns[ErrorCode]"
                       name="ErrorCode"
                       specialFlags="1" />
                     <outputColumn
-                      refId="Package\Dim_Producto\División condicional.Outputs[Salida de error de división condicional].Columns[ErrorColumn]"
+                      refId="Package\Dim_Producto\Describir error.Outputs[Salida de error de columna derivada].Columns[ErrorColumn]"
                       dataType="i4"
-                      lineageId="Package\Dim_Producto\División condicional.Outputs[Salida de error de división condicional].Columns[ErrorColumn]"
+                      lineageId="Package\Dim_Producto\Describir error.Outputs[Salida de error de columna derivada].Columns[ErrorColumn]"
                       name="ErrorColumn"
                       specialFlags="2" />
                   </outputColumns>
@@ -430,94 +460,87 @@ WHERE idProducto=?</property>
               </outputs>
             </component>
             <component
-              refId="Package\Dim_Producto\División condicional 1"
-              componentClassID="{7F88F654-4E20-4D14-84F4-AF9C925D3087}"
-              contactInfo="División condicional;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;0"
-              description="Enruta filas de datos a diferentes salidas según el contenido de los datos. Se usan condiciones (expresiones de SSIS) para especificar las filas que se van a enrutar. Por ejemplo, se usa para separar los registros que deben limpiarse de los registros listos para ser cargados o para enrutar solamente un subconjunto de registros."
-              name="División condicional 1"
+              refId="Package\Dim_Producto\guardar error"
+              componentClassID="{1F5D5712-2FBA-4CB9-A95A-86C1F336E1DA}"
+              contactInfo="Destino de Excel;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;0"
+              description="Destino de Excel"
+              name="guardar error"
               usesDispositions="true">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="Número de segundos antes de que se agote el tiempo de espera de un comando. Un valor de 0 indica un tiempo de espera infinito."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Especifica el nombre del objeto de base de datos usado para abrir un conjunto de filas."
+                  name="OpenRowset"></property>
+                <property
+                  dataType="System.String"
+                  description="Especifica la variable que contiene el nombre del objeto de base de datos usado para abrir un conjunto de filas."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="Comando SQL para ejecutar."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica el modo utilizado para obtener acceso a la base de datos."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indica si los valores proporcionados para columnas de identidad se van a copiar al destino. Si es False, los valores de las columnas de identidad se generan automáticamente en el destino. Sólo se aplica si está activada la carga rápida."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indica si las columnas que contienen NULL tendrán NULL insertado en el destino. Si es False, las columnas que contienen NULL tendrán sus valores predeterminados insertados en el destino. Sólo se aplica si está activada la carga rápida."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Especifica opciones para usar con la carga rápida. Sólo se aplica si está activada la carga rápida."
+                  name="FastLoadOptions"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica cuándo se emiten confirmaciones durante la inserción de datos. El valor 0 especifica que se emitirá una confirmación al final de la inserción de datos. Sólo se aplica si está activada la carga rápida."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Dim_Producto\guardar error.Connections[OleDbConnection]"
+                  description="La conexión de tiempo de ejecución OLE DB usada para obtener acceso a la base de datos."
+                  name="OleDbConnection" />
+              </connections>
               <inputs>
                 <input
-                  refId="Package\Dim_Producto\División condicional 1.Inputs[Entrada de división condicional]"
-                  description="Entrada en la transformación División condicional"
-                  name="Entrada de división condicional">
-                  <inputColumns>
-                    <inputColumn
-                      refId="Package\Dim_Producto\División condicional 1.Inputs[Entrada de división condicional].Columns[fechaAcción]"
-                      cachedDataType="dbDate"
-                      cachedName="fechaAcción"
-                      lineageId="Package\Dim_Producto\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[fechaAcción]" />
-                    <inputColumn
-                      refId="Package\Dim_Producto\División condicional 1.Inputs[Entrada de división condicional].Columns[tipoAccion]"
-                      cachedCodepage="1252"
-                      cachedDataType="str"
-                      cachedLength="50"
-                      cachedName="tipoAccion"
-                      lineageId="Package\Dim_Producto\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[tipoAccion]" />
-                  </inputColumns>
-                  <externalMetadataColumns />
+                  refId="Package\Dim_Producto\guardar error.Inputs[Entrada de destino de Excel]"
+                  errorOrTruncationOperation="Insertar"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="Entrada de destino de Excel">
+                  <externalMetadataColumns
+                    isUsed="True" />
                 </input>
               </inputs>
               <outputs>
                 <output
-                  refId="Package\Dim_Producto\División condicional 1.Outputs[producto Inactivo]"
-                  description="Salida 1 de la transformación División condicional"
-                  errorOrTruncationOperation="Cálculo"
-                  errorRowDisposition="FailComponent"
-                  exclusionGroup="1"
-                  name="producto Inactivo"
-                  synchronousInputId="Package\Dim_Producto\División condicional 1.Inputs[Entrada de división condicional]"
-                  truncationRowDisposition="FailComponent">
-                  <properties>
-                    <property
-                      containsID="true"
-                      dataType="System.String"
-                      description="Especifica la expresión. Esta versión de expresión usa identificadores de linaje en lugar de nombres de columna."
-                      name="Expression">#{Package\Dim_Producto\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[tipoAccion]} == "Inactivo" &amp;&amp; ![ISNULL](#{Package\Dim_Producto\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[fechaAcción]})</property>
-                    <property
-                      containsID="true"
-                      dataType="System.String"
-                      description="Especifica la versión descriptiva de la expresión. Esta versión de expresión usa nombres de columna."
-                      expressionType="Notify"
-                      name="FriendlyExpression">tipoAccion == "Inactivo" &amp;&amp; !ISNULL([fechaAcción])</property>
-                    <property
-                      dataType="System.Int32"
-                      description="Especifica la posición de la condición en la lista de condiciones que evalúa la transformación. El orden de evaluación es del menor al mayor valor."
-                      name="EvaluationOrder">0</property>
-                  </properties>
-                  <externalMetadataColumns />
-                </output>
-                <output
-                  refId="Package\Dim_Producto\División condicional 1.Outputs[Producto activo]"
-                  description="Salida predeterminada de la transformación División condicional"
-                  exclusionGroup="1"
-                  name="Producto activo"
-                  synchronousInputId="Package\Dim_Producto\División condicional 1.Inputs[Entrada de división condicional]">
-                  <properties>
-                    <property
-                      dataType="System.Boolean"
-                      name="IsDefaultOut">true</property>
-                  </properties>
-                  <externalMetadataColumns />
-                </output>
-                <output
-                  refId="Package\Dim_Producto\División condicional 1.Outputs[Salida de error de división condicional]"
-                  description="Salida de error de la transformación División condicional"
+                  refId="Package\Dim_Producto\guardar error.Outputs[Salida de error de destino de Excel]"
                   exclusionGroup="1"
                   isErrorOut="true"
-                  name="Salida de error de división condicional"
-                  synchronousInputId="Package\Dim_Producto\División condicional 1.Inputs[Entrada de división condicional]">
+                  name="Salida de error de destino de Excel"
+                  synchronousInputId="Package\Dim_Producto\guardar error.Inputs[Entrada de destino de Excel]">
                   <outputColumns>
                     <outputColumn
-                      refId="Package\Dim_Producto\División condicional 1.Outputs[Salida de error de división condicional].Columns[ErrorCode]"
+                      refId="Package\Dim_Producto\guardar error.Outputs[Salida de error de destino de Excel].Columns[ErrorCode]"
                       dataType="i4"
-                      lineageId="Package\Dim_Producto\División condicional 1.Outputs[Salida de error de división condicional].Columns[ErrorCode]"
+                      lineageId="Package\Dim_Producto\guardar error.Outputs[Salida de error de destino de Excel].Columns[ErrorCode]"
                       name="ErrorCode"
                       specialFlags="1" />
                     <outputColumn
-                      refId="Package\Dim_Producto\División condicional 1.Outputs[Salida de error de división condicional].Columns[ErrorColumn]"
+                      refId="Package\Dim_Producto\guardar error.Outputs[Salida de error de destino de Excel].Columns[ErrorColumn]"
                       dataType="i4"
-                      lineageId="Package\Dim_Producto\División condicional 1.Outputs[Salida de error de división condicional].Columns[ErrorColumn]"
+                      lineageId="Package\Dim_Producto\guardar error.Outputs[Salida de error de destino de Excel].Columns[ErrorColumn]"
                       name="ErrorColumn"
                       specialFlags="2" />
                   </outputColumns>
@@ -680,7 +703,7 @@ WHERE idProducto=?</property>
                       refId="Package\Dim_Producto\Guardar Producto.Inputs[Entrada de destino de OLE DB].ExternalColumns[descripcion]"
                       codePage="1252"
                       dataType="str"
-                      length="50"
+                      length="200"
                       name="descripcion" />
                     <externalMetadataColumn
                       refId="Package\Dim_Producto\Guardar Producto.Inputs[Entrada de destino de OLE DB].ExternalColumns[Activo]"
@@ -877,7 +900,7 @@ WHERE idProducto=?</property>
                       refId="Package\Dim_Producto\Guardar Producto 2.Inputs[Entrada de destino de OLE DB].ExternalColumns[descripcion]"
                       codePage="1252"
                       dataType="str"
-                      length="50"
+                      length="200"
                       name="descripcion" />
                     <externalMetadataColumn
                       refId="Package\Dim_Producto\Guardar Producto 2.Inputs[Entrada de destino de OLE DB].ExternalColumns[Activo]"
@@ -1155,6 +1178,198 @@ FROM            Producto INNER JOIN
                       refId="Package\Dim_Producto\Origen de OLE DB.Outputs[Salida de error de origen de OLE DB].Columns[ErrorColumn]"
                       dataType="i4"
                       lineageId="Package\Dim_Producto\Origen de OLE DB.Outputs[Salida de error de origen de OLE DB].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Dim_Producto\Producto activo a inactivo 2"
+              componentClassID="{7F88F654-4E20-4D14-84F4-AF9C925D3087}"
+              contactInfo="División condicional;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;0"
+              description="Enruta filas de datos a diferentes salidas según el contenido de los datos. Se usan condiciones (expresiones de SSIS) para especificar las filas que se van a enrutar. Por ejemplo, se usa para separar los registros que deben limpiarse de los registros listos para ser cargados o para enrutar solamente un subconjunto de registros."
+              name="Producto activo a inactivo 2"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\Dim_Producto\Producto activo a inactivo 2.Inputs[Entrada de división condicional]"
+                  description="Entrada en la transformación División condicional"
+                  name="Entrada de división condicional">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Dim_Producto\Producto activo a inactivo 2.Inputs[Entrada de división condicional].Columns[fechaAcción]"
+                      cachedDataType="dbDate"
+                      cachedName="fechaAcción"
+                      lineageId="Package\Dim_Producto\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[fechaAcción]" />
+                    <inputColumn
+                      refId="Package\Dim_Producto\Producto activo a inactivo 2.Inputs[Entrada de división condicional].Columns[tipoAccion]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="tipoAccion"
+                      lineageId="Package\Dim_Producto\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[tipoAccion]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Dim_Producto\Producto activo a inactivo 2.Outputs[producto Inactivo]"
+                  description="Salida 1 de la transformación División condicional"
+                  errorOrTruncationOperation="Cálculo"
+                  errorRowDisposition="FailComponent"
+                  exclusionGroup="1"
+                  name="producto Inactivo"
+                  synchronousInputId="Package\Dim_Producto\Producto activo a inactivo 2.Inputs[Entrada de división condicional]"
+                  truncationRowDisposition="FailComponent">
+                  <properties>
+                    <property
+                      containsID="true"
+                      dataType="System.String"
+                      description="Especifica la expresión. Esta versión de expresión usa identificadores de linaje en lugar de nombres de columna."
+                      name="Expression">#{Package\Dim_Producto\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[tipoAccion]} == "Inactivo" &amp;&amp; ![ISNULL](#{Package\Dim_Producto\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[fechaAcción]})</property>
+                    <property
+                      containsID="true"
+                      dataType="System.String"
+                      description="Especifica la versión descriptiva de la expresión. Esta versión de expresión usa nombres de columna."
+                      expressionType="Notify"
+                      name="FriendlyExpression">tipoAccion == "Inactivo" &amp;&amp; !ISNULL([fechaAcción])</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Especifica la posición de la condición en la lista de condiciones que evalúa la transformación. El orden de evaluación es del menor al mayor valor."
+                      name="EvaluationOrder">0</property>
+                  </properties>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Dim_Producto\Producto activo a inactivo 2.Outputs[Producto activo]"
+                  description="Salida predeterminada de la transformación División condicional"
+                  exclusionGroup="1"
+                  name="Producto activo"
+                  synchronousInputId="Package\Dim_Producto\Producto activo a inactivo 2.Inputs[Entrada de división condicional]">
+                  <properties>
+                    <property
+                      dataType="System.Boolean"
+                      name="IsDefaultOut">true</property>
+                  </properties>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Dim_Producto\Producto activo a inactivo 2.Outputs[Salida de error de división condicional]"
+                  description="Salida de error de la transformación División condicional"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Salida de error de división condicional"
+                  synchronousInputId="Package\Dim_Producto\Producto activo a inactivo 2.Inputs[Entrada de división condicional]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Dim_Producto\Producto activo a inactivo 2.Outputs[Salida de error de división condicional].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Dim_Producto\Producto activo a inactivo 2.Outputs[Salida de error de división condicional].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Dim_Producto\Producto activo a inactivo 2.Outputs[Salida de error de división condicional].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Dim_Producto\Producto activo a inactivo 2.Outputs[Salida de error de división condicional].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Dim_Producto\Producto activo o inactivo"
+              componentClassID="{7F88F654-4E20-4D14-84F4-AF9C925D3087}"
+              contactInfo="División condicional;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;0"
+              description="Enruta filas de datos a diferentes salidas según el contenido de los datos. Se usan condiciones (expresiones de SSIS) para especificar las filas que se van a enrutar. Por ejemplo, se usa para separar los registros que deben limpiarse de los registros listos para ser cargados o para enrutar solamente un subconjunto de registros."
+              name="Producto activo o inactivo"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\Dim_Producto\Producto activo o inactivo.Inputs[Entrada de división condicional]"
+                  description="Entrada en la transformación División condicional"
+                  name="Entrada de división condicional">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Dim_Producto\Producto activo o inactivo.Inputs[Entrada de división condicional].Columns[fechaAcción]"
+                      cachedDataType="dbDate"
+                      cachedName="fechaAcción"
+                      lineageId="Package\Dim_Producto\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[fechaAcción]" />
+                    <inputColumn
+                      refId="Package\Dim_Producto\Producto activo o inactivo.Inputs[Entrada de división condicional].Columns[tipoAccion]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="tipoAccion"
+                      lineageId="Package\Dim_Producto\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[tipoAccion]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Dim_Producto\Producto activo o inactivo.Outputs[producto Inactivo]"
+                  description="Salida 1 de la transformación División condicional"
+                  errorOrTruncationOperation="Cálculo"
+                  errorRowDisposition="FailComponent"
+                  exclusionGroup="1"
+                  name="producto Inactivo"
+                  synchronousInputId="Package\Dim_Producto\Producto activo o inactivo.Inputs[Entrada de división condicional]"
+                  truncationRowDisposition="FailComponent">
+                  <properties>
+                    <property
+                      containsID="true"
+                      dataType="System.String"
+                      description="Especifica la expresión. Esta versión de expresión usa identificadores de linaje en lugar de nombres de columna."
+                      name="Expression">#{Package\Dim_Producto\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[tipoAccion]} == "Inactivo" &amp;&amp; ![ISNULL](#{Package\Dim_Producto\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[fechaAcción]})</property>
+                    <property
+                      containsID="true"
+                      dataType="System.String"
+                      description="Especifica la versión descriptiva de la expresión. Esta versión de expresión usa nombres de columna."
+                      expressionType="Notify"
+                      name="FriendlyExpression">tipoAccion == "Inactivo" &amp;&amp; !ISNULL([fechaAcción])</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Especifica la posición de la condición en la lista de condiciones que evalúa la transformación. El orden de evaluación es del menor al mayor valor."
+                      name="EvaluationOrder">0</property>
+                  </properties>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Dim_Producto\Producto activo o inactivo.Outputs[Producto activo]"
+                  description="Salida predeterminada de la transformación División condicional"
+                  exclusionGroup="1"
+                  name="Producto activo"
+                  synchronousInputId="Package\Dim_Producto\Producto activo o inactivo.Inputs[Entrada de división condicional]">
+                  <properties>
+                    <property
+                      dataType="System.Boolean"
+                      name="IsDefaultOut">true</property>
+                  </properties>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Dim_Producto\Producto activo o inactivo.Outputs[Salida de error de división condicional]"
+                  description="Salida de error de la transformación División condicional"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Salida de error de división condicional"
+                  synchronousInputId="Package\Dim_Producto\Producto activo o inactivo.Inputs[Entrada de división condicional]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Dim_Producto\Producto activo o inactivo.Outputs[Salida de error de división condicional].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Dim_Producto\Producto activo o inactivo.Outputs[Salida de error de división condicional].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Dim_Producto\Producto activo o inactivo.Outputs[Salida de error de división condicional].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Dim_Producto\Producto activo o inactivo.Outputs[Salida de error de división condicional].Columns[ErrorColumn]"
                       name="ErrorColumn"
                       specialFlags="2" />
                   </outputColumns>
@@ -1503,6 +1718,125 @@ FROM            Producto INNER JOIN
               </outputs>
             </component>
             <component
+              refId="Package\Dim_Producto\Validar datos null"
+              componentClassID="{7F88F654-4E20-4D14-84F4-AF9C925D3087}"
+              contactInfo="División condicional;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;0"
+              description="Enruta filas de datos a diferentes salidas según el contenido de los datos. Se usan condiciones (expresiones de SSIS) para especificar las filas que se van a enrutar. Por ejemplo, se usa para separar los registros que deben limpiarse de los registros listos para ser cargados o para enrutar solamente un subconjunto de registros."
+              name="Validar datos null"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\Dim_Producto\Validar datos null.Inputs[Entrada de división condicional]"
+                  description="Entrada en la transformación División condicional"
+                  name="Entrada de división condicional">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Dim_Producto\Validar datos null.Inputs[Entrada de división condicional].Columns[nombreProducto]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="nombreProducto"
+                      lineageId="Package\Dim_Producto\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[nombreProducto]" />
+                    <inputColumn
+                      refId="Package\Dim_Producto\Validar datos null.Inputs[Entrada de división condicional].Columns[descripcionProducto]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="200"
+                      cachedName="descripcionProducto"
+                      lineageId="Package\Dim_Producto\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[descripcionProducto]" />
+                    <inputColumn
+                      refId="Package\Dim_Producto\Validar datos null.Inputs[Entrada de división condicional].Columns[color]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="color"
+                      lineageId="Package\Dim_Producto\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[color]" />
+                    <inputColumn
+                      refId="Package\Dim_Producto\Validar datos null.Inputs[Entrada de división condicional].Columns[categoria]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="categoria"
+                      lineageId="Package\Dim_Producto\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[categoria]" />
+                    <inputColumn
+                      refId="Package\Dim_Producto\Validar datos null.Inputs[Entrada de división condicional].Columns[tipoAccion]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="tipoAccion"
+                      lineageId="Package\Dim_Producto\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[tipoAccion]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Dim_Producto\Validar datos null.Outputs[Hay datos null]"
+                  description="Salida 1 de la transformación División condicional"
+                  errorOrTruncationOperation="Cálculo"
+                  errorRowDisposition="FailComponent"
+                  exclusionGroup="1"
+                  name="Hay datos null"
+                  synchronousInputId="Package\Dim_Producto\Validar datos null.Inputs[Entrada de división condicional]"
+                  truncationRowDisposition="FailComponent">
+                  <properties>
+                    <property
+                      containsID="true"
+                      dataType="System.String"
+                      description="Especifica la expresión. Esta versión de expresión usa identificadores de linaje en lugar de nombres de columna."
+                      name="Expression">[ISNULL](#{Package\Dim_Producto\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[nombreProducto]}) || [ISNULL](#{Package\Dim_Producto\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[descripcionProducto]}) || [ISNULL](#{Package\Dim_Producto\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[color]}) || [ISNULL](#{Package\Dim_Producto\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[categoria]}) || [ISNULL](#{Package\Dim_Producto\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[tipoAccion]})</property>
+                    <property
+                      containsID="true"
+                      dataType="System.String"
+                      description="Especifica la versión descriptiva de la expresión. Esta versión de expresión usa nombres de columna."
+                      expressionType="Notify"
+                      name="FriendlyExpression">ISNULL(nombreProducto) || ISNULL(descripcionProducto) || ISNULL(color) || ISNULL(categoria) || ISNULL(tipoAccion)</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Especifica la posición de la condición en la lista de condiciones que evalúa la transformación. El orden de evaluación es del menor al mayor valor."
+                      name="EvaluationOrder">0</property>
+                  </properties>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Dim_Producto\Validar datos null.Outputs[Sin datos null]"
+                  description="Salida predeterminada de la transformación División condicional"
+                  exclusionGroup="1"
+                  name="Sin datos null"
+                  synchronousInputId="Package\Dim_Producto\Validar datos null.Inputs[Entrada de división condicional]">
+                  <properties>
+                    <property
+                      dataType="System.Boolean"
+                      name="IsDefaultOut">true</property>
+                  </properties>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Dim_Producto\Validar datos null.Outputs[Salida de error de división condicional]"
+                  description="Salida de error de la transformación División condicional"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Salida de error de división condicional"
+                  synchronousInputId="Package\Dim_Producto\Validar datos null.Inputs[Entrada de división condicional]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Dim_Producto\Validar datos null.Outputs[Salida de error de división condicional].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Dim_Producto\Validar datos null.Outputs[Salida de error de división condicional].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Dim_Producto\Validar datos null.Outputs[Salida de error de división condicional].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Dim_Producto\Validar datos null.Outputs[Salida de error de división condicional].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
               refId="Package\Dim_Producto\Verificar si ya existe el producto"
               componentClassID="{671046B0-AA63-4C9F-90E4-C06E0B710CE3}"
               contactInfo="Búsqueda;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;6"
@@ -1559,7 +1893,7 @@ where [refTable].[idProducto] = ?</property>
                   containsID="true"
                   dataType="System.String"
                   description="Especifica la lista de identificadores de linaje que están asignados a los parámetros que usa la instrucción SQL de la propiedad SQLCommand. Las entradas de la lista están separadas por puntos y comas."
-                  name="ParameterMap">#{Package\Dim_Producto\57:invalid};</property>
+                  name="ParameterMap">#{Package\Dim_Producto\Conversión de datos};</property>
                 <property
                   dataType="System.Int32"
                   description="Especifica la página de códigos de columna para utilizar cuando la información de página de códigos no está disponible en el origen de datos."
@@ -1646,55 +1980,75 @@ where [refTable].[idProducto] = ?</property>
           </components>
           <paths>
             <path
-              refId="Package\Dim_Producto.Paths[Producto activo1]"
-              endId="Package\Dim_Producto\Guardar Producto.Inputs[Entrada de destino de OLE DB]"
-              name="Producto activo"
-              startId="Package\Dim_Producto\División condicional 1.Outputs[Producto activo]" />
+              refId="Package\Dim_Producto.Paths[Hay datos null]"
+              endId="Package\Dim_Producto\Describir error.Inputs[Entrada de columna derivada]"
+              name="Hay datos null"
+              startId="Package\Dim_Producto\Validar datos null.Outputs[Hay datos null]" />
             <path
               refId="Package\Dim_Producto.Paths[Producto activo]"
               endId="Package\Dim_Producto\datos de producto activo.Inputs[Entrada de columna derivada]"
               name="Producto activo"
-              startId="Package\Dim_Producto\División condicional.Outputs[Producto activo]" />
+              startId="Package\Dim_Producto\Producto activo o inactivo.Outputs[Producto activo]" />
             <path
-              refId="Package\Dim_Producto.Paths[producto Inactivo]"
-              endId="Package\Dim_Producto\datos producto inactivo.Inputs[Entrada de columna derivada]"
-              name="producto Inactivo"
-              startId="Package\Dim_Producto\División condicional.Outputs[producto Inactivo]" />
+              refId="Package\Dim_Producto.Paths[Producto activo1]"
+              endId="Package\Dim_Producto\Guardar Producto.Inputs[Entrada de destino de OLE DB]"
+              name="Producto activo"
+              startId="Package\Dim_Producto\Producto activo a inactivo 2.Outputs[Producto activo]" />
             <path
               refId="Package\Dim_Producto.Paths[producto Inactivo1]"
+              endId="Package\Dim_Producto\datos producto inactivo.Inputs[Entrada de columna derivada]"
+              name="producto Inactivo"
+              startId="Package\Dim_Producto\Producto activo o inactivo.Outputs[producto Inactivo]" />
+            <path
+              refId="Package\Dim_Producto.Paths[producto Inactivo]"
               endId="Package\Dim_Producto\Guardar Producto 2.Inputs[Entrada de destino de OLE DB]"
               name="producto Inactivo"
-              startId="Package\Dim_Producto\División condicional 1.Outputs[producto Inactivo]" />
+              startId="Package\Dim_Producto\Producto activo a inactivo 2.Outputs[producto Inactivo]" />
             <path
-              refId="Package\Dim_Producto.Paths[Salida de columna derivada1]"
-              endId="Package\Dim_Producto\Unión de todo.Inputs[Entrada de Unión de todo 2]"
+              refId="Package\Dim_Producto.Paths[Salida de columna derivada2]"
+              endId="Package\Dim_Producto\guardar error.Inputs[Entrada de destino de Excel]"
               name="Salida de columna derivada"
-              startId="Package\Dim_Producto\datos de producto activo.Outputs[Salida de columna derivada]" />
+              startId="Package\Dim_Producto\Describir error.Outputs[Salida de columna derivada]" />
             <path
               refId="Package\Dim_Producto.Paths[Salida de columna derivada]"
               endId="Package\Dim_Producto\Unión de todo.Inputs[Entrada de Unión de todo 1]"
               name="Salida de columna derivada"
               startId="Package\Dim_Producto\datos producto inactivo.Outputs[Salida de columna derivada]" />
             <path
+              refId="Package\Dim_Producto.Paths[Salida de columna derivada1]"
+              endId="Package\Dim_Producto\Unión de todo.Inputs[Entrada de Unión de todo 2]"
+              name="Salida de columna derivada"
+              startId="Package\Dim_Producto\datos de producto activo.Outputs[Salida de columna derivada]" />
+            <path
+              refId="Package\Dim_Producto.Paths[Salida de conversión de datos]"
+              endId="Package\Dim_Producto\Comando de OLE DB.Inputs[Entrada de comando de OLE DB]"
+              name="Salida de conversión de datos"
+              startId="Package\Dim_Producto\Conversión de datos.Outputs[Salida de conversión de datos]" />
+            <path
               refId="Package\Dim_Producto.Paths[Salida de entradas coincidentes de búsqueda]"
-              endId="Package\Dim_Producto\División condicional.Inputs[Entrada de división condicional]"
+              endId="Package\Dim_Producto\Producto activo o inactivo.Inputs[Entrada de división condicional]"
               name="Salida de entradas coincidentes de búsqueda"
               startId="Package\Dim_Producto\Verificar si ya existe el producto.Outputs[Salida de entradas coincidentes de búsqueda]" />
             <path
               refId="Package\Dim_Producto.Paths[Salida de entradas no coincidentes de búsqueda]"
-              endId="Package\Dim_Producto\División condicional 1.Inputs[Entrada de división condicional]"
+              endId="Package\Dim_Producto\Producto activo a inactivo 2.Inputs[Entrada de división condicional]"
               name="Salida de entradas no coincidentes de búsqueda"
               startId="Package\Dim_Producto\Verificar si ya existe el producto.Outputs[Salida de entradas no coincidentes de búsqueda]" />
             <path
               refId="Package\Dim_Producto.Paths[Salida de origen de OLE DB]"
-              endId="Package\Dim_Producto\Verificar si ya existe el producto.Inputs[Entrada de búsqueda]"
+              endId="Package\Dim_Producto\Validar datos null.Inputs[Entrada de división condicional]"
               name="Salida de origen de OLE DB"
               startId="Package\Dim_Producto\Origen de OLE DB.Outputs[Salida de origen de OLE DB]" />
             <path
               refId="Package\Dim_Producto.Paths[Salida de Unión de todo 1]"
-              endId="Package\Dim_Producto\Actualizarlo.Inputs[Entrada de comando de OLE DB]"
+              endId="Package\Dim_Producto\Conversión de datos.Inputs[Entrada de conversión de datos]"
               name="Salida de Unión de todo 1"
               startId="Package\Dim_Producto\Unión de todo.Outputs[Salida de Unión de todo 1]" />
+            <path
+              refId="Package\Dim_Producto.Paths[Sin datos null]"
+              endId="Package\Dim_Producto\Verificar si ya existe el producto.Inputs[Entrada de búsqueda]"
+              name="Sin datos null"
+              startId="Package\Dim_Producto\Validar datos null.Outputs[Sin datos null]" />
           </paths>
         </pipeline>
       </DTS:ObjectData>
@@ -1711,7 +2065,1202 @@ where [refTable].[idProducto] = ?</property>
       <DTS:Variables />
       <DTS:ObjectData>
         <pipeline
-          version="1" />
+          version="1">
+          <components>
+            <component
+              refId="Package\Fact_Envios\Búsqueda Cliente"
+              componentClassID="{671046B0-AA63-4C9F-90E4-C06E0B710CE3}"
+              contactInfo="Búsqueda;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;6"
+              description="Combina columnas adicionales con el flujo de datos mediante la búsqueda de valores en una tabla. Por ejemplo, se combina la columna 'id. de empleado' con la tabla de empleados para obtener la 'fecha de contratación' y 'el nombre de empleado'. Se recomienda esta transformación cuando hay suficiente espacio en memoria para la tabla de búsqueda."
+              name="Búsqueda Cliente"
+              usesDispositions="true"
+              version="6">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Especifica la instrucción SQL que genera la tabla de búsqueda."
+                  expressionType="Notify"
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                <property
+                  dataType="System.String"
+                  description="Especifica una instrucción SQL que usa parámetros para generar la tabla de búsqueda."
+                  expressionType="Notify"
+                  name="SqlCommandParam"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica el tipo de conexión utilizado para tener acceso al conjunto de datos de referencia."
+                  name="ConnectionType"
+                  typeConverter="LookupConnectionType">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica el tipo de caché de la tabla de búsqueda."
+                  name="CacheType"
+                  typeConverter="CacheType">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica cómo la transformación de búsquedas trata las filas sin entradas coincidentes en el conjunto de datos de referencia."
+                  name="NoMatchBehavior"
+                  typeConverter="LookupNoMatchBehavior">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica el porcentaje de la caché asignado a las filas sin entradas coincidentes en el conjunto de datos de referencia."
+                  name="NoMatchCachePercentage">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Uso de memoria máximo para la caché de referencia en una plataforma de 32 bits."
+                  name="MaxMemoryUsage">25</property>
+                <property
+                  dataType="System.Int64"
+                  description="Uso de memoria máximo para la caché de referencia en una plataforma de 64 bits."
+                  name="MaxMemoryUsage64">25</property>
+                <property
+                  dataType="System.String"
+                  description="Indica si se debe hacer referencia a metadatos en formato XML."
+                  name="ReferenceMetadataXml"></property>
+                <property
+                  containsID="true"
+                  dataType="System.String"
+                  description="Especifica la lista de identificadores de linaje que están asignados a los parámetros que usa la instrucción SQL de la propiedad SQLCommand. Las entradas de la lista están separadas por puntos y comas."
+                  name="ParameterMap"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica la página de códigos de columna para utilizar cuando la información de página de códigos no está disponible en el origen de datos."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Determina si las claves duplicadas de los datos de referencia se deben tratar como errores cuando se usa el modo de caché."
+                  name="TreatDuplicateKeysAsError">false</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Fact_Envios\Búsqueda Cliente.Connections[OleDbConnection]"
+                  description="Administrador de conexiones utilizado para obtener acceso a los datos de búsqueda."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Fact_Envios\Búsqueda Cliente.Inputs[Entrada de búsqueda]"
+                  name="Entrada de búsqueda">
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Fact_Envios\Búsqueda Cliente.Outputs[Salida de entradas coincidentes de búsqueda]"
+                  errorOrTruncationOperation="Búsqueda"
+                  errorRowDisposition="FailComponent"
+                  exclusionGroup="1"
+                  name="Salida de entradas coincidentes de búsqueda"
+                  synchronousInputId="Package\Fact_Envios\Búsqueda Cliente.Inputs[Entrada de búsqueda]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Fact_Envios\Búsqueda Cliente.Outputs[Salida de entradas no coincidentes de búsqueda]"
+                  description="Salida de búsqueda que trata las filas sin entradas coincidentes en el conjunto de datos de referencia. Utilice esta salida cuando la propiedad NoMatchBehavior esté establecida en &quot;Enviar las filas sin entradas coincidentes a la salida de entradas no coincidentes&quot;."
+                  exclusionGroup="1"
+                  name="Salida de entradas no coincidentes de búsqueda"
+                  synchronousInputId="Package\Fact_Envios\Búsqueda Cliente.Inputs[Entrada de búsqueda]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Fact_Envios\Búsqueda Cliente.Outputs[Salida de error de búsqueda]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Salida de error de búsqueda"
+                  synchronousInputId="Package\Fact_Envios\Búsqueda Cliente.Inputs[Entrada de búsqueda]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Fact_Envios\Búsqueda Cliente.Outputs[Salida de error de búsqueda].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Fact_Envios\Búsqueda Cliente.Outputs[Salida de error de búsqueda].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Fact_Envios\Búsqueda Cliente.Outputs[Salida de error de búsqueda].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Fact_Envios\Búsqueda Cliente.Outputs[Salida de error de búsqueda].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Fact_Envios\Búsqueda producto"
+              componentClassID="{671046B0-AA63-4C9F-90E4-C06E0B710CE3}"
+              contactInfo="Búsqueda;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;6"
+              description="Combina columnas adicionales con el flujo de datos mediante la búsqueda de valores en una tabla. Por ejemplo, se combina la columna 'id. de empleado' con la tabla de empleados para obtener la 'fecha de contratación' y 'el nombre de empleado'. Se recomienda esta transformación cuando hay suficiente espacio en memoria para la tabla de búsqueda."
+              name="Búsqueda producto"
+              usesDispositions="true"
+              version="6">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Especifica la instrucción SQL que genera la tabla de búsqueda."
+                  expressionType="Notify"
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                <property
+                  dataType="System.String"
+                  description="Especifica una instrucción SQL que usa parámetros para generar la tabla de búsqueda."
+                  expressionType="Notify"
+                  name="SqlCommandParam"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica el tipo de conexión utilizado para tener acceso al conjunto de datos de referencia."
+                  name="ConnectionType"
+                  typeConverter="LookupConnectionType">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica el tipo de caché de la tabla de búsqueda."
+                  name="CacheType"
+                  typeConverter="CacheType">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica cómo la transformación de búsquedas trata las filas sin entradas coincidentes en el conjunto de datos de referencia."
+                  name="NoMatchBehavior"
+                  typeConverter="LookupNoMatchBehavior">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica el porcentaje de la caché asignado a las filas sin entradas coincidentes en el conjunto de datos de referencia."
+                  name="NoMatchCachePercentage">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Uso de memoria máximo para la caché de referencia en una plataforma de 32 bits."
+                  name="MaxMemoryUsage">25</property>
+                <property
+                  dataType="System.Int64"
+                  description="Uso de memoria máximo para la caché de referencia en una plataforma de 64 bits."
+                  name="MaxMemoryUsage64">25</property>
+                <property
+                  dataType="System.String"
+                  description="Indica si se debe hacer referencia a metadatos en formato XML."
+                  name="ReferenceMetadataXml"></property>
+                <property
+                  containsID="true"
+                  dataType="System.String"
+                  description="Especifica la lista de identificadores de linaje que están asignados a los parámetros que usa la instrucción SQL de la propiedad SQLCommand. Las entradas de la lista están separadas por puntos y comas."
+                  name="ParameterMap"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica la página de códigos de columna para utilizar cuando la información de página de códigos no está disponible en el origen de datos."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Determina si las claves duplicadas de los datos de referencia se deben tratar como errores cuando se usa el modo de caché."
+                  name="TreatDuplicateKeysAsError">false</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Fact_Envios\Búsqueda producto.Connections[OleDbConnection]"
+                  description="Administrador de conexiones utilizado para obtener acceso a los datos de búsqueda."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Fact_Envios\Búsqueda producto.Inputs[Entrada de búsqueda]"
+                  name="Entrada de búsqueda">
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Fact_Envios\Búsqueda producto.Outputs[Salida de entradas coincidentes de búsqueda]"
+                  errorOrTruncationOperation="Búsqueda"
+                  errorRowDisposition="FailComponent"
+                  exclusionGroup="1"
+                  name="Salida de entradas coincidentes de búsqueda"
+                  synchronousInputId="Package\Fact_Envios\Búsqueda producto.Inputs[Entrada de búsqueda]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Fact_Envios\Búsqueda producto.Outputs[Salida de entradas no coincidentes de búsqueda]"
+                  description="Salida de búsqueda que trata las filas sin entradas coincidentes en el conjunto de datos de referencia. Utilice esta salida cuando la propiedad NoMatchBehavior esté establecida en &quot;Enviar las filas sin entradas coincidentes a la salida de entradas no coincidentes&quot;."
+                  exclusionGroup="1"
+                  name="Salida de entradas no coincidentes de búsqueda"
+                  synchronousInputId="Package\Fact_Envios\Búsqueda producto.Inputs[Entrada de búsqueda]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Fact_Envios\Búsqueda producto.Outputs[Salida de error de búsqueda]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Salida de error de búsqueda"
+                  synchronousInputId="Package\Fact_Envios\Búsqueda producto.Inputs[Entrada de búsqueda]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Fact_Envios\Búsqueda producto.Outputs[Salida de error de búsqueda].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Fact_Envios\Búsqueda producto.Outputs[Salida de error de búsqueda].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Fact_Envios\Búsqueda producto.Outputs[Salida de error de búsqueda].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Fact_Envios\Búsqueda producto.Outputs[Salida de error de búsqueda].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Fact_Envios\Crear error 1"
+              componentClassID="{49928E82-9C4E-49F0-AABE-3812B82707EC}"
+              contactInfo="Columna derivada;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;0"
+              description="Crea nuevos valores de columna aplicando expresiones a las columnas de entrada de la transformación. Crea nuevas columnas o sobrescribe las columnas existentes. Por ejemplo, se concatenan los valores de las columnas 'nombre' y 'apellidos' para crear una columna 'nombre completo'."
+              name="Crear error 1"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\Fact_Envios\Crear error 1.Inputs[Entrada de columna derivada]"
+                  description="Entrada en la transformación Columna derivada"
+                  name="Entrada de columna derivada">
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Fact_Envios\Crear error 1.Outputs[Salida de columna derivada]"
+                  description="Salida predeterminada de la transformación Columna derivada"
+                  exclusionGroup="1"
+                  name="Salida de columna derivada"
+                  synchronousInputId="Package\Fact_Envios\Crear error 1.Inputs[Entrada de columna derivada]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Fact_Envios\Crear error 1.Outputs[Salida de error de columna derivada]"
+                  description="Salida de error de la transformación Columna derivada"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Salida de error de columna derivada"
+                  synchronousInputId="Package\Fact_Envios\Crear error 1.Inputs[Entrada de columna derivada]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Fact_Envios\Crear error 1.Outputs[Salida de error de columna derivada].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Fact_Envios\Crear error 1.Outputs[Salida de error de columna derivada].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Fact_Envios\Crear error 1.Outputs[Salida de error de columna derivada].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Fact_Envios\Crear error 1.Outputs[Salida de error de columna derivada].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Fact_Envios\Crear error 2"
+              componentClassID="{49928E82-9C4E-49F0-AABE-3812B82707EC}"
+              contactInfo="Columna derivada;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;0"
+              description="Crea nuevos valores de columna aplicando expresiones a las columnas de entrada de la transformación. Crea nuevas columnas o sobrescribe las columnas existentes. Por ejemplo, se concatenan los valores de las columnas 'nombre' y 'apellidos' para crear una columna 'nombre completo'."
+              name="Crear error 2"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\Fact_Envios\Crear error 2.Inputs[Entrada de columna derivada]"
+                  description="Entrada en la transformación Columna derivada"
+                  name="Entrada de columna derivada">
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Fact_Envios\Crear error 2.Outputs[Salida de columna derivada]"
+                  description="Salida predeterminada de la transformación Columna derivada"
+                  exclusionGroup="1"
+                  name="Salida de columna derivada"
+                  synchronousInputId="Package\Fact_Envios\Crear error 2.Inputs[Entrada de columna derivada]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Fact_Envios\Crear error 2.Outputs[Salida de error de columna derivada]"
+                  description="Salida de error de la transformación Columna derivada"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Salida de error de columna derivada"
+                  synchronousInputId="Package\Fact_Envios\Crear error 2.Inputs[Entrada de columna derivada]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Fact_Envios\Crear error 2.Outputs[Salida de error de columna derivada].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Fact_Envios\Crear error 2.Outputs[Salida de error de columna derivada].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Fact_Envios\Crear error 2.Outputs[Salida de error de columna derivada].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Fact_Envios\Crear error 2.Outputs[Salida de error de columna derivada].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Fact_Envios\Fuente envios"
+              componentClassID="{165A526D-D5DE-47FF-96A6-F8274C19826B}"
+              contactInfo="Origen de OLE DB;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;7"
+              description="Origen de OLE DB"
+              name="Fuente envios"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="Número de segundos antes de que se agote el tiempo de espera de un comando. Un valor de 0 indica un tiempo de espera infinito."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Especifica el nombre del objeto de base de datos usado para abrir un conjunto de filas."
+                  name="OpenRowset"></property>
+                <property
+                  dataType="System.String"
+                  description="Especifica la variable que contiene el nombre del objeto de base de datos usado para abrir un conjunto de filas."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="Comando SQL para ejecutar."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">SELECT        DetalleVenta.numeroOrden, DetalleVenta.idProducto1, DetalleVenta.cantidad, DetalleVenta.precioUnitario, FacturaVenta.fecha, FacturaVenta.idCliente, 
+                         FacturaVenta.idEstado
+FROM            DetalleVenta INNER JOIN
+                         FacturaVenta ON DetalleVenta.numeroOrden = FacturaVenta.numeroOrden</property>
+                <property
+                  dataType="System.String"
+                  description="Variable que contiene el comando SQL para ejecutar."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica la página de códigos de columna para utilizar cuando la información de página de códigos no está disponible en el origen de datos."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Fuerza el uso del valor de la propiedad DefaultCodePage al describir caracteres."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica el modo utilizado para obtener acceso a la base de datos."
+                  name="AccessMode"
+                  typeConverter="AccessMode">2</property>
+                <property
+                  dataType="System.String"
+                  description="Asignaciones entre los parámetros del comando SQL y las variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Fact_Envios\Fuente envios.Connections[OleDbConnection]"
+                  connectionManagerID="{47B04DC5-106C-4291-ABB6-8D2B802F8BBC}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[WJGIRALDO-PC.FuenteParcial]"
+                  description="La conexión de tiempo de ejecución OLE DB usada para obtener acceso a la base de datos."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Fact_Envios\Fuente envios.Outputs[Salida de origen de OLE DB]"
+                  name="Salida de origen de OLE DB">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Fact_Envios\Fuente envios.Outputs[Salida de origen de OLE DB].Columns[numeroOrden]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Fact_Envios\Fuente envios.Outputs[Salida de origen de OLE DB].ExternalColumns[numeroOrden]"
+                      lineageId="Package\Fact_Envios\Fuente envios.Outputs[Salida de origen de OLE DB].Columns[numeroOrden]"
+                      name="numeroOrden"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Fact_Envios\Fuente envios.Outputs[Salida de origen de OLE DB].Columns[idProducto1]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Fact_Envios\Fuente envios.Outputs[Salida de origen de OLE DB].ExternalColumns[idProducto1]"
+                      lineageId="Package\Fact_Envios\Fuente envios.Outputs[Salida de origen de OLE DB].Columns[idProducto1]"
+                      name="idProducto1"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Fact_Envios\Fuente envios.Outputs[Salida de origen de OLE DB].Columns[cantidad]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Fact_Envios\Fuente envios.Outputs[Salida de origen de OLE DB].ExternalColumns[cantidad]"
+                      lineageId="Package\Fact_Envios\Fuente envios.Outputs[Salida de origen de OLE DB].Columns[cantidad]"
+                      name="cantidad"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Fact_Envios\Fuente envios.Outputs[Salida de origen de OLE DB].Columns[precioUnitario]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Fact_Envios\Fuente envios.Outputs[Salida de origen de OLE DB].ExternalColumns[precioUnitario]"
+                      lineageId="Package\Fact_Envios\Fuente envios.Outputs[Salida de origen de OLE DB].Columns[precioUnitario]"
+                      name="precioUnitario"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Fact_Envios\Fuente envios.Outputs[Salida de origen de OLE DB].Columns[fecha]"
+                      dataType="dbDate"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Fact_Envios\Fuente envios.Outputs[Salida de origen de OLE DB].ExternalColumns[fecha]"
+                      lineageId="Package\Fact_Envios\Fuente envios.Outputs[Salida de origen de OLE DB].Columns[fecha]"
+                      name="fecha"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Fact_Envios\Fuente envios.Outputs[Salida de origen de OLE DB].Columns[idCliente]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Fact_Envios\Fuente envios.Outputs[Salida de origen de OLE DB].ExternalColumns[idCliente]"
+                      lineageId="Package\Fact_Envios\Fuente envios.Outputs[Salida de origen de OLE DB].Columns[idCliente]"
+                      name="idCliente"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Fact_Envios\Fuente envios.Outputs[Salida de origen de OLE DB].Columns[idEstado]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Fact_Envios\Fuente envios.Outputs[Salida de origen de OLE DB].ExternalColumns[idEstado]"
+                      lineageId="Package\Fact_Envios\Fuente envios.Outputs[Salida de origen de OLE DB].Columns[idEstado]"
+                      name="idEstado"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Fact_Envios\Fuente envios.Outputs[Salida de origen de OLE DB].ExternalColumns[numeroOrden]"
+                      dataType="i4"
+                      name="numeroOrden" />
+                    <externalMetadataColumn
+                      refId="Package\Fact_Envios\Fuente envios.Outputs[Salida de origen de OLE DB].ExternalColumns[idProducto1]"
+                      dataType="i4"
+                      name="idProducto1" />
+                    <externalMetadataColumn
+                      refId="Package\Fact_Envios\Fuente envios.Outputs[Salida de origen de OLE DB].ExternalColumns[cantidad]"
+                      dataType="i4"
+                      name="cantidad" />
+                    <externalMetadataColumn
+                      refId="Package\Fact_Envios\Fuente envios.Outputs[Salida de origen de OLE DB].ExternalColumns[precioUnitario]"
+                      dataType="r8"
+                      name="precioUnitario" />
+                    <externalMetadataColumn
+                      refId="Package\Fact_Envios\Fuente envios.Outputs[Salida de origen de OLE DB].ExternalColumns[fecha]"
+                      dataType="dbDate"
+                      name="fecha" />
+                    <externalMetadataColumn
+                      refId="Package\Fact_Envios\Fuente envios.Outputs[Salida de origen de OLE DB].ExternalColumns[idCliente]"
+                      dataType="i4"
+                      name="idCliente" />
+                    <externalMetadataColumn
+                      refId="Package\Fact_Envios\Fuente envios.Outputs[Salida de origen de OLE DB].ExternalColumns[idEstado]"
+                      dataType="i4"
+                      name="idEstado" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Fact_Envios\Fuente envios.Outputs[Salida de error de origen de OLE DB]"
+                  isErrorOut="true"
+                  name="Salida de error de origen de OLE DB">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Fact_Envios\Fuente envios.Outputs[Salida de error de origen de OLE DB].Columns[numeroOrden]"
+                      dataType="i4"
+                      lineageId="Package\Fact_Envios\Fuente envios.Outputs[Salida de error de origen de OLE DB].Columns[numeroOrden]"
+                      name="numeroOrden" />
+                    <outputColumn
+                      refId="Package\Fact_Envios\Fuente envios.Outputs[Salida de error de origen de OLE DB].Columns[idProducto1]"
+                      dataType="i4"
+                      lineageId="Package\Fact_Envios\Fuente envios.Outputs[Salida de error de origen de OLE DB].Columns[idProducto1]"
+                      name="idProducto1" />
+                    <outputColumn
+                      refId="Package\Fact_Envios\Fuente envios.Outputs[Salida de error de origen de OLE DB].Columns[cantidad]"
+                      dataType="i4"
+                      lineageId="Package\Fact_Envios\Fuente envios.Outputs[Salida de error de origen de OLE DB].Columns[cantidad]"
+                      name="cantidad" />
+                    <outputColumn
+                      refId="Package\Fact_Envios\Fuente envios.Outputs[Salida de error de origen de OLE DB].Columns[precioUnitario]"
+                      dataType="r8"
+                      lineageId="Package\Fact_Envios\Fuente envios.Outputs[Salida de error de origen de OLE DB].Columns[precioUnitario]"
+                      name="precioUnitario" />
+                    <outputColumn
+                      refId="Package\Fact_Envios\Fuente envios.Outputs[Salida de error de origen de OLE DB].Columns[fecha]"
+                      dataType="dbDate"
+                      lineageId="Package\Fact_Envios\Fuente envios.Outputs[Salida de error de origen de OLE DB].Columns[fecha]"
+                      name="fecha" />
+                    <outputColumn
+                      refId="Package\Fact_Envios\Fuente envios.Outputs[Salida de error de origen de OLE DB].Columns[idCliente]"
+                      dataType="i4"
+                      lineageId="Package\Fact_Envios\Fuente envios.Outputs[Salida de error de origen de OLE DB].Columns[idCliente]"
+                      name="idCliente" />
+                    <outputColumn
+                      refId="Package\Fact_Envios\Fuente envios.Outputs[Salida de error de origen de OLE DB].Columns[idEstado]"
+                      dataType="i4"
+                      lineageId="Package\Fact_Envios\Fuente envios.Outputs[Salida de error de origen de OLE DB].Columns[idEstado]"
+                      name="idEstado" />
+                    <outputColumn
+                      refId="Package\Fact_Envios\Fuente envios.Outputs[Salida de error de origen de OLE DB].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Fact_Envios\Fuente envios.Outputs[Salida de error de origen de OLE DB].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Fact_Envios\Fuente envios.Outputs[Salida de error de origen de OLE DB].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Fact_Envios\Fuente envios.Outputs[Salida de error de origen de OLE DB].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Fact_Envios\Guardar Envio"
+              componentClassID="{4ADA7EAA-136C-4215-8098-D7A7C27FC0D1}"
+              contactInfo="Destino de OLE DB;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;4"
+              description="Destino de OLE DB"
+              name="Guardar Envio"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="Número de segundos antes de que se agote el tiempo de espera de un comando. Un valor de 0 indica un tiempo de espera infinito."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Especifica el nombre del objeto de base de datos usado para abrir un conjunto de filas."
+                  name="OpenRowset"></property>
+                <property
+                  dataType="System.String"
+                  description="Especifica la variable que contiene el nombre del objeto de base de datos usado para abrir un conjunto de filas."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="Comando SQL para ejecutar."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica la página de códigos de columna para utilizar cuando la información de página de códigos no está disponible en el origen de datos."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Fuerza el uso del valor de la propiedad DefaultCodePage al describir caracteres."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica el modo utilizado para obtener acceso a la base de datos."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indica si los valores proporcionados para columnas de identidad se van a copiar al destino. Si es False, los valores de las columnas de identidad se generan automáticamente en el destino. Sólo se aplica si está activada la carga rápida."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indica si las columnas que contienen NULL tendrán NULL insertado en el destino. Si es False, las columnas que contienen NULL tendrán sus valores predeterminados insertados en el destino. Sólo se aplica si está activada la carga rápida."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Especifica opciones para usar con la carga rápida. Sólo se aplica si está activada la carga rápida."
+                  name="FastLoadOptions"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica cuándo se emiten confirmaciones durante la inserción de datos. El valor 0 especifica que se emitirá una confirmación al final de la inserción de datos. Sólo se aplica si está activada la carga rápida."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Fact_Envios\Guardar Envio.Connections[OleDbConnection]"
+                  description="La conexión de tiempo de ejecución OLE DB usada para obtener acceso a la base de datos."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Fact_Envios\Guardar Envio.Inputs[Entrada de destino de OLE DB]"
+                  errorOrTruncationOperation="Insertar"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="Entrada de destino de OLE DB">
+                  <externalMetadataColumns
+                    isUsed="True" />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Fact_Envios\Guardar Envio.Outputs[Salida de error de destino de OLE DB]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Salida de error de destino de OLE DB"
+                  synchronousInputId="Package\Fact_Envios\Guardar Envio.Inputs[Entrada de destino de OLE DB]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Fact_Envios\Guardar Envio.Outputs[Salida de error de destino de OLE DB].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Fact_Envios\Guardar Envio.Outputs[Salida de error de destino de OLE DB].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Fact_Envios\Guardar Envio.Outputs[Salida de error de destino de OLE DB].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Fact_Envios\Guardar Envio.Outputs[Salida de error de destino de OLE DB].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Fact_Envios\Guardar error 1"
+              componentClassID="{1F5D5712-2FBA-4CB9-A95A-86C1F336E1DA}"
+              contactInfo="Destino de Excel;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;0"
+              description="Destino de Excel"
+              name="Guardar error 1"
+              usesDispositions="true">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="Número de segundos antes de que se agote el tiempo de espera de un comando. Un valor de 0 indica un tiempo de espera infinito."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Especifica el nombre del objeto de base de datos usado para abrir un conjunto de filas."
+                  name="OpenRowset"></property>
+                <property
+                  dataType="System.String"
+                  description="Especifica la variable que contiene el nombre del objeto de base de datos usado para abrir un conjunto de filas."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="Comando SQL para ejecutar."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica el modo utilizado para obtener acceso a la base de datos."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indica si los valores proporcionados para columnas de identidad se van a copiar al destino. Si es False, los valores de las columnas de identidad se generan automáticamente en el destino. Sólo se aplica si está activada la carga rápida."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indica si las columnas que contienen NULL tendrán NULL insertado en el destino. Si es False, las columnas que contienen NULL tendrán sus valores predeterminados insertados en el destino. Sólo se aplica si está activada la carga rápida."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Especifica opciones para usar con la carga rápida. Sólo se aplica si está activada la carga rápida."
+                  name="FastLoadOptions"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica cuándo se emiten confirmaciones durante la inserción de datos. El valor 0 especifica que se emitirá una confirmación al final de la inserción de datos. Sólo se aplica si está activada la carga rápida."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Fact_Envios\Guardar error 1.Connections[OleDbConnection]"
+                  description="La conexión de tiempo de ejecución OLE DB usada para obtener acceso a la base de datos."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Fact_Envios\Guardar error 1.Inputs[Entrada de destino de Excel]"
+                  errorOrTruncationOperation="Insertar"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="Entrada de destino de Excel">
+                  <externalMetadataColumns
+                    isUsed="True" />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Fact_Envios\Guardar error 1.Outputs[Salida de error de destino de Excel]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Salida de error de destino de Excel"
+                  synchronousInputId="Package\Fact_Envios\Guardar error 1.Inputs[Entrada de destino de Excel]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Fact_Envios\Guardar error 1.Outputs[Salida de error de destino de Excel].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Fact_Envios\Guardar error 1.Outputs[Salida de error de destino de Excel].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Fact_Envios\Guardar error 1.Outputs[Salida de error de destino de Excel].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Fact_Envios\Guardar error 1.Outputs[Salida de error de destino de Excel].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Fact_Envios\Guardar error 2"
+              componentClassID="{1F5D5712-2FBA-4CB9-A95A-86C1F336E1DA}"
+              contactInfo="Destino de Excel;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;0"
+              description="Destino de Excel"
+              name="Guardar error 2"
+              usesDispositions="true">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="Número de segundos antes de que se agote el tiempo de espera de un comando. Un valor de 0 indica un tiempo de espera infinito."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Especifica el nombre del objeto de base de datos usado para abrir un conjunto de filas."
+                  name="OpenRowset"></property>
+                <property
+                  dataType="System.String"
+                  description="Especifica la variable que contiene el nombre del objeto de base de datos usado para abrir un conjunto de filas."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="Comando SQL para ejecutar."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica el modo utilizado para obtener acceso a la base de datos."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indica si los valores proporcionados para columnas de identidad se van a copiar al destino. Si es False, los valores de las columnas de identidad se generan automáticamente en el destino. Sólo se aplica si está activada la carga rápida."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indica si las columnas que contienen NULL tendrán NULL insertado en el destino. Si es False, las columnas que contienen NULL tendrán sus valores predeterminados insertados en el destino. Sólo se aplica si está activada la carga rápida."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Especifica opciones para usar con la carga rápida. Sólo se aplica si está activada la carga rápida."
+                  name="FastLoadOptions"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica cuándo se emiten confirmaciones durante la inserción de datos. El valor 0 especifica que se emitirá una confirmación al final de la inserción de datos. Sólo se aplica si está activada la carga rápida."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Fact_Envios\Guardar error 2.Connections[OleDbConnection]"
+                  description="La conexión de tiempo de ejecución OLE DB usada para obtener acceso a la base de datos."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Fact_Envios\Guardar error 2.Inputs[Entrada de destino de Excel]"
+                  errorOrTruncationOperation="Insertar"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="Entrada de destino de Excel">
+                  <externalMetadataColumns
+                    isUsed="True" />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Fact_Envios\Guardar error 2.Outputs[Salida de error de destino de Excel]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Salida de error de destino de Excel"
+                  synchronousInputId="Package\Fact_Envios\Guardar error 2.Inputs[Entrada de destino de Excel]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Fact_Envios\Guardar error 2.Outputs[Salida de error de destino de Excel].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Fact_Envios\Guardar error 2.Outputs[Salida de error de destino de Excel].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Fact_Envios\Guardar error 2.Outputs[Salida de error de destino de Excel].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Fact_Envios\Guardar error 2.Outputs[Salida de error de destino de Excel].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Fact_Envios\Unión de todo"
+              componentClassID="{B594E9A8-4351-4939-891C-CFE1AB93E925}"
+              contactInfo="Unión de todo;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;1"
+              description="Combina las filas de varios flujos de datos sin ordenarlos. Por ejemplo, devuelve filas a un flujo de datos después de corregir los errores. Si el orden es importante, se recomienda usar la transformación Mezclar."
+              name="Unión de todo"
+              version="1">
+              <inputs>
+                <input
+                  refId="Package\Fact_Envios\Unión de todo.Inputs[Entrada de Unión de todo 1]"
+                  name="Entrada de Unión de todo 1">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Fact_Envios\Unión de todo.Inputs[Entrada de Unión de todo 1].Columns[numeroOrden]"
+                      cachedDataType="i4"
+                      cachedName="numeroOrden"
+                      lineageId="Package\Fact_Envios\Fuente envios.Outputs[Salida de origen de OLE DB].Columns[numeroOrden]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Id. de linaje de columna de salida"
+                          name="OutputColumnLineageID">#{Package\Fact_Envios\Unión de todo.Outputs[Salida de Unión de todo 1].Columns[numeroOrden]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Fact_Envios\Unión de todo.Inputs[Entrada de Unión de todo 1].Columns[idProducto1]"
+                      cachedDataType="i4"
+                      cachedName="idProducto1"
+                      lineageId="Package\Fact_Envios\Fuente envios.Outputs[Salida de origen de OLE DB].Columns[idProducto1]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Id. de linaje de columna de salida"
+                          name="OutputColumnLineageID">#{Package\Fact_Envios\Unión de todo.Outputs[Salida de Unión de todo 1].Columns[idProducto1]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Fact_Envios\Unión de todo.Inputs[Entrada de Unión de todo 1].Columns[cantidad]"
+                      cachedDataType="i4"
+                      cachedName="cantidad"
+                      lineageId="Package\Fact_Envios\Fuente envios.Outputs[Salida de origen de OLE DB].Columns[cantidad]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Id. de linaje de columna de salida"
+                          name="OutputColumnLineageID">#{Package\Fact_Envios\Unión de todo.Outputs[Salida de Unión de todo 1].Columns[cantidad]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Fact_Envios\Unión de todo.Inputs[Entrada de Unión de todo 1].Columns[precioUnitario]"
+                      cachedDataType="r8"
+                      cachedName="precioUnitario"
+                      lineageId="Package\Fact_Envios\Fuente envios.Outputs[Salida de origen de OLE DB].Columns[precioUnitario]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Id. de linaje de columna de salida"
+                          name="OutputColumnLineageID">#{Package\Fact_Envios\Unión de todo.Outputs[Salida de Unión de todo 1].Columns[precioUnitario]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Fact_Envios\Unión de todo.Inputs[Entrada de Unión de todo 1].Columns[fecha]"
+                      cachedDataType="dbDate"
+                      cachedName="fecha"
+                      lineageId="Package\Fact_Envios\Fuente envios.Outputs[Salida de origen de OLE DB].Columns[fecha]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Id. de linaje de columna de salida"
+                          name="OutputColumnLineageID">#{Package\Fact_Envios\Unión de todo.Outputs[Salida de Unión de todo 1].Columns[fecha]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Fact_Envios\Unión de todo.Inputs[Entrada de Unión de todo 1].Columns[idCliente]"
+                      cachedDataType="i4"
+                      cachedName="idCliente"
+                      lineageId="Package\Fact_Envios\Fuente envios.Outputs[Salida de origen de OLE DB].Columns[idCliente]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Id. de linaje de columna de salida"
+                          name="OutputColumnLineageID">#{Package\Fact_Envios\Unión de todo.Outputs[Salida de Unión de todo 1].Columns[idCliente]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Fact_Envios\Unión de todo.Inputs[Entrada de Unión de todo 1].Columns[idEstado]"
+                      cachedDataType="i4"
+                      cachedName="idEstado"
+                      lineageId="Package\Fact_Envios\Fuente envios.Outputs[Salida de origen de OLE DB].Columns[idEstado]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Id. de linaje de columna de salida"
+                          name="OutputColumnLineageID">#{Package\Fact_Envios\Unión de todo.Outputs[Salida de Unión de todo 1].Columns[idEstado]}</property>
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+                <input
+                  refId="Package\Fact_Envios\Unión de todo.Inputs[Entrada de Unión de todo 2]"
+                  hasSideEffects="true"
+                  name="Entrada de Unión de todo 2">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Fact_Envios\Unión de todo.Inputs[Entrada de Unión de todo 2].Columns[numeroOrden]"
+                      cachedDataType="i4"
+                      cachedName="numeroOrden"
+                      lineageId="Package\Fact_Envios\Fuente envios.Outputs[Salida de origen de OLE DB].Columns[numeroOrden]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Id. de linaje de columna de salida"
+                          name="OutputColumnLineageID">#{Package\Fact_Envios\Unión de todo.Outputs[Salida de Unión de todo 1].Columns[numeroOrden]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Fact_Envios\Unión de todo.Inputs[Entrada de Unión de todo 2].Columns[idProducto1]"
+                      cachedDataType="i4"
+                      cachedName="idProducto1"
+                      lineageId="Package\Fact_Envios\Fuente envios.Outputs[Salida de origen de OLE DB].Columns[idProducto1]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Id. de linaje de columna de salida"
+                          name="OutputColumnLineageID">#{Package\Fact_Envios\Unión de todo.Outputs[Salida de Unión de todo 1].Columns[idProducto1]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Fact_Envios\Unión de todo.Inputs[Entrada de Unión de todo 2].Columns[cantidad]"
+                      cachedDataType="i4"
+                      cachedName="cantidad"
+                      lineageId="Package\Fact_Envios\Fuente envios.Outputs[Salida de origen de OLE DB].Columns[cantidad]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Id. de linaje de columna de salida"
+                          name="OutputColumnLineageID">#{Package\Fact_Envios\Unión de todo.Outputs[Salida de Unión de todo 1].Columns[cantidad]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Fact_Envios\Unión de todo.Inputs[Entrada de Unión de todo 2].Columns[precioUnitario]"
+                      cachedDataType="r8"
+                      cachedName="precioUnitario"
+                      lineageId="Package\Fact_Envios\Fuente envios.Outputs[Salida de origen de OLE DB].Columns[precioUnitario]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Id. de linaje de columna de salida"
+                          name="OutputColumnLineageID">#{Package\Fact_Envios\Unión de todo.Outputs[Salida de Unión de todo 1].Columns[precioUnitario]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Fact_Envios\Unión de todo.Inputs[Entrada de Unión de todo 2].Columns[fecha]"
+                      cachedDataType="dbDate"
+                      cachedName="fecha"
+                      lineageId="Package\Fact_Envios\Fuente envios.Outputs[Salida de origen de OLE DB].Columns[fecha]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Id. de linaje de columna de salida"
+                          name="OutputColumnLineageID">#{Package\Fact_Envios\Unión de todo.Outputs[Salida de Unión de todo 1].Columns[fecha]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Fact_Envios\Unión de todo.Inputs[Entrada de Unión de todo 2].Columns[idCliente]"
+                      cachedDataType="i4"
+                      cachedName="idCliente"
+                      lineageId="Package\Fact_Envios\Fuente envios.Outputs[Salida de origen de OLE DB].Columns[idCliente]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Id. de linaje de columna de salida"
+                          name="OutputColumnLineageID">#{Package\Fact_Envios\Unión de todo.Outputs[Salida de Unión de todo 1].Columns[idCliente]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Fact_Envios\Unión de todo.Inputs[Entrada de Unión de todo 2].Columns[idEstado]"
+                      cachedDataType="i4"
+                      cachedName="idEstado"
+                      lineageId="Package\Fact_Envios\Fuente envios.Outputs[Salida de origen de OLE DB].Columns[idEstado]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Id. de linaje de columna de salida"
+                          name="OutputColumnLineageID">#{Package\Fact_Envios\Unión de todo.Outputs[Salida de Unión de todo 1].Columns[idEstado]}</property>
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+                <input
+                  refId="Package\Fact_Envios\Unión de todo.Inputs[Entrada de Unión de todo 3]"
+                  dangling="true"
+                  hasSideEffects="true"
+                  name="Entrada de Unión de todo 3">
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Fact_Envios\Unión de todo.Outputs[Salida de Unión de todo 1]"
+                  name="Salida de Unión de todo 1">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Fact_Envios\Unión de todo.Outputs[Salida de Unión de todo 1].Columns[numeroOrden]"
+                      dataType="i4"
+                      lineageId="Package\Fact_Envios\Unión de todo.Outputs[Salida de Unión de todo 1].Columns[numeroOrden]"
+                      name="numeroOrden" />
+                    <outputColumn
+                      refId="Package\Fact_Envios\Unión de todo.Outputs[Salida de Unión de todo 1].Columns[idProducto1]"
+                      dataType="i4"
+                      lineageId="Package\Fact_Envios\Unión de todo.Outputs[Salida de Unión de todo 1].Columns[idProducto1]"
+                      name="idProducto1" />
+                    <outputColumn
+                      refId="Package\Fact_Envios\Unión de todo.Outputs[Salida de Unión de todo 1].Columns[cantidad]"
+                      dataType="i4"
+                      lineageId="Package\Fact_Envios\Unión de todo.Outputs[Salida de Unión de todo 1].Columns[cantidad]"
+                      name="cantidad" />
+                    <outputColumn
+                      refId="Package\Fact_Envios\Unión de todo.Outputs[Salida de Unión de todo 1].Columns[precioUnitario]"
+                      dataType="r8"
+                      lineageId="Package\Fact_Envios\Unión de todo.Outputs[Salida de Unión de todo 1].Columns[precioUnitario]"
+                      name="precioUnitario" />
+                    <outputColumn
+                      refId="Package\Fact_Envios\Unión de todo.Outputs[Salida de Unión de todo 1].Columns[fecha]"
+                      dataType="dbDate"
+                      lineageId="Package\Fact_Envios\Unión de todo.Outputs[Salida de Unión de todo 1].Columns[fecha]"
+                      name="fecha" />
+                    <outputColumn
+                      refId="Package\Fact_Envios\Unión de todo.Outputs[Salida de Unión de todo 1].Columns[idCliente]"
+                      dataType="i4"
+                      lineageId="Package\Fact_Envios\Unión de todo.Outputs[Salida de Unión de todo 1].Columns[idCliente]"
+                      name="idCliente" />
+                    <outputColumn
+                      refId="Package\Fact_Envios\Unión de todo.Outputs[Salida de Unión de todo 1].Columns[idEstado]"
+                      dataType="i4"
+                      lineageId="Package\Fact_Envios\Unión de todo.Outputs[Salida de Unión de todo 1].Columns[idEstado]"
+                      name="idEstado" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Fact_Envios\Verificar datos null"
+              componentClassID="{7F88F654-4E20-4D14-84F4-AF9C925D3087}"
+              contactInfo="División condicional;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;0"
+              description="Enruta filas de datos a diferentes salidas según el contenido de los datos. Se usan condiciones (expresiones de SSIS) para especificar las filas que se van a enrutar. Por ejemplo, se usa para separar los registros que deben limpiarse de los registros listos para ser cargados o para enrutar solamente un subconjunto de registros."
+              name="Verificar datos null"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\Fact_Envios\Verificar datos null.Inputs[Entrada de división condicional]"
+                  description="Entrada en la transformación División condicional"
+                  name="Entrada de división condicional">
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Fact_Envios\Verificar datos null.Outputs[Salida predeterminada de división condicional]"
+                  description="Salida predeterminada de la transformación División condicional"
+                  exclusionGroup="1"
+                  name="Salida predeterminada de división condicional"
+                  synchronousInputId="Package\Fact_Envios\Verificar datos null.Inputs[Entrada de división condicional]">
+                  <properties>
+                    <property
+                      dataType="System.Boolean"
+                      name="IsDefaultOut">true</property>
+                  </properties>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Fact_Envios\Verificar datos null.Outputs[Salida de error de división condicional]"
+                  description="Salida de error de la transformación División condicional"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Salida de error de división condicional"
+                  synchronousInputId="Package\Fact_Envios\Verificar datos null.Inputs[Entrada de división condicional]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Fact_Envios\Verificar datos null.Outputs[Salida de error de división condicional].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Fact_Envios\Verificar datos null.Outputs[Salida de error de división condicional].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Fact_Envios\Verificar datos null.Outputs[Salida de error de división condicional].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Fact_Envios\Verificar datos null.Outputs[Salida de error de división condicional].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\Fact_Envios.Paths[Salida de columna derivada]"
+              endId="Package\Fact_Envios\Guardar error 2.Inputs[Entrada de destino de Excel]"
+              name="Salida de columna derivada"
+              startId="Package\Fact_Envios\Crear error 2.Outputs[Salida de columna derivada]" />
+            <path
+              refId="Package\Fact_Envios.Paths[Salida de columna derivada1]"
+              endId="Package\Fact_Envios\Guardar error 1.Inputs[Entrada de destino de Excel]"
+              name="Salida de columna derivada"
+              startId="Package\Fact_Envios\Crear error 1.Outputs[Salida de columna derivada]" />
+            <path
+              refId="Package\Fact_Envios.Paths[Salida de entradas coincidentes de búsqueda1]"
+              endId="Package\Fact_Envios\Guardar Envio.Inputs[Entrada de destino de OLE DB]"
+              name="Salida de entradas coincidentes de búsqueda"
+              startId="Package\Fact_Envios\Búsqueda Cliente.Outputs[Salida de entradas coincidentes de búsqueda]" />
+            <path
+              refId="Package\Fact_Envios.Paths[Salida de entradas coincidentes de búsqueda]"
+              endId="Package\Fact_Envios\Búsqueda Cliente.Inputs[Entrada de búsqueda]"
+              name="Salida de entradas coincidentes de búsqueda"
+              startId="Package\Fact_Envios\Búsqueda producto.Outputs[Salida de entradas coincidentes de búsqueda]" />
+            <path
+              refId="Package\Fact_Envios.Paths[Salida de entradas no coincidentes de búsqueda]"
+              endId="Package\Fact_Envios\Unión de todo.Inputs[Entrada de Unión de todo 1]"
+              name="Salida de entradas no coincidentes de búsqueda"
+              startId="Package\Fact_Envios\Búsqueda producto.Outputs[Salida de entradas no coincidentes de búsqueda]" />
+            <path
+              refId="Package\Fact_Envios.Paths[Salida de entradas no coincidentes de búsqueda1]"
+              endId="Package\Fact_Envios\Unión de todo.Inputs[Entrada de Unión de todo 2]"
+              name="Salida de entradas no coincidentes de búsqueda"
+              startId="Package\Fact_Envios\Búsqueda Cliente.Outputs[Salida de entradas no coincidentes de búsqueda]" />
+            <path
+              refId="Package\Fact_Envios.Paths[Salida de origen de OLE DB]"
+              endId="Package\Fact_Envios\Verificar datos null.Inputs[Entrada de división condicional]"
+              name="Salida de origen de OLE DB"
+              startId="Package\Fact_Envios\Fuente envios.Outputs[Salida de origen de OLE DB]" />
+            <path
+              refId="Package\Fact_Envios.Paths[Salida de Unión de todo 1]"
+              endId="Package\Fact_Envios\Crear error 2.Inputs[Entrada de columna derivada]"
+              name="Salida de Unión de todo 1"
+              startId="Package\Fact_Envios\Unión de todo.Outputs[Salida de Unión de todo 1]" />
+            <path
+              refId="Package\Fact_Envios.Paths[Salida predeterminada de división condicional]"
+              endId="Package\Fact_Envios\Búsqueda producto.Inputs[Entrada de búsqueda]"
+              name="Salida predeterminada de división condicional"
+              startId="Package\Fact_Envios\Verificar datos null.Outputs[Salida predeterminada de división condicional]" />
+          </paths>
+        </pipeline>
       </DTS:ObjectData>
     </DTS:Executable>
   </DTS:Executables>
@@ -1744,21 +3293,21 @@ where [refTable].[idProducto] = ?</property>
         <NodeLayout
           Size="137,42"
           Id="Package\Fact_Envios"
-          TopLeft="435,260" />
+          TopLeft="433,240" />
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Restricción]"
-          TopLeft="502.5,166">
+          TopLeft="501.5,166">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,94"
+              EndConnector="0,74"
               Start="0,0"
-              End="0,86.5">
+              End="0,66.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,86.5" />
+                    End="0,66.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -1776,201 +3325,99 @@ where [refTable].[idProducto] = ?</property>
       <GraphLayout
         Capacity="32" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
-          Size="173,42"
-          Id="Package\Dim_Producto\División condicional"
-          TopLeft="190,263" />
+          Size="211,42"
+          Id="Package\Dim_Producto\Producto activo a inactivo 2"
+          TopLeft="664,256" />
         <NodeLayout
           Size="231,42"
           Id="Package\Dim_Producto\Verificar si ya existe el producto"
-          TopLeft="311,172" />
-        <NodeLayout
-          Size="135,42"
-          Id="Package\Dim_Producto\Actualizarlo"
-          TopLeft="240,536" />
-        <EdgeLayout
-          Id="Package\Dim_Producto.Paths[Salida de entradas coincidentes de búsqueda]"
-          TopLeft="389.333333333333,214">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="-112.833333333333,49"
-              Start="0,0"
-              End="-112.833333333333,41.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,15.8022355975924" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,15.8022355975924"
-                    Point2="0,19.8022355975924"
-                    Point3="-4,19.8022355975924" />
-                  <mssgle:LineSegment
-                    End="-108.833333333333,19.8022355975924" />
-                  <mssgle:CubicBezierSegment
-                    Point1="-108.833333333333,19.8022355975924"
-                    Point2="-112.833333333333,19.8022355975924"
-                    Point3="-112.833333333333,23.8022355975924" />
-                  <mssgle:LineSegment
-                    End="-112.833333333333,41.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="-155.235690104167,24.8022355975924,197.638046875,10.1953125"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <NodeLayout
-          Size="166,42"
-          Id="Package\Dim_Producto\Origen de OLE DB"
-          TopLeft="442,80" />
-        <EdgeLayout
-          Id="Package\Dim_Producto.Paths[Salida de origen de OLE DB]"
-          TopLeft="525,122">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="-98.5,50"
-              Start="0,0"
-              End="-98.5,42.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,21" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,21"
-                    Point2="0,25"
-                    Point3="-4,25" />
-                  <mssgle:LineSegment
-                    End="-94.5,25" />
-                  <mssgle:CubicBezierSegment
-                    Point1="-94.5,25"
-                    Point2="-98.5,25"
-                    Point3="-98.5,29" />
-                  <mssgle:LineSegment
-                    End="-98.5,42.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
+          TopLeft="317,159" />
         <NodeLayout
           Size="197,42"
           Id="Package\Dim_Producto\datos de producto activo"
           TopLeft="51,365" />
-        <EdgeLayout
-          Id="Package\Dim_Producto.Paths[Producto activo]"
-          TopLeft="249,305">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="-99.5,60"
-              Start="0,0"
-              End="-99.5,52.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,20.3298969072165" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,20.3298969072165"
-                    Point2="0,24.3298969072165"
-                    Point3="-4,24.3298969072165" />
-                  <mssgle:LineSegment
-                    End="-95.5,24.3298969072165" />
-                  <mssgle:CubicBezierSegment
-                    Point1="-95.5,24.3298969072165"
-                    Point2="-99.5,24.3298969072165"
-                    Point3="-99.5,28.3298969072165" />
-                  <mssgle:LineSegment
-                    End="-99.5,52.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="-83.27203125,29.3298969072165,67.0440625,7.7490234375"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
+        <NodeLayout
+          Size="166,42"
+          Id="Package\Dim_Producto\Origen de OLE DB"
+          TopLeft="350,5" />
+        <NodeLayout
+          Size="164,42"
+          Id="Package\Dim_Producto\Guardar Producto"
+          TopLeft="573,367" />
+        <NodeLayout
+          Size="173,42"
+          Id="Package\Dim_Producto\Guardar Producto 2"
+          TopLeft="791,368" />
         <NodeLayout
           Size="191,42"
           Id="Package\Dim_Producto\datos producto inactivo"
           TopLeft="349,361" />
+        <NodeLayout
+          Size="147,42"
+          Id="Package\Dim_Producto\Unión de todo"
+          TopLeft="235,454" />
+        <NodeLayout
+          Size="179,42"
+          Id="Package\Dim_Producto\Comando de OLE DB"
+          TopLeft="211,603" />
+        <NodeLayout
+          Size="177,42"
+          Id="Package\Dim_Producto\Conversión de datos"
+          TopLeft="214,524" />
+        <NodeLayout
+          Size="202,42"
+          Id="Package\Dim_Producto\Producto activo o inactivo"
+          TopLeft="190,263" />
         <EdgeLayout
-          Id="Package\Dim_Producto.Paths[producto Inactivo]"
-          TopLeft="304,305">
+          Id="Package\Dim_Producto.Paths[Salida de entradas coincidentes de búsqueda]"
+          TopLeft="395.333333333333,201">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="140.5,56"
+              EndConnector="-104.333333333333,62"
               Start="0,0"
-              End="140.5,48.5">
+              End="-104.333333333333,54.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,18.7079037800687" />
+                    End="0,21.0558899398108" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,18.7079037800687"
-                    Point2="0,22.7079037800687"
-                    Point3="4,22.7079037800687" />
+                    Point1="0,21.0558899398108"
+                    Point2="0,25.0558899398108"
+                    Point3="-4,25.0558899398108" />
                   <mssgle:LineSegment
-                    End="136.5,22.7079037800687" />
+                    End="-100.333333333333,25.0558899398108" />
                   <mssgle:CubicBezierSegment
-                    Point1="136.5,22.7079037800687"
-                    Point2="140.5,22.7079037800687"
-                    Point3="140.5,26.7079037800687" />
+                    Point1="-100.333333333333,25.0558899398108"
+                    Point2="-104.333333333333,25.0558899398108"
+                    Point3="-104.333333333333,29.0558899398108" />
                   <mssgle:LineSegment
-                    End="140.5,48.5" />
+                    End="-104.333333333333,54.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="32.02634765625,27.7079037800687,76.4473046875,9.609375"
+              BoundingBox="-150.985690104167,30.0558899398108,197.638046875,10.1953125"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="147,42"
-          Id="Package\Dim_Producto\Unión de todo"
-          TopLeft="235,454" />
         <EdgeLayout
-          Id="Package\Dim_Producto.Paths[Salida de columna derivada]"
-          TopLeft="444.5,403">
+          Id="Package\Dim_Producto.Paths[Salida de conversión de datos]"
+          TopLeft="301.5,566">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="-136,51"
+              EndConnector="0,37"
               Start="0,0"
-              End="-136,43.5">
+              End="0,29.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,21.5" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,21.5"
-                    Point2="0,25.5"
-                    Point3="-4,25.5" />
-                  <mssgle:LineSegment
-                    End="-132,25.5" />
-                  <mssgle:CubicBezierSegment
-                    Point1="-132,25.5"
-                    Point2="-136,25.5"
-                    Point3="-136,29.5" />
-                  <mssgle:LineSegment
-                    End="-136,43.5" />
+                    End="0,29.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -2014,19 +3461,31 @@ where [refTable].[idProducto] = ?</property>
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package\Dim_Producto.Paths[Salida de Unión de todo 1]"
-          TopLeft="308,496">
+          Id="Package\Dim_Producto.Paths[Salida de columna derivada]"
+          TopLeft="444.5,403">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,40"
+              EndConnector="-136,51"
               Start="0,0"
-              End="0,32.5">
+              End="-136,43.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,32.5" />
+                    End="0,21.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,21.5"
+                    Point2="0,25.5"
+                    Point3="-4,25.5" />
+                  <mssgle:LineSegment
+                    End="-132,25.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-132,25.5"
+                    Point2="-136,25.5"
+                    Point3="-136,29.5" />
+                  <mssgle:LineSegment
+                    End="-136,43.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -2035,124 +3494,310 @@ where [refTable].[idProducto] = ?</property>
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="164,42"
-          Id="Package\Dim_Producto\Guardar Producto"
-          TopLeft="589,375" />
-        <NodeLayout
-          Size="182,42"
-          Id="Package\Dim_Producto\División condicional 1"
-          TopLeft="663,256" />
         <EdgeLayout
-          Id="Package\Dim_Producto.Paths[Salida de entradas no coincidentes de búsqueda]"
-          TopLeft="463.666666666667,214">
+          Id="Package\Dim_Producto.Paths[producto Inactivo1]"
+          TopLeft="323.333333333333,305">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="290.333333333333,42"
+              EndConnector="121.166666666667,56"
               Start="0,0"
-              End="290.333333333333,34.5">
+              End="121.166666666667,48.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,12.9733447979364" />
+                    End="0,18.664047151277" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,12.9733447979364"
-                    Point2="0,16.9733447979364"
-                    Point3="4,16.9733447979364" />
+                    Point1="0,18.664047151277"
+                    Point2="0,22.664047151277"
+                    Point3="4,22.664047151277" />
                   <mssgle:LineSegment
-                    End="286.333333333333,16.9733447979364" />
+                    End="117.166666666667,22.664047151277" />
                   <mssgle:CubicBezierSegment
-                    Point1="286.333333333333,16.9733447979364"
-                    Point2="290.333333333333,16.9733447979364"
-                    Point3="290.333333333333,20.9733447979364" />
+                    Point1="117.166666666667,22.664047151277"
+                    Point2="121.166666666667,22.664047151277"
+                    Point3="121.166666666667,26.664047151277" />
                   <mssgle:LineSegment
-                    End="290.333333333333,34.5" />
+                    End="121.166666666667,48.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="39.2776432291667,21.9733447979364,211.778046875,10.1953125"
+              BoundingBox="22.3596809895833,27.664047151277,76.4473046875,9.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Dim_Producto.Paths[producto Inactivo]"
+          TopLeft="803.333333333333,298">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="74.1666666666667,70"
+              Start="0,0"
+              End="74.1666666666667,62.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,24.3160865475071" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,24.3160865475071"
+                    Point2="0,28.3160865475071"
+                    Point3="4,28.3160865475071" />
+                  <mssgle:LineSegment
+                    End="70.1666666666667,28.3160865475071" />
+                  <mssgle:CubicBezierSegment
+                    Point1="70.1666666666667,28.3160865475071"
+                    Point2="74.1666666666667,28.3160865475071"
+                    Point3="74.1666666666667,32.3160865475071" />
+                  <mssgle:LineSegment
+                    End="74.1666666666667,62.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-1.14031901041663,33.3160865475071,76.4473046875,9.609375"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
           Id="Package\Dim_Producto.Paths[Producto activo1]"
-          TopLeft="754,298">
+          TopLeft="735.666666666667,298">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="-83,77"
+              EndConnector="-80.6666666666666,69"
               Start="0,0"
-              End="-83,69.5">
+              End="-80.6666666666666,61.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,34.5" />
+                    End="0,23.9115710253998" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,34.5"
-                    Point2="0,38.5"
-                    Point3="-4,38.5" />
+                    Point1="0,23.9115710253998"
+                    Point2="0,27.9115710253998"
+                    Point3="-4,27.9115710253998" />
                   <mssgle:LineSegment
-                    End="-79,38.5" />
+                    End="-76.6666666666666,27.9115710253998" />
                   <mssgle:CubicBezierSegment
-                    Point1="-79,38.5"
-                    Point2="-83,38.5"
-                    Point3="-83,42.5" />
+                    Point1="-76.6666666666666,27.9115710253998"
+                    Point2="-80.6666666666666,27.9115710253998"
+                    Point3="-80.6666666666666,31.9115710253998" />
                   <mssgle:LineSegment
-                    End="-83,69.5" />
+                    End="-80.6666666666666,61.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="-75.02203125,43.5,67.0440625,7.7490234375"
+              BoundingBox="-73.8553645833333,32.9115710253998,67.0440625,7.7490234375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Dim_Producto.Paths[Producto activo]"
+          TopLeft="258.666666666667,305">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-109.166666666667,60"
+              Start="0,0"
+              End="-109.166666666667,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,20.2829076620825" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,20.2829076620825"
+                    Point2="0,24.2829076620825"
+                    Point3="-4,24.2829076620825" />
+                  <mssgle:LineSegment
+                    End="-105.166666666667,24.2829076620825" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-105.166666666667,24.2829076620825"
+                    Point2="-109.166666666667,24.2829076620825"
+                    Point3="-109.166666666667,28.2829076620825" />
+                  <mssgle:LineSegment
+                    End="-109.166666666667,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-88.1053645833333,29.2829076620825,67.0440625,7.7490234375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Dim_Producto.Paths[Salida de Unión de todo 1]"
+          TopLeft="305.5,496">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,28"
+              Start="0,0"
+              End="0,20.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,20.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Dim_Producto.Paths[Salida de entradas no coincidentes de búsqueda]"
+          TopLeft="469.666666666667,201">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="299.833333333333,55"
+              Start="0,0"
+              End="299.833333333333,47.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,18.2269991401548" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,18.2269991401548"
+                    Point2="0,22.2269991401548"
+                    Point3="4,22.2269991401548" />
+                  <mssgle:LineSegment
+                    End="295.833333333333,22.2269991401548" />
+                  <mssgle:CubicBezierSegment
+                    Point1="295.833333333333,22.2269991401548"
+                    Point2="299.833333333333,22.2269991401548"
+                    Point3="299.833333333333,26.2269991401548" />
+                  <mssgle:LineSegment
+                    End="299.833333333333,47.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="44.0276432291667,27.2269991401548,211.778046875,10.1953125"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <NodeLayout
-          Size="173,42"
-          Id="Package\Dim_Producto\Guardar Producto 2"
-          TopLeft="813,377" />
+          Size="162,42"
+          Id="Package\Dim_Producto\Validar datos null"
+          TopLeft="346,74" />
         <EdgeLayout
-          Id="Package\Dim_Producto.Paths[producto Inactivo1]"
-          TopLeft="783,298">
+          Id="Package\Dim_Producto.Paths[Salida de origen de OLE DB]"
+          TopLeft="430,47">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="116.5,79"
+              EndConnector="0,27"
               Start="0,0"
-              End="116.5,71.5">
+              End="0,19.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,28.0130718954248" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,28.0130718954248"
-                    Point2="0,32.0130718954248"
-                    Point3="4,32.0130718954248" />
+                    End="0,19.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Dim_Producto.Paths[Sin datos null]"
+          TopLeft="429.75,116">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,43"
+              Start="0,0"
+              End="0,35.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
                   <mssgle:LineSegment
-                    End="112.5,32.0130718954248" />
-                  <mssgle:CubicBezierSegment
-                    Point1="112.5,32.0130718954248"
-                    Point2="116.5,32.0130718954248"
-                    Point3="116.5,36.0130718954248" />
-                  <mssgle:LineSegment
-                    End="116.5,71.5" />
+                    End="0,35.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="20.02634765625,37.0130718954248,76.4473046875,9.609375"
+              BoundingBox="-29.19279296875,13.87548828125,58.3855859375,7.7490234375"
               RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="144,42"
+          Id="Package\Dim_Producto\guardar error"
+          TopLeft="644,146" />
+        <NodeLayout
+          Size="148,42"
+          Id="Package\Dim_Producto\Describir error"
+          TopLeft="643,74" />
+        <EdgeLayout
+          Id="Package\Dim_Producto.Paths[Hay datos null]"
+          TopLeft="508,95">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="135,0"
+              Start="0,0"
+              End="127.5,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="127.5,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="32.96787109375,5,61.5642578125,9.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Dim_Producto.Paths[Salida de columna derivada2]"
+          TopLeft="716.5,116">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,30"
+              Start="0,0"
+              End="0,22.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,22.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
@@ -2212,6 +3857,304 @@ where [refTable].[idProducto] = ?</property>
         <Name>TableInfoObjectType</Name>
         <Value
           type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <TaskHost
+    design-time-name="Package\Fact_Envios">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="32" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="146,42"
+          Id="Package\Fact_Envios\Fuente envios"
+          TopLeft="325,55" />
+        <NodeLayout
+          Size="169,42"
+          Id="Package\Fact_Envios\Verificar datos null"
+          TopLeft="317,128" />
+        <NodeLayout
+          Size="172,42"
+          Id="Package\Fact_Envios\Búsqueda producto"
+          TopLeft="313,228" />
+        <NodeLayout
+          Size="162,42"
+          Id="Package\Fact_Envios\Búsqueda Cliente"
+          TopLeft="561,342" />
+        <NodeLayout
+          Size="148,42"
+          Id="Package\Fact_Envios\Guardar Envio"
+          TopLeft="570,479" />
+        <NodeLayout
+          Size="142,42"
+          Id="Package\Fact_Envios\Crear error 2"
+          TopLeft="123,443" />
+        <NodeLayout
+          Size="154,42"
+          Id="Package\Fact_Envios\Guardar error 2"
+          TopLeft="115,544" />
+        <NodeLayout
+          Size="142,42"
+          Id="Package\Fact_Envios\Crear error 1"
+          TopLeft="662,139" />
+        <NodeLayout
+          Size="154,42"
+          Id="Package\Fact_Envios\Guardar error 1"
+          TopLeft="716,251" />
+        <EdgeLayout
+          Id="Package\Fact_Envios.Paths[Salida de origen de OLE DB]"
+          TopLeft="399.75,97">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,31"
+              Start="0,0"
+              End="0,23.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,23.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Fact_Envios.Paths[Salida predeterminada de división condicional]"
+          TopLeft="400.25,170">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,58"
+              Start="0,0"
+              End="0,50.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,50.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Fact_Envios.Paths[Salida de entradas coincidentes de búsqueda]"
+          TopLeft="426.333333333333,270">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="215.666666666667,72"
+              Start="0,0"
+              End="215.666666666667,64.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,25.1981566820277" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,25.1981566820277"
+                    Point2="0,29.1981566820277"
+                    Point3="4,29.1981566820277" />
+                  <mssgle:LineSegment
+                    End="211.666666666667,29.1981566820277" />
+                  <mssgle:CubicBezierSegment
+                    Point1="211.666666666667,29.1981566820277"
+                    Point2="215.666666666667,29.1981566820277"
+                    Point3="215.666666666667,33.1981566820277" />
+                  <mssgle:LineSegment
+                    End="215.666666666667,64.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="9.01430989583334,34.1981566820277,197.638046875,10.1953125"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Fact_Envios.Paths[Salida de entradas coincidentes de búsqueda1]"
+          TopLeft="643,384">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,95"
+              Start="0,0"
+              End="0,87.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,87.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-98.8190234375,38.65234375,197.638046875,10.1953125"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="147,42"
+          Id="Package\Fact_Envios\Unión de todo"
+          TopLeft="113,340" />
+        <EdgeLayout
+          Id="Package\Fact_Envios.Paths[Salida de Unión de todo 1]"
+          TopLeft="190.25,382">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,61"
+              Start="0,0"
+              End="0,53.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,53.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Fact_Envios.Paths[Salida de entradas no coincidentes de búsqueda]"
+          TopLeft="371.666666666667,270">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-185.166666666667,70"
+              Start="0,0"
+              End="-185.166666666667,62.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,24.3870967741936" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,24.3870967741936"
+                    Point2="0,28.3870967741936"
+                    Point3="-4,28.3870967741936" />
+                  <mssgle:LineSegment
+                    End="-181.166666666667,28.3870967741936" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-181.166666666667,28.3870967741936"
+                    Point2="-185.166666666667,28.3870967741936"
+                    Point3="-185.166666666667,32.3870967741936" />
+                  <mssgle:LineSegment
+                    End="-185.166666666667,62.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-198.472356770833,33.3870967741936,211.778046875,10.1953125"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Fact_Envios.Paths[Salida de entradas no coincidentes de búsqueda1]"
+          TopLeft="561,362">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-301,0"
+              Start="0,0"
+              End="-293.5,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="-293.5,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-252.6390234375,5,211.778046875,10.1953125"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Fact_Envios.Paths[Salida de columna derivada]"
+          TopLeft="193,485">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,59"
+              Start="0,0"
+              End="0,51.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,51.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Fact_Envios.Paths[Salida de columna derivada1]"
+          TopLeft="733,181">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="60,70"
+              Start="0,0"
+              End="60,62.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,31" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,31"
+                    Point2="0,35"
+                    Point3="4,35" />
+                  <mssgle:LineSegment
+                    End="56,35" />
+                  <mssgle:CubicBezierSegment
+                    Point1="56,35"
+                    Point2="60,35"
+                    Point3="60,39" />
+                  <mssgle:LineSegment
+                    End="60,62.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Fact_Envios\Fuente envios">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
       </Property>
     </Properties>
   </PipelineComponentMetadata>
