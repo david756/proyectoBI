@@ -11,8 +11,8 @@
   DTS:LocaleID="3082"
   DTS:ObjectName="Package"
   DTS:PackageType="5"
-  DTS:VersionBuild="16"
-  DTS:VersionGUID="{689C3A08-FCDE-468D-A34D-C4C2A531B6A4}">
+  DTS:VersionBuild="23"
+  DTS:VersionGUID="{BC7FDE62-392E-4A63-8F8A-8B2C813705E2}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">6</DTS:Property>
   <DTS:Variables />
@@ -2307,22 +2307,22 @@ where [refTable].[idProducto] = ?</property>
               name="producto Inactivo"
               startId="Package\Dim_Producto\Producto activo o inactivo.Outputs[producto Inactivo]" />
             <path
-              refId="Package\Dim_Producto.Paths[Salida de columna derivada3]"
+              refId="Package\Dim_Producto.Paths[Salida de columna derivada2]"
               endId="Package\Dim_Producto\Conversión de datos 1.Inputs[Entrada de conversión de datos]"
               name="Salida de columna derivada"
               startId="Package\Dim_Producto\crear fila de estado.Outputs[Salida de columna derivada]" />
             <path
-              refId="Package\Dim_Producto.Paths[Salida de columna derivada]"
+              refId="Package\Dim_Producto.Paths[Salida de columna derivada3]"
               endId="Package\Dim_Producto\guardar error.Inputs[Entrada de destino de Excel]"
               name="Salida de columna derivada"
               startId="Package\Dim_Producto\Describir error.Outputs[Salida de columna derivada]" />
             <path
-              refId="Package\Dim_Producto.Paths[Salida de columna derivada1]"
+              refId="Package\Dim_Producto.Paths[Salida de columna derivada]"
               endId="Package\Dim_Producto\Unión de todo.Inputs[Entrada de Unión de todo 1]"
               name="Salida de columna derivada"
               startId="Package\Dim_Producto\datos producto inactivo.Outputs[Salida de columna derivada]" />
             <path
-              refId="Package\Dim_Producto.Paths[Salida de columna derivada2]"
+              refId="Package\Dim_Producto.Paths[Salida de columna derivada1]"
               endId="Package\Dim_Producto\Unión de todo.Inputs[Entrada de Unión de todo 2]"
               name="Salida de columna derivada"
               startId="Package\Dim_Producto\datos de producto activo.Outputs[Salida de columna derivada]" />
@@ -2694,6 +2694,85 @@ where [refTable].[idProducto] = ?</property>
               </outputs>
             </component>
             <component
+              refId="Package\Fact_Envios\Conversión de datos"
+              componentClassID="{62B1106C-7DB8-4EC8-ADD6-4C664DFFC54A}"
+              contactInfo="Conversión de datos;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;0"
+              description="Conversión de datos"
+              name="Conversión de datos"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\Fact_Envios\Conversión de datos.Inputs[Entrada de conversión de datos]"
+                  name="Entrada de conversión de datos">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Fact_Envios\Conversión de datos.Inputs[Entrada de conversión de datos].Columns[descripcionEstadoVenta]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="descripcionEstadoVenta"
+                      lineageId="Package\Fact_Envios\Fuente envios.Outputs[Salida de origen de OLE DB].Columns[descripcionEstadoVenta]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Fact_Envios\Conversión de datos.Outputs[Salida de conversión de datos]"
+                  exclusionGroup="1"
+                  name="Salida de conversión de datos"
+                  synchronousInputId="Package\Fact_Envios\Conversión de datos.Inputs[Entrada de conversión de datos]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Fact_Envios\Conversión de datos.Outputs[Salida de conversión de datos].Columns[Copia de descripcionEstadoVenta]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      length="50"
+                      lineageId="Package\Fact_Envios\Conversión de datos.Outputs[Salida de conversión de datos].Columns[Copia de descripcionEstadoVenta]"
+                      name="Copia de descripcionEstadoVenta"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Especifica la columna de entrada usada como origen de datos para la conversión."
+                          name="SourceInputColumnLineageID">#{Package\Fact_Envios\Fuente envios.Outputs[Salida de origen de OLE DB].Columns[descripcionEstadoVenta]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indica si la columna usa las rutinas de análisis más rápidas independientes de la configuración regional."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Fact_Envios\Conversión de datos.Outputs[Salida de error de conversión de datos]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Salida de error de conversión de datos"
+                  synchronousInputId="Package\Fact_Envios\Conversión de datos.Inputs[Entrada de conversión de datos]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Fact_Envios\Conversión de datos.Outputs[Salida de error de conversión de datos].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Fact_Envios\Conversión de datos.Outputs[Salida de error de conversión de datos].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Fact_Envios\Conversión de datos.Outputs[Salida de error de conversión de datos].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Fact_Envios\Conversión de datos.Outputs[Salida de error de conversión de datos].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
               refId="Package\Fact_Envios\Crear error 1"
               componentClassID="{49928E82-9C4E-49F0-AABE-3812B82707EC}"
               contactInfo="Columna derivada;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;0"
@@ -2924,6 +3003,86 @@ where [refTable].[idProducto] = ?</property>
                       refId="Package\Fact_Envios\Crear error 2.Outputs[Salida de error de columna derivada].Columns[ErrorColumn]"
                       dataType="i4"
                       lineageId="Package\Fact_Envios\Crear error 2.Outputs[Salida de error de columna derivada].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Fact_Envios\Crear id de tiempo"
+              componentClassID="{49928E82-9C4E-49F0-AABE-3812B82707EC}"
+              contactInfo="Columna derivada;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;0"
+              description="Crea nuevos valores de columna aplicando expresiones a las columnas de entrada de la transformación. Crea nuevas columnas o sobrescribe las columnas existentes. Por ejemplo, se concatenan los valores de las columnas 'nombre' y 'apellidos' para crear una columna 'nombre completo'."
+              name="Crear id de tiempo"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\Fact_Envios\Crear id de tiempo.Inputs[Entrada de columna derivada]"
+                  description="Entrada en la transformación Columna derivada"
+                  name="Entrada de columna derivada">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Fact_Envios\Crear id de tiempo.Inputs[Entrada de columna derivada].Columns[fecha]"
+                      cachedDataType="dbDate"
+                      cachedName="fecha"
+                      lineageId="Package\Fact_Envios\Fuente envios.Outputs[Salida de origen de OLE DB].Columns[fecha]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Fact_Envios\Crear id de tiempo.Outputs[Salida de columna derivada]"
+                  description="Salida predeterminada de la transformación Columna derivada"
+                  exclusionGroup="1"
+                  name="Salida de columna derivada"
+                  synchronousInputId="Package\Fact_Envios\Crear id de tiempo.Inputs[Entrada de columna derivada]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Fact_Envios\Crear id de tiempo.Outputs[Salida de columna derivada].Columns[idFecha]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Cálculo"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\Fact_Envios\Crear id de tiempo.Outputs[Salida de columna derivada].Columns[idFecha]"
+                      name="idFecha"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Expresión de columna derivada"
+                          name="Expression">[DATEPART]("dd",#{Package\Fact_Envios\Fuente envios.Outputs[Salida de origen de OLE DB].Columns[fecha]}) + ([DATEPART]("mm",#{Package\Fact_Envios\Fuente envios.Outputs[Salida de origen de OLE DB].Columns[fecha]}) * 100) + ([DATEPART]("yyyy",#{Package\Fact_Envios\Fuente envios.Outputs[Salida de origen de OLE DB].Columns[fecha]}) * 10000)</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Expresión descriptiva de columna derivada"
+                          expressionType="Notify"
+                          name="FriendlyExpression">DATEPART("dd",fecha) + (DATEPART("mm",fecha) * 100) + (DATEPART("yyyy",fecha) * 10000)</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Fact_Envios\Crear id de tiempo.Outputs[Salida de error de columna derivada]"
+                  description="Salida de error de la transformación Columna derivada"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Salida de error de columna derivada"
+                  synchronousInputId="Package\Fact_Envios\Crear id de tiempo.Inputs[Entrada de columna derivada]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Fact_Envios\Crear id de tiempo.Outputs[Salida de error de columna derivada].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Fact_Envios\Crear id de tiempo.Outputs[Salida de error de columna derivada].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Fact_Envios\Crear id de tiempo.Outputs[Salida de error de columna derivada].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Fact_Envios\Crear id de tiempo.Outputs[Salida de error de columna derivada].Columns[ErrorColumn]"
                       name="ErrorColumn"
                       specialFlags="2" />
                   </outputColumns>
@@ -3264,12 +3423,6 @@ FROM            DetalleVenta INNER JOIN
                       externalMetadataColumnId="Package\Fact_Envios\Guardar Envio.Inputs[Entrada de destino de OLE DB].ExternalColumns[numeroOrden]"
                       lineageId="Package\Fact_Envios\Fuente envios.Outputs[Salida de origen de OLE DB].Columns[numeroOrden]" />
                     <inputColumn
-                      refId="Package\Fact_Envios\Guardar Envio.Inputs[Entrada de destino de OLE DB].Columns[fecha]"
-                      cachedDataType="dbDate"
-                      cachedName="fecha"
-                      externalMetadataColumnId="Package\Fact_Envios\Guardar Envio.Inputs[Entrada de destino de OLE DB].ExternalColumns[estado]"
-                      lineageId="Package\Fact_Envios\Fuente envios.Outputs[Salida de origen de OLE DB].Columns[fecha]" />
-                    <inputColumn
                       refId="Package\Fact_Envios\Guardar Envio.Inputs[Entrada de destino de OLE DB].Columns[cantidad]"
                       cachedDataType="i4"
                       cachedName="cantidad"
@@ -3281,6 +3434,20 @@ FROM            DetalleVenta INNER JOIN
                       cachedName="precioUnitario"
                       externalMetadataColumnId="Package\Fact_Envios\Guardar Envio.Inputs[Entrada de destino de OLE DB].ExternalColumns[precioUnidad]"
                       lineageId="Package\Fact_Envios\Fuente envios.Outputs[Salida de origen de OLE DB].Columns[precioUnitario]" />
+                    <inputColumn
+                      refId="Package\Fact_Envios\Guardar Envio.Inputs[Entrada de destino de OLE DB].Columns[Copia de descripcionEstadoVenta]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="Copia de descripcionEstadoVenta"
+                      externalMetadataColumnId="Package\Fact_Envios\Guardar Envio.Inputs[Entrada de destino de OLE DB].ExternalColumns[estado]"
+                      lineageId="Package\Fact_Envios\Conversión de datos.Outputs[Salida de conversión de datos].Columns[Copia de descripcionEstadoVenta]" />
+                    <inputColumn
+                      refId="Package\Fact_Envios\Guardar Envio.Inputs[Entrada de destino de OLE DB].Columns[idFecha]"
+                      cachedDataType="i4"
+                      cachedName="idFecha"
+                      externalMetadataColumnId="Package\Fact_Envios\Guardar Envio.Inputs[Entrada de destino de OLE DB].ExternalColumns[Fecha]"
+                      lineageId="Package\Fact_Envios\Crear id de tiempo.Outputs[Salida de columna derivada].Columns[idFecha]" />
                   </inputColumns>
                   <externalMetadataColumns
                     isUsed="True">
@@ -3302,8 +3469,9 @@ FROM            DetalleVenta INNER JOIN
                       name="Fecha" />
                     <externalMetadataColumn
                       refId="Package\Fact_Envios\Guardar Envio.Inputs[Entrada de destino de OLE DB].ExternalColumns[estado]"
-                      dataType="wstr"
-                      length="10"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
                       name="estado" />
                     <externalMetadataColumn
                       refId="Package\Fact_Envios\Guardar Envio.Inputs[Entrada de destino de OLE DB].ExternalColumns[precioUnidad]"
@@ -4028,6 +4196,11 @@ FROM            DetalleVenta INNER JOIN
               name="hay datos nulos"
               startId="Package\Fact_Envios\Verificar datos null.Outputs[hay datos nulos]" />
             <path
+              refId="Package\Fact_Envios.Paths[Salida de columna derivada2]"
+              endId="Package\Fact_Envios\Guardar Envio.Inputs[Entrada de destino de OLE DB]"
+              name="Salida de columna derivada"
+              startId="Package\Fact_Envios\Crear id de tiempo.Outputs[Salida de columna derivada]" />
+            <path
               refId="Package\Fact_Envios.Paths[Salida de columna derivada1]"
               endId="Package\Fact_Envios\Guardar error 1.Inputs[Entrada de destino de Excel]"
               name="Salida de columna derivada"
@@ -4038,25 +4211,30 @@ FROM            DetalleVenta INNER JOIN
               name="Salida de columna derivada"
               startId="Package\Fact_Envios\Crear error 2.Outputs[Salida de columna derivada]" />
             <path
-              refId="Package\Fact_Envios.Paths[Salida de entradas coincidentes de búsqueda1]"
-              endId="Package\Fact_Envios\Guardar Envio.Inputs[Entrada de destino de OLE DB]"
-              name="Salida de entradas coincidentes de búsqueda"
-              startId="Package\Fact_Envios\Búsqueda Cliente.Outputs[Salida de entradas coincidentes de búsqueda]" />
+              refId="Package\Fact_Envios.Paths[Salida de conversión de datos]"
+              endId="Package\Fact_Envios\Crear id de tiempo.Inputs[Entrada de columna derivada]"
+              name="Salida de conversión de datos"
+              startId="Package\Fact_Envios\Conversión de datos.Outputs[Salida de conversión de datos]" />
             <path
               refId="Package\Fact_Envios.Paths[Salida de entradas coincidentes de búsqueda]"
               endId="Package\Fact_Envios\Búsqueda Cliente.Inputs[Entrada de búsqueda]"
               name="Salida de entradas coincidentes de búsqueda"
               startId="Package\Fact_Envios\Búsqueda producto.Outputs[Salida de entradas coincidentes de búsqueda]" />
             <path
-              refId="Package\Fact_Envios.Paths[Salida de entradas no coincidentes de búsqueda1]"
-              endId="Package\Fact_Envios\Unión de todo.Inputs[Entrada de Unión de todo 2]"
-              name="Salida de entradas no coincidentes de búsqueda"
-              startId="Package\Fact_Envios\Búsqueda Cliente.Outputs[Salida de entradas no coincidentes de búsqueda]" />
+              refId="Package\Fact_Envios.Paths[Salida de entradas coincidentes de búsqueda1]"
+              endId="Package\Fact_Envios\Conversión de datos.Inputs[Entrada de conversión de datos]"
+              name="Salida de entradas coincidentes de búsqueda"
+              startId="Package\Fact_Envios\Búsqueda Cliente.Outputs[Salida de entradas coincidentes de búsqueda]" />
             <path
               refId="Package\Fact_Envios.Paths[Salida de entradas no coincidentes de búsqueda]"
               endId="Package\Fact_Envios\Unión de todo.Inputs[Entrada de Unión de todo 1]"
               name="Salida de entradas no coincidentes de búsqueda"
               startId="Package\Fact_Envios\Búsqueda producto.Outputs[Salida de entradas no coincidentes de búsqueda]" />
+            <path
+              refId="Package\Fact_Envios.Paths[Salida de entradas no coincidentes de búsqueda1]"
+              endId="Package\Fact_Envios\Unión de todo.Inputs[Entrada de Unión de todo 2]"
+              name="Salida de entradas no coincidentes de búsqueda"
+              startId="Package\Fact_Envios\Búsqueda Cliente.Outputs[Salida de entradas no coincidentes de búsqueda]" />
             <path
               refId="Package\Fact_Envios.Paths[Salida de origen de OLE DB]"
               endId="Package\Fact_Envios\Verificar datos null.Inputs[Entrada de división condicional]"
@@ -4138,9 +4316,61 @@ FROM            DetalleVenta INNER JOIN
       <GraphLayout
         Capacity="32" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
+          Size="148,42"
+          Id="Package\Dim_Producto\Describir error"
+          TopLeft="643,91" />
+        <NodeLayout
+          Size="173,42"
+          Id="Package\Dim_Producto\Guardar Producto 2"
+          TopLeft="840,525" />
+        <NodeLayout
+          Size="186,42"
+          Id="Package\Dim_Producto\Conversión de datos 1"
+          TopLeft="831,437" />
+        <NodeLayout
+          Size="211,42"
+          Id="Package\Dim_Producto\Producto activo a inactivo 2"
+          TopLeft="664,273" />
+        <NodeLayout
+          Size="147,42"
+          Id="Package\Dim_Producto\Unión de todo"
+          TopLeft="223,473" />
+        <NodeLayout
+          Size="191,42"
+          Id="Package\Dim_Producto\datos producto inactivo"
+          TopLeft="349,378" />
+        <NodeLayout
+          Size="177,42"
+          Id="Package\Dim_Producto\Conversión de datos"
+          TopLeft="214,541" />
+        <NodeLayout
+          Size="197,42"
+          Id="Package\Dim_Producto\datos de producto activo"
+          TopLeft="51,382" />
+        <NodeLayout
+          Size="173,42"
+          Id="Package\Dim_Producto\Fuente de producto"
+          TopLeft="338,18" />
+        <NodeLayout
+          Size="144,42"
+          Id="Package\Dim_Producto\guardar error"
+          TopLeft="644,163" />
+        <NodeLayout
+          Size="231,42"
+          Id="Package\Dim_Producto\Verificar si ya existe el producto"
+          TopLeft="317,176" />
+        <NodeLayout
+          Size="171,42"
+          Id="Package\Dim_Producto\crear fila de estado"
+          TopLeft="839,361" />
+        <NodeLayout
           Size="202,42"
           Id="Package\Dim_Producto\Producto activo o inactivo"
           TopLeft="190,280" />
+        <NodeLayout
+          Size="203,42"
+          Id="Package\Dim_Producto\Actualizar Registro en DW"
+          TopLeft="200,622" />
         <NodeLayout
           Size="164,42"
           Id="Package\Dim_Producto\Guardar Producto"
@@ -4149,132 +4379,20 @@ FROM            DetalleVenta INNER JOIN
           Size="162,42"
           Id="Package\Dim_Producto\Validar datos null"
           TopLeft="346,91" />
-        <NodeLayout
-          Size="173,42"
-          Id="Package\Dim_Producto\Guardar Producto 2"
-          TopLeft="840,525" />
-        <NodeLayout
-          Size="197,42"
-          Id="Package\Dim_Producto\datos de producto activo"
-          TopLeft="51,382" />
-        <NodeLayout
-          Size="211,42"
-          Id="Package\Dim_Producto\Producto activo a inactivo 2"
-          TopLeft="664,273" />
-        <NodeLayout
-          Size="231,42"
-          Id="Package\Dim_Producto\Verificar si ya existe el producto"
-          TopLeft="317,176" />
-        <NodeLayout
-          Size="144,42"
-          Id="Package\Dim_Producto\guardar error"
-          TopLeft="644,163" />
-        <NodeLayout
-          Size="177,42"
-          Id="Package\Dim_Producto\Conversión de datos"
-          TopLeft="214,541" />
-        <NodeLayout
-          Size="148,42"
-          Id="Package\Dim_Producto\Describir error"
-          TopLeft="643,91" />
-        <NodeLayout
-          Size="147,42"
-          Id="Package\Dim_Producto\Unión de todo"
-          TopLeft="223,473" />
-        <NodeLayout
-          Size="203,42"
-          Id="Package\Dim_Producto\Actualizar Registro en DW"
-          TopLeft="200,622" />
-        <NodeLayout
-          Size="191,42"
-          Id="Package\Dim_Producto\datos producto inactivo"
-          TopLeft="349,378" />
         <EdgeLayout
-          Id="Package\Dim_Producto.Paths[Salida de entradas no coincidentes de búsqueda]"
-          TopLeft="469.666666666667,218">
+          Id="Package\Dim_Producto.Paths[Salida de columna derivada2]"
+          TopLeft="924.25,403">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="299.833333333333,55"
+              EndConnector="0,34"
               Start="0,0"
-              End="299.833333333333,47.5">
+              End="0,26.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,18.2269991401548" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,18.2269991401548"
-                    Point2="0,22.2269991401548"
-                    Point3="4,22.2269991401548" />
-                  <mssgle:LineSegment
-                    End="295.833333333333,22.2269991401548" />
-                  <mssgle:CubicBezierSegment
-                    Point1="295.833333333333,22.2269991401548"
-                    Point2="299.833333333333,22.2269991401548"
-                    Point3="299.833333333333,26.2269991401548" />
-                  <mssgle:LineSegment
-                    End="299.833333333333,47.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="44.0276432291665,27.2269991401548,211.778046875,10.1953125"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Dim_Producto.Paths[Salida de entradas coincidentes de búsqueda]"
-          TopLeft="395.333333333333,218">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="-104.333333333333,62"
-              Start="0,0"
-              End="-104.333333333333,54.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,21.0558899398108" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,21.0558899398108"
-                    Point2="0,25.0558899398108"
-                    Point3="-4,25.0558899398108" />
-                  <mssgle:LineSegment
-                    End="-100.333333333333,25.0558899398108" />
-                  <mssgle:CubicBezierSegment
-                    Point1="-100.333333333333,25.0558899398108"
-                    Point2="-104.333333333333,25.0558899398108"
-                    Point3="-104.333333333333,29.0558899398108" />
-                  <mssgle:LineSegment
-                    End="-104.333333333333,54.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="-150.985690104167,30.0558899398108,197.638046875,10.1953125"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Dim_Producto.Paths[Salida de conversión de datos]"
-          TopLeft="302,583">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,39"
-              Start="0,0"
-              End="0,31.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,31.5" />
+                    End="0,26.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -4284,7 +4402,7 @@ FROM            DetalleVenta INNER JOIN
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package\Dim_Producto.Paths[Salida de columna derivada2]"
+          Id="Package\Dim_Producto.Paths[Salida de columna derivada1]"
           TopLeft="149.5,424">
           <EdgeLayout.Curve>
             <mssgle:Curve
@@ -4318,7 +4436,7 @@ FROM            DetalleVenta INNER JOIN
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package\Dim_Producto.Paths[Salida de columna derivada1]"
+          Id="Package\Dim_Producto.Paths[Salida de columna derivada]"
           TopLeft="444.5,420">
           <EdgeLayout.Curve>
             <mssgle:Curve
@@ -4352,25 +4470,39 @@ FROM            DetalleVenta INNER JOIN
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package\Dim_Producto.Paths[Salida de columna derivada]"
-          TopLeft="716.5,133">
+          Id="Package\Dim_Producto.Paths[producto Inactivo1]"
+          TopLeft="803.333333333333,315">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,30"
+              EndConnector="121.166666666667,46"
               Start="0,0"
-              End="0,22.5">
+              End="121.166666666667,38.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,22.5" />
+                    End="0,14.6077140169332" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,14.6077140169332"
+                    Point2="0,18.6077140169332"
+                    Point3="4,18.6077140169332" />
+                  <mssgle:LineSegment
+                    End="117.166666666667,18.6077140169332" />
+                  <mssgle:CubicBezierSegment
+                    Point1="117.166666666667,18.6077140169332"
+                    Point2="121.166666666667,18.6077140169332"
+                    Point3="121.166666666667,22.6077140169332" />
+                  <mssgle:LineSegment
+                    End="121.166666666667,38.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="22.3596809895834,23.6077140169332,76.4473046875,9.609375"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -4551,70 +4683,98 @@ FROM            DetalleVenta INNER JOIN
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="171,42"
-          Id="Package\Dim_Producto\crear fila de estado"
-          TopLeft="839,361" />
         <EdgeLayout
-          Id="Package\Dim_Producto.Paths[producto Inactivo1]"
-          TopLeft="803.333333333333,315">
+          Id="Package\Dim_Producto.Paths[Salida de origen de OLE DB]"
+          TopLeft="425.75,60">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="121.166666666667,46"
+              EndConnector="0,31"
               Start="0,0"
-              End="121.166666666667,38.5">
+              End="0,23.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,14.6077140169332" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,14.6077140169332"
-                    Point2="0,18.6077140169332"
-                    Point3="4,18.6077140169332" />
-                  <mssgle:LineSegment
-                    End="117.166666666667,18.6077140169332" />
-                  <mssgle:CubicBezierSegment
-                    Point1="117.166666666667,18.6077140169332"
-                    Point2="121.166666666667,18.6077140169332"
-                    Point3="121.166666666667,22.6077140169332" />
-                  <mssgle:LineSegment
-                    End="121.166666666667,38.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="22.3596809895834,23.6077140169332,76.4473046875,9.609375"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <NodeLayout
-          Size="186,42"
-          Id="Package\Dim_Producto\Conversión de datos 1"
-          TopLeft="831,437" />
-        <EdgeLayout
-          Id="Package\Dim_Producto.Paths[Salida de columna derivada3]"
-          TopLeft="924.25,403">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,34"
-              Start="0,0"
-              End="0,26.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,26.5" />
+                    End="0,23.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Dim_Producto.Paths[Salida de entradas no coincidentes de búsqueda]"
+          TopLeft="469.666666666667,218">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="299.833333333333,55"
+              Start="0,0"
+              End="299.833333333333,47.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,18.2269991401548" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,18.2269991401548"
+                    Point2="0,22.2269991401548"
+                    Point3="4,22.2269991401548" />
+                  <mssgle:LineSegment
+                    End="295.833333333333,22.2269991401548" />
+                  <mssgle:CubicBezierSegment
+                    Point1="295.833333333333,22.2269991401548"
+                    Point2="299.833333333333,22.2269991401548"
+                    Point3="299.833333333333,26.2269991401548" />
+                  <mssgle:LineSegment
+                    End="299.833333333333,47.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="44.0276432291665,27.2269991401548,211.778046875,10.1953125"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Dim_Producto.Paths[Salida de entradas coincidentes de búsqueda]"
+          TopLeft="395.333333333333,218">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-104.333333333333,62"
+              Start="0,0"
+              End="-104.333333333333,54.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,21.0558899398108" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,21.0558899398108"
+                    Point2="0,25.0558899398108"
+                    Point3="-4,25.0558899398108" />
+                  <mssgle:LineSegment
+                    End="-100.333333333333,25.0558899398108" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-100.333333333333,25.0558899398108"
+                    Point2="-104.333333333333,25.0558899398108"
+                    Point3="-104.333333333333,29.0558899398108" />
+                  <mssgle:LineSegment
+                    End="-104.333333333333,54.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-150.985690104167,30.0558899398108,197.638046875,10.1953125"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -4639,24 +4799,42 @@ FROM            DetalleVenta INNER JOIN
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="173,42"
-          Id="Package\Dim_Producto\Fuente de producto"
-          TopLeft="338,18" />
         <EdgeLayout
-          Id="Package\Dim_Producto.Paths[Salida de origen de OLE DB]"
-          TopLeft="425.75,60">
+          Id="Package\Dim_Producto.Paths[Salida de conversión de datos]"
+          TopLeft="302,583">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,31"
+              EndConnector="0,39"
               Start="0,0"
-              End="0,23.5">
+              End="0,31.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,23.5" />
+                    End="0,31.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Dim_Producto.Paths[Salida de columna derivada3]"
+          TopLeft="716.5,133">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,30"
+              Start="0,0"
+              End="0,22.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,22.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -4669,7 +4847,7 @@ FROM            DetalleVenta INNER JOIN
     </LayoutInfo>
   </TaskHost>
   <PipelineComponentMetadata
-    design-time-name="Package\Dim_Producto\Guardar Producto">
+    design-time-name="Package\Dim_Producto\Guardar Producto 2">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
@@ -4682,7 +4860,15 @@ FROM            DetalleVenta INNER JOIN
     </Properties>
   </PipelineComponentMetadata>
   <PipelineComponentMetadata
-    design-time-name="Package\Dim_Producto\Guardar Producto 2">
+    design-time-name="Package\Dim_Producto\Fuente de producto">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Dim_Producto\guardar error">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
@@ -4718,7 +4904,7 @@ FROM            DetalleVenta INNER JOIN
     </Properties>
   </PipelineComponentMetadata>
   <PipelineComponentMetadata
-    design-time-name="Package\Dim_Producto\guardar error">
+    design-time-name="Package\Dim_Producto\Guardar Producto">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
@@ -4736,33 +4922,37 @@ FROM            DetalleVenta INNER JOIN
       <GraphLayout
         Capacity="32" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
-          Size="142,42"
-          Id="Package\Fact_Envios\Crear error 2"
-          TopLeft="123,443" />
-        <NodeLayout
           Size="154,42"
           Id="Package\Fact_Envios\Guardar error 2"
           TopLeft="115,544" />
         <NodeLayout
-          Size="154,42"
-          Id="Package\Fact_Envios\Guardar error 1"
-          TopLeft="763,251" />
-        <NodeLayout
-          Size="148,42"
-          Id="Package\Fact_Envios\Guardar Envio"
-          TopLeft="567,492" />
-        <NodeLayout
-          Size="142,42"
-          Id="Package\Fact_Envios\Crear error 1"
-          TopLeft="662,130" />
+          Size="147,42"
+          Id="Package\Fact_Envios\Unión de todo"
+          TopLeft="113,340" />
         <NodeLayout
           Size="169,42"
           Id="Package\Fact_Envios\Verificar datos null"
           TopLeft="317,128" />
         <NodeLayout
+          Size="148,42"
+          Id="Package\Fact_Envios\Guardar Envio"
+          TopLeft="567,590" />
+        <NodeLayout
+          Size="142,42"
+          Id="Package\Fact_Envios\Crear error 1"
+          TopLeft="662,130" />
+        <NodeLayout
           Size="172,42"
           Id="Package\Fact_Envios\Búsqueda producto"
           TopLeft="313,228" />
+        <NodeLayout
+          Size="142,42"
+          Id="Package\Fact_Envios\Crear error 2"
+          TopLeft="123,443" />
+        <NodeLayout
+          Size="154,42"
+          Id="Package\Fact_Envios\Guardar error 1"
+          TopLeft="763,251" />
         <NodeLayout
           Size="146,42"
           Id="Package\Fact_Envios\Fuente envios"
@@ -4772,9 +4962,9 @@ FROM            DetalleVenta INNER JOIN
           Id="Package\Fact_Envios\Búsqueda Cliente"
           TopLeft="561,342" />
         <NodeLayout
-          Size="147,42"
-          Id="Package\Fact_Envios\Unión de todo"
-          TopLeft="113,340" />
+          Size="177,42"
+          Id="Package\Fact_Envios\Conversión de datos"
+          TopLeft="556,423" />
         <EdgeLayout
           Id="Package\Fact_Envios.Paths[Salida de columna derivada1]"
           TopLeft="733,172">
@@ -4829,6 +5019,54 @@ FROM            DetalleVenta INNER JOIN
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Fact_Envios.Paths[hay datos nulos]"
+          TopLeft="486,150">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="176,0"
+              Start="0,0"
+              End="168.5,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="168.5,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="49.96580078125,5,68.5683984375,9.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Fact_Envios.Paths[sin datos nulos]"
+          TopLeft="400.25,170">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,58"
+              Start="0,0"
+              End="0,50.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,50.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-32.71265625,21.37548828125,65.4253125,7.7490234375"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -4936,6 +5174,30 @@ FROM            DetalleVenta INNER JOIN
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
+          Id="Package\Fact_Envios.Paths[Salida de entradas coincidentes de búsqueda1]"
+          TopLeft="643.25,384">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,39"
+              Start="0,0"
+              End="0,31.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,31.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-98.8190234375,10.65234375,197.638046875,10.1953125"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
           Id="Package\Fact_Envios.Paths[Salida de entradas coincidentes de búsqueda]"
           TopLeft="426.333333333333,270">
           <EdgeLayout.Curve>
@@ -4971,76 +5233,52 @@ FROM            DetalleVenta INNER JOIN
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
+        <NodeLayout
+          Size="168,42"
+          Id="Package\Fact_Envios\Crear id de tiempo"
+          TopLeft="562,507" />
         <EdgeLayout
-          Id="Package\Fact_Envios.Paths[sin datos nulos]"
-          TopLeft="400.25,170">
+          Id="Package\Fact_Envios.Paths[Salida de conversión de datos]"
+          TopLeft="645.25,465">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,58"
+              EndConnector="0,42"
               Start="0,0"
-              End="0,50.5">
+              End="0,34.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,50.5" />
+                    End="0,34.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="-32.71265625,21.37548828125,65.4253125,7.7490234375"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package\Fact_Envios.Paths[hay datos nulos]"
-          TopLeft="486,150">
+          Id="Package\Fact_Envios.Paths[Salida de columna derivada2]"
+          TopLeft="643.5,549">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="176,0"
+              EndConnector="0,41"
               Start="0,0"
-              End="168.5,0">
+              End="0,33.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="168.5,0" />
+                    End="0,33.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="49.96580078125,5,68.5683984375,9.609375"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Fact_Envios.Paths[Salida de entradas coincidentes de búsqueda1]"
-          TopLeft="641.5,384">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,108"
-              Start="0,0"
-              End="0,100.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,100.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="-98.8190234375,45.15234375,197.638046875,10.1953125"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
@@ -5048,19 +5286,6 @@ FROM            DetalleVenta INNER JOIN
   </TaskHost>
   <PipelineComponentMetadata
     design-time-name="Package\Fact_Envios\Guardar error 2">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q2:string">Table</Value>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\Fact_Envios\Guardar error 1">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
@@ -5091,7 +5316,7 @@ FROM            DetalleVenta INNER JOIN
       <Property>
         <Name>OverwriteParamsSQLProp</Name>
         <Value
-          type="q2:boolean">false</Value>
+          type="q2:string">false</Value>
       </Property>
       <Property>
         <Name>UsedTableName</Name>
@@ -5101,10 +5326,23 @@ FROM            DetalleVenta INNER JOIN
       <Property>
         <Name>TableInfoObjectType</Name>
         <Value
-          type="q4:int">0</Value>
+          type="q4:string">0</Value>
       </Property>
       <Property>
         <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Fact_Envios\Guardar error 1">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
       </Property>
     </Properties>
   </PipelineComponentMetadata>
@@ -5134,14 +5372,6 @@ FROM            DetalleVenta INNER JOIN
         <Value
           type="q4:int">0</Value>
       </Property>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\Dim_Producto\Fuente de producto">
-    <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
       </Property>
