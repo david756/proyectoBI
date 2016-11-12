@@ -26,7 +26,7 @@
           <SSIS:Property SSIS:Name="CreatorComputerName">WJGIRALDO-PC</SSIS:Property>
           <SSIS:Property SSIS:Name="Description">
           </SSIS:Property>
-          <SSIS:Property SSIS:Name="PasswordVerifier" SSIS:Sensitive="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAQZ5Gmhp1IkuL2jsp3R2x/QAAAAACAAAAAAAQZgAAAAEAACAAAABXeZ5RGaxurhfuOzVVPLLThUM8p9LU4l1pAylHafwwRwAAAAAOgAAAAAIAACAAAAAMNWeaJ3gDN7oCKQkewZSRRn+AgwTb1zr/vHd4iDMA7pAAAAD3FE3Q0IFmZgcqSgqB4SjPltafL861S544jVFi4Eh+6axr7XaJOvvuWxhJCgcx52wC4+tCpuNBpva9AC9S1tu5DTwwCO+9JkSxPkhUgoytVltXGZG/Nn9KjPVDcHB1ycfZXPPL2XqlFM8gZoYu08zE+RPwZyZ9xMdTBK9E4fVsy9+QOsL7OvIk9ap0zeg85vZAAAAAA+21M69/9YSU7MeEOfbR24gsLiwsko+kHy7yn0xn8BjLS5M72ZU7bgyrCq7RnqMEhDpSiIyJ08YtL1rmYE4TAw==</SSIS:Property>
+          <SSIS:Property SSIS:Name="PasswordVerifier" SSIS:Sensitive="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAQZ5Gmhp1IkuL2jsp3R2x/QAAAAACAAAAAAAQZgAAAAEAACAAAAAhTMrOUjy4yPq5MSVJuNeHEfMBdXqK7wr/P9rZb8Np5wAAAAAOgAAAAAIAACAAAAB/EIYVqk9tbp0AOZ819GGXahUKJMOf/2M7rWYjmjw23ZAAAABukY7DReLa2N4Ai2/6PifvgExtUWdke/ZmXqFZGDjC+X+jXf6ndGLCQuYuS6QaRVCdUiVpUwNR+G3QNWMrmMUu6wmVl0bNaPTjl4zTN+g1vN4EocyyB1dctXDT3H8xtN5K3R3ZkSjPdq3zNVCH6Ag/36exaXvh+O2ZMvU3QwcmV1fGDWFJvoOOPZ3yVd1+eUVAAAAAVtSDmOnjoEDdxGoS9VBCaqxxux6jtcb1qxQXM3Vs+NsEMy9Ra3DxDoLKSTPfFWBJ65yQEkOGzJt0M6VPXUyNig==</SSIS:Property>
           <SSIS:Property SSIS:Name="FormatVersion">1</SSIS:Property>
         </SSIS:Properties>
         <SSIS:Packages>
@@ -226,7 +226,7 @@
                 <SSIS:Property SSIS:Name="IncludeInDebugDump">0</SSIS:Property>
                 <SSIS:Property SSIS:Name="Required">0</SSIS:Property>
                 <SSIS:Property SSIS:Name="Sensitive">0</SSIS:Property>
-                <SSIS:Property SSIS:Name="Value">Provider=Microsoft.Jet.OLEDB.4.0;Data Source=C:\Users\wjGiraldo\Desktop\proyectobi\Parcial ETL\log Errrores.xls;Extended Properties="Excel 8.0;HDR=YES";</SSIS:Property>
+                <SSIS:Property SSIS:Name="Value">Provider=Microsoft.Jet.OLEDB.4.0;Data Source=C:\Users\wjGiraldo\Desktop\proyectobi\Parcial ETL\log Errrores.xls;Extended Properties="EXCEL 8.0;HDR=YES";</SSIS:Property>
                 <SSIS:Property SSIS:Name="DataType">18</SSIS:Property>
               </SSIS:Properties>
             </SSIS:Parameter>
@@ -340,10 +340,10 @@
                 <SSIS:Property SSIS:Name="Name">Package</SSIS:Property>
                 <SSIS:Property SSIS:Name="VersionMajor">1</SSIS:Property>
                 <SSIS:Property SSIS:Name="VersionMinor">0</SSIS:Property>
-                <SSIS:Property SSIS:Name="VersionBuild">16</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionBuild">15</SSIS:Property>
                 <SSIS:Property SSIS:Name="VersionComments">
                 </SSIS:Property>
-                <SSIS:Property SSIS:Name="VersionGUID">{689C3A08-FCDE-468D-A34D-C4C2A531B6A4}</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionGUID">{FAD9528D-81A2-443B-88F8-C6C84D60C661}</SSIS:Property>
                 <SSIS:Property SSIS:Name="PackageFormatVersion">6</SSIS:Property>
                 <SSIS:Property SSIS:Name="Description">
                 </SSIS:Property>
@@ -366,13 +366,7 @@
         <ConnectionProviderMappings />
         <ConnectionSecurityMappings />
         <DatabaseStorageLocations />
-        <ParameterConfigurationValues>
-          <ConfigurationSetting>
-            <Id>LastModifiedTime</Id>
-            <Name>LastModifiedTime</Name>
-            <Value xsi:type="xsd:dateTime">2016-11-12T01:41:04.0836895Z</Value>
-          </ConfigurationSetting>
-        </ParameterConfigurationValues>
+        <ParameterConfigurationValues />
       </Options>
     </Configuration>
   </Configurations>

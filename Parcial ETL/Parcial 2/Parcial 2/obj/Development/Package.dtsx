@@ -1,4 +1,4 @@
-﻿<?xml version="1.0"?>
+<?xml version="1.0"?>
 <DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
   DTS:refId="Package"
   DTS:CreationDate="11/11/2016 10:07:07 AM"
@@ -11,8 +11,8 @@
   DTS:LocaleID="3082"
   DTS:ObjectName="Package"
   DTS:PackageType="5"
-  DTS:VersionBuild="16"
-  DTS:VersionGUID="{689C3A08-FCDE-468D-A34D-C4C2A531B6A4}">
+  DTS:VersionBuild="15"
+  DTS:VersionGUID="{FAD9528D-81A2-443B-88F8-C6C84D60C661}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">6</DTS:Property>
   <DTS:Variables />
@@ -2288,54 +2288,54 @@ where [refTable].[idProducto] = ?</property>
               startId="Package\Dim_Producto\Validar datos null.Outputs[Hay datos null]" />
             <path
               refId="Package\Dim_Producto.Paths[Producto activo1]"
-              endId="Package\Dim_Producto\Guardar Producto.Inputs[Entrada de destino de OLE DB]"
-              name="Producto activo"
-              startId="Package\Dim_Producto\Producto activo a inactivo 2.Outputs[Producto activo]" />
-            <path
-              refId="Package\Dim_Producto.Paths[Producto activo]"
               endId="Package\Dim_Producto\datos de producto activo.Inputs[Entrada de columna derivada]"
               name="Producto activo"
               startId="Package\Dim_Producto\Producto activo o inactivo.Outputs[Producto activo]" />
             <path
-              refId="Package\Dim_Producto.Paths[producto Inactivo1]"
-              endId="Package\Dim_Producto\crear fila de estado.Inputs[Entrada de columna derivada]"
-              name="producto Inactivo"
-              startId="Package\Dim_Producto\Producto activo a inactivo 2.Outputs[producto Inactivo]" />
+              refId="Package\Dim_Producto.Paths[Producto activo]"
+              endId="Package\Dim_Producto\Guardar Producto.Inputs[Entrada de destino de OLE DB]"
+              name="Producto activo"
+              startId="Package\Dim_Producto\Producto activo a inactivo 2.Outputs[Producto activo]" />
             <path
-              refId="Package\Dim_Producto.Paths[producto Inactivo]"
+              refId="Package\Dim_Producto.Paths[producto Inactivo1]"
               endId="Package\Dim_Producto\datos producto inactivo.Inputs[Entrada de columna derivada]"
               name="producto Inactivo"
               startId="Package\Dim_Producto\Producto activo o inactivo.Outputs[producto Inactivo]" />
             <path
-              refId="Package\Dim_Producto.Paths[Salida de columna derivada3]"
-              endId="Package\Dim_Producto\Conversión de datos 1.Inputs[Entrada de conversión de datos]"
-              name="Salida de columna derivada"
-              startId="Package\Dim_Producto\crear fila de estado.Outputs[Salida de columna derivada]" />
+              refId="Package\Dim_Producto.Paths[producto Inactivo]"
+              endId="Package\Dim_Producto\crear fila de estado.Inputs[Entrada de columna derivada]"
+              name="producto Inactivo"
+              startId="Package\Dim_Producto\Producto activo a inactivo 2.Outputs[producto Inactivo]" />
             <path
-              refId="Package\Dim_Producto.Paths[Salida de columna derivada]"
-              endId="Package\Dim_Producto\guardar error.Inputs[Entrada de destino de Excel]"
-              name="Salida de columna derivada"
-              startId="Package\Dim_Producto\Describir error.Outputs[Salida de columna derivada]" />
-            <path
-              refId="Package\Dim_Producto.Paths[Salida de columna derivada1]"
+              refId="Package\Dim_Producto.Paths[Salida de columna derivada2]"
               endId="Package\Dim_Producto\Unión de todo.Inputs[Entrada de Unión de todo 1]"
               name="Salida de columna derivada"
               startId="Package\Dim_Producto\datos producto inactivo.Outputs[Salida de columna derivada]" />
             <path
-              refId="Package\Dim_Producto.Paths[Salida de columna derivada2]"
+              refId="Package\Dim_Producto.Paths[Salida de columna derivada3]"
               endId="Package\Dim_Producto\Unión de todo.Inputs[Entrada de Unión de todo 2]"
               name="Salida de columna derivada"
               startId="Package\Dim_Producto\datos de producto activo.Outputs[Salida de columna derivada]" />
             <path
-              refId="Package\Dim_Producto.Paths[Salida de conversión de datos1]"
-              endId="Package\Dim_Producto\Guardar Producto 2.Inputs[Entrada de destino de OLE DB]"
-              name="Salida de conversión de datos"
-              startId="Package\Dim_Producto\Conversión de datos 1.Outputs[Salida de conversión de datos]" />
+              refId="Package\Dim_Producto.Paths[Salida de columna derivada]"
+              endId="Package\Dim_Producto\Conversión de datos 1.Inputs[Entrada de conversión de datos]"
+              name="Salida de columna derivada"
+              startId="Package\Dim_Producto\crear fila de estado.Outputs[Salida de columna derivada]" />
             <path
-              refId="Package\Dim_Producto.Paths[Salida de conversión de datos]"
+              refId="Package\Dim_Producto.Paths[Salida de columna derivada1]"
+              endId="Package\Dim_Producto\guardar error.Inputs[Entrada de destino de Excel]"
+              name="Salida de columna derivada"
+              startId="Package\Dim_Producto\Describir error.Outputs[Salida de columna derivada]" />
+            <path
+              refId="Package\Dim_Producto.Paths[Salida de conversión de datos1]"
               endId="Package\Dim_Producto\Actualizar Registro en DW.Inputs[Entrada de comando de OLE DB]"
               name="Salida de conversión de datos"
               startId="Package\Dim_Producto\Conversión de datos.Outputs[Salida de conversión de datos]" />
+            <path
+              refId="Package\Dim_Producto.Paths[Salida de conversión de datos]"
+              endId="Package\Dim_Producto\Guardar Producto 2.Inputs[Entrada de destino de OLE DB]"
+              name="Salida de conversión de datos"
+              startId="Package\Dim_Producto\Conversión de datos 1.Outputs[Salida de conversión de datos]" />
             <path
               refId="Package\Dim_Producto.Paths[Salida de entradas coincidentes de búsqueda]"
               endId="Package\Dim_Producto\Producto activo o inactivo.Inputs[Entrada de división condicional]"
@@ -2415,7 +2415,7 @@ where [refTable].[idCliente] = ?</property>
                   dataType="System.Int32"
                   description="Especifica cómo la transformación de búsquedas trata las filas sin entradas coincidentes en el conjunto de datos de referencia."
                   name="NoMatchBehavior"
-                  typeConverter="LookupNoMatchBehavior">1</property>
+                  typeConverter="LookupNoMatchBehavior">0</property>
                 <property
                   dataType="System.Int32"
                   description="Especifica el porcentaje de la caché asignado a las filas sin entradas coincidentes en el conjunto de datos de referencia."
@@ -2483,6 +2483,7 @@ where [refTable].[idCliente] = ?</property>
                 <output
                   refId="Package\Fact_Envios\Búsqueda Cliente.Outputs[Salida de entradas coincidentes de búsqueda]"
                   errorOrTruncationOperation="Búsqueda"
+                  errorRowDisposition="FailComponent"
                   exclusionGroup="1"
                   name="Salida de entradas coincidentes de búsqueda"
                   synchronousInputId="Package\Fact_Envios\Búsqueda Cliente.Inputs[Entrada de búsqueda]">
@@ -2572,7 +2573,7 @@ where [refTable].[idProducto] = ?</property>
                   dataType="System.Int32"
                   description="Especifica cómo la transformación de búsquedas trata las filas sin entradas coincidentes en el conjunto de datos de referencia."
                   name="NoMatchBehavior"
-                  typeConverter="LookupNoMatchBehavior">1</property>
+                  typeConverter="LookupNoMatchBehavior">0</property>
                 <property
                   dataType="System.Int32"
                   description="Especifica el porcentaje de la caché asignado a las filas sin entradas coincidentes en el conjunto de datos de referencia."
@@ -2640,6 +2641,7 @@ where [refTable].[idProducto] = ?</property>
                 <output
                   refId="Package\Fact_Envios\Búsqueda producto.Outputs[Salida de entradas coincidentes de búsqueda]"
                   errorOrTruncationOperation="Búsqueda"
+                  errorRowDisposition="FailComponent"
                   exclusionGroup="1"
                   name="Salida de entradas coincidentes de búsqueda"
                   synchronousInputId="Package\Fact_Envios\Búsqueda producto.Inputs[Entrada de búsqueda]">
@@ -3246,6 +3248,24 @@ FROM            DetalleVenta INNER JOIN
                   name="Entrada de destino de OLE DB">
                   <inputColumns>
                     <inputColumn
+                      refId="Package\Fact_Envios\Guardar Envio.Inputs[Entrada de destino de OLE DB].Columns[numeroOrden]"
+                      cachedDataType="i4"
+                      cachedName="numeroOrden"
+                      externalMetadataColumnId="Package\Fact_Envios\Guardar Envio.Inputs[Entrada de destino de OLE DB].ExternalColumns[numeroOrden]"
+                      lineageId="Package\Fact_Envios\Fuente envios.Outputs[Salida de origen de OLE DB].Columns[numeroOrden]" />
+                    <inputColumn
+                      refId="Package\Fact_Envios\Guardar Envio.Inputs[Entrada de destino de OLE DB].Columns[cantidad]"
+                      cachedDataType="i4"
+                      cachedName="cantidad"
+                      externalMetadataColumnId="Package\Fact_Envios\Guardar Envio.Inputs[Entrada de destino de OLE DB].ExternalColumns[cantidad]"
+                      lineageId="Package\Fact_Envios\Fuente envios.Outputs[Salida de origen de OLE DB].Columns[cantidad]" />
+                    <inputColumn
+                      refId="Package\Fact_Envios\Guardar Envio.Inputs[Entrada de destino de OLE DB].Columns[fecha]"
+                      cachedDataType="dbDate"
+                      cachedName="fecha"
+                      externalMetadataColumnId="Package\Fact_Envios\Guardar Envio.Inputs[Entrada de destino de OLE DB].ExternalColumns[Fecha]"
+                      lineageId="Package\Fact_Envios\Fuente envios.Outputs[Salida de origen de OLE DB].Columns[fecha]" />
+                    <inputColumn
                       refId="Package\Fact_Envios\Guardar Envio.Inputs[Entrada de destino de OLE DB].Columns[productoKey]"
                       cachedDataType="i4"
                       cachedName="productoKey"
@@ -3258,29 +3278,19 @@ FROM            DetalleVenta INNER JOIN
                       externalMetadataColumnId="Package\Fact_Envios\Guardar Envio.Inputs[Entrada de destino de OLE DB].ExternalColumns[Cliente]"
                       lineageId="Package\Fact_Envios\Búsqueda Cliente.Outputs[Salida de entradas coincidentes de búsqueda].Columns[clienteKey]" />
                     <inputColumn
-                      refId="Package\Fact_Envios\Guardar Envio.Inputs[Entrada de destino de OLE DB].Columns[numeroOrden]"
-                      cachedDataType="i4"
-                      cachedName="numeroOrden"
-                      externalMetadataColumnId="Package\Fact_Envios\Guardar Envio.Inputs[Entrada de destino de OLE DB].ExternalColumns[numeroOrden]"
-                      lineageId="Package\Fact_Envios\Fuente envios.Outputs[Salida de origen de OLE DB].Columns[numeroOrden]" />
-                    <inputColumn
-                      refId="Package\Fact_Envios\Guardar Envio.Inputs[Entrada de destino de OLE DB].Columns[fecha]"
-                      cachedDataType="dbDate"
-                      cachedName="fecha"
-                      externalMetadataColumnId="Package\Fact_Envios\Guardar Envio.Inputs[Entrada de destino de OLE DB].ExternalColumns[estado]"
-                      lineageId="Package\Fact_Envios\Fuente envios.Outputs[Salida de origen de OLE DB].Columns[fecha]" />
-                    <inputColumn
-                      refId="Package\Fact_Envios\Guardar Envio.Inputs[Entrada de destino de OLE DB].Columns[cantidad]"
-                      cachedDataType="i4"
-                      cachedName="cantidad"
-                      externalMetadataColumnId="Package\Fact_Envios\Guardar Envio.Inputs[Entrada de destino de OLE DB].ExternalColumns[cantidad]"
-                      lineageId="Package\Fact_Envios\Fuente envios.Outputs[Salida de origen de OLE DB].Columns[cantidad]" />
-                    <inputColumn
                       refId="Package\Fact_Envios\Guardar Envio.Inputs[Entrada de destino de OLE DB].Columns[precioUnitario]"
                       cachedDataType="r8"
                       cachedName="precioUnitario"
                       externalMetadataColumnId="Package\Fact_Envios\Guardar Envio.Inputs[Entrada de destino de OLE DB].ExternalColumns[precioUnidad]"
                       lineageId="Package\Fact_Envios\Fuente envios.Outputs[Salida de origen de OLE DB].Columns[precioUnitario]" />
+                    <inputColumn
+                      refId="Package\Fact_Envios\Guardar Envio.Inputs[Entrada de destino de OLE DB].Columns[descripcionEstadoVenta]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="descripcionEstadoVenta"
+                      externalMetadataColumnId="Package\Fact_Envios\Guardar Envio.Inputs[Entrada de destino de OLE DB].ExternalColumns[estado]"
+                      lineageId="Package\Fact_Envios\Fuente envios.Outputs[Salida de origen de OLE DB].Columns[descripcionEstadoVenta]" />
                   </inputColumns>
                   <externalMetadataColumns
                     isUsed="True">
@@ -3507,7 +3517,7 @@ FROM            DetalleVenta INNER JOIN
                 <property
                   dataType="System.String"
                   description="Especifica el nombre del objeto de base de datos usado para abrir un conjunto de filas."
-                  name="OpenRowset">Errores$</property>
+                  name="OpenRowset"></property>
                 <property
                   dataType="System.String"
                   description="Especifica la variable que contiene el nombre del objeto de base de datos usado para abrir un conjunto de filas."
@@ -3542,8 +3552,6 @@ FROM            DetalleVenta INNER JOIN
               <connections>
                 <connection
                   refId="Package\Fact_Envios\Guardar error 2.Connections[OleDbConnection]"
-                  connectionManagerID="{932EBE88-10F9-4396-8220-D4469FFE397E}:external"
-                  connectionManagerRefId="Project.ConnectionManagers[Administrador de conexiones con Excel]"
                   description="La conexión de tiempo de ejecución OLE DB usada para obtener acceso a la base de datos."
                   name="OleDbConnection" />
               </connections>
@@ -3554,66 +3562,8 @@ FROM            DetalleVenta INNER JOIN
                   errorRowDisposition="FailComponent"
                   hasSideEffects="true"
                   name="Entrada de destino de Excel">
-                  <inputColumns>
-                    <inputColumn
-                      refId="Package\Fact_Envios\Guardar error 2.Inputs[Entrada de destino de Excel].Columns[error]"
-                      cachedDataType="wstr"
-                      cachedLength="17"
-                      cachedName="error"
-                      externalMetadataColumnId="Package\Fact_Envios\Guardar error 2.Inputs[Entrada de destino de Excel].ExternalColumns[Error]"
-                      lineageId="Package\Fact_Envios\Crear error 2.Outputs[Salida de columna derivada].Columns[error]" />
-                    <inputColumn
-                      refId="Package\Fact_Envios\Guardar error 2.Inputs[Entrada de destino de Excel].Columns[descripcion]"
-                      cachedDataType="wstr"
-                      cachedLength="39"
-                      cachedName="descripcion"
-                      externalMetadataColumnId="Package\Fact_Envios\Guardar error 2.Inputs[Entrada de destino de Excel].ExternalColumns[Descripcion]"
-                      lineageId="Package\Fact_Envios\Crear error 2.Outputs[Salida de columna derivada].Columns[descripcion]" />
-                    <inputColumn
-                      refId="Package\Fact_Envios\Guardar error 2.Inputs[Entrada de destino de Excel].Columns[fecha]"
-                      cachedDataType="dbTimeStamp"
-                      cachedName="fecha"
-                      externalMetadataColumnId="Package\Fact_Envios\Guardar error 2.Inputs[Entrada de destino de Excel].ExternalColumns[Fecha]"
-                      lineageId="Package\Fact_Envios\Crear error 2.Outputs[Salida de columna derivada].Columns[fecha]" />
-                  </inputColumns>
                   <externalMetadataColumns
-                    isUsed="True">
-                    <externalMetadataColumn
-                      refId="Package\Fact_Envios\Guardar error 2.Inputs[Entrada de destino de Excel].ExternalColumns[Fecha]"
-                      dataType="wstr"
-                      length="255"
-                      name="Fecha" />
-                    <externalMetadataColumn
-                      refId="Package\Fact_Envios\Guardar error 2.Inputs[Entrada de destino de Excel].ExternalColumns[Error]"
-                      dataType="wstr"
-                      length="255"
-                      name="Error" />
-                    <externalMetadataColumn
-                      refId="Package\Fact_Envios\Guardar error 2.Inputs[Entrada de destino de Excel].ExternalColumns[Descripcion]"
-                      dataType="wstr"
-                      length="255"
-                      name="Descripcion" />
-                    <externalMetadataColumn
-                      refId="Package\Fact_Envios\Guardar error 2.Inputs[Entrada de destino de Excel].ExternalColumns[Auxiliar 1]"
-                      dataType="wstr"
-                      length="255"
-                      name="Auxiliar 1" />
-                    <externalMetadataColumn
-                      refId="Package\Fact_Envios\Guardar error 2.Inputs[Entrada de destino de Excel].ExternalColumns[Auxiliar 2]"
-                      dataType="wstr"
-                      length="255"
-                      name="Auxiliar 2" />
-                    <externalMetadataColumn
-                      refId="Package\Fact_Envios\Guardar error 2.Inputs[Entrada de destino de Excel].ExternalColumns[Auxiliar 3]"
-                      dataType="wstr"
-                      length="255"
-                      name="Auxiliar 3" />
-                    <externalMetadataColumn
-                      refId="Package\Fact_Envios\Guardar error 2.Inputs[Entrada de destino de Excel].ExternalColumns[Auxiliar 4]"
-                      dataType="wstr"
-                      length="255"
-                      name="Auxiliar 4" />
-                  </externalMetadataColumns>
+                    isUsed="True" />
                 </input>
               </inputs>
               <outputs>
@@ -4262,7 +4212,7 @@ FROM            DetalleVenta INNER JOIN
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package\Dim_Producto.Paths[Salida de conversión de datos]"
+          Id="Package\Dim_Producto.Paths[Salida de conversión de datos1]"
           TopLeft="302,583">
           <EdgeLayout.Curve>
             <mssgle:Curve
@@ -4284,7 +4234,7 @@ FROM            DetalleVenta INNER JOIN
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package\Dim_Producto.Paths[Salida de columna derivada2]"
+          Id="Package\Dim_Producto.Paths[Salida de columna derivada3]"
           TopLeft="149.5,424">
           <EdgeLayout.Curve>
             <mssgle:Curve
@@ -4318,7 +4268,7 @@ FROM            DetalleVenta INNER JOIN
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package\Dim_Producto.Paths[Salida de columna derivada1]"
+          Id="Package\Dim_Producto.Paths[Salida de columna derivada2]"
           TopLeft="444.5,420">
           <EdgeLayout.Curve>
             <mssgle:Curve
@@ -4352,7 +4302,7 @@ FROM            DetalleVenta INNER JOIN
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package\Dim_Producto.Paths[Salida de columna derivada]"
+          Id="Package\Dim_Producto.Paths[Salida de columna derivada1]"
           TopLeft="716.5,133">
           <EdgeLayout.Curve>
             <mssgle:Curve
@@ -4374,7 +4324,7 @@ FROM            DetalleVenta INNER JOIN
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package\Dim_Producto.Paths[producto Inactivo]"
+          Id="Package\Dim_Producto.Paths[producto Inactivo1]"
           TopLeft="323.333333333333,322">
           <EdgeLayout.Curve>
             <mssgle:Curve
@@ -4410,7 +4360,7 @@ FROM            DetalleVenta INNER JOIN
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package\Dim_Producto.Paths[Producto activo1]"
+          Id="Package\Dim_Producto.Paths[Producto activo]"
           TopLeft="754.666666666667,315">
           <EdgeLayout.Curve>
             <mssgle:Curve
@@ -4446,7 +4396,7 @@ FROM            DetalleVenta INNER JOIN
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package\Dim_Producto.Paths[Producto activo]"
+          Id="Package\Dim_Producto.Paths[Producto activo1]"
           TopLeft="258.666666666667,322">
           <EdgeLayout.Curve>
             <mssgle:Curve
@@ -4556,7 +4506,7 @@ FROM            DetalleVenta INNER JOIN
           Id="Package\Dim_Producto\crear fila de estado"
           TopLeft="839,361" />
         <EdgeLayout
-          Id="Package\Dim_Producto.Paths[producto Inactivo1]"
+          Id="Package\Dim_Producto.Paths[producto Inactivo]"
           TopLeft="803.333333333333,315">
           <EdgeLayout.Curve>
             <mssgle:Curve
@@ -4596,7 +4546,7 @@ FROM            DetalleVenta INNER JOIN
           Id="Package\Dim_Producto\Conversión de datos 1"
           TopLeft="831,437" />
         <EdgeLayout
-          Id="Package\Dim_Producto.Paths[Salida de columna derivada3]"
+          Id="Package\Dim_Producto.Paths[Salida de columna derivada]"
           TopLeft="924.25,403">
           <EdgeLayout.Curve>
             <mssgle:Curve
@@ -4618,7 +4568,7 @@ FROM            DetalleVenta INNER JOIN
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package\Dim_Producto.Paths[Salida de conversión de datos1]"
+          Id="Package\Dim_Producto.Paths[Salida de conversión de datos]"
           TopLeft="925.25,479">
           <EdgeLayout.Curve>
             <mssgle:Curve
@@ -4750,7 +4700,7 @@ FROM            DetalleVenta INNER JOIN
         <NodeLayout
           Size="148,42"
           Id="Package\Fact_Envios\Guardar Envio"
-          TopLeft="567,492" />
+          TopLeft="570,479" />
         <NodeLayout
           Size="142,42"
           Id="Package\Fact_Envios\Crear error 1"
@@ -4775,6 +4725,30 @@ FROM            DetalleVenta INNER JOIN
           Size="147,42"
           Id="Package\Fact_Envios\Unión de todo"
           TopLeft="113,340" />
+        <EdgeLayout
+          Id="Package\Fact_Envios.Paths[Salida de entradas coincidentes de búsqueda1]"
+          TopLeft="643,384">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,95"
+              Start="0,0"
+              End="0,87.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,87.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-98.8190234375,38.65234375,197.638046875,10.1953125"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
         <EdgeLayout
           Id="Package\Fact_Envios.Paths[Salida de columna derivada1]"
           TopLeft="733,172">
@@ -5019,46 +4993,9 @@ FROM            DetalleVenta INNER JOIN
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Fact_Envios.Paths[Salida de entradas coincidentes de búsqueda1]"
-          TopLeft="641.5,384">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,108"
-              Start="0,0"
-              End="0,100.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,100.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="-98.8190234375,45.15234375,197.638046875,10.1953125"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
       </GraphLayout>
     </LayoutInfo>
   </TaskHost>
-  <PipelineComponentMetadata
-    design-time-name="Package\Fact_Envios\Guardar error 2">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q2:string">Table</Value>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
   <PipelineComponentMetadata
     design-time-name="Package\Fact_Envios\Guardar error 1">
     <Properties>
