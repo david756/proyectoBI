@@ -19,7 +19,7 @@
     <ObjectSnapshots>
       <ObjectSnapshot>
         <Type>Microsoft.AnalysisServices.RelationalDataSource</Type>
-        <TimeStamp>9lCHFEZ4oq3eZU88t8DtmFanJns=18/11/2016 20:05:2718/11/2016 18:42:10</TimeStamp>
+        <TimeStamp>9lCHFEZ4oq3eZU88t8DtmFanJns=18/11/2016 20:06:1518/11/2016 18:42:10</TimeStamp>
         <ID>
           <String>DW Parque</String>
         </ID>
@@ -162,5 +162,5 @@
   </Snapshot>
   <AssemblyLocations />
   <ProcessingComplete>true</ProcessingComplete>
-  <LastDeployed>2016-11-19T01:05:36.013333Z</LastDeployed>
+  <LastDeployed>2016-11-19T01:09:19.326667Z</LastDeployed>
 </DeploymentSnapshot>
