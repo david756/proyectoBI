@@ -1,0 +1,483 @@
+﻿<DataSourceView xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ddl2="http://schemas.microsoft.com/analysisservices/2003/engine/2" xmlns:ddl2_2="http://schemas.microsoft.com/analysisservices/2003/engine/2/2" xmlns:ddl100_100="http://schemas.microsoft.com/analysisservices/2008/engine/100/100" xmlns:ddl200="http://schemas.microsoft.com/analysisservices/2010/engine/200" xmlns:ddl200_200="http://schemas.microsoft.com/analysisservices/2010/engine/200/200" xmlns:ddl300="http://schemas.microsoft.com/analysisservices/2011/engine/300" xmlns:ddl300_300="http://schemas.microsoft.com/analysisservices/2011/engine/300/300" xmlns:ddl400="http://schemas.microsoft.com/analysisservices/2012/engine/400" xmlns:ddl400_400="http://schemas.microsoft.com/analysisservices/2012/engine/400/400" xmlns:dwd="http://schemas.microsoft.com/DataWarehouse/Designer/1.0" dwd:design-time-name="522161b4-cf75-4a68-b54f-20ec8c9baeb6" xmlns="http://schemas.microsoft.com/analysisservices/2003/engine">
+  <ID>DW Parque</ID>
+  <Name>Fact_Venta_Entrada_Cliente</Name>
+  <CreatedTimestamp>0001-01-01T00:00:00Z</CreatedTimestamp>
+  <LastSchemaUpdate>0001-01-01T00:00:00Z</LastSchemaUpdate>
+  <Annotations>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:ShowFriendlyNames</Name>
+      <Value>true</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:CurrentLayout</Name>
+      <Value>_ALL_TABLES_</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:SchemaRestriction</Name>
+      <Value></Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:RetrieveRelationships</Name>
+      <Value>true</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:Layouts</Name>
+      <Value>
+        <Layouts xmlns="">
+          <Diagram>
+            <Name>_ALL_TABLES_</Name>
+            <DiagramLayout>
+              <dds>
+                <diagram fontclsid="{0BE35203-8F91-11CE-9DE3-00AA004BB851}" mouseiconclsid="{0BE35204-8F91-11CE-9DE3-00AA004BB851}" defaultlayout="MSDDS.Rectilinear" defaultlineroute="MSDDS.Rectilinear" version="7" nextobject="12" scale="100" pagebreakanchorx="0" pagebreakanchory="0" pagebreaksizex="0" pagebreaksizey="0" scrollleft="-5862" scrolltop="-6455" gridx="150" gridy="150" marginx="5000" marginy="5000" zoom="91" x="22595" y="18362" backcolor="15334399" defaultpersistence="2" PrintPageNumbersMode="3" PrintMarginTop="0" PrintMarginBottom="635" PrintMarginLeft="0" PrintMarginRight="0" marqueeselectionmode="0" mousepointer="0" snaptogrid="0" autotypeannotation="1" showscrollbars="1" viewpagebreaks="0" donotforceconnectorsbehindshapes="1" backpictureclsid="{00000000-0000-0000-0000-000000000000}">
+                  <font>
+                    <ddsxmlobjectstreamwrapper binary="01000000900144420100065461686f6d61" />
+                  </font>
+                  <mouseicon>
+                    <ddsxmlobjectstreamwrapper binary="6c74000000000000" />
+                  </mouseicon>
+                </diagram>
+                <layoutmanager>
+                  <ddsxmlobj />
+                </layoutmanager>
+                <ddscontrol controlprogid="DdsShapes.DdsObjectManagedBridge.3" tooltip="Fac_Venta_Entrada_Cliente" left="6088" top="7517" logicalid="1" controlid="1" masterid="0" hint1="0" hint2="0" width="5148" height="4842" noresize="0" nomove="0" nodefaultattachpoints="0" autodrag="1" usedefaultiddshape="1" selectable="1" showselectionhandles="1" allownudging="1" isannotation="0" dontautolayout="0" groupcollapsed="0" tabstop="1" visible="1" snaptogrid="0">
+                  <control>
+                    <ddsxmlobjectstreaminitwrapper binary="000800001c140000ea120000" />
+                  </control>
+                  <layoutobject>
+                    <ddsxmlobj>
+                      <property name="LogicalObject" value="dbo_Fac_Venta_Entrada_Cliente" vartype="8" />
+                    </ddsxmlobj>
+                  </layoutobject>
+                  <shape groupshapeid="0" groupnode="0" />
+                </ddscontrol>
+                <ddscontrol controlprogid="DdsShapes.DdsObjectManagedBridge.3" tooltip="Dim_Tiempo" left="12616" top="7437" logicalid="2" controlid="2" masterid="0" hint1="0" hint2="0" width="3000" height="5000" noresize="0" nomove="0" nodefaultattachpoints="0" autodrag="1" usedefaultiddshape="1" selectable="1" showselectionhandles="1" allownudging="1" isannotation="0" dontautolayout="0" groupcollapsed="0" tabstop="1" visible="1" snaptogrid="0">
+                  <control>
+                    <ddsxmlobjectstreaminitwrapper binary="00080000b80b000088130000" />
+                  </control>
+                  <layoutobject>
+                    <ddsxmlobj>
+                      <property name="LogicalObject" value="dbo_Dim_Tiempo" vartype="8" />
+                    </ddsxmlobj>
+                  </layoutobject>
+                  <shape groupshapeid="0" groupnode="0" />
+                </ddscontrol>
+                <ddscontrol controlprogid="DdsShapes.DdsObjectManagedBridge.3" tooltip="Dim_Parque" left="2820" top="14721" logicalid="3" controlid="3" masterid="0" hint1="0" hint2="0" width="3043" height="2725" noresize="0" nomove="0" nodefaultattachpoints="0" autodrag="1" usedefaultiddshape="1" selectable="1" showselectionhandles="1" allownudging="1" isannotation="0" dontautolayout="0" groupcollapsed="0" tabstop="1" visible="1" snaptogrid="0">
+                  <control>
+                    <ddsxmlobjectstreaminitwrapper binary="00080000e30b0000a50a0000" />
+                  </control>
+                  <layoutobject>
+                    <ddsxmlobj>
+                      <property name="LogicalObject" value="dbo_Dim_Parque" vartype="8" />
+                    </ddsxmlobj>
+                  </layoutobject>
+                  <shape groupshapeid="0" groupnode="0" />
+                </ddscontrol>
+                <ddscontrol controlprogid="DdsShapes.DdsObjectManagedBridge.3" tooltip="Dim_Region" left="-562" top="8575" logicalid="4" controlid="4" masterid="0" hint1="0" hint2="0" width="3201" height="2725" noresize="0" nomove="0" nodefaultattachpoints="0" autodrag="1" usedefaultiddshape="1" selectable="1" showselectionhandles="1" allownudging="1" isannotation="0" dontautolayout="0" groupcollapsed="0" tabstop="1" visible="1" snaptogrid="0">
+                  <control>
+                    <ddsxmlobjectstreaminitwrapper binary="00080000810c0000a50a0000" />
+                  </control>
+                  <layoutobject>
+                    <ddsxmlobj>
+                      <property name="LogicalObject" value="dbo_Dim_Region" vartype="8" />
+                    </ddsxmlobj>
+                  </layoutobject>
+                  <shape groupshapeid="0" groupnode="0" />
+                </ddscontrol>
+                <ddscontrol controlprogid="DdsShapes.DdsObjectManagedBridge.3" tooltip="Dim_Cliente" left="5465" top="-1455" logicalid="5" controlid="5" masterid="0" hint1="0" hint2="0" width="4180" height="5000" noresize="0" nomove="0" nodefaultattachpoints="0" autodrag="1" usedefaultiddshape="1" selectable="1" showselectionhandles="1" allownudging="1" isannotation="0" dontautolayout="0" groupcollapsed="0" tabstop="1" visible="1" snaptogrid="0">
+                  <control>
+                    <ddsxmlobjectstreaminitwrapper binary="000800005410000088130000" />
+                  </control>
+                  <layoutobject>
+                    <ddsxmlobj>
+                      <property name="LogicalObject" value="dbo_Dim_Cliente" vartype="8" />
+                    </ddsxmlobj>
+                  </layoutobject>
+                  <shape groupshapeid="0" groupnode="0" />
+                </ddscontrol>
+                <ddscontrol controlprogid="DdsShapes.DdsObjectManagedBridge.3" tooltip="Dim_Empleado" left="8263" top="14721" logicalid="6" controlid="6" masterid="0" hint1="0" hint2="0" width="4551" height="5000" noresize="0" nomove="0" nodefaultattachpoints="0" autodrag="1" usedefaultiddshape="1" selectable="1" showselectionhandles="1" allownudging="1" isannotation="0" dontautolayout="0" groupcollapsed="0" tabstop="1" visible="1" snaptogrid="0">
+                  <control>
+                    <ddsxmlobjectstreaminitwrapper binary="00080000c711000088130000" />
+                  </control>
+                  <layoutobject>
+                    <ddsxmlobj>
+                      <property name="LogicalObject" value="dbo_Dim_Empleado" vartype="8" />
+                    </ddsxmlobj>
+                  </layoutobject>
+                  <shape groupshapeid="0" groupnode="0" />
+                </ddscontrol>
+                <ddscontrol controlprogid="MSDDS.Polyline" left="2339" top="9538" logicalid="7" controlid="7" masterid="0" hint1="0" hint2="0" width="4049" height="799" noresize="0" nomove="0" nodefaultattachpoints="1" autodrag="0" usedefaultiddshape="0" selectable="1" showselectionhandles="0" allownudging="1" isannotation="0" dontautolayout="0" groupcollapsed="0" tabstop="1" visible="1" snaptogrid="0">
+                  <control>
+                    <ddsxmlobj>
+                      <polyline endtypedst="6" endtypesrc="3" usercolor="0" linestyle="0" linerender="1" customendtypedstid="0" customendtypesrcid="0" adornsvisible="1" />
+                    </ddsxmlobj>
+                  </control>
+                  <layoutobject>
+                    <ddsxmlobj>
+                      <property name="LogicalObject" value="dataSet.Relations[FK_Fac_Venta_Entrada_Cliente_Dim_Region]" vartype="8" />
+                      <property name="Virtual" value="0" vartype="11" />
+                      <property name="VisibleAP" value="0" vartype="3" />
+                    </ddsxmlobj>
+                  </layoutobject>
+                  <connector lineroutestyle="MSDDS.Rectilinear" sourceid="4" destid="1" sourceattachpoint="15" destattachpoint="26" segmenteditmode="0" bendpointeditmode="0" bendpointvisibility="0" relatedid="0" virtual="0">
+                    <point x="2639" y="9937" />
+                    <point x="4421" y="9937" />
+                    <point x="4421" y="9938" />
+                    <point x="6088" y="9938" />
+                  </connector>
+                </ddscontrol>
+                <ddscontrol controlprogid="MSDDS.Polyline" left="10936" top="7338" logicalid="8" controlid="8" masterid="0" hint1="0" hint2="0" width="1980" height="799" noresize="0" nomove="0" nodefaultattachpoints="1" autodrag="0" usedefaultiddshape="0" selectable="1" showselectionhandles="0" allownudging="1" isannotation="0" dontautolayout="0" groupcollapsed="0" tabstop="1" visible="1" snaptogrid="0">
+                  <control>
+                    <ddsxmlobj>
+                      <polyline endtypedst="6" endtypesrc="3" usercolor="0" linestyle="0" linerender="1" customendtypedstid="0" customendtypesrcid="0" adornsvisible="1" />
+                    </ddsxmlobj>
+                  </control>
+                  <layoutobject>
+                    <ddsxmlobj>
+                      <property name="LogicalObject" value="dataSet.Relations[FK_Fac_Venta_Entrada_Cliente_Dim_Tiempo]" vartype="8" />
+                      <property name="Virtual" value="0" vartype="11" />
+                      <property name="VisibleAP" value="0" vartype="3" />
+                    </ddsxmlobj>
+                  </layoutobject>
+                  <connector lineroutestyle="MSDDS.Rectilinear" sourceid="2" destid="1" sourceattachpoint="10" destattachpoint="19" segmenteditmode="0" bendpointeditmode="0" bendpointvisibility="0" relatedid="0" virtual="0">
+                    <point x="12616" y="7737" />
+                    <point x="11636" y="7737" />
+                    <point x="11636" y="7738" />
+                    <point x="11236" y="7738" />
+                  </connector>
+                </ddscontrol>
+                <ddscontrol controlprogid="MSDDS.Polyline" left="6056" top="3046" logicalid="9" controlid="9" masterid="0" hint1="0" hint2="0" width="799" height="4771" noresize="0" nomove="0" nodefaultattachpoints="1" autodrag="0" usedefaultiddshape="0" selectable="1" showselectionhandles="0" allownudging="1" isannotation="0" dontautolayout="0" groupcollapsed="0" tabstop="1" visible="1" snaptogrid="0">
+                  <control>
+                    <ddsxmlobj>
+                      <polyline endtypedst="6" endtypesrc="3" usercolor="0" linestyle="0" linerender="1" customendtypedstid="0" customendtypesrcid="0" adornsvisible="1" />
+                    </ddsxmlobj>
+                  </control>
+                  <layoutobject>
+                    <ddsxmlobj>
+                      <property name="LogicalObject" value="dataSet.Relations[FK_Fac_Venta_Entrada_Cliente_Dim_Cliente]" vartype="8" />
+                      <property name="Virtual" value="0" vartype="11" />
+                      <property name="VisibleAP" value="0" vartype="3" />
+                    </ddsxmlobj>
+                  </layoutobject>
+                  <connector lineroutestyle="MSDDS.Rectilinear" sourceid="5" destid="1" sourceattachpoint="3" destattachpoint="0" segmenteditmode="0" bendpointeditmode="0" bendpointvisibility="0" relatedid="0" virtual="0">
+                    <point x="6455" y="3545" />
+                    <point x="6455" y="6185" />
+                    <point x="6462" y="6185" />
+                    <point x="6462" y="7517" />
+                  </connector>
+                </ddscontrol>
+                <ddscontrol controlprogid="MSDDS.Polyline" left="3942" top="12059" logicalid="10" controlid="10" masterid="0" hint1="0" hint2="0" width="3920" height="3162" noresize="0" nomove="0" nodefaultattachpoints="1" autodrag="0" usedefaultiddshape="0" selectable="1" showselectionhandles="0" allownudging="1" isannotation="0" dontautolayout="0" groupcollapsed="0" tabstop="1" visible="1" snaptogrid="0">
+                  <control>
+                    <ddsxmlobj>
+                      <polyline endtypedst="6" endtypesrc="3" usercolor="0" linestyle="0" linerender="1" customendtypedstid="0" customendtypesrcid="0" adornsvisible="1" />
+                    </ddsxmlobj>
+                  </control>
+                  <layoutobject>
+                    <ddsxmlobj>
+                      <property name="LogicalObject" value="dataSet.Relations[FK_Fac_Venta_Entrada_Cliente_Dim_Parque]" vartype="8" />
+                      <property name="Virtual" value="0" vartype="11" />
+                      <property name="VisibleAP" value="0" vartype="3" />
+                    </ddsxmlobj>
+                  </layoutobject>
+                  <connector lineroutestyle="MSDDS.Rectilinear" sourceid="3" destid="1" sourceattachpoint="4" destattachpoint="5" segmenteditmode="0" bendpointeditmode="0" bendpointvisibility="0" relatedid="0" virtual="0">
+                    <point x="4341" y="14721" />
+                    <point x="4341" y="13482" />
+                    <point x="7562" y="13482" />
+                    <point x="7562" y="12359" />
+                  </connector>
+                </ddscontrol>
+                <ddscontrol controlprogid="MSDDS.Polyline" left="8912" top="12059" logicalid="11" controlid="11" masterid="0" hint1="0" hint2="0" width="2026" height="3162" noresize="0" nomove="0" nodefaultattachpoints="1" autodrag="0" usedefaultiddshape="0" selectable="1" showselectionhandles="0" allownudging="1" isannotation="0" dontautolayout="0" groupcollapsed="0" tabstop="1" visible="1" snaptogrid="0">
+                  <control>
+                    <ddsxmlobj>
+                      <polyline endtypedst="6" endtypesrc="3" usercolor="0" linestyle="0" linerender="1" customendtypedstid="0" customendtypesrcid="0" adornsvisible="1" />
+                    </ddsxmlobj>
+                  </control>
+                  <layoutobject>
+                    <ddsxmlobj>
+                      <property name="LogicalObject" value="dataSet.Relations[FK_Fac_Venta_Entrada_Cliente_Dim_Empleado]" vartype="8" />
+                      <property name="Virtual" value="0" vartype="11" />
+                      <property name="VisibleAP" value="0" vartype="3" />
+                    </ddsxmlobj>
+                  </layoutobject>
+                  <connector lineroutestyle="MSDDS.Rectilinear" sourceid="6" destid="1" sourceattachpoint="6" destattachpoint="11" segmenteditmode="0" bendpointeditmode="0" bendpointvisibility="0" relatedid="0" virtual="0">
+                    <point x="10538" y="14721" />
+                    <point x="10538" y="13482" />
+                    <point x="9212" y="13482" />
+                    <point x="9212" y="12359" />
+                  </connector>
+                </ddscontrol>
+              </dds>
+</DiagramLayout>
+            <ShowRelationshipNames>False</ShowRelationshipNames>
+            <UseDiagramDefaultLayout>True</UseDiagramDefaultLayout>
+            <DiagramViewPortLeft>-5862</DiagramViewPortLeft>
+            <DiagramViewPortTop>-6455</DiagramViewPortTop>
+            <DiagramBoundingLeft>0</DiagramBoundingLeft>
+            <DiagramBoundingTop>0</DiagramBoundingTop>
+            <DiagramZoom>91</DiagramZoom>
+          </Diagram>
+        </Layouts>
+      </Value>
+    </Annotation>
+  </Annotations>
+  <DataSourceID>DW Parque</DataSourceID>
+  <Schema>
+    <xs:schema id="DW_x0020_Parque" xmlns="" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop">
+      <xs:element name="DW_x0020_Parque" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:design-time-name="f002859c-0c3c-40f6-9af7-080c70625cd7">
+        <xs:complexType>
+          <xs:choice minOccurs="0" maxOccurs="unbounded">
+            <xs:element name="dbo_Fac_Venta_Entrada_Cliente" msprop:design-time-name="56439b3d-7100-4521-85df-7bb55c6015ca" msprop:FriendlyName="Fac_Venta_Entrada_Cliente" msprop:DbSchemaName="dbo" msprop:DbTableName="Fac_Venta_Entrada_Cliente" msprop:TableType="Table">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element name="id_venta_entrada_cliente" msdata:ReadOnly="true" msdata:AutoIncrement="true" msprop:design-time-name="073de37d-330a-4b33-91be-e2332a76166a" msprop:DbColumnName="id_venta_entrada_cliente" msprop:FriendlyName="id_venta_entrada_cliente" type="xs:int" />
+                  <xs:element name="fk_tiempoKey" msprop:design-time-name="14300197-3b1b-473c-97cd-4e698416400f" msprop:DbColumnName="fk_tiempoKey" msprop:FriendlyName="fk_tiempoKey" type="xs:int" />
+                  <xs:element name="fk_parqueKey" msprop:design-time-name="1e064bc9-f2a3-41ca-84c8-83fb084b657d" msprop:DbColumnName="fk_parqueKey" msprop:FriendlyName="fk_parqueKey" type="xs:int" />
+                  <xs:element name="fk_regionKey" msprop:design-time-name="82b948a5-92c2-498b-8302-b7b37a3810a2" msprop:DbColumnName="fk_regionKey" msprop:FriendlyName="fk_regionKey" type="xs:int" />
+                  <xs:element name="fk_clienteKey" msprop:design-time-name="1027b645-bb65-443e-8ff1-1802ab1dc9f6" msprop:DbColumnName="fk_clienteKey" msprop:FriendlyName="fk_clienteKey" type="xs:int" />
+                  <xs:element name="fk_empleadoKey" msprop:design-time-name="ad48a12f-9998-4135-9c9f-8950d00a9d8d" msprop:DbColumnName="fk_empleadoKey" msprop:FriendlyName="fk_empleadoKey" type="xs:int" />
+                  <xs:element name="cantidad" msprop:design-time-name="1bedc905-ebf1-4d03-a2ea-925fa3f34307" msprop:DbColumnName="cantidad" msprop:FriendlyName="cantidad" type="xs:int" />
+                  <xs:element name="valorUnidad" msprop:design-time-name="61bc99ea-4b51-4c86-8e08-9aa9d4812d27" msprop:DbColumnName="valorUnidad" msprop:FriendlyName="valorUnidad" type="xs:double" />
+                  <xs:element name="valorTotal" msprop:design-time-name="ce039684-21e0-4d1c-8c98-b2774a46975d" msprop:DbColumnName="valorTotal" msprop:FriendlyName="valorTotal" type="xs:double" />
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+            <xs:element name="dbo_Dim_Tiempo" msprop:design-time-name="704a8176-e06c-4e00-ba5c-93c7a814fe78" msprop:FriendlyName="Dim_Tiempo" msprop:DbSchemaName="dbo" msprop:DbTableName="Dim_Tiempo" msprop:TableType="Table">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element name="tiempoKey" msprop:design-time-name="b3e24241-5fca-4b90-8c08-5ee9bb8c0505" msprop:DbColumnName="tiempoKey" msprop:FriendlyName="tiempoKey" type="xs:int" />
+                  <xs:element name="Fecha" msprop:design-time-name="2e1d67f4-6a61-4a0e-9327-cdd4a0365323" msprop:DbColumnName="Fecha" msprop:FriendlyName="Fecha" type="xs:dateTime" />
+                  <xs:element name="Año" msprop:design-time-name="4533b8c5-0445-4a32-b0ac-501bb627e666" msprop:DbColumnName="Año" msprop:FriendlyName="Año" type="xs:short" />
+                  <xs:element name="Trimestre" msprop:design-time-name="b877fcfc-a72f-4ba0-b94a-63f8933017ab" msprop:DbColumnName="Trimestre" msprop:FriendlyName="Trimestre" type="xs:short" />
+                  <xs:element name="Mes" msprop:design-time-name="2f6bff25-41b8-4c86-ae52-162197cfcdb5" msprop:DbColumnName="Mes" msprop:FriendlyName="Mes" type="xs:short" />
+                  <xs:element name="Semana" msprop:design-time-name="08d0e5bc-a416-4a9f-9769-c736edc6c568" msprop:DbColumnName="Semana" msprop:FriendlyName="Semana" type="xs:short" />
+                  <xs:element name="Dia" msprop:design-time-name="b5a833b2-fa50-4750-bf09-1baa52aff4aa" msprop:DbColumnName="Dia" msprop:FriendlyName="Dia" type="xs:short" />
+                  <xs:element name="DiaSemana" msprop:design-time-name="b72c1798-2ecb-4703-8719-aeac5d68f2d9" msprop:DbColumnName="DiaSemana" msprop:FriendlyName="DiaSemana" type="xs:short" />
+                  <xs:element name="NTrimestre" msprop:design-time-name="d46e4cb4-e62c-40c1-a129-0fe15546411d" msprop:DbColumnName="NTrimestre" msprop:FriendlyName="NTrimestre">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:maxLength value="7" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                  <xs:element name="NMes" msprop:design-time-name="f4da648e-2d2b-47c2-9ff9-a3d2001f5f5f" msprop:DbColumnName="NMes" msprop:FriendlyName="NMes">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:maxLength value="15" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                  <xs:element name="NMes3L" msprop:design-time-name="9e71e9c7-78ae-4498-9132-35b545eeda79" msprop:DbColumnName="NMes3L" msprop:FriendlyName="NMes3L">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:maxLength value="3" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                  <xs:element name="NSemana" msprop:design-time-name="3a83f140-0644-4a28-9a6d-12cb4164ed69" msprop:DbColumnName="NSemana" msprop:FriendlyName="NSemana">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:maxLength value="10" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                  <xs:element name="NDia" msprop:design-time-name="0a35f335-8029-4d3d-859e-0cb79203d33d" msprop:DbColumnName="NDia" msprop:FriendlyName="NDia">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:maxLength value="6" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                  <xs:element name="NDiaSemana" msprop:design-time-name="72505f5e-a010-4c6f-ac50-86b26fa16407" msprop:DbColumnName="NDiaSemana" msprop:FriendlyName="NDiaSemana">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:maxLength value="10" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+            <xs:element name="dbo_Dim_Parque" msprop:design-time-name="ffc94cc6-925a-4154-9e37-9d4c3d454e6c" msprop:FriendlyName="Dim_Parque" msprop:DbSchemaName="dbo" msprop:DbTableName="Dim_Parque" msprop:TableType="Table">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element name="parqueKey" msdata:ReadOnly="true" msdata:AutoIncrement="true" msprop:design-time-name="e5a3785a-d9d8-4038-8e97-4a22cc83127b" msprop:DbColumnName="parqueKey" msprop:FriendlyName="parqueKey" type="xs:int" />
+                  <xs:element name="idParque" msprop:design-time-name="00e5837b-4ee8-44fb-89c9-110506ea2bea" msprop:DbColumnName="idParque" msprop:FriendlyName="idParque" type="xs:int" />
+                  <xs:element name="nombreParque" msprop:design-time-name="6ce8f3e5-3a3a-46dd-8969-05026ce30388" msprop:DbColumnName="nombreParque" msprop:FriendlyName="nombreParque">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:maxLength value="50" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                  <xs:element name="fk_region" msprop:design-time-name="097a0fa3-60ff-4ed8-8afa-3ef529eeaa34" msprop:DbColumnName="fk_region" msprop:FriendlyName="fk_region" type="xs:int" />
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+            <xs:element name="dbo_Dim_Region" msprop:design-time-name="21a65592-b64e-42d4-b500-2b039ea63a1d" msprop:FriendlyName="Dim_Region" msprop:DbSchemaName="dbo" msprop:DbTableName="Dim_Region" msprop:TableType="Table">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element name="regionKey" msdata:ReadOnly="true" msdata:AutoIncrement="true" msprop:design-time-name="e7844339-8e1b-42a7-a362-88201167be9e" msprop:DbColumnName="regionKey" msprop:FriendlyName="regionKey" type="xs:int" />
+                  <xs:element name="idRegion" msprop:design-time-name="8b6fbc3d-70f8-46bc-95b4-346ab270b73c" msprop:DbColumnName="idRegion" msprop:FriendlyName="idRegion" type="xs:int" />
+                  <xs:element name="nombreRegion" msprop:design-time-name="7a5a7e0e-2c3a-4a94-bdbf-010ca300ff78" msprop:DbColumnName="nombreRegion" msprop:FriendlyName="nombreRegion">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:maxLength value="50" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                  <xs:element name="zonaGeografica" msprop:design-time-name="8035dabb-5aec-4519-a28d-0f680bc72806" msprop:DbColumnName="zonaGeografica" msprop:FriendlyName="zonaGeografica">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:maxLength value="50" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+            <xs:element name="dbo_Dim_Cliente" msprop:design-time-name="e3051f9c-668e-43c2-a8b7-3d6b6bb6493f" msprop:FriendlyName="Dim_Cliente" msprop:DbSchemaName="dbo" msprop:DbTableName="Dim_Cliente" msprop:TableType="Table">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element name="clienteKey" msdata:ReadOnly="true" msdata:AutoIncrement="true" msprop:design-time-name="1eb70ce5-6b81-496e-bb65-bfbada38b06b" msprop:DbColumnName="clienteKey" msprop:FriendlyName="clienteKey" type="xs:int" />
+                  <xs:element name="idCliente" msprop:design-time-name="b98f0067-2d59-4d20-8961-5ba5dfe8dd34" msprop:DbColumnName="idCliente" msprop:FriendlyName="idCliente" type="xs:int" />
+                  <xs:element name="nombreCompletoCliente" msprop:design-time-name="a3693e20-2914-42d6-94a8-2a48a451cfb2" msprop:DbColumnName="nombreCompletoCliente" msprop:FriendlyName="nombreCompletoCliente">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:maxLength value="50" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                  <xs:element name="fechaNacimientoCliente" msprop:design-time-name="b85e6988-93e7-4de6-8769-333799631905" msprop:DbColumnName="fechaNacimientoCliente" msprop:FriendlyName="fechaNacimientoCliente" type="xs:dateTime" />
+                  <xs:element name="generoCliente" msprop:design-time-name="7f955069-b71e-416b-8e84-8c23df30b28a" msprop:DbColumnName="generoCliente" msprop:FriendlyName="generoCliente">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:maxLength value="50" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                  <xs:element name="paisCliente" msprop:design-time-name="90372cf0-9aa0-4779-92c6-b7aa801edc60" msprop:DbColumnName="paisCliente" msprop:FriendlyName="paisCliente">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:maxLength value="50" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                  <xs:element name="provinciaCliente" msprop:design-time-name="88a3b6ed-37eb-4911-9d3f-a57ab0d7c496" msprop:DbColumnName="provinciaCliente" msprop:FriendlyName="provinciaCliente">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:maxLength value="50" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                  <xs:element name="ciudadCliente" msprop:design-time-name="c370dcc5-301b-4e25-be4d-46c080fab737" msprop:DbColumnName="ciudadCliente" msprop:FriendlyName="ciudadCliente">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:maxLength value="50" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                  <xs:element name="fk_escuela" msprop:design-time-name="b1b29721-9cea-4853-900e-20ff16546158" msprop:DbColumnName="fk_escuela" msprop:FriendlyName="fk_escuela" type="xs:int" />
+                  <xs:element name="vigenciaInicioCliente" msprop:design-time-name="bd9fa1f7-b772-46f7-a69f-47a16603453a" msprop:DbColumnName="vigenciaInicioCliente" msprop:FriendlyName="vigenciaInicioCliente" type="xs:dateTime" />
+                  <xs:element name="vigenciaFinCliente" msprop:design-time-name="ae42e1b0-8397-4fba-a765-f7385156131d" msprop:DbColumnName="vigenciaFinCliente" msprop:FriendlyName="vigenciaFinCliente" type="xs:dateTime" minOccurs="0" />
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+            <xs:element name="dbo_Dim_Empleado" msprop:design-time-name="c280d2cc-4548-4ed2-bfba-2de0ee7ecca2" msprop:FriendlyName="Dim_Empleado" msprop:DbSchemaName="dbo" msprop:DbTableName="Dim_Empleado" msprop:TableType="Table">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element name="empleadoKey" msdata:ReadOnly="true" msdata:AutoIncrement="true" msprop:design-time-name="41324fd6-bc90-4212-8792-79a735351183" msprop:DbColumnName="empleadoKey" msprop:FriendlyName="empleadoKey" type="xs:int" />
+                  <xs:element name="idEmpleado" msprop:design-time-name="8158ae2e-5485-4603-8367-74d127c7a43f" msprop:DbColumnName="idEmpleado" msprop:FriendlyName="idEmpleado" type="xs:int" />
+                  <xs:element name="nombreCompletoEmpleado" msprop:design-time-name="42c03e6b-aac8-4e5c-95c6-64ec4f0946ae" msprop:DbColumnName="nombreCompletoEmpleado" msprop:FriendlyName="nombreCompletoEmpleado">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:maxLength value="50" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                  <xs:element name="generoEmpleado" msprop:design-time-name="16ddfe4c-4d1d-49eb-8132-ea6d08d05480" msprop:DbColumnName="generoEmpleado" msprop:FriendlyName="generoEmpleado">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:maxLength value="50" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                  <xs:element name="sueldo" msprop:design-time-name="4fca0deb-90a1-4925-bab8-eaed1043dd42" msprop:DbColumnName="sueldo" msprop:FriendlyName="sueldo" type="xs:double" />
+                  <xs:element name="horasCapacitacion" msprop:design-time-name="5bf7e51b-63d6-49ca-b50b-d4ce855aa732" msprop:DbColumnName="horasCapacitacion" msprop:FriendlyName="horasCapacitacion" type="xs:int" />
+                  <xs:element name="fechaIngreso" msprop:design-time-name="08efbac3-15d1-45ad-a390-5af4a58f93ef" msprop:DbColumnName="fechaIngreso" msprop:FriendlyName="fechaIngreso" type="xs:dateTime" />
+                  <xs:element name="paisEmpleado" msprop:design-time-name="79589571-2778-4271-93bf-16d3e1cbb70a" msprop:DbColumnName="paisEmpleado" msprop:FriendlyName="paisEmpleado">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:maxLength value="50" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                  <xs:element name="provinciaEmpleado" msprop:design-time-name="bd5d7199-bae5-4551-930a-6d0148ad49f6" msprop:DbColumnName="provinciaEmpleado" msprop:FriendlyName="provinciaEmpleado">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:maxLength value="50" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                  <xs:element name="ciudadEmpleado" msprop:design-time-name="b9e8e0bb-569c-4149-84e5-9a7d223af218" msprop:DbColumnName="ciudadEmpleado" msprop:FriendlyName="ciudadEmpleado">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:maxLength value="50" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                  <xs:element name="vigenciaInicioEmpleado" msprop:design-time-name="316bb00f-61b2-45e1-9ab7-2f05a6f0c34e" msprop:DbColumnName="vigenciaInicioEmpleado" msprop:FriendlyName="vigenciaInicioEmpleado" type="xs:dateTime" />
+                  <xs:element name="fk_local" msprop:design-time-name="2e34768c-fe3f-4896-93fd-dafdfccc17c1" msprop:DbColumnName="fk_local" msprop:FriendlyName="fk_local" type="xs:int" />
+                  <xs:element name="vigenciaFinEmpleado" msprop:design-time-name="dffe0ccb-d1cf-4679-a24b-d5c69b7c34c6" msprop:DbColumnName="vigenciaFinEmpleado" msprop:FriendlyName="vigenciaFinEmpleado" type="xs:dateTime" minOccurs="0" />
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+          </xs:choice>
+        </xs:complexType>
+        <xs:unique name="Constraint1" msdata:PrimaryKey="true">
+          <xs:selector xpath=".//dbo_Fac_Venta_Entrada_Cliente" />
+          <xs:field xpath="id_venta_entrada_cliente" />
+        </xs:unique>
+        <xs:unique name="dbo_Dim_Tiempo_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+          <xs:selector xpath=".//dbo_Dim_Tiempo" />
+          <xs:field xpath="tiempoKey" />
+        </xs:unique>
+        <xs:unique name="dbo_Dim_Parque_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+          <xs:selector xpath=".//dbo_Dim_Parque" />
+          <xs:field xpath="parqueKey" />
+        </xs:unique>
+        <xs:unique name="dbo_Dim_Region_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+          <xs:selector xpath=".//dbo_Dim_Region" />
+          <xs:field xpath="regionKey" />
+        </xs:unique>
+        <xs:unique name="dbo_Dim_Cliente_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+          <xs:selector xpath=".//dbo_Dim_Cliente" />
+          <xs:field xpath="clienteKey" />
+        </xs:unique>
+        <xs:unique name="dbo_Dim_Empleado_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+          <xs:selector xpath=".//dbo_Dim_Empleado" />
+          <xs:field xpath="empleadoKey" />
+        </xs:unique>
+        <xs:keyref name="FK_Fac_Venta_Entrada_Cliente_Dim_Empleado" refer="dbo_Dim_Empleado_Constraint1">
+          <xs:selector xpath=".//dbo_Fac_Venta_Entrada_Cliente" />
+          <xs:field xpath="fk_empleadoKey" />
+        </xs:keyref>
+        <xs:keyref name="FK_Fac_Venta_Entrada_Cliente_Dim_Parque" refer="dbo_Dim_Parque_Constraint1">
+          <xs:selector xpath=".//dbo_Fac_Venta_Entrada_Cliente" />
+          <xs:field xpath="fk_parqueKey" />
+        </xs:keyref>
+        <xs:keyref name="FK_Fac_Venta_Entrada_Cliente_Dim_Cliente" refer="dbo_Dim_Cliente_Constraint1">
+          <xs:selector xpath=".//dbo_Fac_Venta_Entrada_Cliente" />
+          <xs:field xpath="fk_clienteKey" />
+        </xs:keyref>
+        <xs:keyref name="FK_Fac_Venta_Entrada_Cliente_Dim_Tiempo" refer="dbo_Dim_Tiempo_Constraint1">
+          <xs:selector xpath=".//dbo_Fac_Venta_Entrada_Cliente" />
+          <xs:field xpath="fk_tiempoKey" />
+        </xs:keyref>
+        <xs:keyref name="FK_Fac_Venta_Entrada_Cliente_Dim_Region" refer="dbo_Dim_Region_Constraint1">
+          <xs:selector xpath=".//dbo_Fac_Venta_Entrada_Cliente" />
+          <xs:field xpath="fk_regionKey" />
+        </xs:keyref>
+      </xs:element>
+    </xs:schema>
+    <DW_x0020_Parque xmlns="" />
+  </Schema>
+</DataSourceView>

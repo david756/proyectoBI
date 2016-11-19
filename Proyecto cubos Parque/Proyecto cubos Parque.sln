@@ -1,0 +1,18 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{D2ABAB84-BF74-430A-B69E-9DC6D40DDA17}") = "Proyecto cubos Parque", "Proyecto cubos Parque\Proyecto cubos Parque.dwproj", "{312E15B4-36E6-494D-B688-0078DF7F4460}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Development|Default = Development|Default
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{312E15B4-36E6-494D-B688-0078DF7F4460}.Development|Default.ActiveCfg = Development
+		{312E15B4-36E6-494D-B688-0078DF7F4460}.Development|Default.Build.0 = Development
+		{312E15B4-36E6-494D-B688-0078DF7F4460}.Development|Default.Deploy.0 = Development
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

@@ -1,0 +1,166 @@
+﻿<DeploymentSnapshot xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ddl2="http://schemas.microsoft.com/analysisservices/2003/engine/2" xmlns:ddl2_2="http://schemas.microsoft.com/analysisservices/2003/engine/2/2" xmlns:ddl100_100="http://schemas.microsoft.com/analysisservices/2008/engine/100/100" xmlns:ddl200="http://schemas.microsoft.com/analysisservices/2010/engine/200" xmlns:ddl200_200="http://schemas.microsoft.com/analysisservices/2010/engine/200/200" xmlns:ddl300="http://schemas.microsoft.com/analysisservices/2011/engine/300" xmlns:ddl300_300="http://schemas.microsoft.com/analysisservices/2011/engine/300/300" xmlns:ddl400="http://schemas.microsoft.com/analysisservices/2012/engine/400" xmlns:ddl400_400="http://schemas.microsoft.com/analysisservices/2012/engine/400/400" xmlns:dwd="http://schemas.microsoft.com/DataWarehouse/Designer/1.0">
+  <Target>
+    <Database>Proyecto cubos Parque</Database>
+    <Server>localhost</Server>
+    <ConnectionString>DataSource=localhost;Timeout=0</ConnectionString>
+  </Target>
+  <Options>
+    <TransactionalDeployment>false</TransactionalDeployment>
+    <PartitionDeployment>DeployPartitions</PartitionDeployment>
+    <RoleDeployment>DeployRolesRetainMembers</RoleDeployment>
+    <ProcessingOption>DoNotProcess</ProcessingOption>
+    <OutputScript></OutputScript>
+    <ImpactAnalysisFile></ImpactAnalysisFile>
+    <ConfigurationSettingsDeployment>Deploy</ConfigurationSettingsDeployment>
+    <OptimizationSettingsDeployment>Deploy</OptimizationSettingsDeployment>
+    <WriteBackTableCreation>UseExisting</WriteBackTableCreation>
+  </Options>
+  <Snapshot>
+    <ObjectSnapshots>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.RelationalDataSource</Type>
+        <TimeStamp>9lCHFEZ4oq3eZU88t8DtmFanJns=18/11/2016 20:05:2718/11/2016 18:42:10</TimeStamp>
+        <ID>
+          <String>DW Parque</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.DataSourceView</Type>
+        <TimeStamp>MqYd6wk7Lrw5/81GNLbkGT2S92g=18/11/2016 18:45:1218/11/2016 18:43:45</TimeStamp>
+        <ID>
+          <String>DW Parque</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.DataSourceView</Type>
+        <TimeStamp>bOvIoZ8Mur4WhY4vRsnjyaB4Vfs=18/11/2016 18:47:2218/11/2016 18:46:05</TimeStamp>
+        <ID>
+          <String>Fact_Venta_Entrada_Escuelas</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.DataSourceView</Type>
+        <TimeStamp>XFMeU4SHWUqhxwm9CmK3vmGwJks=18/11/2016 18:48:4218/11/2016 18:48:42</TimeStamp>
+        <ID>
+          <String>Fact_Venta_Producto_Clientes</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.DataSourceView</Type>
+        <TimeStamp>ElkHN/cMnnv3NiuH9aFpynk7BAk=18/11/2016 19:08:2618/11/2016 18:49:53</TimeStamp>
+        <ID>
+          <String>Fact_Venta_Producto_Escuelas</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.DataSourceView</Type>
+        <TimeStamp>0+FT7dlskUZtW/+M4J4z6D+2SmE=18/11/2016 19:07:3818/11/2016 19:07:38</TimeStamp>
+        <ID>
+          <String>Fact_Stock_Disponible</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Dimension</Type>
+        <TimeStamp>/T0Ovyjevpe5hcqts73/6ErotWk=18/11/2016 19:57:4818/11/2016 18:56:00</TimeStamp>
+        <ID>
+          <String>Dim Region</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Dimension</Type>
+        <TimeStamp>7/wTaZ28IsO6bCmm65ExMBPPdH4=18/11/2016 19:39:3118/11/2016 18:56:00</TimeStamp>
+        <ID>
+          <String>Dim Tiempo</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Dimension</Type>
+        <TimeStamp>dB0Ltnc9P4ovAL5AwurdJrEA/zE=18/11/2016 19:42:4418/11/2016 18:56:00</TimeStamp>
+        <ID>
+          <String>Dim Cliente</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Dimension</Type>
+        <TimeStamp>wrGbwb8pEZpI3ZjHfZ+Ea5sKla4=18/11/2016 19:14:1318/11/2016 18:56:00</TimeStamp>
+        <ID>
+          <String>Dim Parque</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Dimension</Type>
+        <TimeStamp>ntZ6lnjOgtC06yE9ALDT1FxYZhI=18/11/2016 19:44:4518/11/2016 18:56:00</TimeStamp>
+        <ID>
+          <String>Dim Empleado</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Dimension</Type>
+        <TimeStamp>TztXo+537AUKb5mJJhKwzOSTSZs=18/11/2016 19:14:1318/11/2016 18:56:25</TimeStamp>
+        <ID>
+          <String>Dim Escuela</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Dimension</Type>
+        <TimeStamp>eu4kjfxS/kU01vcQGqKjBO6fgcY=18/11/2016 19:14:1318/11/2016 18:56:50</TimeStamp>
+        <ID>
+          <String>Dim Local</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Dimension</Type>
+        <TimeStamp>sFoEMyNirfsr3o3HUhG5mjbUT1s=18/11/2016 19:45:4918/11/2016 18:57:04</TimeStamp>
+        <ID>
+          <String>Dim Producto</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Cube</Type>
+        <TimeStamp>aPSX6zA+Qna52IyjJ64AJ2Z/Hqw=18/11/2016 19:57:4818/11/2016 18:56:00iyRDq7u6U+maBUyFGV5iDhSd1IQ=18/11/2016 18:56:0118/11/2016 18:56:00</TimeStamp>
+        <ID>
+          <String>Fact_Venta_Entrada_Cliente</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Cube</Type>
+        <TimeStamp>oPGcVE+z0emxy/s5bCTI4wSWv64=18/11/2016 19:57:4818/11/2016 18:59:21JDh6Pg4ikSOF+myfUdPyPsL4Aqo=18/11/2016 19:01:4418/11/2016 18:59:21</TimeStamp>
+        <ID>
+          <String>Fact_Venta_Entrada_Escuelas</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Cube</Type>
+        <TimeStamp>V9CucaxUx6KhWW6Ab7IDlxwW5q8=18/11/2016 19:57:4818/11/2016 18:59:59qbKbED40qxmeQOiz15mAibGYIIc=18/11/2016 19:02:5318/11/2016 18:59:59</TimeStamp>
+        <ID>
+          <String>Fact_Venta_Producto_Clientes</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Cube</Type>
+        <TimeStamp>A5+VyYJaUC2pFlc7w5IDdyG+Y7Q=18/11/2016 19:57:4818/11/2016 19:00:08KWaMzFM+KU6x4rsMXOM7XfaSXdg=18/11/2016 19:03:5818/11/2016 19:00:08</TimeStamp>
+        <ID>
+          <String>Fact_Venta_Producto_Escuelas</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Cube</Type>
+        <TimeStamp>B6OqK2ibz/lQlMGW0vHaSQ/6aH0=18/11/2016 19:54:0018/11/2016 19:07:52SoDGmuDWft7392uZsKk3FfzJmbU=18/11/2016 19:08:1818/11/2016 19:07:52</TimeStamp>
+        <ID>
+          <String>Fact_Stock_Disponible</String>
+        </ID>
+      </ObjectSnapshot>
+    </ObjectSnapshots>
+    <DatabaseSnapshot>
+      <Type>Microsoft.AnalysisServices.Database</Type>
+      <TimeStamp>4sJJ7lfVkGec7umFWRA3/co5+m8=18/11/2016 18:41:3718/11/2016 18:41:37</TimeStamp>
+      <ID>
+        <String>Proyecto cubos Parque</String>
+      </ID>
+    </DatabaseSnapshot>
+    <Granularity>Coarse</Granularity>
+  </Snapshot>
+  <AssemblyLocations />
+  <ProcessingComplete>true</ProcessingComplete>
+  <LastDeployed>2016-11-19T01:05:36.013333Z</LastDeployed>
+</DeploymentSnapshot>
