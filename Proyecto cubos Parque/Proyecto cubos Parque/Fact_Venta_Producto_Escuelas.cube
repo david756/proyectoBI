@@ -1,8 +1,8 @@
 ﻿<Cube xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ddl2="http://schemas.microsoft.com/analysisservices/2003/engine/2" xmlns:ddl2_2="http://schemas.microsoft.com/analysisservices/2003/engine/2/2" xmlns:ddl100_100="http://schemas.microsoft.com/analysisservices/2008/engine/100/100" xmlns:ddl200="http://schemas.microsoft.com/analysisservices/2010/engine/200" xmlns:ddl200_200="http://schemas.microsoft.com/analysisservices/2010/engine/200/200" xmlns:ddl300="http://schemas.microsoft.com/analysisservices/2011/engine/300" xmlns:ddl300_300="http://schemas.microsoft.com/analysisservices/2011/engine/300/300" xmlns:ddl400="http://schemas.microsoft.com/analysisservices/2012/engine/400" xmlns:ddl400_400="http://schemas.microsoft.com/analysisservices/2012/engine/400/400" xmlns:dwd="http://schemas.microsoft.com/DataWarehouse/Designer/1.0" dwd:design-time-name="81e806b9-649b-4cb4-9c52-ff3504b52497" xmlns="http://schemas.microsoft.com/analysisservices/2003/engine">
   <ID>Fact_Venta_Producto_Escuelas</ID>
   <Name>Fact_Venta_Producto_Escuelas</Name>
-  <CreatedTimestamp>0001-01-01T00:00:00Z</CreatedTimestamp>
-  <LastSchemaUpdate>0001-01-01T00:00:00Z</LastSchemaUpdate>
+  <CreatedTimestamp>0001-01-01T05:00:00Z</CreatedTimestamp>
+  <LastSchemaUpdate>0001-01-01T05:00:00Z</LastSchemaUpdate>
   <Annotations>
     <Annotation>
       <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramLayout</Name>
@@ -252,7 +252,7 @@
       <Value>100</Value>
     </Annotation>
   </Annotations>
-  <LastProcessed>0001-01-01T00:00:00Z</LastProcessed>
+  <LastProcessed>0001-01-01T05:00:00Z</LastProcessed>
   <State>Unprocessed</State>
   <Dimensions>
     <Dimension dwd:design-time-name="f4cc2570-1a4f-4a57-9341-65c4bee4fcf6">
@@ -412,7 +412,7 @@
         </Attribute>
       </Attributes>
       <Hierarchies>
-        <Hierarchy dwd:design-time-name="dec96af8-8913-4d62-994c-82f9868914f0">
+        <Hierarchy dwd:design-time-name="9db5c71d-a70b-457a-abb0-75e7f213a975">
           <HierarchyID>Jerarquía</HierarchyID>
         </Hierarchy>
       </Hierarchies>
@@ -422,9 +422,9 @@
     <MeasureGroup dwd:design-time-name="974296cf-1c53-412b-8e22-bb71d4cc049b">
       <ID>Fac Venta Producto Escuela</ID>
       <Name>Fac Venta Producto Escuela</Name>
-      <CreatedTimestamp>0001-01-01T00:00:00Z</CreatedTimestamp>
-      <LastSchemaUpdate>0001-01-01T00:00:00Z</LastSchemaUpdate>
-      <LastProcessed>0001-01-01T00:00:00Z</LastProcessed>
+      <CreatedTimestamp>0001-01-01T05:00:00Z</CreatedTimestamp>
+      <LastSchemaUpdate>0001-01-01T05:00:00Z</LastSchemaUpdate>
+      <LastProcessed>0001-01-01T05:00:00Z</LastProcessed>
       <State>Unprocessed</State>
       <Measures>
         <Measure dwd:design-time-name="e93edef9-0ec2-4f32-b973-3a11de584c25">

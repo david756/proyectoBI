@@ -1,14 +1,14 @@
 ﻿<Dimension xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ddl2="http://schemas.microsoft.com/analysisservices/2003/engine/2" xmlns:ddl2_2="http://schemas.microsoft.com/analysisservices/2003/engine/2/2" xmlns:ddl100_100="http://schemas.microsoft.com/analysisservices/2008/engine/100/100" xmlns:ddl200="http://schemas.microsoft.com/analysisservices/2010/engine/200" xmlns:ddl200_200="http://schemas.microsoft.com/analysisservices/2010/engine/200/200" xmlns:ddl300="http://schemas.microsoft.com/analysisservices/2011/engine/300" xmlns:ddl300_300="http://schemas.microsoft.com/analysisservices/2011/engine/300/300" xmlns:ddl400="http://schemas.microsoft.com/analysisservices/2012/engine/400" xmlns:ddl400_400="http://schemas.microsoft.com/analysisservices/2012/engine/400/400" xmlns:dwd="http://schemas.microsoft.com/DataWarehouse/Designer/1.0" dwd:design-time-name="1ded2b9b-d907-4ab2-8133-3e64187c5d62" xmlns="http://schemas.microsoft.com/analysisservices/2003/engine">
   <ID>Dim Cliente</ID>
   <Name>Dim Cliente</Name>
-  <CreatedTimestamp>0001-01-01T00:00:00Z</CreatedTimestamp>
-  <LastSchemaUpdate>0001-01-01T00:00:00Z</LastSchemaUpdate>
+  <CreatedTimestamp>0001-01-01T05:00:00Z</CreatedTimestamp>
+  <LastSchemaUpdate>0001-01-01T05:00:00Z</LastSchemaUpdate>
   <Annotations>
     <Annotation>
       <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramLayout</Name>
       <Value>
         <dds xmlns="">
-          <diagram fontclsid="{0BE35203-8F91-11CE-9DE3-00AA004BB851}" mouseiconclsid="{0BE35204-8F91-11CE-9DE3-00AA004BB851}" defaultlayout="MSDDS.Rectilinear" defaultlineroute="MSDDS.Rectilinear" version="7" nextobject="3" scale="100" pagebreakanchorx="0" pagebreakanchory="0" pagebreaksizex="0" pagebreaksizey="0" scrollleft="-1964" scrolltop="-6019" gridx="150" gridy="150" marginx="5000" marginy="5000" zoom="100" x="8149" y="17039" backcolor="15334399" defaultpersistence="2" PrintPageNumbersMode="3" PrintMarginTop="0" PrintMarginBottom="635" PrintMarginLeft="0" PrintMarginRight="0" marqueeselectionmode="0" mousepointer="0" snaptogrid="0" autotypeannotation="1" showscrollbars="0" viewpagebreaks="0" donotforceconnectorsbehindshapes="1" backpictureclsid="{00000000-0000-0000-0000-000000000000}">
+          <diagram fontclsid="{0BE35203-8F91-11CE-9DE3-00AA004BB851}" mouseiconclsid="{0BE35204-8F91-11CE-9DE3-00AA004BB851}" defaultlayout="MSDDS.Rectilinear" defaultlineroute="MSDDS.Rectilinear" version="7" nextobject="3" scale="100" pagebreakanchorx="0" pagebreakanchory="0" pagebreaksizex="0" pagebreaksizey="0" scrollleft="-1964" scrolltop="-6019" gridx="150" gridy="150" marginx="5000" marginy="5000" zoom="100" x="9181" y="11800" backcolor="15334399" defaultpersistence="2" PrintPageNumbersMode="3" PrintMarginTop="0" PrintMarginBottom="635" PrintMarginLeft="0" PrintMarginRight="0" marqueeselectionmode="0" mousepointer="0" snaptogrid="0" autotypeannotation="1" showscrollbars="1" viewpagebreaks="0" donotforceconnectorsbehindshapes="1" backpictureclsid="{00000000-0000-0000-0000-000000000000}">
             <font>
               <ddsxmlobjectstreamwrapper binary="01000000900144420100065461686f6d61" />
             </font>
@@ -19,7 +19,7 @@
           <layoutmanager>
             <ddsxmlobj />
           </layoutmanager>
-          <ddscontrol controlprogid="DdsShapes.DdsObjectManagedBridge.3" tooltip="Dim_Cliente" left="20" top="0" logicalid="2" controlid="1" masterid="0" hint1="0" hint2="0" width="4180" height="8334" noresize="0" nomove="0" nodefaultattachpoints="0" autodrag="1" usedefaultiddshape="1" selectable="1" showselectionhandles="1" allownudging="1" isannotation="0" dontautolayout="0" groupcollapsed="0" tabstop="1" visible="1" snaptogrid="0">
+          <ddscontrol controlprogid="DdsShapes.DdsObjectManagedBridge.3" tooltip="Dim_Cliente" left="-430" top="-2752" logicalid="2" controlid="1" masterid="0" hint1="0" hint2="0" width="4180" height="8334" noresize="0" nomove="0" nodefaultattachpoints="0" autodrag="1" usedefaultiddshape="1" selectable="1" showselectionhandles="1" allownudging="1" isannotation="0" dontautolayout="0" groupcollapsed="0" tabstop="1" visible="1" snaptogrid="0">
             <control>
               <ddsxmlobjectstreaminitwrapper binary="00080000541000008e200000" />
             </control>
@@ -55,11 +55,11 @@
     </Annotation>
     <Annotation>
       <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramBoundingLeft</Name>
-      <Value>20</Value>
+      <Value>-430</Value>
     </Annotation>
     <Annotation>
       <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramBoundingTop</Name>
-      <Value>0</Value>
+      <Value>-2752</Value>
     </Annotation>
     <Annotation>
       <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramZoom</Name>
@@ -103,7 +103,7 @@
       </Value>
     </Annotation>
   </Annotations>
-  <LastProcessed>0001-01-01T00:00:00Z</LastProcessed>
+  <LastProcessed>0001-01-01T05:00:00Z</LastProcessed>
   <State>Unprocessed</State>
   <Source xsi:type="DataSourceViewBinding" dwd:design-time-name="723e1c51-2854-4085-81ef-6279414a55f5">
     <DataSourceViewID>DW Parque</DataSourceViewID>
@@ -205,19 +205,12 @@
       <ID>Pais Cliente</ID>
       <Name>Pais Cliente</Name>
       <KeyColumns>
-        <KeyColumn dwd:design-time-name="dd3fc174-9b18-4356-97e4-d3efb84129a2">
+        <KeyColumn dwd:design-time-name="093352ce-b4e6-4ac3-83cf-8c2ca1ec0680">
           <DataType>WChar</DataType>
           <DataSize>50</DataSize>
-          <Source xsi:type="ColumnBinding" dwd:design-time-name="1c9d8b45-2f10-4b1e-9d5b-aa5511622bee">
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="ffc97c35-c7f6-4e9a-bea8-b75c92bdbd90">
             <TableID>dbo_Dim_Cliente</TableID>
             <ColumnID>paisCliente</ColumnID>
-          </Source>
-        </KeyColumn>
-        <KeyColumn dwd:design-time-name="1c84b338-5a37-490c-ba04-6f1b30c33610">
-          <DataType>Integer</DataType>
-          <Source xsi:type="ColumnBinding" dwd:design-time-name="4e571771-71a0-47ee-9579-63214dbe13d7">
-            <TableID>dbo_Dim_Cliente</TableID>
-            <ColumnID>clienteKey</ColumnID>
           </Source>
         </KeyColumn>
       </KeyColumns>
@@ -244,27 +237,20 @@
       <ID>Provincia Cliente</ID>
       <Name>Provincia Cliente</Name>
       <KeyColumns>
-        <KeyColumn dwd:design-time-name="4fbfba6e-fd43-4bfe-9826-a7fab92d25e2">
+        <KeyColumn dwd:design-time-name="b4137d16-f8eb-414a-9b46-8a160a22160c">
           <DataType>WChar</DataType>
           <DataSize>50</DataSize>
-          <Source xsi:type="ColumnBinding" dwd:design-time-name="82848c5a-f8af-4a97-b266-1fd1bb26d1c6">
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="3e062480-300b-4583-9632-8d2774304b88">
             <TableID>dbo_Dim_Cliente</TableID>
             <ColumnID>provinciaCliente</ColumnID>
           </Source>
         </KeyColumn>
-        <KeyColumn dwd:design-time-name="063beac9-5161-415a-b1ed-b56ad5f0ce4e">
+        <KeyColumn dwd:design-time-name="3a4f723a-1f76-46e8-8188-47ec0e8fc41e">
           <DataType>WChar</DataType>
           <DataSize>50</DataSize>
-          <Source xsi:type="ColumnBinding" dwd:design-time-name="81011fa9-22b3-4f40-b0d1-d967bc596e83">
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="6e358b53-3847-4ee1-b93c-2f5eff73970b">
             <TableID>dbo_Dim_Cliente</TableID>
             <ColumnID>paisCliente</ColumnID>
-          </Source>
-        </KeyColumn>
-        <KeyColumn dwd:design-time-name="6064aa4f-33a2-4b01-95b5-55b8c2491691">
-          <DataType>Integer</DataType>
-          <Source xsi:type="ColumnBinding" dwd:design-time-name="86a75c80-5a98-4e9f-a389-3c44ea3c5c62">
-            <TableID>dbo_Dim_Cliente</TableID>
-            <ColumnID>clienteKey</ColumnID>
           </Source>
         </KeyColumn>
       </KeyColumns>
@@ -297,33 +283,26 @@
       <ID>Ciudad Cliente</ID>
       <Name>Ciudad Cliente</Name>
       <KeyColumns>
-        <KeyColumn dwd:design-time-name="3e90d405-2d30-47e7-998e-e91448f4ccc3">
+        <KeyColumn dwd:design-time-name="4927a784-89a4-4a7b-9adf-fe17558d19ee">
           <DataType>WChar</DataType>
           <DataSize>50</DataSize>
-          <Source xsi:type="ColumnBinding" dwd:design-time-name="84429db6-4cf5-406a-8d88-f874f0db962e">
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="d73996cf-e2a6-4cb9-9760-d5059e1f83fe">
             <TableID>dbo_Dim_Cliente</TableID>
             <ColumnID>ciudadCliente</ColumnID>
           </Source>
         </KeyColumn>
-        <KeyColumn dwd:design-time-name="b9388602-c6ff-4faf-9666-7ded2f7333e5">
-          <DataType>Integer</DataType>
-          <Source xsi:type="ColumnBinding" dwd:design-time-name="039949b5-1b3f-4ad8-8580-b0ad0cc260aa">
-            <TableID>dbo_Dim_Cliente</TableID>
-            <ColumnID>clienteKey</ColumnID>
-          </Source>
-        </KeyColumn>
-        <KeyColumn dwd:design-time-name="bc1decef-e9ec-4919-b257-7dfe141138c1">
+        <KeyColumn dwd:design-time-name="7da70218-ed99-4fb3-b32a-6e1e2afb6d1a">
           <DataType>WChar</DataType>
           <DataSize>50</DataSize>
-          <Source xsi:type="ColumnBinding" dwd:design-time-name="dee63f75-78a1-414c-a7f9-f93fedf991a4">
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="c5aa6b72-aadf-4374-9678-1ccd6ba7954f">
             <TableID>dbo_Dim_Cliente</TableID>
             <ColumnID>provinciaCliente</ColumnID>
           </Source>
         </KeyColumn>
-        <KeyColumn dwd:design-time-name="7eed8ce7-ef4d-448d-9802-beb42d1eae14">
+        <KeyColumn dwd:design-time-name="50ded50e-2d80-464a-9235-185b2bf35ded">
           <DataType>WChar</DataType>
           <DataSize>50</DataSize>
-          <Source xsi:type="ColumnBinding" dwd:design-time-name="c4821be6-baee-4fad-b657-371fcfd635b2">
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="58c7423b-8b0d-42aa-aafd-129b36c744fa">
             <TableID>dbo_Dim_Cliente</TableID>
             <ColumnID>paisCliente</ColumnID>
           </Source>

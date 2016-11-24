@@ -1,14 +1,14 @@
 ﻿<Dimension xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ddl2="http://schemas.microsoft.com/analysisservices/2003/engine/2" xmlns:ddl2_2="http://schemas.microsoft.com/analysisservices/2003/engine/2/2" xmlns:ddl100_100="http://schemas.microsoft.com/analysisservices/2008/engine/100/100" xmlns:ddl200="http://schemas.microsoft.com/analysisservices/2010/engine/200" xmlns:ddl200_200="http://schemas.microsoft.com/analysisservices/2010/engine/200/200" xmlns:ddl300="http://schemas.microsoft.com/analysisservices/2011/engine/300" xmlns:ddl300_300="http://schemas.microsoft.com/analysisservices/2011/engine/300/300" xmlns:ddl400="http://schemas.microsoft.com/analysisservices/2012/engine/400" xmlns:ddl400_400="http://schemas.microsoft.com/analysisservices/2012/engine/400/400" xmlns:dwd="http://schemas.microsoft.com/DataWarehouse/Designer/1.0" dwd:design-time-name="16a688ea-28f1-485d-9fcc-5e4dc8e1a7d6" xmlns="http://schemas.microsoft.com/analysisservices/2003/engine">
   <ID>Dim Producto</ID>
   <Name>Dim Producto</Name>
-  <CreatedTimestamp>0001-01-01T00:00:00Z</CreatedTimestamp>
-  <LastSchemaUpdate>0001-01-01T00:00:00Z</LastSchemaUpdate>
+  <CreatedTimestamp>0001-01-01T05:00:00Z</CreatedTimestamp>
+  <LastSchemaUpdate>0001-01-01T05:00:00Z</LastSchemaUpdate>
   <Annotations>
     <Annotation>
       <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramLayout</Name>
       <Value>
         <dds xmlns="">
-          <diagram fontclsid="{0BE35203-8F91-11CE-9DE3-00AA004BB851}" mouseiconclsid="{0BE35204-8F91-11CE-9DE3-00AA004BB851}" defaultlayout="MSDDS.Rectilinear" defaultlineroute="MSDDS.Rectilinear" version="7" nextobject="3" scale="100" pagebreakanchorx="0" pagebreakanchory="0" pagebreaksizex="0" pagebreaksizey="0" scrollleft="-2414" scrolltop="-6945" gridx="150" gridy="150" marginx="5000" marginy="5000" zoom="100" x="8149" y="17039" backcolor="15334399" defaultpersistence="2" PrintPageNumbersMode="3" PrintMarginTop="0" PrintMarginBottom="635" PrintMarginLeft="0" PrintMarginRight="0" marqueeselectionmode="0" mousepointer="0" snaptogrid="0" autotypeannotation="1" showscrollbars="0" viewpagebreaks="0" donotforceconnectorsbehindshapes="1" backpictureclsid="{00000000-0000-0000-0000-000000000000}">
+          <diagram fontclsid="{0BE35203-8F91-11CE-9DE3-00AA004BB851}" mouseiconclsid="{0BE35204-8F91-11CE-9DE3-00AA004BB851}" defaultlayout="MSDDS.Rectilinear" defaultlineroute="MSDDS.Rectilinear" version="7" nextobject="3" scale="100" pagebreakanchorx="0" pagebreakanchory="0" pagebreaksizex="0" pagebreaksizey="0" scrollleft="-2414" scrolltop="-6945" gridx="150" gridy="150" marginx="5000" marginy="5000" zoom="100" x="9181" y="11800" backcolor="15334399" defaultpersistence="2" PrintPageNumbersMode="3" PrintMarginTop="0" PrintMarginBottom="635" PrintMarginLeft="0" PrintMarginRight="0" marqueeselectionmode="0" mousepointer="0" snaptogrid="0" autotypeannotation="1" showscrollbars="0" viewpagebreaks="0" donotforceconnectorsbehindshapes="1" backpictureclsid="{00000000-0000-0000-0000-000000000000}">
             <font>
               <ddsxmlobjectstreamwrapper binary="01000000900144420100065461686f6d61" />
             </font>
@@ -95,7 +95,7 @@
       </Value>
     </Annotation>
   </Annotations>
-  <LastProcessed>0001-01-01T00:00:00Z</LastProcessed>
+  <LastProcessed>0001-01-01T05:00:00Z</LastProcessed>
   <State>Unprocessed</State>
   <Source xsi:type="DataSourceViewBinding" dwd:design-time-name="dfe25e33-20c7-4903-b712-f37d66f50333">
     <DataSourceViewID>Fact_Venta_Producto_Clientes</DataSourceViewID>
@@ -173,25 +173,18 @@
       <ID>Subcategoria</ID>
       <Name>Subcategoria</Name>
       <KeyColumns>
-        <KeyColumn dwd:design-time-name="eeb94b59-a094-44d7-ae66-231fb7962a88">
+        <KeyColumn dwd:design-time-name="f3751e96-90d6-46df-bd7b-c37b17b04e4b">
           <DataType>WChar</DataType>
           <DataSize>50</DataSize>
-          <Source xsi:type="ColumnBinding" dwd:design-time-name="a55fdf61-530e-46d9-a3eb-054bab86c681">
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="9855ce7c-962c-499c-b7b0-dc9ccbaffe18">
             <TableID>dbo_Dim_Producto</TableID>
             <ColumnID>subcategoria</ColumnID>
           </Source>
         </KeyColumn>
-        <KeyColumn dwd:design-time-name="6568857b-47b5-4ab9-b391-cd5268171692">
-          <DataType>Integer</DataType>
-          <Source xsi:type="ColumnBinding" dwd:design-time-name="1cfefd96-e850-421c-a638-26ded8956338">
-            <TableID>dbo_Dim_Producto</TableID>
-            <ColumnID>productoKey</ColumnID>
-          </Source>
-        </KeyColumn>
-        <KeyColumn dwd:design-time-name="a1a89164-57a6-42b6-bb09-dfcda78f34e6">
+        <KeyColumn dwd:design-time-name="16cfc152-0c1b-4937-a637-b98a8f725690">
           <DataType>WChar</DataType>
           <DataSize>50</DataSize>
-          <Source xsi:type="ColumnBinding" dwd:design-time-name="479bdcf0-9ebc-41de-a115-7dcb2f2e9ca8">
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="8433254f-5d79-4f77-a26f-2fb3615d401b">
             <TableID>dbo_Dim_Producto</TableID>
             <ColumnID>categoria</ColumnID>
           </Source>
@@ -226,19 +219,12 @@
       <ID>Categoria</ID>
       <Name>Categoria</Name>
       <KeyColumns>
-        <KeyColumn dwd:design-time-name="7716519d-1afa-445d-9780-31079efe0d31">
+        <KeyColumn dwd:design-time-name="824d2a8a-c267-4b39-9d68-1062fa9653eb">
           <DataType>WChar</DataType>
           <DataSize>50</DataSize>
-          <Source xsi:type="ColumnBinding" dwd:design-time-name="9de6d456-2a29-4974-98c4-ce9da1b1deec">
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="be318ea4-d35d-4b13-9459-53d84e02687d">
             <TableID>dbo_Dim_Producto</TableID>
             <ColumnID>categoria</ColumnID>
-          </Source>
-        </KeyColumn>
-        <KeyColumn dwd:design-time-name="8a96f762-35ca-48b9-80c3-11108991f426">
-          <DataType>Integer</DataType>
-          <Source xsi:type="ColumnBinding" dwd:design-time-name="de774f7e-a833-4da0-a24b-a9dce6821a68">
-            <TableID>dbo_Dim_Producto</TableID>
-            <ColumnID>productoKey</ColumnID>
           </Source>
         </KeyColumn>
       </KeyColumns>
