@@ -8,7 +8,7 @@
       <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramLayout</Name>
       <Value>
         <dds xmlns="">
-          <diagram fontclsid="{0BE35203-8F91-11CE-9DE3-00AA004BB851}" mouseiconclsid="{0BE35204-8F91-11CE-9DE3-00AA004BB851}" defaultlayout="MSDDS.Rectilinear" defaultlineroute="MSDDS.Rectilinear" version="7" nextobject="24" scale="100" pagebreakanchorx="0" pagebreakanchory="0" pagebreaksizex="0" pagebreaksizey="0" scrollleft="-947" scrolltop="-1976" gridx="150" gridy="150" marginx="5000" marginy="5000" zoom="84" x="25506" y="11800" backcolor="15334399" defaultpersistence="2" PrintPageNumbersMode="3" PrintMarginTop="0" PrintMarginBottom="635" PrintMarginLeft="0" PrintMarginRight="0" marqueeselectionmode="0" mousepointer="0" snaptogrid="0" autotypeannotation="1" showscrollbars="1" viewpagebreaks="0" donotforceconnectorsbehindshapes="1" backpictureclsid="{00000000-0000-0000-0000-000000000000}">
+          <diagram fontclsid="{0BE35203-8F91-11CE-9DE3-00AA004BB851}" mouseiconclsid="{0BE35204-8F91-11CE-9DE3-00AA004BB851}" defaultlayout="MSDDS.Rectilinear" defaultlineroute="MSDDS.Rectilinear" version="7" nextobject="24" scale="100" pagebreakanchorx="0" pagebreakanchory="0" pagebreaksizex="0" pagebreaksizey="0" scrollleft="-947" scrolltop="1447" gridx="150" gridy="150" marginx="5000" marginy="5000" zoom="84" x="28258" y="14288" backcolor="15334399" defaultpersistence="2" PrintPageNumbersMode="3" PrintMarginTop="0" PrintMarginBottom="635" PrintMarginLeft="0" PrintMarginRight="0" marqueeselectionmode="0" mousepointer="0" snaptogrid="0" autotypeannotation="1" showscrollbars="1" viewpagebreaks="0" donotforceconnectorsbehindshapes="1" backpictureclsid="{00000000-0000-0000-0000-000000000000}">
             <font>
               <ddsxmlobjectstreamwrapper binary="01000000900144420100065461686f6d61" />
             </font>
@@ -204,7 +204,7 @@
     </Annotation>
     <Annotation>
       <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramViewPortTop</Name>
-      <Value>-1976</Value>
+      <Value>1447</Value>
     </Annotation>
     <Annotation>
       <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramBoundingLeft</Name>
@@ -524,51 +524,75 @@
   <Source dwd:design-time-name="0d2ff1b3-a258-48d2-86a7-fb5bf3ad35d8">
     <DataSourceViewID>DW Parque</DataSourceViewID>
   </Source>
+  <MdxScripts>
+    <MdxScript dwd:design-time-name="5a23ece8-033b-42eb-ae58-69d61542acd7">
+      <ID>MdxScript</ID>
+      <Name>MdxScript</Name>
+      <CreatedTimestamp>0001-01-01T00:00:00Z</CreatedTimestamp>
+      <LastSchemaUpdate>0001-01-01T00:00:00Z</LastSchemaUpdate>
+      <Commands>
+        <Command>
+          <Text>/*
+El comando CALCULATE controla la agregación de celdas hoja en el cubo.
+Si se elimina o modifica el comando CALCULATE, se ven afectados los datos del cubo.
+Sólo debe editar este comando si especifica manualmente cómo se agrega el cubo.
+*/
+CALCULATE; </Text>
+        </Command>
+      </Commands>
+    </MdxScript>
+  </MdxScripts>
   <Kpis>
     <Kpi dwd:design-time-name="94cd920b-9202-4736-a236-0cb3347c0b78">
       <ID>KPI</ID>
-      <Name>IncrementoVEC</Name>
+      <Name>IncrementoVentas</Name>
       <Value>Case
 
-    When IsEmpty
-
-    ([Measures].[Valor Total],(ParallelPeriod
+    When IsEmpty (([Measures].[Valor Total]-([Measures].[Valor Total],ParallelPeriod
 
     ([Dim Tiempo].[Jerarquía].[Trimestre],1,
 
-    [Dim Tiempo].[Jerarquía].CurrentMember)))             
-
-    Then 1
-
-    When  ([Measures].[Valor Total],(ParallelPeriod
-
-    ([Dim Tiempo].[Jerarquía].[Trimestre],1,
-
-    [Dim Tiempo].[Jerarquía].CurrentMember))) = 0
+    [Dim Tiempo].[Jerarquía].CurrentMember))))             
 
     Then 0
 
-    Else ([Measures].[Valor Total]-([Measures].[Valor Total],ParallelPeriod
+    When  ([Measures].[Valor Total],ParallelPeriod
 
     ([Dim Tiempo].[Jerarquía].[Trimestre],1,
 
-    [Dim Tiempo].[Jerarquía].CurrentMember)))/([Measures].[Valor Total],ParallelPeriod
+    [Dim Tiempo].[Jerarquía].CurrentMember)) = 0
+
+    Then 0
+
+    Else 
+
+([Measures].[Valor Total]-([Measures].[Valor Total],ParallelPeriod
+
+    ([Dim Tiempo].[Jerarquía].[Trimestre],1,
+
+    [Dim Tiempo].[Jerarquía].CurrentMember))) / ([Measures].[Valor Total],ParallelPeriod
 
     ([Dim Tiempo].[Jerarquía].[Trimestre],1,
 
     [Dim Tiempo].[Jerarquía].CurrentMember))
-
 End
+
 </Value>
-      <Goal>0.30</Goal>
-      <Status>IIf
-(
-   KPIValue( "IncrementoVEC" ) - KPIGoal( "IncrementoVEC" ) &gt;=0, 1, -1
-)</Status>
+      <Goal>0.10</Goal>
+      <Status>
+IIf
+( 
+   KPIValue( "IncrementoVentas" ) - KPIGoal( "IncrementoVentas" ) &gt;=0,
+IIf
+( 
+   KPIValue( "IncrementoVentas" ) - KPIGoal( "IncrementoVentas" ) &gt;=0.5, 1, 0
+), -1
+)
+</Status>
       <Trend>IIf
 (
-  KPIValue( "IncrementoVEC" ) &gt;
-  ( KPIValue( "IncrementoVEC" ),
+  KPIValue( "IncrementoVentas" ) &gt;
+  ( KPIValue( "IncrementoVentas" ),
     ParallelPeriod
 	( 
 	   [Dim Tiempo].[Jerarquía].[Trimestre],
@@ -578,7 +602,7 @@ End
   ), 1, -1
 )</Trend>
       <TrendGraphic>Standard Arrow</TrendGraphic>
-      <StatusGraphic>Gauge - Ascending</StatusGraphic>
+      <StatusGraphic>Traffic Light</StatusGraphic>
     </Kpi>
   </Kpis>
 </Cube>

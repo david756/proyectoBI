@@ -2204,7 +2204,7 @@
           <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramLayout</Name>
           <Value>
             <dds xmlns="">
-              <diagram fontclsid="{0BE35203-8F91-11CE-9DE3-00AA004BB851}" mouseiconclsid="{0BE35204-8F91-11CE-9DE3-00AA004BB851}" defaultlayout="MSDDS.Rectilinear" defaultlineroute="MSDDS.Rectilinear" version="7" nextobject="24" scale="100" pagebreakanchorx="0" pagebreakanchory="0" pagebreaksizex="0" pagebreaksizey="0" scrollleft="-947" scrolltop="-1976" gridx="150" gridy="150" marginx="5000" marginy="5000" zoom="84" x="25506" y="11800" backcolor="15334399" defaultpersistence="2" PrintPageNumbersMode="3" PrintMarginTop="0" PrintMarginBottom="635" PrintMarginLeft="0" PrintMarginRight="0" marqueeselectionmode="0" mousepointer="0" snaptogrid="0" autotypeannotation="1" showscrollbars="1" viewpagebreaks="0" donotforceconnectorsbehindshapes="1" backpictureclsid="{00000000-0000-0000-0000-000000000000}">
+              <diagram fontclsid="{0BE35203-8F91-11CE-9DE3-00AA004BB851}" mouseiconclsid="{0BE35204-8F91-11CE-9DE3-00AA004BB851}" defaultlayout="MSDDS.Rectilinear" defaultlineroute="MSDDS.Rectilinear" version="7" nextobject="24" scale="100" pagebreakanchorx="0" pagebreakanchory="0" pagebreaksizex="0" pagebreaksizey="0" scrollleft="-947" scrolltop="1447" gridx="150" gridy="150" marginx="5000" marginy="5000" zoom="84" x="28258" y="14288" backcolor="15334399" defaultpersistence="2" PrintPageNumbersMode="3" PrintMarginTop="0" PrintMarginBottom="635" PrintMarginLeft="0" PrintMarginRight="0" marqueeselectionmode="0" mousepointer="0" snaptogrid="0" autotypeannotation="1" showscrollbars="1" viewpagebreaks="0" donotforceconnectorsbehindshapes="1" backpictureclsid="{00000000-0000-0000-0000-000000000000}">
                 <font>
                   <ddsxmlobjectstreamwrapper binary="01000000900144420100065461686f6d61" />
                 </font>
@@ -2400,7 +2400,7 @@
         </Annotation>
         <Annotation>
           <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramViewPortTop</Name>
-          <Value>-1976</Value>
+          <Value>1447</Value>
         </Annotation>
         <Annotation>
           <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramBoundingLeft</Name>
@@ -2736,51 +2736,75 @@
       <Source>
         <DataSourceViewID>DW Parque</DataSourceViewID>
       </Source>
+      <MdxScripts>
+        <MdxScript>
+          <ID>MdxScript</ID>
+          <Name>MdxScript</Name>
+          <CreatedTimestamp>0001-01-01T00:00:00Z</CreatedTimestamp>
+          <LastSchemaUpdate>0001-01-01T00:00:00Z</LastSchemaUpdate>
+          <Commands>
+            <Command>
+              <Text>/*
+El comando CALCULATE controla la agregación de celdas hoja en el cubo.
+Si se elimina o modifica el comando CALCULATE, se ven afectados los datos del cubo.
+Sólo debe editar este comando si especifica manualmente cómo se agrega el cubo.
+*/
+CALCULATE; </Text>
+            </Command>
+          </Commands>
+        </MdxScript>
+      </MdxScripts>
       <Kpis>
         <Kpi>
           <ID>KPI</ID>
-          <Name>IncrementoVEC</Name>
+          <Name>IncrementoVentas</Name>
           <Value>Case
 
-    When IsEmpty
-
-    ([Measures].[Valor Total],(ParallelPeriod
+    When IsEmpty (([Measures].[Valor Total]-([Measures].[Valor Total],ParallelPeriod
 
     ([Dim Tiempo].[Jerarquía].[Trimestre],1,
 
-    [Dim Tiempo].[Jerarquía].CurrentMember)))             
-
-    Then 1
-
-    When  ([Measures].[Valor Total],(ParallelPeriod
-
-    ([Dim Tiempo].[Jerarquía].[Trimestre],1,
-
-    [Dim Tiempo].[Jerarquía].CurrentMember))) = 0
+    [Dim Tiempo].[Jerarquía].CurrentMember))))             
 
     Then 0
 
-    Else ([Measures].[Valor Total]-([Measures].[Valor Total],ParallelPeriod
+    When  ([Measures].[Valor Total],ParallelPeriod
 
     ([Dim Tiempo].[Jerarquía].[Trimestre],1,
 
-    [Dim Tiempo].[Jerarquía].CurrentMember)))/([Measures].[Valor Total],ParallelPeriod
+    [Dim Tiempo].[Jerarquía].CurrentMember)) = 0
+
+    Then 0
+
+    Else 
+
+([Measures].[Valor Total]-([Measures].[Valor Total],ParallelPeriod
+
+    ([Dim Tiempo].[Jerarquía].[Trimestre],1,
+
+    [Dim Tiempo].[Jerarquía].CurrentMember))) / ([Measures].[Valor Total],ParallelPeriod
 
     ([Dim Tiempo].[Jerarquía].[Trimestre],1,
 
     [Dim Tiempo].[Jerarquía].CurrentMember))
-
 End
+
 </Value>
-          <Goal>0.30</Goal>
-          <Status>IIf
-(
-   KPIValue( "IncrementoVEC" ) - KPIGoal( "IncrementoVEC" ) &gt;=0, 1, -1
-)</Status>
+          <Goal>0.10</Goal>
+          <Status>
+IIf
+( 
+   KPIValue( "IncrementoVentas" ) - KPIGoal( "IncrementoVentas" ) &gt;=0,
+IIf
+( 
+   KPIValue( "IncrementoVentas" ) - KPIGoal( "IncrementoVentas" ) &gt;=0.5, 1, 0
+), -1
+)
+</Status>
           <Trend>IIf
 (
-  KPIValue( "IncrementoVEC" ) &gt;
-  ( KPIValue( "IncrementoVEC" ),
+  KPIValue( "IncrementoVentas" ) &gt;
+  ( KPIValue( "IncrementoVentas" ),
     ParallelPeriod
 	( 
 	   [Dim Tiempo].[Jerarquía].[Trimestre],
@@ -2790,7 +2814,7 @@ End
   ), 1, -1
 )</Trend>
           <TrendGraphic>Standard Arrow</TrendGraphic>
-          <StatusGraphic>Gauge - Ascending</StatusGraphic>
+          <StatusGraphic>Traffic Light</StatusGraphic>
         </Kpi>
       </Kpis>
     </Cube>
@@ -2804,7 +2828,7 @@ End
           <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramLayout</Name>
           <Value>
             <dds xmlns="">
-              <diagram fontclsid="{0BE35203-8F91-11CE-9DE3-00AA004BB851}" mouseiconclsid="{0BE35204-8F91-11CE-9DE3-00AA004BB851}" defaultlayout="MSDDS.Rectilinear" defaultlineroute="MSDDS.Rectilinear" version="7" nextobject="24" scale="100" pagebreakanchorx="0" pagebreakanchory="0" pagebreaksizex="0" pagebreaksizey="0" scrollleft="-552" scrolltop="349" gridx="150" gridy="150" marginx="5000" marginy="5000" zoom="100" x="22066" y="17039" backcolor="15334399" defaultpersistence="2" PrintPageNumbersMode="3" PrintMarginTop="0" PrintMarginBottom="635" PrintMarginLeft="0" PrintMarginRight="0" marqueeselectionmode="0" mousepointer="0" snaptogrid="0" autotypeannotation="1" showscrollbars="1" viewpagebreaks="0" donotforceconnectorsbehindshapes="1" backpictureclsid="{00000000-0000-0000-0000-000000000000}">
+              <diagram fontclsid="{0BE35203-8F91-11CE-9DE3-00AA004BB851}" mouseiconclsid="{0BE35204-8F91-11CE-9DE3-00AA004BB851}" defaultlayout="MSDDS.Rectilinear" defaultlineroute="MSDDS.Rectilinear" version="7" nextobject="24" scale="100" pagebreakanchorx="0" pagebreakanchory="0" pagebreaksizex="0" pagebreaksizey="0" scrollleft="-552" scrolltop="349" gridx="150" gridy="150" marginx="5000" marginy="5000" zoom="100" x="28813" y="11800" backcolor="15334399" defaultpersistence="2" PrintPageNumbersMode="3" PrintMarginTop="0" PrintMarginBottom="635" PrintMarginLeft="0" PrintMarginRight="0" marqueeselectionmode="0" mousepointer="0" snaptogrid="0" autotypeannotation="1" showscrollbars="1" viewpagebreaks="0" donotforceconnectorsbehindshapes="1" backpictureclsid="{00000000-0000-0000-0000-000000000000}">
                 <font>
                   <ddsxmlobjectstreamwrapper binary="01000000900144420100065461686f6d61" />
                 </font>
@@ -3319,6 +3343,46 @@ End
       <Source>
         <DataSourceViewID>Fact_Venta_Entrada_Escuelas</DataSourceViewID>
       </Source>
+      <Kpis>
+        <Kpi>
+          <ID>KPI</ID>
+          <Name>IncrementoVentas</Name>
+          <Value>([Measures].[Valor Total]-([Measures].[Valor Total],ParallelPeriod
+
+    ([Dim Tiempo].[Jerarquía].[Trimestre],1,
+
+    [Dim Tiempo].[Jerarquía].CurrentMember))) / ([Measures].[Valor Total],ParallelPeriod
+
+    ([Dim Tiempo].[Jerarquía].[Trimestre],1,
+
+    [Dim Tiempo].[Jerarquía].CurrentMember))
+</Value>
+          <Goal>0.10</Goal>
+          <Status>IIf
+( 
+   KPIValue( "IncrementoVentas" ) - KPIGoal( "IncrementoVentas" ) &gt;=0,
+IIf
+( 
+   KPIValue( "IncrementoVentas" ) - KPIGoal( "IncrementoVentas" ) &gt;=0.5, 1, 0
+), -1
+)
+</Status>
+          <Trend>IIf
+(
+  KPIValue( "IncrementoVentas" ) &gt;
+  ( KPIValue( "IncrementoVentas" ),
+    ParallelPeriod
+	( 
+	   [Dim Tiempo].[Jerarquía].[Trimestre],
+	   1,
+	   [Dim Tiempo].[Jerarquía].CurrentMember
+	)
+  ), 1, -1
+)</Trend>
+          <TrendGraphic>Standard Arrow</TrendGraphic>
+          <StatusGraphic>Traffic Light</StatusGraphic>
+        </Kpi>
+      </Kpis>
     </Cube>
     <Cube>
       <ID>Fact_Venta_Producto_Clientes</ID>
@@ -3330,7 +3394,7 @@ End
           <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramLayout</Name>
           <Value>
             <dds xmlns="">
-              <diagram fontclsid="{0BE35203-8F91-11CE-9DE3-00AA004BB851}" mouseiconclsid="{0BE35204-8F91-11CE-9DE3-00AA004BB851}" defaultlayout="MSDDS.Rectilinear" defaultlineroute="MSDDS.Rectilinear" version="7" nextobject="28" scale="100" pagebreakanchorx="0" pagebreakanchory="0" pagebreaksizex="0" pagebreaksizey="0" scrollleft="-2217" scrolltop="3684" gridx="150" gridy="150" marginx="5000" marginy="5000" zoom="100" x="22066" y="17039" backcolor="15334399" defaultpersistence="2" PrintPageNumbersMode="3" PrintMarginTop="0" PrintMarginBottom="635" PrintMarginLeft="0" PrintMarginRight="0" marqueeselectionmode="0" mousepointer="0" snaptogrid="0" autotypeannotation="1" showscrollbars="1" viewpagebreaks="0" donotforceconnectorsbehindshapes="1" backpictureclsid="{00000000-0000-0000-0000-000000000000}">
+              <diagram fontclsid="{0BE35203-8F91-11CE-9DE3-00AA004BB851}" mouseiconclsid="{0BE35204-8F91-11CE-9DE3-00AA004BB851}" defaultlayout="MSDDS.Rectilinear" defaultlineroute="MSDDS.Rectilinear" version="7" nextobject="28" scale="100" pagebreakanchorx="0" pagebreakanchory="0" pagebreaksizex="0" pagebreaksizey="0" scrollleft="-2217" scrolltop="3684" gridx="150" gridy="150" marginx="5000" marginy="5000" zoom="100" x="28258" y="11800" backcolor="15334399" defaultpersistence="2" PrintPageNumbersMode="3" PrintMarginTop="0" PrintMarginBottom="635" PrintMarginLeft="0" PrintMarginRight="0" marqueeselectionmode="0" mousepointer="0" snaptogrid="0" autotypeannotation="1" showscrollbars="1" viewpagebreaks="0" donotforceconnectorsbehindshapes="1" backpictureclsid="{00000000-0000-0000-0000-000000000000}">
                 <font>
                   <ddsxmlobjectstreamwrapper binary="01000000900144420100065461686f6d61" />
                 </font>
@@ -3946,6 +4010,46 @@ End
       <Source>
         <DataSourceViewID>Fact_Venta_Producto_Clientes</DataSourceViewID>
       </Source>
+      <Kpis>
+        <Kpi>
+          <ID>KPI</ID>
+          <Name>IncrementoVentas</Name>
+          <Value>([Measures].[Valor Total]-([Measures].[Valor Total],ParallelPeriod
+
+    ([Dim Tiempo].[Jerarquía].[Trimestre],1,
+
+    [Dim Tiempo].[Jerarquía].CurrentMember))) / ([Measures].[Valor Total],ParallelPeriod
+
+    ([Dim Tiempo].[Jerarquía].[Trimestre],1,
+
+    [Dim Tiempo].[Jerarquía].CurrentMember))
+</Value>
+          <Goal>0.10</Goal>
+          <Status>IIf
+( 
+   KPIValue( "IncrementoVentas" ) - KPIGoal( "IncrementoVentas" ) &gt;=0,
+IIf
+( 
+   KPIValue( "IncrementoVentas" ) - KPIGoal( "IncrementoVentas" ) &gt;=0.5, 1, 0
+), -1
+)
+</Status>
+          <Trend>IIf
+(
+  KPIValue( "IncrementoVentas" ) &gt;
+  ( KPIValue( "IncrementoVentas" ),
+    ParallelPeriod
+	( 
+	   [Dim Tiempo].[Jerarquía].[Trimestre],
+	   1,
+	   [Dim Tiempo].[Jerarquía].CurrentMember
+	)
+  ), 1, -1
+)</Trend>
+          <TrendGraphic>Standard Arrow</TrendGraphic>
+          <StatusGraphic>Gauge - Ascending</StatusGraphic>
+        </Kpi>
+      </Kpis>
     </Cube>
     <Cube>
       <ID>Fact_Venta_Producto_Escuelas</ID>
@@ -3957,7 +4061,7 @@ End
           <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramLayout</Name>
           <Value>
             <dds xmlns="">
-              <diagram fontclsid="{0BE35203-8F91-11CE-9DE3-00AA004BB851}" mouseiconclsid="{0BE35204-8F91-11CE-9DE3-00AA004BB851}" defaultlayout="MSDDS.Rectilinear" defaultlineroute="MSDDS.Rectilinear" version="7" nextobject="28" scale="100" pagebreakanchorx="0" pagebreakanchory="0" pagebreaksizex="0" pagebreaksizey="0" scrollleft="-3051" scrolltop="-5000" gridx="150" gridy="150" marginx="5000" marginy="5000" zoom="100" x="22066" y="17039" backcolor="15334399" defaultpersistence="2" PrintPageNumbersMode="3" PrintMarginTop="0" PrintMarginBottom="635" PrintMarginLeft="0" PrintMarginRight="0" marqueeselectionmode="0" mousepointer="0" snaptogrid="0" autotypeannotation="1" showscrollbars="1" viewpagebreaks="0" donotforceconnectorsbehindshapes="1" backpictureclsid="{00000000-0000-0000-0000-000000000000}">
+              <diagram fontclsid="{0BE35203-8F91-11CE-9DE3-00AA004BB851}" mouseiconclsid="{0BE35204-8F91-11CE-9DE3-00AA004BB851}" defaultlayout="MSDDS.Rectilinear" defaultlineroute="MSDDS.Rectilinear" version="7" nextobject="28" scale="100" pagebreakanchorx="0" pagebreakanchory="0" pagebreaksizex="0" pagebreaksizey="0" scrollleft="-3051" scrolltop="-2381" gridx="150" gridy="150" marginx="5000" marginy="5000" zoom="100" x="28258" y="11800" backcolor="15334399" defaultpersistence="2" PrintPageNumbersMode="3" PrintMarginTop="0" PrintMarginBottom="635" PrintMarginLeft="0" PrintMarginRight="0" marqueeselectionmode="0" mousepointer="0" snaptogrid="0" autotypeannotation="1" showscrollbars="1" viewpagebreaks="0" donotforceconnectorsbehindshapes="1" backpictureclsid="{00000000-0000-0000-0000-000000000000}">
                 <font>
                   <ddsxmlobjectstreamwrapper binary="01000000900144420100065461686f6d61" />
                 </font>
@@ -4186,7 +4290,7 @@ End
         </Annotation>
         <Annotation>
           <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramViewPortTop</Name>
-          <Value>-5000</Value>
+          <Value>-2381</Value>
         </Annotation>
         <Annotation>
           <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramBoundingLeft</Name>
@@ -4556,6 +4660,44 @@ End
       <Source>
         <DataSourceViewID>Fact_Venta_Producto_Escuelas</DataSourceViewID>
       </Source>
+      <Kpis>
+        <Kpi>
+          <ID>KPI</ID>
+          <Name>IncrementoVentas</Name>
+          <Value>([Measures].[Valor Total]-([Measures].[Valor Total],ParallelPeriod
+
+    ([Dim Tiempo].[Jerarquía].[Trimestre],1,
+
+    [Dim Tiempo].[Jerarquía].CurrentMember))) / ([Measures].[Valor Total],ParallelPeriod
+
+    ([Dim Tiempo].[Jerarquía].[Trimestre],1,
+
+    [Dim Tiempo].[Jerarquía].CurrentMember))</Value>
+          <Goal>0.10</Goal>
+          <Status>IIf
+( 
+   KPIValue( "IncrementoVentas" ) - KPIGoal( "IncrementoVentas" ) &gt;=0,
+IIf
+( 
+   KPIValue( "IncrementoVentas" ) - KPIGoal( "IncrementoVentas" ) &gt;=0.5, 1, 0
+), -1
+)</Status>
+          <Trend>IIf
+(
+  KPIValue( "IncrementoVentas" ) &gt;
+  ( KPIValue( "IncrementoVentas" ),
+    ParallelPeriod
+	( 
+	   [Dim Tiempo].[Jerarquía].[Trimestre],
+	   1,
+	   [Dim Tiempo].[Jerarquía].CurrentMember
+	)
+  ), 1, -1
+)</Trend>
+          <TrendGraphic>Standard Arrow</TrendGraphic>
+          <StatusGraphic>Gauge - Ascending</StatusGraphic>
+        </Kpi>
+      </Kpis>
     </Cube>
     <Cube>
       <ID>Fact_Stock_Disponible</ID>
@@ -4567,7 +4709,7 @@ End
           <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramLayout</Name>
           <Value>
             <dds xmlns="">
-              <diagram fontclsid="{0BE35203-8F91-11CE-9DE3-00AA004BB851}" mouseiconclsid="{0BE35204-8F91-11CE-9DE3-00AA004BB851}" defaultlayout="MSDDS.Rectilinear" defaultlineroute="MSDDS.Rectilinear" version="7" nextobject="16" scale="100" pagebreakanchorx="0" pagebreakanchory="0" pagebreaksizex="0" pagebreaksizey="0" scrollleft="-5745" scrolltop="-2381" gridx="150" gridy="150" marginx="5000" marginy="5000" zoom="100" x="22066" y="17039" backcolor="15334399" defaultpersistence="2" PrintPageNumbersMode="3" PrintMarginTop="0" PrintMarginBottom="635" PrintMarginLeft="0" PrintMarginRight="0" marqueeselectionmode="0" mousepointer="0" snaptogrid="0" autotypeannotation="1" showscrollbars="1" viewpagebreaks="0" donotforceconnectorsbehindshapes="1" backpictureclsid="{00000000-0000-0000-0000-000000000000}">
+              <diagram fontclsid="{0BE35203-8F91-11CE-9DE3-00AA004BB851}" mouseiconclsid="{0BE35204-8F91-11CE-9DE3-00AA004BB851}" defaultlayout="MSDDS.Rectilinear" defaultlineroute="MSDDS.Rectilinear" version="7" nextobject="16" scale="100" pagebreakanchorx="0" pagebreakanchory="0" pagebreaksizex="0" pagebreaksizey="0" scrollleft="-5745" scrolltop="3782" gridx="150" gridy="150" marginx="5000" marginy="5000" zoom="100" x="28258" y="9049" backcolor="15334399" defaultpersistence="2" PrintPageNumbersMode="3" PrintMarginTop="0" PrintMarginBottom="635" PrintMarginLeft="0" PrintMarginRight="0" marqueeselectionmode="0" mousepointer="0" snaptogrid="0" autotypeannotation="1" showscrollbars="1" viewpagebreaks="0" donotforceconnectorsbehindshapes="1" backpictureclsid="{00000000-0000-0000-0000-000000000000}">
                 <font>
                   <ddsxmlobjectstreamwrapper binary="01000000900144420100065461686f6d61" />
                 </font>
@@ -4699,7 +4841,7 @@ End
         </Annotation>
         <Annotation>
           <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramViewPortTop</Name>
-          <Value>-2381</Value>
+          <Value>3782</Value>
         </Annotation>
         <Annotation>
           <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramBoundingLeft</Name>
