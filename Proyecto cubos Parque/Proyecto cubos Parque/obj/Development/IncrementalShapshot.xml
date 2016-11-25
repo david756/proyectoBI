@@ -124,21 +124,21 @@
       </ObjectSnapshot>
       <ObjectSnapshot>
         <Type>Microsoft.AnalysisServices.Cube</Type>
-        <TimeStamp>3LcvBNoRXks6wQAW0aAvL3apEAQ=24/11/2016 16:27:3024/11/2016 9:05:56JDh6Pg4ikSOF+myfUdPyPsL4Aqo=24/11/2016 9:05:5624/11/2016 9:05:56</TimeStamp>
+        <TimeStamp>Il3RsRcsKOSXPyqYd+SCW8KyNw0=24/11/2016 17:43:1424/11/2016 9:05:56JDh6Pg4ikSOF+myfUdPyPsL4Aqo=24/11/2016 9:05:5624/11/2016 9:05:56</TimeStamp>
         <ID>
           <String>Fact_Venta_Entrada_Escuelas</String>
         </ID>
       </ObjectSnapshot>
       <ObjectSnapshot>
         <Type>Microsoft.AnalysisServices.Cube</Type>
-        <TimeStamp>duew6+Xhx3/gaSbUWqoJjHGDyCo=24/11/2016 16:30:4824/11/2016 9:05:56qbKbED40qxmeQOiz15mAibGYIIc=24/11/2016 9:05:5624/11/2016 9:05:56</TimeStamp>
+        <TimeStamp>INhnoiOAyhoHaEI4beVNltBSihs=24/11/2016 17:43:1424/11/2016 9:05:56qbKbED40qxmeQOiz15mAibGYIIc=24/11/2016 9:05:5624/11/2016 9:05:56</TimeStamp>
         <ID>
           <String>Fact_Venta_Producto_Clientes</String>
         </ID>
       </ObjectSnapshot>
       <ObjectSnapshot>
         <Type>Microsoft.AnalysisServices.Cube</Type>
-        <TimeStamp>9z8e961AL0c+6xhpXACIyz/Pnfw=24/11/2016 16:32:1524/11/2016 9:05:56KWaMzFM+KU6x4rsMXOM7XfaSXdg=24/11/2016 9:05:5624/11/2016 9:05:56</TimeStamp>
+        <TimeStamp>712F7X/xgS4iPUse4f/huXxc/mY=24/11/2016 17:43:1424/11/2016 9:05:56KWaMzFM+KU6x4rsMXOM7XfaSXdg=24/11/2016 9:05:5624/11/2016 9:05:56</TimeStamp>
         <ID>
           <String>Fact_Venta_Producto_Escuelas</String>
         </ID>
@@ -162,5 +162,5 @@
   </Snapshot>
   <AssemblyLocations />
   <ProcessingComplete>true</ProcessingComplete>
-  <LastDeployed>2016-11-24T22:12:36.133333Z</LastDeployed>
+  <LastDeployed>2016-11-24T22:43:29.766667Z</LastDeployed>
 </DeploymentSnapshot>
